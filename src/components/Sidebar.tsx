@@ -6,6 +6,9 @@ import {
   Table,
   Kanban,
   User,
+  Users,
+  Layers,
+  FileText,
   CheckCircle,
   Database,
   ExternalLink,
@@ -188,13 +191,13 @@ export const Sidebar: React.FC<SidebarProps> = ({
           href="https://teams.cloud.microsoft/l/chat/19:meeting_ZTY2ODVhYzQtMjcxNy00NzgwLTlkZDAtODQ0YjFiMzhkMTlm@thread.v2/conversations?context=%7B%22contextType%22%3A%22chat%22%7D"
           target="_blank"
           rel="noreferrer"
-          className="flex items-center justify-between py-1.5 px-1 text-zinc-500 hover:text-blue-600 dark:text-zinc-400 dark:hover:text-blue-400 transition-colors"
+          className="flex items-center justify-between py-1.5 px-1 text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors"
         >
-          <div className="flex items-center gap-1.5 truncate">
-            <span>👥</span>
+          <div className="flex items-center gap-2 truncate">
+            <Users className="w-3.5 h-3.5 text-zinc-400 shrink-0" />
             <span className="truncate font-medium">PaDi Daily Standup</span>
           </div>
-          <ExternalLink className="w-3 h-3 shrink-0 opacity-70" />
+          <ExternalLink className="w-3 h-3 shrink-0 opacity-60" />
         </a>
 
         {/* Figma File Catalogue */}
@@ -202,28 +205,33 @@ export const Sidebar: React.FC<SidebarProps> = ({
           href="https://padi-figma-index.vercel.app"
           target="_blank"
           rel="noreferrer"
-          className="flex items-center justify-between py-1.5 px-1 text-zinc-500 hover:text-purple-600 dark:text-zinc-400 dark:hover:text-purple-400 transition-colors border-t border-zinc-200/60 dark:border-zinc-800/60"
+          className="flex items-center justify-between py-1.5 px-1 text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors border-t border-zinc-200/60 dark:border-zinc-800/60"
         >
-          <div className="flex items-center gap-1.5 truncate">
-            <span>🎨</span>
+          <div className="flex items-center gap-2 truncate">
+            <Layers className="w-3.5 h-3.5 text-zinc-400 shrink-0" />
             <span className="truncate font-medium">Figma File Catalogue</span>
           </div>
-          <ExternalLink className="w-3 h-3 shrink-0 opacity-70" />
+          <ExternalLink className="w-3 h-3 shrink-0 opacity-60" />
         </a>
 
         {/* PaDi Design Notion */}
-        <a
-          href="https://app.notion.com/p/PaDi-Design-2e630a0f809180caaecdeff6a5b4b597?pvs=18"
-          target="_blank"
-          rel="noreferrer"
-          className="flex items-center justify-between py-1.5 px-1 text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors border-t border-zinc-200/60 dark:border-zinc-800/60"
-        >
-          <div className="flex items-center gap-1.5 truncate">
-            <span>🌾</span>
-            <span className="truncate font-medium">PaDi Design Notion</span>
-          </div>
-          <ExternalLink className="w-3 h-3 shrink-0 opacity-70" />
-        </a>
+        <div className="border-t border-zinc-200/60 dark:border-zinc-800/60 pt-1">
+          <a
+            href="https://app.notion.com/p/PaDi-Design-2e630a0f809180caaecdeff6a5b4b597?pvs=18"
+            target="_blank"
+            rel="noreferrer"
+            className="flex items-center justify-between py-1 px-1 text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors"
+          >
+            <div className="flex items-center gap-2 truncate">
+              <FileText className="w-3.5 h-3.5 text-zinc-400 shrink-0" />
+              <span className="truncate font-medium">PaDi Design Notion</span>
+            </div>
+            <ExternalLink className="w-3 h-3 shrink-0 opacity-60" />
+          </a>
+          <p className="text-[10px] text-zinc-400 dark:text-zinc-500 pl-6 pb-1 font-mono">
+            Last synced: 22 Oct 2026, 22:30
+          </p>
+        </div>
 
         {/* Supabase Status */}
         <div className="flex items-center justify-between py-1.5 px-1 text-zinc-500 border-t border-zinc-200/60 dark:border-zinc-800/60">
