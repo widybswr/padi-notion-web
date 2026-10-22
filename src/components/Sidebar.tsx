@@ -111,7 +111,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
             >
               <div className="flex items-center gap-2">
                 <Table className="w-3.5 h-3.5" />
-                <span>All Tasks (Table)</span>
+                <span>Table</span>
               </div>
               <span className="text-[10px] font-mono opacity-70">{totalTasks}</span>
             </button>
@@ -129,7 +129,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
             >
               <div className="flex items-center gap-2">
                 <Kanban className="w-3.5 h-3.5" />
-                <span>Status Board</span>
+                <span>Board</span>
               </div>
             </button>
 
@@ -146,7 +146,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
             >
               <div className="flex items-center gap-2">
                 <Calendar className="w-3.5 h-3.5" />
-                <span>Q4 Timeline</span>
+                <span>Timeline</span>
               </div>
             </button>
           </div>
@@ -172,7 +172,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                 >
                   <div className="flex items-center gap-2">
                     <User className="w-3.5 h-3.5 text-zinc-400" />
-                    <span>Tasks {name}</span>
+                    <span>{name}</span>
                   </div>
                 </button>
               );
