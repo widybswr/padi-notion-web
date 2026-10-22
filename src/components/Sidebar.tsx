@@ -183,6 +183,36 @@ export const Sidebar: React.FC<SidebarProps> = ({
           <div className="mt-1 space-y-1">
             {assignees.map((name) => {
               const isSelected = selectedAssignee === name;
+
+              // Working hours check in WIB (UTC+7): Mon-Fri 08:00-12:00 & 13:00-17:00
+              const now = new Date();
+              const utcHours = now.getUTCHours();
+              const utcMinutes = now.getUTCMinutes();
+              const wibHours = (utcHours + 7) % 24;
+              const wibTime = wibHours + utcMinutes / 60;
+              const utcDay = now.getUTCDay();
+              const wibDay = (utcDay + (utcHours + 7 >= 24 ? 1 : 0)) % 7;
+              const isWeekend = wibDay === 0 || wibDay === 6;
+              const isWorkingHours =
+                !isWeekend &&
+                ((wibTime >= 8 && wibTime < 12) || (wibTime >= 13 && wibTime < 17));
+
+              const todayStr = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
+
+              // Check if designer is currently on leave
+              const activeLeave = tasks.find((t) => {
+                if (
+                  (!t.quarter || t.quarter === activeQuarter) &&
+                  t.assignees?.includes(name) &&
+                  (t.status === 'Paid Leave' || t.status === 'Sick Leave' || t.status === 'Cuti') &&
+                  t.start_date &&
+                  t.end_date
+                ) {
+                  return todayStr >= t.start_date && todayStr <= t.end_date;
+                }
+                return false;
+              });
+
               const personActiveTasks = tasks.filter(
                 (t) =>
                   (!t.quarter || t.quarter === activeQuarter) &&
@@ -207,21 +237,37 @@ export const Sidebar: React.FC<SidebarProps> = ({
                       <span className="truncate">{name}</span>
                     </div>
 
-                    {isDesigning ? (
+                    {activeLeave ? (
+                      <span className="flex items-center gap-1 text-zinc-400 dark:text-zinc-500 font-medium text-[10px] shrink-0 ml-1">
+                        <span className="w-1.5 h-1.5 rounded-full bg-zinc-400" />
+                        {activeLeave.status === 'Sick Leave' ? 'Sick Leave' : 'Paid Leave'}
+                      </span>
+                    ) : !isWorkingHours ? (
+                      <span className="flex items-center gap-1 text-zinc-400 dark:text-zinc-500 text-[10px] shrink-0 ml-1">
+                        <span className="w-1.5 h-1.5 rounded-full bg-zinc-300 dark:bg-zinc-600" />
+                        Off-hours
+                      </span>
+                    ) : isDesigning ? (
                       <span className="flex items-center gap-1 text-emerald-600 dark:text-emerald-400 font-medium text-[10px] shrink-0 ml-1">
                         <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                        Nguli
+                        Working
                       </span>
                     ) : (
                       <span className="flex items-center gap-1 text-zinc-400 dark:text-zinc-500 text-[10px] shrink-0 ml-1">
                         <span className="w-1.5 h-1.5 rounded-full bg-zinc-300 dark:bg-zinc-600" />
-                        Ngopi
+                        Standby
                       </span>
                     )}
                   </button>
 
-                  {/* Bulleted in-progress tasks */}
-                  {isDesigning && (
+                  {/* Bulleted active or leave tasks */}
+                  {activeLeave ? (
+                    <div className="pl-7 pr-2 pt-0.5 pb-1">
+                      <p className="text-[10px] text-zinc-400 dark:text-zinc-500 truncate leading-tight font-mono">
+                        • {activeLeave.status} ({activeLeave.start_date} – {activeLeave.end_date})
+                      </p>
+                    </div>
+                  ) : isDesigning ? (
                     <div className="pl-7 pr-2 pt-0.5 pb-1 space-y-0.5">
                       {personActiveTasks.map((t) => (
                         <p
@@ -233,7 +279,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                         </p>
                       ))}
                     </div>
-                  )}
+                  ) : null}
                 </div>
               );
             })}
@@ -291,14 +337,22 @@ export const Sidebar: React.FC<SidebarProps> = ({
         </div>
 
         {/* Supabase Status */}
-        <div className="border-t border-zinc-200/60 dark:border-zinc-800/60 pt-1">
-          <div className="flex items-center gap-2 py-0.5 px-1 text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors">
-            <Database className="w-3.5 h-3.5 text-zinc-400 shrink-0" />
-            <span className="font-medium">Supabase Database</span>
+        <div className="flex items-center justify-between py-1.5 px-1 text-zinc-500 border-t border-zinc-200/60 dark:border-zinc-800/60">
+          <div className="flex items-center gap-1.5">
+            <Database className="w-3.5 h-3.5 text-zinc-400" />
+            <span>Supabase</span>
           </div>
-          <p className="text-[10px] text-zinc-400 dark:text-zinc-500 pl-6 pb-1 font-mono">
-            {isSupabaseConnected ? 'Connected & Live' : 'Local Cache'}
-          </p>
+          {isSupabaseConnected ? (
+            <span className="flex items-center gap-1 text-emerald-600 dark:text-emerald-400 font-medium text-[10px]">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+              Connected
+            </span>
+          ) : (
+            <span className="flex items-center gap-1 text-amber-600 dark:text-amber-400 text-[10px]">
+              <span className="w-1.5 h-1.5 rounded-full bg-amber-500" />
+              Local Cache
+            </span>
+          )}
         </div>
 
         {/* Lock Workspace */}

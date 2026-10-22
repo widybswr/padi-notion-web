@@ -88,6 +88,21 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
       return a.localeCompare(b);
     });
 
+  // Working hours check in WIB (UTC+7): Mon-Fri 08:00-12:00 & 13:00-17:00
+  const now = new Date();
+  const utcHours = now.getUTCHours();
+  const utcMinutes = now.getUTCMinutes();
+  const wibHours = (utcHours + 7) % 24;
+  const wibTime = wibHours + utcMinutes / 60;
+  const utcDay = now.getUTCDay();
+  const wibDay = (utcDay + (utcHours + 7 >= 24 ? 1 : 0)) % 7;
+  const isWeekend = wibDay === 0 || wibDay === 6;
+  const isWorkingHours =
+    !isWeekend &&
+    ((wibTime >= 8 && wibTime < 12) || (wibTime >= 13 && wibTime < 17));
+
+  const todayStr = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
+
   const teamWorkload = allAssignees.map((name) => {
     const personTasks = tasks.filter((t) => t.assignees?.includes(name));
     const active = personTasks.filter(
@@ -98,12 +113,25 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
     const done = personTasks.filter((t) => t.status === 'Done');
     const rate = personTasks.length > 0 ? Math.round((done.length / personTasks.length) * 100) : 0;
 
+    const activeLeave = tasks.find((t) => {
+      if (
+        t.assignees?.includes(name) &&
+        (t.status === 'Paid Leave' || t.status === 'Sick Leave' || t.status === 'Cuti') &&
+        t.start_date &&
+        t.end_date
+      ) {
+        return todayStr >= t.start_date && todayStr <= t.end_date;
+      }
+      return false;
+    });
+
     return {
       name,
       total: personTasks.length,
       active,
       done: done.length,
       rate,
+      activeLeave,
     };
   });
 
@@ -292,15 +320,25 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
                     <span className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">
                       {member.name}
                     </span>
-                    {member.active.length > 0 ? (
+                    {member.activeLeave ? (
+                      <span className="flex items-center gap-1 text-zinc-400 dark:text-zinc-500 font-medium text-[10px] ml-1">
+                        <span className="w-1.5 h-1.5 rounded-full bg-zinc-400" />
+                        {member.activeLeave.status === 'Sick Leave' ? 'Sick Leave' : 'Paid Leave'}
+                      </span>
+                    ) : !isWorkingHours ? (
+                      <span className="flex items-center gap-1 text-zinc-400 dark:text-zinc-500 text-[10px] ml-1">
+                        <span className="w-1.5 h-1.5 rounded-full bg-zinc-300 dark:bg-zinc-700" />
+                        Off-hours
+                      </span>
+                    ) : member.active.length > 0 ? (
                       <span className="flex items-center gap-1 text-emerald-600 dark:text-emerald-400 font-medium text-[10px] ml-1">
                         <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                        Nguli ({member.active.length})
+                        Working ({member.active.length})
                       </span>
                     ) : (
                       <span className="flex items-center gap-1 text-zinc-400 dark:text-zinc-500 text-[10px] ml-1">
                         <span className="w-1.5 h-1.5 rounded-full bg-zinc-300 dark:bg-zinc-700" />
-                        Ngopi
+                        Standby
                       </span>
                     )}
                   </div>

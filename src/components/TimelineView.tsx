@@ -244,6 +244,10 @@ export const TimelineView: React.FC<TimelineViewProps> = ({
         return 'bg-rose-50 dark:bg-rose-950/40 text-rose-900 dark:text-rose-200 border-rose-300 dark:border-rose-800/80 shadow-rose-500/10 hover:bg-rose-100/90 dark:hover:bg-rose-950/60';
       case 'On hold':
         return 'bg-pink-50 dark:bg-pink-950/40 text-pink-900 dark:text-pink-200 border-pink-300 dark:border-pink-800/80 shadow-pink-500/10 hover:bg-pink-100/90 dark:hover:bg-pink-950/60';
+      case 'Paid Leave':
+      case 'Sick Leave':
+      case 'Cuti':
+        return 'bg-zinc-100/70 dark:bg-zinc-900/50 text-zinc-400 dark:text-zinc-500 border border-dashed border-zinc-300 dark:border-zinc-700/80 shadow-none hover:bg-zinc-200/50 dark:hover:bg-zinc-800/50 opacity-60';
       default:
         return 'bg-zinc-100 dark:bg-zinc-800/60 text-zinc-800 dark:text-zinc-200 border-zinc-300 dark:border-zinc-700 shadow-zinc-500/10 hover:bg-zinc-200/60 dark:hover:bg-zinc-800/90';
     }
