@@ -26,6 +26,7 @@ interface SidebarProps {
   assignees: string[];
   totalTasks: number;
   isSupabaseConnected: boolean;
+  dbStatus?: 'connected' | 'syncing' | 'offline';
   activeQuarter: string;
   setActiveQuarter: (quarter: string) => void;
   quartersList: string[];
@@ -42,6 +43,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
   assignees,
   totalTasks,
   isSupabaseConnected,
+  dbStatus = 'connected',
   activeQuarter,
   setActiveQuarter,
   quartersList,
@@ -391,10 +393,15 @@ export const Sidebar: React.FC<SidebarProps> = ({
             <Database className="w-3.5 h-3.5 text-zinc-400" />
             <span>Supabase</span>
           </div>
-          {isSupabaseConnected ? (
+          {dbStatus === 'connected' ? (
             <span className="flex items-center gap-1 text-emerald-600 dark:text-emerald-400 font-medium text-[10px]">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
               Connected
+            </span>
+          ) : dbStatus === 'syncing' ? (
+            <span className="flex items-center gap-1 text-sky-600 dark:text-sky-400 font-medium text-[10px]">
+              <span className="w-1.5 h-1.5 rounded-full bg-sky-500 animate-pulse" />
+              Syncing...
             </span>
           ) : (
             <span className="flex items-center gap-1 text-amber-600 dark:text-amber-400 text-[10px]">

@@ -14,11 +14,19 @@ export const supabase = isSupabaseConfigured
 // In-memory local cache for dev/demo mode when Supabase isn't connected yet
 let localTasksCache: Task[] = [...(fallbackData as Task[])];
 
+let currentDbStatus: 'connected' | 'syncing' | 'offline' = isSupabaseConfigured ? 'syncing' : 'offline';
+
+export function getDbStatus(): 'connected' | 'syncing' | 'offline' {
+  return currentDbStatus;
+}
+
 export async function getTasks(): Promise<Task[]> {
   if (!isSupabaseConfigured || !supabase) {
+    currentDbStatus = 'offline';
     return localTasksCache;
   }
 
+  currentDbStatus = 'syncing';
   try {
     const fetchPromise = supabase
       .from('tasks')
@@ -33,23 +41,28 @@ export async function getTasks(): Promise<Task[]> {
 
     if (error) {
       console.warn('Supabase fetch warning, using local cache:', error.message);
+      currentDbStatus = 'offline';
       return localTasksCache;
     }
 
     if (!data || data.length === 0) {
+      currentDbStatus = 'connected';
       return localTasksCache;
     }
 
+    currentDbStatus = 'connected';
     localTasksCache = data as Task[];
     return data as Task[];
   } catch (err) {
     console.warn('Error reading from Supabase:', err);
+    currentDbStatus = 'offline';
     return localTasksCache;
   }
 }
 
 export async function upsertTask(task: Partial<Task> & { id: string }): Promise<Task> {
   if (!isSupabaseConfigured || !supabase) {
+    currentDbStatus = 'offline';
     const idx = localTasksCache.findIndex((t) => t.id === task.id);
     if (idx >= 0) {
       localTasksCache[idx] = { ...localTasksCache[idx], ...task };
@@ -61,22 +74,43 @@ export async function upsertTask(task: Partial<Task> & { id: string }): Promise<
     }
   }
 
-  const { data, error } = await supabase
-    .from('tasks')
-    .upsert(task, { onConflict: 'id' })
-    .select()
-    .single();
+  currentDbStatus = 'syncing';
+  try {
+    const { data, error } = await supabase
+      .from('tasks')
+      .upsert(task, { onConflict: 'id' })
+      .select()
+      .single();
 
-  if (error) throw error;
-  return data as Task;
+    if (error) {
+      currentDbStatus = 'offline';
+      throw error;
+    }
+    currentDbStatus = 'connected';
+    return data as Task;
+  } catch (err) {
+    currentDbStatus = 'offline';
+    throw err;
+  }
 }
 
 export async function deleteTask(id: string): Promise<void> {
   if (!isSupabaseConfigured || !supabase) {
+    currentDbStatus = 'offline';
     localTasksCache = localTasksCache.filter((t) => t.id !== id);
     return;
   }
 
-  const { error } = await supabase.from('tasks').delete().eq('id', id);
-  if (error) throw error;
+  currentDbStatus = 'syncing';
+  try {
+    const { error } = await supabase.from('tasks').delete().eq('id', id);
+    if (error) {
+      currentDbStatus = 'offline';
+      throw error;
+    }
+    currentDbStatus = 'connected';
+  } catch (err) {
+    currentDbStatus = 'offline';
+    throw err;
+  }
 }

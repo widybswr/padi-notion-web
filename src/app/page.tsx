@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState, useMemo } from 'react';
 import { Task, ViewMode, TaskStatus } from '@/lib/types';
-import { getTasks, upsertTask, deleteTask, isSupabaseConfigured } from '@/lib/supabase';
+import { getTasks, upsertTask, deleteTask, isSupabaseConfigured, getDbStatus } from '@/lib/supabase';
 import { Sidebar } from '@/components/Sidebar';
 import { ViewHeader } from '@/components/ViewHeader';
 import { TableView } from '@/components/TableView';
@@ -18,6 +18,9 @@ export default function HomePage() {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
   const [tasks, setTasks] = useState<Task[]>(initialTasksData as Task[]);
   const [isLoading, setIsLoading] = useState(false);
+  const [dbStatus, setDbStatus] = useState<'connected' | 'syncing' | 'offline'>(
+    isSupabaseConfigured ? 'syncing' : 'offline'
+  );
   const [viewMode, setViewMode] = useState<ViewMode>('table');
 
   // Filter states
@@ -51,13 +54,16 @@ export default function HomePage() {
   // Fetch initial tasks (silent background sync)
   useEffect(() => {
     async function load() {
+      setDbStatus('syncing');
       try {
         const data = await getTasks();
         if (data && data.length > 0) {
           setTasks(data);
         }
+        setDbStatus(getDbStatus());
       } catch (err) {
         console.warn('Background tasks sync warning:', err);
+        setDbStatus('offline');
       } finally {
         setIsLoading(false);
       }
@@ -151,33 +157,42 @@ export default function HomePage() {
     // Optimistic UI update
     setTasks((prev) => prev.map((t) => (t.id === updated.id ? updated : t)));
     setActiveTask(updated);
+    setDbStatus('syncing');
 
     try {
       await upsertTask(updated);
+      setDbStatus('connected');
     } catch (err) {
       console.error('Failed to update task in database:', err);
+      setDbStatus('offline');
     }
   };
 
   const handleCreateTask = async (newTask: Task) => {
     const withQuarter = { ...newTask, quarter: activeQuarter };
     setTasks((prev) => [withQuarter, ...prev]);
+    setDbStatus('syncing');
 
     try {
       await upsertTask(withQuarter);
+      setDbStatus('connected');
     } catch (err) {
       console.error('Failed to create task in database:', err);
+      setDbStatus('offline');
     }
   };
 
   const handleDeleteTask = async (id: string) => {
     setTasks((prev) => prev.filter((t) => t.id !== id));
     setActiveTask(null);
+    setDbStatus('syncing');
 
     try {
       await deleteTask(id);
+      setDbStatus('connected');
     } catch (err) {
       console.error('Failed to delete task in database:', err);
+      setDbStatus('offline');
     }
   };
 
@@ -211,6 +226,7 @@ export default function HomePage() {
         assignees={assigneesList}
         totalTasks={tasks.length}
         isSupabaseConnected={isSupabaseConfigured}
+        dbStatus={dbStatus}
         activeQuarter={activeQuarter}
         setActiveQuarter={setActiveQuarter}
         quartersList={quartersList}
