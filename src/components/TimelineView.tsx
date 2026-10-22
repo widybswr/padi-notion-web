@@ -77,9 +77,19 @@ export const TimelineView: React.FC<TimelineViewProps> = ({
   const containerRef = useRef<HTMLDivElement>(null);
   const [dragState, setDragState] = useState<DragState | null>(null);
 
+  const todayStr = useMemo(() => formatDate(new Date()), []);
+
   // Generate all calendar days
   const calendarDays = useMemo(() => {
-    const days: { dateStr: string; date: Date; dayNum: number; dayName: string; isWeekend: boolean; monthStr: string }[] = [];
+    const days: {
+      dateStr: string;
+      date: Date;
+      dayNum: number;
+      dayName: string;
+      isWeekend: boolean;
+      isToday: boolean;
+      monthStr: string;
+    }[] = [];
     const curr = parseDate(TIMELINE_START);
     const end = parseDate(TIMELINE_END);
 
@@ -87,9 +97,12 @@ export const TimelineView: React.FC<TimelineViewProps> = ({
       const dateStr = formatDate(curr);
       const dayNum = curr.getDate();
       const dayOfWeek = curr.getDay();
-      const isWeekend = dayOfWeek === 0 || dayOfWeek === 6;
+      const isWeekend = dayOfWeek === 0 || dayOfWeek === 6; // Sunday or Saturday
       const dayNames = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
-      const monthStr = curr.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+      const monthStr = curr.toLocaleDateString('en-US', {
+        month: 'long',
+        year: 'numeric',
+      });
 
       days.push({
         dateStr,
@@ -97,13 +110,14 @@ export const TimelineView: React.FC<TimelineViewProps> = ({
         dayNum,
         dayName: dayNames[dayOfWeek],
         isWeekend,
+        isToday: dateStr === todayStr,
         monthStr,
       });
 
       curr.setDate(curr.getDate() + 1);
     }
     return days;
-  }, []);
+  }, [todayStr]);
 
   // Group days by month for top header
   const monthHeaders = useMemo(() => {
@@ -199,23 +213,23 @@ export const TimelineView: React.FC<TimelineViewProps> = ({
     };
   }, [dragState, tasks, onUpdateTask]);
 
-  // Helper to get bar styling
+  // Notion-inspired toned-down, sophisticated pastel bar palette
   const getBarColor = (status: string) => {
     switch (status) {
       case 'Done':
-        return 'bg-emerald-600/90 hover:bg-emerald-600 text-white border-emerald-700 shadow-emerald-500/20';
+        return 'bg-emerald-50 dark:bg-emerald-950/40 text-emerald-900 dark:text-emerald-200 border-emerald-300 dark:border-emerald-800/80 shadow-emerald-500/10 hover:bg-emerald-100/90 dark:hover:bg-emerald-950/60';
       case 'In progress design':
-        return 'bg-sky-600/90 hover:bg-sky-600 text-white border-sky-700 shadow-sky-500/20';
+        return 'bg-sky-50 dark:bg-sky-950/40 text-sky-900 dark:text-sky-200 border-sky-300 dark:border-sky-800/80 shadow-sky-500/10 hover:bg-sky-100/90 dark:hover:bg-sky-950/60';
       case 'In PM review':
-        return 'bg-purple-600/90 hover:bg-purple-600 text-white border-purple-700 shadow-purple-500/20';
+        return 'bg-purple-50 dark:bg-purple-950/40 text-purple-900 dark:text-purple-200 border-purple-300 dark:border-purple-800/80 shadow-purple-500/10 hover:bg-purple-100/90 dark:hover:bg-purple-950/60';
       case 'In review':
-        return 'bg-amber-600/90 hover:bg-amber-600 text-white border-amber-700 shadow-amber-500/20';
+        return 'bg-amber-50 dark:bg-amber-950/40 text-amber-900 dark:text-amber-200 border-amber-300 dark:border-amber-800/80 shadow-amber-500/10 hover:bg-amber-100/90 dark:hover:bg-amber-950/60';
       case 'Need revision':
-        return 'bg-rose-600/90 hover:bg-rose-600 text-white border-rose-700 shadow-rose-500/20';
+        return 'bg-rose-50 dark:bg-rose-950/40 text-rose-900 dark:text-rose-200 border-rose-300 dark:border-rose-800/80 shadow-rose-500/10 hover:bg-rose-100/90 dark:hover:bg-rose-950/60';
       case 'On hold':
-        return 'bg-pink-600/90 hover:bg-pink-600 text-white border-pink-700 shadow-pink-500/20';
+        return 'bg-pink-50 dark:bg-pink-950/40 text-pink-900 dark:text-pink-200 border-pink-300 dark:border-pink-800/80 shadow-pink-500/10 hover:bg-pink-100/90 dark:hover:bg-pink-950/60';
       default:
-        return 'bg-zinc-500/90 hover:bg-zinc-500 text-white border-zinc-600 shadow-zinc-500/20';
+        return 'bg-zinc-100 dark:bg-zinc-800/60 text-zinc-800 dark:text-zinc-200 border-zinc-300 dark:border-zinc-700 shadow-zinc-500/10 hover:bg-zinc-200/60 dark:hover:bg-zinc-800/90';
     }
   };
 
@@ -240,10 +254,10 @@ export const TimelineView: React.FC<TimelineViewProps> = ({
   return (
     <div className="flex flex-col h-[calc(100vh-120px)] bg-white dark:bg-zinc-950 select-none overflow-hidden">
       {/* Top Controls Toolbar */}
-      <div className="flex items-center justify-between px-6 py-2.5 border-b border-zinc-200 dark:border-zinc-800 bg-zinc-50/80 dark:bg-zinc-900/60 shrink-0 text-xs">
+      <div className="flex items-center justify-between px-6 py-2 border-b border-zinc-200 dark:border-zinc-800 bg-zinc-50/80 dark:bg-zinc-900/60 shrink-0 text-xs">
         <div className="flex items-center gap-2">
-          <span className="font-semibold text-zinc-700 dark:text-zinc-200">
-            Q4 Timeline Navigator:
+          <span className="font-semibold text-zinc-700 dark:text-zinc-300">
+            Q4 Timeline:
           </span>
           {monthHeaders.map((m, idx) => (
             <button
@@ -258,16 +272,30 @@ export const TimelineView: React.FC<TimelineViewProps> = ({
 
         <div className="flex items-center gap-3 text-[11px] text-zinc-500">
           <div className="flex items-center gap-1.5">
-            <span className="w-2.5 h-2.5 rounded bg-sky-500" /> In Progress
+            <span className="w-2.5 h-2.5 rounded bg-sky-100 border border-sky-300" />
+            <span>In Progress</span>
           </div>
           <div className="flex items-center gap-1.5">
-            <span className="w-2.5 h-2.5 rounded bg-purple-500" /> In PM Review
+            <span className="w-2.5 h-2.5 rounded bg-purple-100 border border-purple-300" />
+            <span>In PM Review</span>
           </div>
           <div className="flex items-center gap-1.5">
-            <span className="w-2.5 h-2.5 rounded bg-emerald-500" /> Done
+            <span className="w-2.5 h-2.5 rounded bg-emerald-100 border border-emerald-300" />
+            <span>Done</span>
           </div>
-          <div className="flex items-center gap-1.5 text-zinc-400 border-l border-zinc-200 dark:border-zinc-800 pl-3">
-            <span>💡 Drag handles to extend end date or postpone start</span>
+
+          {/* Weekend legend */}
+          <div className="flex items-center gap-1.5 border-l border-zinc-200 dark:border-zinc-800 pl-3">
+            <span className="w-3.5 h-3.5 rounded bg-zinc-200/80 dark:bg-zinc-800/80 border border-zinc-300 dark:border-zinc-700 flex items-center justify-center text-[9px] text-red-500 font-bold">
+              W
+            </span>
+            <span className="font-medium text-zinc-600 dark:text-zinc-400">
+              Weekend
+            </span>
+          </div>
+
+          <div className="text-zinc-400 pl-2">
+            <span>💡 Drag ends to extend • Drag left to postpone</span>
           </div>
         </div>
       </div>
@@ -281,7 +309,7 @@ export const TimelineView: React.FC<TimelineViewProps> = ({
             <span className="font-semibold text-xs text-zinc-700 dark:text-zinc-300">
               Tasks ({scheduledTasks.length})
             </span>
-            <span className="text-[10px] text-zinc-400 font-mono">Status • Date</span>
+            <span className="text-[10px] text-zinc-400 font-mono">Date Window</span>
           </div>
 
           {/* Task rows */}
@@ -307,7 +335,7 @@ export const TimelineView: React.FC<TimelineViewProps> = ({
                 </div>
 
                 <div className="shrink-0 text-right">
-                  <span className="text-[10px] text-zinc-400 font-mono block">
+                  <span className="text-[10px] text-zinc-500 dark:text-zinc-400 font-mono block">
                     {formatShortDate(task.start_date || '')} →{' '}
                     {formatShortDate(task.end_date || task.start_date || '')}
                   </span>
@@ -345,7 +373,10 @@ export const TimelineView: React.FC<TimelineViewProps> = ({
         </div>
 
         {/* Right Scrollable Timeline Canvas */}
-        <div ref={containerRef} className="flex-1 overflow-x-auto overflow-y-auto relative">
+        <div
+          ref={containerRef}
+          className="flex-1 overflow-x-auto overflow-y-auto relative"
+        >
           <div
             style={{ width: `${calendarDays.length * DAY_WIDTH}px` }}
             className="min-h-full flex flex-col relative"
@@ -353,12 +384,12 @@ export const TimelineView: React.FC<TimelineViewProps> = ({
             {/* Header: Months + Days */}
             <div className="sticky top-0 z-10 bg-white dark:bg-zinc-950 border-b border-zinc-200 dark:border-zinc-800">
               {/* Months row */}
-              <div className="flex h-7 border-b border-zinc-100 dark:border-zinc-800">
+              <div className="flex h-7 border-b border-zinc-200/80 dark:border-zinc-800">
                 {monthHeaders.map((m) => (
                   <div
                     key={m.monthStr}
                     style={{ width: `${m.count * DAY_WIDTH}px` }}
-                    className="px-3 flex items-center text-xs font-semibold text-zinc-700 dark:text-zinc-200 border-r border-zinc-100 dark:border-zinc-800/80 bg-zinc-50/90 dark:bg-zinc-900/90 uppercase tracking-wider text-[11px]"
+                    className="px-3 flex items-center text-xs font-semibold text-zinc-700 dark:text-zinc-200 border-r border-zinc-200 dark:border-zinc-800 bg-zinc-50/90 dark:bg-zinc-900/90 uppercase tracking-wider text-[11px]"
                   >
                     {m.monthStr}
                   </div>
@@ -371,27 +402,48 @@ export const TimelineView: React.FC<TimelineViewProps> = ({
                   <div
                     key={day.dateStr}
                     style={{ width: `${DAY_WIDTH}px` }}
-                    className={`flex flex-col items-center justify-center text-[10px] border-r border-zinc-100 dark:border-zinc-800/50 ${
+                    className={`flex flex-col items-center justify-center text-[10px] border-r transition-colors ${
                       day.isWeekend
-                        ? 'bg-zinc-100/40 dark:bg-zinc-900/40 text-zinc-400'
-                        : 'text-zinc-600 dark:text-zinc-400'
+                        ? 'bg-zinc-200/70 dark:bg-zinc-800/70 border-zinc-200 dark:border-zinc-700 text-zinc-400'
+                        : 'bg-white dark:bg-zinc-950 border-zinc-100 dark:border-zinc-800/50 text-zinc-600 dark:text-zinc-400'
                     }`}
                   >
-                    <span className="font-semibold">{day.dayNum}</span>
-                    <span className="text-[9px] opacity-75">{day.dayName}</span>
+                    <span
+                      className={`font-semibold ${
+                        day.isWeekend ? 'text-zinc-500 dark:text-zinc-400' : 'text-zinc-800 dark:text-zinc-200'
+                      }`}
+                    >
+                      {day.dayNum}
+                    </span>
+                    <span
+                      className={`text-[9px] ${
+                        day.isWeekend
+                          ? 'text-red-500/80 dark:text-red-400/80 font-bold'
+                          : 'opacity-70'
+                      }`}
+                    >
+                      {day.dayName}
+                    </span>
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* Vertical grid lines background */}
+            {/* Vertical grid lines & weekend shading */}
             <div className="absolute inset-0 top-[65px] pointer-events-none flex">
               {calendarDays.map((day) => (
                 <div
                   key={day.dateStr}
-                  style={{ width: `${DAY_WIDTH}px` }}
-                  className={`h-full border-r border-zinc-100/80 dark:border-zinc-900/60 ${
-                    day.isWeekend ? 'bg-zinc-50/40 dark:bg-zinc-900/20' : ''
+                  style={{
+                    width: `${DAY_WIDTH}px`,
+                    backgroundImage: day.isWeekend
+                      ? 'repeating-linear-gradient(45deg, rgba(0,0,0,0.025), rgba(0,0,0,0.025) 4px, transparent 4px, transparent 8px)'
+                      : undefined,
+                  }}
+                  className={`h-full border-r ${
+                    day.isWeekend
+                      ? 'bg-zinc-100/70 dark:bg-zinc-900/60 border-zinc-200/80 dark:border-zinc-800/80'
+                      : 'border-zinc-100 dark:border-zinc-800/30'
                   }`}
                 />
               ))}
@@ -399,7 +451,7 @@ export const TimelineView: React.FC<TimelineViewProps> = ({
 
             {/* Timeline Task Bars */}
             <div className="relative pt-0">
-              {scheduledTasks.map((task, rowIdx) => {
+              {scheduledTasks.map((task) => {
                 const isDraggingThis = dragState?.taskId === task.id;
                 const startDate = isDraggingThis
                   ? dragState.currentStartDate
@@ -425,11 +477,15 @@ export const TimelineView: React.FC<TimelineViewProps> = ({
                       style={{
                         left: `${barLeft}px`,
                         width: `${barWidth}px`,
-                        height: '30px',
+                        height: '28px',
                       }}
-                      className={`absolute rounded-md flex items-center justify-between text-xs border shadow-sm transition-shadow group/bar select-none ${getBarColor(
+                      className={`absolute rounded-md flex items-center justify-between text-xs border shadow-xs transition-shadow group/bar select-none ${getBarColor(
                         task.status
-                      )} ${isDraggingThis ? 'ring-2 ring-blue-400 ring-offset-1 z-30 opacity-95' : 'z-0'}`}
+                      )} ${
+                        isDraggingThis
+                          ? 'ring-2 ring-blue-500 ring-offset-1 z-30 opacity-95 shadow-md'
+                          : 'z-0'
+                      }`}
                     >
                       {/* Left Drag Handle: Hold / Postpone Start Date */}
                       <div
@@ -446,9 +502,9 @@ export const TimelineView: React.FC<TimelineViewProps> = ({
                             currentEndDate: endDate,
                           });
                         }}
-                        className="w-3.5 h-full flex items-center justify-center cursor-ew-resize opacity-0 group-hover/bar:opacity-100 hover:bg-black/20 rounded-l transition-opacity"
+                        className="w-3.5 h-full flex items-center justify-center cursor-ew-resize opacity-0 group-hover/bar:opacity-100 hover:bg-black/10 dark:hover:bg-white/10 rounded-l transition-opacity"
                       >
-                        <div className="w-1 h-3.5 border-l-2 border-white/80" />
+                        <div className="w-1 h-3 border-l-2 border-zinc-500/70 dark:border-zinc-300/70" />
                       </div>
 
                       {/* Bar Middle: Drag to move entire task window */}
@@ -466,11 +522,11 @@ export const TimelineView: React.FC<TimelineViewProps> = ({
                           });
                         }}
                         onClick={() => onSelectTask(task)}
-                        className="flex-1 px-2.5 truncate font-medium flex items-center justify-between gap-1.5 cursor-grab active:cursor-grabbing h-full"
+                        className="flex-1 px-2 truncate font-medium flex items-center justify-between gap-1.5 cursor-grab active:cursor-grabbing h-full"
                       >
-                        <span className="truncate">{task.title}</span>
+                        <span className="truncate text-[11px] font-semibold">{task.title}</span>
                         {task.assignees && task.assignees.length > 0 && (
-                          <span className="text-[10px] bg-black/20 px-1.5 py-0.2 rounded font-mono shrink-0">
+                          <span className="text-[10px] bg-black/5 dark:bg-white/10 px-1.5 py-0.2 rounded font-mono shrink-0">
                             {task.assignees.join(', ')}
                           </span>
                         )}
@@ -491,14 +547,14 @@ export const TimelineView: React.FC<TimelineViewProps> = ({
                             currentEndDate: endDate,
                           });
                         }}
-                        className="w-3.5 h-full flex items-center justify-center cursor-ew-resize opacity-0 group-hover/bar:opacity-100 hover:bg-black/20 rounded-r transition-opacity"
+                        className="w-3.5 h-full flex items-center justify-center cursor-ew-resize opacity-0 group-hover/bar:opacity-100 hover:bg-black/10 dark:hover:bg-white/10 rounded-r transition-opacity"
                       >
-                        <div className="w-1 h-3.5 border-r-2 border-white/80" />
+                        <div className="w-1 h-3 border-r-2 border-zinc-500/70 dark:border-zinc-300/70" />
                       </div>
 
                       {/* Floating tooltip while dragging */}
                       {isDraggingThis && (
-                        <div className="absolute -top-9 left-1/2 -translate-x-1/2 bg-zinc-900 text-white dark:bg-white dark:text-zinc-900 text-[11px] px-2.5 py-1 rounded shadow-lg whitespace-nowrap pointer-events-none z-50 flex items-center gap-1.5 font-mono">
+                        <div className="absolute -top-9 left-1/2 -translate-x-1/2 bg-zinc-900 text-white dark:bg-white dark:text-zinc-900 text-[11px] px-2.5 py-1 rounded-md shadow-lg whitespace-nowrap pointer-events-none z-50 flex items-center gap-1.5 font-mono">
                           {dragState.type === 'resize-end' && <span>Extend End:</span>}
                           {dragState.type === 'resize-start' && <span>Postpone Start:</span>}
                           {dragState.type === 'move' && <span>Shift Schedule:</span>}
