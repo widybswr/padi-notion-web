@@ -9,8 +9,10 @@ import { TableView } from '@/components/TableView';
 import { BoardView } from '@/components/BoardView';
 import { TaskModal } from '@/components/TaskModal';
 import { NewTaskModal } from '@/components/NewTaskModal';
+import { PasswordGate } from '@/components/PasswordGate';
 
 export default function HomePage() {
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
   const [tasks, setTasks] = useState<Task[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [viewMode, setViewMode] = useState<ViewMode>('table');
@@ -20,6 +22,21 @@ export default function HomePage() {
   const [selectedSquad, setSelectedSquad] = useState<string | null>(null);
   const [selectedStatus, setSelectedStatus] = useState<string | null>(null);
   const [selectedAssignee, setSelectedAssignee] = useState<string | null>(null);
+
+  // Check auth upfront
+  useEffect(() => {
+    const auth = localStorage.getItem('padi_workspace_auth');
+    if (auth === 'padi2026') {
+      setIsAuthenticated(true);
+    } else {
+      setIsAuthenticated(false);
+    }
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem('padi_workspace_auth');
+    setIsAuthenticated(false);
+  };
 
   // Modals
   const [activeTask, setActiveTask] = useState<Task | null>(null);
@@ -136,6 +153,20 @@ export default function HomePage() {
     setIsNewModalOpen(true);
   };
 
+  // While checking localStorage
+  if (isAuthenticated === null) {
+    return (
+      <div className="min-h-screen w-full flex items-center justify-center bg-zinc-50 dark:bg-zinc-950">
+        <span className="text-xl animate-pulse">🌾</span>
+      </div>
+    );
+  }
+
+  // Not authenticated: render password prompt upfront
+  if (!isAuthenticated) {
+    return <PasswordGate onAuthenticated={() => setIsAuthenticated(true)} />;
+  }
+
   return (
     <div className="flex h-screen overflow-hidden bg-white dark:bg-zinc-950 font-sans">
       {/* Notion Sidebar */}
@@ -151,6 +182,7 @@ export default function HomePage() {
           setNewTaskInitialStatus('Not started');
           setIsNewModalOpen(true);
         }}
+        onLogout={handleLogout}
       />
 
       {/* Main Workspace Area */}

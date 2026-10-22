@@ -10,6 +10,7 @@ import {
   Database,
   ExternalLink,
   Plus,
+  LogOut,
 } from 'lucide-react';
 
 interface SidebarProps {
@@ -21,6 +22,7 @@ interface SidebarProps {
   totalTasks: number;
   isSupabaseConnected: boolean;
   onNewTask: () => void;
+  onLogout?: () => void;
 }
 
 export const Sidebar: React.FC<SidebarProps> = ({
@@ -32,6 +34,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
   totalTasks,
   isSupabaseConnected,
   onNewTask,
+  onLogout,
 }) => {
   return (
     <aside className="w-64 border-r border-zinc-200 dark:border-zinc-800 bg-zinc-50/70 dark:bg-zinc-900/60 flex flex-col h-screen select-none shrink-0">
@@ -159,6 +162,16 @@ export const Sidebar: React.FC<SidebarProps> = ({
           <span>Original Notion</span>
           <ExternalLink className="w-3 h-3" />
         </a>
+
+        {onLogout && (
+          <button
+            onClick={onLogout}
+            className="w-full mt-2 flex items-center justify-between text-zinc-400 hover:text-red-500 dark:hover:text-red-400 transition-colors pt-2 border-t border-zinc-200/40 dark:border-zinc-800/40"
+          >
+            <span>Lock workspace</span>
+            <LogOut className="w-3 h-3" />
+          </button>
+        )}
       </div>
     </aside>
   );
