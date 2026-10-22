@@ -7,6 +7,7 @@ import { Sidebar } from '@/components/Sidebar';
 import { ViewHeader } from '@/components/ViewHeader';
 import { TableView } from '@/components/TableView';
 import { BoardView } from '@/components/BoardView';
+import { TimelineView } from '@/components/TimelineView';
 import { TaskModal } from '@/components/TaskModal';
 import { NewTaskModal } from '@/components/NewTaskModal';
 import { PasswordGate } from '@/components/PasswordGate';
@@ -220,11 +221,17 @@ export default function HomePage() {
                 setIsNewModalOpen(true);
               }}
             />
-          ) : (
+          ) : viewMode === 'board' ? (
             <BoardView
               tasks={filteredTasks}
               onSelectTask={setActiveTask}
               onNewTaskWithStatus={handleOpenNewInStatus}
+            />
+          ) : (
+            <TimelineView
+              tasks={filteredTasks}
+              onSelectTask={setActiveTask}
+              onUpdateTask={handleUpdateTask}
             />
           )}
         </div>

@@ -11,6 +11,7 @@ import {
   ExternalLink,
   Plus,
   LogOut,
+  Calendar,
 } from 'lucide-react';
 
 interface SidebarProps {
@@ -100,6 +101,23 @@ export const Sidebar: React.FC<SidebarProps> = ({
               <div className="flex items-center gap-2">
                 <Kanban className="w-3.5 h-3.5" />
                 <span>Status Board</span>
+              </div>
+            </button>
+
+            <button
+              onClick={() => {
+                setViewMode('timeline');
+                setSelectedAssignee(null);
+              }}
+              className={`w-full flex items-center justify-between px-2.5 py-1.5 rounded-md transition-colors ${
+                viewMode === 'timeline' && !selectedAssignee
+                  ? 'bg-zinc-200/70 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 font-medium'
+                  : 'text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200/40 dark:hover:bg-zinc-800/50'
+              }`}
+            >
+              <div className="flex items-center gap-2">
+                <Calendar className="w-3.5 h-3.5" />
+                <span>Q4 Timeline</span>
               </div>
             </button>
           </div>

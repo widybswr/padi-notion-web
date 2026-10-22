@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { ViewMode } from '@/lib/types';
-import { Table, Kanban, Search, Filter, Plus, X } from 'lucide-react';
+import { Table, Kanban, Search, Filter, Plus, X, Calendar } from 'lucide-react';
 
 interface ViewHeaderProps {
   viewMode: ViewMode;
@@ -88,6 +88,18 @@ export const ViewHeader: React.FC<ViewHeaderProps> = ({
           >
             <Kanban className="w-3.5 h-3.5" />
             <span>Board</span>
+          </button>
+
+          <button
+            onClick={() => setViewMode('timeline')}
+            className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-medium transition-colors ${
+              viewMode === 'timeline'
+                ? 'bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100'
+                : 'text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-200 hover:bg-zinc-50 dark:hover:bg-zinc-900'
+            }`}
+          >
+            <Calendar className="w-3.5 h-3.5" />
+            <span>Timeline</span>
           </button>
         </div>
 
