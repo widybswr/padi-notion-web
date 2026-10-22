@@ -289,6 +289,7 @@ export default function HomePage() {
               tasks={filteredTasks}
               onSelectTask={setActiveTask}
               onNewTaskWithStatus={handleOpenNewInStatus}
+              onUpdateTask={handleUpdateTask}
             />
           ) : (
             <TimelineView
@@ -307,6 +308,8 @@ export default function HomePage() {
         onClose={() => setActiveTask(null)}
         onUpdate={handleUpdateTask}
         onDelete={handleDeleteTask}
+        availableSquads={squadsList}
+        availableAssignees={assigneesList}
       />
 
       {/* New Task Creation Modal */}

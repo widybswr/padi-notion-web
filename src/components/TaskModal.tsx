@@ -27,6 +27,8 @@ interface TaskModalProps {
   onClose: () => void;
   onUpdate: (updated: Task) => void;
   onDelete?: (id: string) => void;
+  availableSquads?: string[];
+  availableAssignees?: string[];
 }
 
 const ALL_STATUSES: TaskStatus[] = [
@@ -63,18 +65,25 @@ export const TaskModal: React.FC<TaskModalProps> = ({
   onClose,
   onUpdate,
   onDelete,
+  availableSquads,
+  availableAssignees,
 }) => {
   if (!task) return null;
 
   const [formData, setFormData] = useState<Task>({ ...task });
   const [saveStatus, setSaveStatus] = useState<'saved' | 'saving'>('saved');
 
-  // Input states for adding new fields
-  const [isAddingSquad, setIsAddingSquad] = useState(false);
+  // Squad selection states
+  const [isSquadDropdownOpen, setIsSquadDropdownOpen] = useState(false);
   const [newSquadInput, setNewSquadInput] = useState('');
+  const [allSquads, setAllSquads] = useState<string[]>(PRESET_SQUADS);
+  const squadRef = React.useRef<HTMLDivElement>(null);
 
-  const [isAddingAssignee, setIsAddingAssignee] = useState(false);
+  // Assignee selection states
+  const [isAssigneeDropdownOpen, setIsAssigneeDropdownOpen] = useState(false);
   const [newAssigneeInput, setNewAssigneeInput] = useState('');
+  const [allAssignees, setAllAssignees] = useState<string[]>(PRESET_ASSIGNEES);
+  const assigneeRef = React.useRef<HTMLDivElement>(null);
 
   const [editingUrl, setEditingUrl] = useState<
     'figma' | 'prd' | 'taiga' | 'other_docs' | null
@@ -87,15 +96,51 @@ export const TaskModal: React.FC<TaskModalProps> = ({
     setFormData({ ...task });
   }, [task]);
 
+  // Sync available squads and assignees
   useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        onClose();
+    const mergedSquads = Array.from(
+      new Set([...PRESET_SQUADS, ...(availableSquads || []), ...(formData.squads || [])])
+    ).filter(Boolean);
+    setAllSquads(mergedSquads);
+  }, [availableSquads, formData.squads]);
+
+  useEffect(() => {
+    const mergedAssignees = Array.from(
+      new Set([...PRESET_ASSIGNEES, ...(availableAssignees || []), ...(formData.assignees || [])])
+    ).filter(Boolean);
+    setAllAssignees(mergedAssignees);
+  }, [availableAssignees, formData.assignees]);
+
+  // Click outside to close dropdowns & Escape key to close modal/dropdown
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (squadRef.current && !squadRef.current.contains(e.target as Node)) {
+        setIsSquadDropdownOpen(false);
+      }
+      if (assigneeRef.current && !assigneeRef.current.contains(e.target as Node)) {
+        setIsAssigneeDropdownOpen(false);
       }
     };
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        if (isSquadDropdownOpen) {
+          setIsSquadDropdownOpen(false);
+        } else if (isAssigneeDropdownOpen) {
+          setIsAssigneeDropdownOpen(false);
+        } else {
+          onClose();
+        }
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
     window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [onClose]);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isSquadDropdownOpen, isAssigneeDropdownOpen, onClose]);
 
   // Auto-save helper
   const updateAndSave = (updates: Partial<Task>) => {
@@ -108,14 +153,27 @@ export const TaskModal: React.FC<TaskModalProps> = ({
     }, 400);
   };
 
-  // Squad management
-  const handleAddSquad = (squadName: string) => {
-    const trimmed = squadName.trim();
-    if (!trimmed || formData.squads?.includes(trimmed)) return;
-    const nextSquads = [...(formData.squads || []), trimmed];
+  // Squad toggle & custom add
+  const toggleSquad = (sq: string) => {
+    const current = formData.squads || [];
+    const nextSquads = current.includes(sq)
+      ? current.filter((s) => s !== sq)
+      : [...current, sq];
     updateAndSave({ squads: nextSquads });
+  };
+
+  const handleAddCustomSquad = (e?: React.FormEvent) => {
+    if (e) e.preventDefault();
+    const trimmed = newSquadInput.trim();
+    if (!trimmed) return;
+    if (!allSquads.includes(trimmed)) {
+      setAllSquads((prev) => [...prev, trimmed]);
+    }
+    const current = formData.squads || [];
+    if (!current.includes(trimmed)) {
+      updateAndSave({ squads: [...current, trimmed] });
+    }
     setNewSquadInput('');
-    setIsAddingSquad(false);
   };
 
   const handleRemoveSquad = (squadName: string) => {
@@ -123,14 +181,27 @@ export const TaskModal: React.FC<TaskModalProps> = ({
     updateAndSave({ squads: nextSquads });
   };
 
-  // Assignee management
-  const handleAddAssignee = (name: string) => {
-    const trimmed = name.trim();
-    if (!trimmed || formData.assignees?.includes(trimmed)) return;
-    const nextAssignees = [...(formData.assignees || []), trimmed];
+  // Assignee toggle & custom add
+  const toggleAssignee = (asg: string) => {
+    const current = formData.assignees || [];
+    const nextAssignees = current.includes(asg)
+      ? current.filter((a) => a !== asg)
+      : [...current, asg];
     updateAndSave({ assignees: nextAssignees });
+  };
+
+  const handleAddCustomAssignee = (e?: React.FormEvent) => {
+    if (e) e.preventDefault();
+    const trimmed = newAssigneeInput.trim();
+    if (!trimmed) return;
+    if (!allAssignees.includes(trimmed)) {
+      setAllAssignees((prev) => [...prev, trimmed]);
+    }
+    const current = formData.assignees || [];
+    if (!current.includes(trimmed)) {
+      updateAndSave({ assignees: [...current, trimmed] });
+    }
     setNewAssigneeInput('');
-    setIsAddingAssignee(false);
   };
 
   const handleRemoveAssignee = (name: string) => {
@@ -273,166 +344,190 @@ export const TaskModal: React.FC<TaskModalProps> = ({
               </div>
             </div>
 
-            {/* Assignees (Editable & Addable) */}
+            {/* Assignees (Editable & Addable with Popover Dropdown) */}
             <div className="flex items-start gap-4">
               <span className="w-28 pt-1 text-zinc-400 flex items-center gap-1.5 shrink-0 select-none">
                 <User className="w-3.5 h-3.5" /> Assignees
               </span>
-              <div className="flex flex-wrap items-center gap-1.5 flex-1">
-                {formData.assignees && formData.assignees.length > 0 ? (
-                  formData.assignees.map((a, i) => (
-                    <span
-                      key={i}
-                      className="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 font-medium group"
-                    >
-                      <span>{a}</span>
-                      <button
-                        type="button"
-                        onClick={() => handleRemoveAssignee(a)}
-                        className="text-zinc-400 hover:text-red-500 rounded p-0.5"
+              <div className="flex-1">
+                <div className="flex flex-wrap items-center gap-1.5">
+                  {formData.assignees && formData.assignees.length > 0 ? (
+                    formData.assignees.map((a, i) => (
+                      <span
+                        key={i}
+                        className="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-purple-100 dark:bg-purple-900/40 text-purple-800 dark:text-purple-300 text-xs font-medium"
                       >
-                        <X className="w-2.5 h-2.5" />
-                      </button>
-                    </span>
-                  ))
-                ) : null}
+                        <span>{a}</span>
+                        <button
+                          type="button"
+                          onClick={() => handleRemoveAssignee(a)}
+                          className="text-purple-400 hover:text-red-500 rounded p-0.5"
+                        >
+                          <X className="w-2.5 h-2.5" />
+                        </button>
+                      </span>
+                    ))
+                  ) : (
+                    <span className="text-zinc-400 text-xs py-0.5">Unassigned</span>
+                  )}
 
-                {/* Add Assignee Button / Dropdown */}
-                {isAddingAssignee ? (
-                  <div className="inline-flex items-center gap-1.5 bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded p-1">
-                    <input
-                      type="text"
-                      autoFocus
-                      placeholder="Name or select..."
-                      value={newAssigneeInput}
-                      onChange={(e) => setNewAssigneeInput(e.target.value)}
-                      onKeyDown={(e) => {
-                        if (e.key === 'Enter') {
-                          e.preventDefault();
-                          handleAddAssignee(newAssigneeInput);
-                        } else if (e.key === 'Escape') {
-                          setIsAddingAssignee(false);
-                        }
-                      }}
-                      className="text-xs bg-transparent focus:outline-none w-28 px-1 text-zinc-900 dark:text-zinc-100"
-                    />
-                    <select
-                      onChange={(e) => {
-                        if (e.target.value) handleAddAssignee(e.target.value);
-                      }}
-                      className="text-[11px] bg-transparent text-zinc-500 focus:outline-none"
-                    >
-                      <option value="">Choose team</option>
-                      {PRESET_ASSIGNEES.filter(
-                        (n) => !formData.assignees?.includes(n)
-                      ).map((n) => (
-                        <option key={n} value={n}>
-                          {n}
-                        </option>
-                      ))}
-                    </select>
+                  {/* Add Assignee Popover Trigger */}
+                  <div ref={assigneeRef} className="relative inline-block">
                     <button
-                      onClick={() => handleAddAssignee(newAssigneeInput)}
-                      className="text-blue-600 hover:text-blue-700 px-1 font-semibold"
+                      type="button"
+                      onClick={() => setIsAssigneeDropdownOpen((prev) => !prev)}
+                      className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors text-xs"
                     >
-                      <Check className="w-3 h-3" />
+                      <Plus className="w-3 h-3" />
+                      <span>Add assignee</span>
                     </button>
-                    <button
-                      onClick={() => setIsAddingAssignee(false)}
-                      className="text-zinc-400 hover:text-zinc-600"
-                    >
-                      <X className="w-3 h-3" />
-                    </button>
+
+                    {isAssigneeDropdownOpen && (
+                      <div className="absolute left-0 top-full mt-1.5 z-40 w-64 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-lg shadow-xl p-2 max-h-56 overflow-y-auto space-y-1">
+                        <div className="text-[10px] uppercase font-semibold text-zinc-400 px-1 pb-1">
+                          Select Designer
+                        </div>
+                        <div className="grid grid-cols-2 gap-1 pb-2 border-b border-zinc-100 dark:border-zinc-800">
+                          {allAssignees.map((asg) => {
+                            const isSelected = formData.assignees?.includes(asg);
+                            return (
+                              <button
+                                key={asg}
+                                type="button"
+                                onClick={() => toggleAssignee(asg)}
+                                className={`flex items-center justify-between px-2 py-1 rounded text-left text-xs transition-colors ${
+                                  isSelected
+                                    ? 'bg-purple-50 dark:bg-purple-950/50 text-purple-600 dark:text-purple-400 font-medium'
+                                    : 'text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800'
+                                }`}
+                              >
+                                <span className="truncate">{asg}</span>
+                                {isSelected && (
+                                  <Check className="w-3 h-3 text-purple-600 dark:text-purple-400 shrink-0" />
+                                )}
+                              </button>
+                            );
+                          })}
+                        </div>
+                        {/* Add new assignee custom input */}
+                        <div className="pt-1.5 flex items-center gap-1.5">
+                          <input
+                            type="text"
+                            placeholder="+ Add custom..."
+                            value={newAssigneeInput}
+                            onChange={(e) => setNewAssigneeInput(e.target.value)}
+                            onKeyDown={(e) => {
+                              if (e.key === 'Enter') {
+                                e.preventDefault();
+                                handleAddCustomAssignee();
+                              }
+                            }}
+                            className="h-7 flex-1 px-2 text-xs bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded text-zinc-900 dark:text-zinc-100 focus:outline-none focus:border-purple-500"
+                          />
+                          <button
+                            type="button"
+                            onClick={() => handleAddCustomAssignee()}
+                            className="h-7 px-2.5 bg-purple-600 text-white rounded text-xs font-medium hover:bg-purple-700"
+                          >
+                            Add
+                          </button>
+                        </div>
+                      </div>
+                    )}
                   </div>
-                ) : (
-                  <button
-                    onClick={() => setIsAddingAssignee(true)}
-                    className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
-                  >
-                    <Plus className="w-3 h-3" />
-                    <span>Add assignee</span>
-                  </button>
-                )}
+                </div>
               </div>
             </div>
 
-            {/* Squad / Funnel (Editable & Addable) */}
+            {/* Squad / Funnel (Editable & Addable with Popover Dropdown) */}
             <div className="flex items-start gap-4">
               <span className="w-28 pt-1 text-zinc-400 flex items-center gap-1.5 shrink-0 select-none">
                 <Layers className="w-3.5 h-3.5" /> Squad
               </span>
-              <div className="flex flex-wrap items-center gap-1.5 flex-1">
-                {formData.squads && formData.squads.length > 0 ? (
-                  formData.squads.map((s, i) => (
-                    <span key={i} className="inline-flex items-center gap-1">
-                      <SquadBadge name={s} />
-                      <button
-                        type="button"
-                        onClick={() => handleRemoveSquad(s)}
-                        className="text-zinc-400 hover:text-red-500 rounded p-0.5"
-                      >
-                        <X className="w-2.5 h-2.5" />
-                      </button>
-                    </span>
-                  ))
-                ) : null}
+              <div className="flex-1">
+                <div className="flex flex-wrap items-center gap-1.5">
+                  {formData.squads && formData.squads.length > 0 ? (
+                    formData.squads.map((s, i) => (
+                      <span key={i} className="inline-flex items-center gap-1">
+                        <SquadBadge name={s} />
+                        <button
+                          type="button"
+                          onClick={() => handleRemoveSquad(s)}
+                          className="text-zinc-400 hover:text-red-500 rounded p-0.5"
+                        >
+                          <X className="w-2.5 h-2.5" />
+                        </button>
+                      </span>
+                    ))
+                  ) : (
+                    <span className="text-zinc-400 text-xs py-0.5">No squad</span>
+                  )}
 
-                {/* Add Squad Button / Dropdown */}
-                {isAddingSquad ? (
-                  <div className="inline-flex items-center gap-1.5 bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded p-1">
-                    <input
-                      type="text"
-                      autoFocus
-                      placeholder="Squad name..."
-                      value={newSquadInput}
-                      onChange={(e) => setNewSquadInput(e.target.value)}
-                      onKeyDown={(e) => {
-                        if (e.key === 'Enter') {
-                          e.preventDefault();
-                          handleAddSquad(newSquadInput);
-                        } else if (e.key === 'Escape') {
-                          setIsAddingSquad(false);
-                        }
-                      }}
-                      className="text-xs bg-transparent focus:outline-none w-28 px-1 text-zinc-900 dark:text-zinc-100"
-                    />
-                    <select
-                      onChange={(e) => {
-                        if (e.target.value) handleAddSquad(e.target.value);
-                      }}
-                      className="text-[11px] bg-transparent text-zinc-500 focus:outline-none"
-                    >
-                      <option value="">Preset</option>
-                      {PRESET_SQUADS.filter((sq) => !formData.squads?.includes(sq)).map(
-                        (sq) => (
-                          <option key={sq} value={sq}>
-                            {sq}
-                          </option>
-                        )
-                      )}
-                    </select>
+                  {/* Add Squad Popover Trigger */}
+                  <div ref={squadRef} className="relative inline-block">
                     <button
-                      onClick={() => handleAddSquad(newSquadInput)}
-                      className="text-blue-600 hover:text-blue-700 px-1 font-semibold"
+                      type="button"
+                      onClick={() => setIsSquadDropdownOpen((prev) => !prev)}
+                      className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors text-xs"
                     >
-                      <Check className="w-3 h-3" />
+                      <Plus className="w-3 h-3" />
+                      <span>Add squad</span>
                     </button>
-                    <button
-                      onClick={() => setIsAddingSquad(false)}
-                      className="text-zinc-400 hover:text-zinc-600"
-                    >
-                      <X className="w-3 h-3" />
-                    </button>
+
+                    {isSquadDropdownOpen && (
+                      <div className="absolute left-0 top-full mt-1.5 z-40 w-72 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-lg shadow-xl p-2 max-h-56 overflow-y-auto space-y-1">
+                        <div className="text-[10px] uppercase font-semibold text-zinc-400 px-1 pb-1">
+                          Select Squad
+                        </div>
+                        <div className="grid grid-cols-2 gap-1 pb-2 border-b border-zinc-100 dark:border-zinc-800">
+                          {allSquads.map((sq) => {
+                            const isSelected = formData.squads?.includes(sq);
+                            return (
+                              <button
+                                key={sq}
+                                type="button"
+                                onClick={() => toggleSquad(sq)}
+                                className={`flex items-center justify-between px-2 py-1 rounded text-left text-xs transition-colors ${
+                                  isSelected
+                                    ? 'bg-blue-50 dark:bg-blue-950/50 text-blue-600 dark:text-blue-400 font-medium'
+                                    : 'text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800'
+                                }`}
+                              >
+                                <span className="truncate">{sq}</span>
+                                {isSelected && (
+                                  <Check className="w-3 h-3 text-blue-600 dark:text-blue-400 shrink-0" />
+                                )}
+                              </button>
+                            );
+                          })}
+                        </div>
+                        {/* Add new squad custom input */}
+                        <div className="pt-1.5 flex items-center gap-1.5">
+                          <input
+                            type="text"
+                            placeholder="+ Add custom squad..."
+                            value={newSquadInput}
+                            onChange={(e) => setNewSquadInput(e.target.value)}
+                            onKeyDown={(e) => {
+                              if (e.key === 'Enter') {
+                                e.preventDefault();
+                                handleAddCustomSquad();
+                              }
+                            }}
+                            className="h-7 flex-1 px-2 text-xs bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded text-zinc-900 dark:text-zinc-100 focus:outline-none focus:border-blue-500"
+                          />
+                          <button
+                            type="button"
+                            onClick={() => handleAddCustomSquad()}
+                            className="h-7 px-2.5 bg-blue-600 text-white rounded text-xs font-medium hover:bg-blue-700"
+                          >
+                            Add
+                          </button>
+                        </div>
+                      </div>
+                    )}
                   </div>
-                ) : (
-                  <button
-                    onClick={() => setIsAddingSquad(true)}
-                    className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
-                  >
-                    <Plus className="w-3 h-3" />
-                    <span>Add squad</span>
-                  </button>
-                )}
+                </div>
               </div>
             </div>
 
