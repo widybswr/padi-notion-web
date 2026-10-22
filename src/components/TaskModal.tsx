@@ -87,6 +87,16 @@ export const TaskModal: React.FC<TaskModalProps> = ({
     setFormData({ ...task });
   }, [task]);
 
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        onClose();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [onClose]);
+
   // Auto-save helper
   const updateAndSave = (updates: Partial<Task>) => {
     const updated = { ...formData, ...updates };

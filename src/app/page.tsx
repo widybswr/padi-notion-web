@@ -294,6 +294,9 @@ export default function HomePage() {
         onClose={() => setIsNewModalOpen(false)}
         onCreate={handleCreateTask}
         initialStatus={newTaskInitialStatus}
+        initialAssignee={selectedAssignee}
+        availableSquads={squadsList}
+        availableAssignees={assigneesList}
       />
     </div>
   );

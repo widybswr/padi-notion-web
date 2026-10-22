@@ -199,6 +199,18 @@ export const Sidebar: React.FC<SidebarProps> = ({
 
               const todayStr = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
 
+              // Check if today is a team holiday
+              const activeHoliday = tasks.find((t) => {
+                if (
+                  t.status === 'Holiday' &&
+                  t.start_date &&
+                  t.end_date
+                ) {
+                  return todayStr >= t.start_date && todayStr <= t.end_date;
+                }
+                return false;
+              });
+
               // Check if designer is currently on leave
               const activeLeave = tasks.find((t) => {
                 if (
@@ -237,7 +249,12 @@ export const Sidebar: React.FC<SidebarProps> = ({
                       <span className="truncate">{name}</span>
                     </div>
 
-                    {activeLeave ? (
+                    {activeHoliday ? (
+                      <span className="flex items-center gap-1 text-zinc-400 dark:text-zinc-500 font-medium text-[10px] shrink-0 ml-1">
+                        <span className="w-1.5 h-1.5 rounded-full bg-zinc-300 dark:bg-zinc-600" />
+                        Off-hours
+                      </span>
+                    ) : activeLeave ? (
                       <span className="flex items-center gap-1 text-zinc-400 dark:text-zinc-500 font-medium text-[10px] shrink-0 ml-1">
                         <span className="w-1.5 h-1.5 rounded-full bg-zinc-400" />
                         {activeLeave.status === 'Sick Leave' ? 'Sick Leave' : 'Paid Leave'}
@@ -261,7 +278,13 @@ export const Sidebar: React.FC<SidebarProps> = ({
                   </button>
 
                   {/* Bulleted active or leave tasks */}
-                  {activeLeave ? (
+                  {activeHoliday ? (
+                    <div className="pl-7 pr-2 pt-0.5 pb-1">
+                      <p className="text-[10px] text-zinc-400 dark:text-zinc-500 truncate leading-tight font-mono">
+                        • {activeHoliday.title}
+                      </p>
+                    </div>
+                  ) : activeLeave ? (
                     <div className="pl-7 pr-2 pt-0.5 pb-1">
                       <p className="text-[10px] text-zinc-400 dark:text-zinc-500 truncate leading-tight font-mono">
                         • {activeLeave.status} ({activeLeave.start_date} – {activeLeave.end_date})
@@ -269,15 +292,41 @@ export const Sidebar: React.FC<SidebarProps> = ({
                     </div>
                   ) : isDesigning ? (
                     <div className="pl-7 pr-2 pt-0.5 pb-1 space-y-0.5">
-                      {personActiveTasks.map((t) => (
-                        <p
-                          key={t.id}
-                          title={t.title}
-                          className="text-[10px] text-zinc-400 dark:text-zinc-500 truncate hover:text-zinc-700 dark:hover:text-zinc-300 transition-colors leading-tight"
-                        >
-                          • {t.title}
-                        </p>
-                      ))}
+                      {personActiveTasks.length <= 2 ? (
+                        personActiveTasks.map((t) => (
+                          <p
+                            key={t.id}
+                            title={t.title}
+                            className="text-[10px] text-zinc-400 dark:text-zinc-500 truncate hover:text-zinc-700 dark:hover:text-zinc-300 transition-colors leading-tight"
+                          >
+                            • {t.title}
+                          </p>
+                        ))
+                      ) : (
+                        <>
+                          <p
+                            title={personActiveTasks[0].title}
+                            className="text-[10px] text-zinc-400 dark:text-zinc-500 truncate hover:text-zinc-700 dark:hover:text-zinc-300 transition-colors leading-tight"
+                          >
+                            • {personActiveTasks[0].title}
+                          </p>
+                          <p
+                            title={personActiveTasks[1].title}
+                            className="text-[10px] text-zinc-400 dark:text-zinc-500 truncate hover:text-zinc-700 dark:hover:text-zinc-300 transition-colors leading-tight"
+                          >
+                            • {personActiveTasks[1].title}
+                          </p>
+                          <p
+                            className="text-[10px] text-zinc-400/80 dark:text-zinc-500 font-medium pl-2 leading-tight"
+                            title={personActiveTasks
+                              .slice(2)
+                              .map((t) => t.title)
+                              .join('\n')}
+                          >
+                            +{personActiveTasks.length - 2} more
+                          </p>
+                        </>
+                      )}
                     </div>
                   ) : null}
                 </div>
