@@ -196,9 +196,12 @@ export default function HomePage() {
         assignees={assigneesList}
         totalTasks={tasks.length}
         isSupabaseConnected={isSupabaseConfigured}
-        onNewTask={() => {
-          setNewTaskInitialStatus('Not started');
-          setIsNewModalOpen(true);
+        activeQuarter={activeQuarter}
+        setActiveQuarter={setActiveQuarter}
+        quartersList={quartersList}
+        onAddQuarter={(newQ) => {
+          setExtraQuarters((prev) => [...prev, newQ]);
+          setActiveQuarter(newQ);
         }}
         onLogout={handleLogout}
       />
@@ -217,12 +220,6 @@ export default function HomePage() {
           squadOptions={squadsList}
           statusOptions={statusesList}
           activeQuarter={activeQuarter}
-          setActiveQuarter={setActiveQuarter}
-          quartersList={quartersList}
-          onAddQuarter={(newQ) => {
-            setExtraQuarters((prev) => [...prev, newQ]);
-            setActiveQuarter(newQ);
-          }}
           onNewTask={() => {
             setNewTaskInitialStatus('Not started');
             setIsNewModalOpen(true);

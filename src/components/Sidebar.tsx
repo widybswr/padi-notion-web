@@ -22,7 +22,10 @@ interface SidebarProps {
   assignees: string[];
   totalTasks: number;
   isSupabaseConnected: boolean;
-  onNewTask: () => void;
+  activeQuarter: string;
+  setActiveQuarter: (quarter: string) => void;
+  quartersList: string[];
+  onAddQuarter: (quarter: string) => void;
   onLogout?: () => void;
 }
 
@@ -34,31 +37,57 @@ export const Sidebar: React.FC<SidebarProps> = ({
   assignees,
   totalTasks,
   isSupabaseConnected,
-  onNewTask,
+  activeQuarter,
+  setActiveQuarter,
+  quartersList,
+  onAddQuarter,
   onLogout,
 }) => {
   return (
     <aside className="w-64 border-r border-zinc-200 dark:border-zinc-800 bg-zinc-50/70 dark:bg-zinc-900/60 flex flex-col h-screen select-none shrink-0">
       {/* Workspace Header */}
-      <div className="p-4 border-b border-zinc-200/70 dark:border-zinc-800/80">
-        <div className="flex items-center gap-2 mb-1">
-          <span className="text-xl">🌾</span>
-          <span className="font-semibold text-sm text-zinc-900 dark:text-zinc-100">
-            All tasks 2026
+      <div className="p-3.5 border-b border-zinc-200/70 dark:border-zinc-800/80">
+        <div className="flex items-center gap-2 mb-2">
+          <span className="text-lg">🌾</span>
+          <span className="font-semibold text-sm text-zinc-900 dark:text-zinc-100 tracking-tight">
+            PaDi Design Tasks
           </span>
         </div>
-        <p className="text-xs text-zinc-400 pl-7">PaDi Design • Q4</p>
-      </div>
 
-      {/* Nav Actions */}
-      <div className="p-3 border-b border-zinc-200/60 dark:border-zinc-800/60">
-        <button
-          onClick={onNewTask}
-          className="w-full flex items-center justify-center gap-2 py-1.5 px-3 bg-zinc-900 hover:bg-zinc-800 text-white dark:bg-zinc-100 dark:hover:bg-zinc-200 dark:text-zinc-900 rounded-lg text-xs font-medium shadow-xs transition-colors"
-        >
-          <Plus className="w-3.5 h-3.5" />
-          <span>New Task</span>
-        </button>
+        {/* Quarter Dropdown Selector */}
+        <div className="relative flex items-center">
+          <select
+            value={activeQuarter}
+            onChange={(e) => {
+              if (e.target.value === '__add_new__') {
+                const promptVal = window.prompt('Enter new quarter name (e.g. Q1 2027):');
+                if (promptVal && promptVal.trim()) {
+                  onAddQuarter(promptVal.trim());
+                  setActiveQuarter(promptVal.trim());
+                }
+              } else {
+                setActiveQuarter(e.target.value);
+              }
+            }}
+            className="w-full text-xs font-medium text-zinc-700 dark:text-zinc-300 bg-white dark:bg-zinc-800/90 border border-zinc-200 dark:border-zinc-700 rounded-md py-1.5 pl-2.5 pr-7 appearance-none focus:outline-none focus:ring-1 focus:ring-zinc-400 cursor-pointer shadow-2xs"
+          >
+            {quartersList.map((q) => (
+              <option key={q} value={q}>
+                {q}
+              </option>
+            ))}
+            <option value="__add_new__">+ Add quarter...</option>
+          </select>
+          <div className="pointer-events-none absolute right-2 flex items-center text-zinc-400">
+            <svg className="w-3.5 h-3.5" viewBox="0 0 20 20" fill="currentColor">
+              <path
+                fillRule="evenodd"
+                d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                clipRule="evenodd"
+              />
+            </svg>
+          </div>
+        </div>
       </div>
 
       {/* Navigation Sections */}
