@@ -19,14 +19,24 @@ interface TimelineViewProps {
   tasks: Task[];
   onSelectTask: (task: Task) => void;
   onUpdateTask: (updated: Task) => void;
+  activeQuarter?: string;
 }
 
 const DAY_WIDTH = 38; // px per day
 const ROW_HEIGHT = 44; // px per task row
 
-// Timeline covers Q4 2026: 2026-10-01 to 2027-01-31 (123 days)
-const TIMELINE_START = '2026-10-01';
-const TIMELINE_END = '2027-01-31';
+function getQuarterRange(quarter: string = 'Q4 2026'): { start: string; end: string } {
+  const match = quarter.match(/Q([1-4])\s*(\d{4})/i);
+  if (match) {
+    const q = parseInt(match[1], 10);
+    const year = parseInt(match[2], 10);
+    if (q === 1) return { start: `${year}-01-01`, end: `${year}-04-30` };
+    if (q === 2) return { start: `${year}-04-01`, end: `${year}-07-31` };
+    if (q === 3) return { start: `${year}-07-01`, end: `${year}-10-31` };
+    if (q === 4) return { start: `${year}-10-01`, end: `${year + 1}-01-31` };
+  }
+  return { start: '2026-10-01', end: '2027-01-31' };
+}
 
 function parseDate(str: string): Date {
   const [y, m, d] = str.split('-').map(Number);
@@ -73,9 +83,15 @@ export const TimelineView: React.FC<TimelineViewProps> = ({
   tasks,
   onSelectTask,
   onUpdateTask,
+  activeQuarter = 'Q4 2026',
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [dragState, setDragState] = useState<DragState | null>(null);
+
+  const { start: TIMELINE_START, end: TIMELINE_END } = useMemo(
+    () => getQuarterRange(activeQuarter),
+    [activeQuarter]
+  );
 
   const todayStr = useMemo(() => formatDate(new Date()), []);
 
@@ -117,7 +133,7 @@ export const TimelineView: React.FC<TimelineViewProps> = ({
       curr.setDate(curr.getDate() + 1);
     }
     return days;
-  }, [todayStr]);
+  }, [todayStr, TIMELINE_START, TIMELINE_END]);
 
   // Group days by month for top header
   const monthHeaders = useMemo(() => {

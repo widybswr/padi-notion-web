@@ -19,6 +19,8 @@ export default function HomePage() {
   const [viewMode, setViewMode] = useState<ViewMode>('table');
 
   // Filter states
+  const [activeQuarter, setActiveQuarter] = useState('Q4 2026');
+  const [extraQuarters, setExtraQuarters] = useState<string[]>([]);
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedSquad, setSelectedSquad] = useState<string | null>(null);
   const [selectedStatus, setSelectedStatus] = useState<string | null>(null);
@@ -81,9 +83,23 @@ export default function HomePage() {
     return Array.from(set).sort();
   }, [tasks]);
 
+  const quartersList = useMemo(() => {
+    const set = new Set<string>(['Q4 2026']);
+    tasks.forEach((t) => {
+      if (t.quarter) set.add(t.quarter);
+    });
+    extraQuarters.forEach((q) => set.add(q));
+    return Array.from(set).sort();
+  }, [tasks, extraQuarters]);
+
   // Filtered tasks
   const filteredTasks = useMemo(() => {
     return tasks.filter((t) => {
+      // Quarter filter (Top level workspace scope)
+      if (activeQuarter && (t.quarter || 'Q4 2026') !== activeQuarter) {
+        return false;
+      }
+
       // Search
       if (searchQuery.trim()) {
         const q = searchQuery.toLowerCase();
@@ -113,7 +129,7 @@ export default function HomePage() {
 
       return true;
     });
-  }, [tasks, searchQuery, selectedSquad, selectedStatus, selectedAssignee]);
+  }, [tasks, activeQuarter, searchQuery, selectedSquad, selectedStatus, selectedAssignee]);
 
   // Handlers
   const handleUpdateTask = async (updated: Task) => {
@@ -129,10 +145,11 @@ export default function HomePage() {
   };
 
   const handleCreateTask = async (newTask: Task) => {
-    setTasks((prev) => [newTask, ...prev]);
+    const withQuarter = { ...newTask, quarter: activeQuarter };
+    setTasks((prev) => [withQuarter, ...prev]);
 
     try {
-      await upsertTask(newTask);
+      await upsertTask(withQuarter);
     } catch (err) {
       console.error('Failed to create task in database:', err);
     }
@@ -199,6 +216,13 @@ export default function HomePage() {
           setSelectedStatus={setSelectedStatus}
           squadOptions={squadsList}
           statusOptions={statusesList}
+          activeQuarter={activeQuarter}
+          setActiveQuarter={setActiveQuarter}
+          quartersList={quartersList}
+          onAddQuarter={(newQ) => {
+            setExtraQuarters((prev) => [...prev, newQ]);
+            setActiveQuarter(newQ);
+          }}
           onNewTask={() => {
             setNewTaskInitialStatus('Not started');
             setIsNewModalOpen(true);
@@ -232,6 +256,7 @@ export default function HomePage() {
               tasks={filteredTasks}
               onSelectTask={setActiveTask}
               onUpdateTask={handleUpdateTask}
+              activeQuarter={activeQuarter}
             />
           )}
         </div>

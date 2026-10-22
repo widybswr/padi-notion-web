@@ -12,6 +12,7 @@ create table tasks (
     title text not null,
     status text not null default 'Not started',
     priority text not null default 'Medium',
+    quarter text not null default 'Q4 2026',
     wbs text default '',
     squads text[] default array[]::text[],
     pms text[] default array[]::text[],

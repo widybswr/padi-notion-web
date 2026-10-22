@@ -15,6 +15,7 @@ export interface Task {
   title: string;
   status: TaskStatus | string;
   priority: TaskPriority | string;
+  quarter?: string;
   wbs: string;
   squads: string[];
   pms: string[];
