@@ -246,6 +246,8 @@ export const TimelineView: React.FC<TimelineViewProps> = ({
         return 'bg-pink-50 dark:bg-pink-950/40 text-pink-900 dark:text-pink-200 border-pink-300 dark:border-pink-800/80 shadow-pink-500/10 hover:bg-pink-100/90 dark:hover:bg-pink-950/60';
       case 'Paid Leave':
       case 'Sick Leave':
+      case 'Public Holiday':
+      case 'Holiday':
       case 'Cuti':
         return 'bg-zinc-100/70 dark:bg-zinc-900/50 text-zinc-400 dark:text-zinc-500 border border-dashed border-zinc-300 dark:border-zinc-700/80 shadow-none hover:bg-zinc-200/50 dark:hover:bg-zinc-800/50 opacity-60';
       default:

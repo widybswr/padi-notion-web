@@ -202,7 +202,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
               // Check if today is a team holiday
               const activeHoliday = tasks.find((t) => {
                 if (
-                  t.status === 'Holiday' &&
+                  (t.status === 'Public Holiday' || t.status === 'Holiday') &&
                   t.start_date &&
                   t.end_date
                 ) {

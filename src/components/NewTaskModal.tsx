@@ -51,7 +51,7 @@ export const NewTaskModal: React.FC<NewTaskModalProps> = ({
 }) => {
   if (!isOpen) return null;
 
-  const [entryType, setEntryType] = useState<'task' | 'paid_leave' | 'sick_leave' | 'holiday'>('task');
+  const [entryType, setEntryType] = useState<'task' | 'paid_leave' | 'sick_leave' | 'public_holiday'>('task');
 
   // Task form state
   const [title, setTitle] = useState('');
@@ -157,17 +157,17 @@ export const NewTaskModal: React.FC<NewTaskModalProps> = ({
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (entryType === 'holiday') {
+    if (entryType === 'public_holiday') {
       if (!holidayStartDate || !holidayEndDate) return;
-      const hTitle = holidayName.trim() ? `Holiday: ${holidayName.trim()}` : 'Holiday: Libur Nasional';
+      const hTitle = holidayName.trim() ? `Public Holiday: ${holidayName.trim()}` : 'Public Holiday';
 
       const holidayTask: Task = {
         id: crypto.randomUUID(),
         title: hTitle,
-        status: 'Holiday',
+        status: 'Public Holiday',
         priority: 'Low',
         wbs: '',
-        squads: ['Holiday'],
+        squads: ['Public Holiday'],
         pms: [],
         assignees: [], // Auto-applies to all
         start_date: holidayStartDate,
@@ -236,8 +236,8 @@ export const NewTaskModal: React.FC<NewTaskModalProps> = ({
           <h3 className="font-semibold text-sm text-zinc-900 dark:text-zinc-100">
             {entryType === 'task'
               ? 'Create New Task'
-              : entryType === 'holiday'
-              ? 'Schedule Team Holiday'
+              : entryType === 'public_holiday'
+              ? 'Record Public Holiday'
               : 'Record Time-Off'}
           </h3>
           <button
@@ -249,65 +249,37 @@ export const NewTaskModal: React.FC<NewTaskModalProps> = ({
         </div>
 
         <form onSubmit={handleSubmit} className="mt-4 space-y-4 text-xs">
-          {/* Unboxed, Prominent Radio Options */}
-          <div className="flex flex-wrap items-center gap-6 py-1">
-            <label className="flex items-center gap-2 cursor-pointer font-medium text-zinc-800 dark:text-zinc-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-              <input
-                type="radio"
-                name="entryType"
-                value="task"
-                checked={entryType === 'task'}
-                onChange={() => setEntryType('task')}
-                className="w-4 h-4 accent-blue-600 cursor-pointer"
-              />
-              <span className="text-sm">Task</span>
-            </label>
-
-            <label className="flex items-center gap-2 cursor-pointer font-medium text-zinc-800 dark:text-zinc-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-              <input
-                type="radio"
-                name="entryType"
-                value="paid_leave"
-                checked={entryType === 'paid_leave'}
-                onChange={() => setEntryType('paid_leave')}
-                className="w-4 h-4 accent-blue-600 cursor-pointer"
-              />
-              <span className="text-sm">Paid Leave</span>
-            </label>
-
-            <label className="flex items-center gap-2 cursor-pointer font-medium text-zinc-800 dark:text-zinc-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-              <input
-                type="radio"
-                name="entryType"
-                value="sick_leave"
-                checked={entryType === 'sick_leave'}
-                onChange={() => setEntryType('sick_leave')}
-                className="w-4 h-4 accent-blue-600 cursor-pointer"
-              />
-              <span className="text-sm">Sick Leave</span>
-            </label>
-
-            <label className="flex items-center gap-2 cursor-pointer font-medium text-zinc-800 dark:text-zinc-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-              <input
-                type="radio"
-                name="entryType"
-                value="holiday"
-                checked={entryType === 'holiday'}
-                onChange={() => setEntryType('holiday')}
-                className="w-4 h-4 accent-blue-600 cursor-pointer"
-              />
-              <span className="text-sm">Holiday</span>
-            </label>
+          {/* Segmented Pill Switcher */}
+          <div className="flex items-center p-1 bg-zinc-100 dark:bg-zinc-800/80 rounded-lg border border-zinc-200/80 dark:border-zinc-700/80">
+            {[
+              { id: 'task', label: 'Task' },
+              { id: 'paid_leave', label: 'Paid Leave' },
+              { id: 'sick_leave', label: 'Sick Leave' },
+              { id: 'public_holiday', label: 'Public Holiday' },
+            ].map((tab) => (
+              <button
+                key={tab.id}
+                type="button"
+                onClick={() => setEntryType(tab.id as any)}
+                className={`flex-1 py-1.5 px-2 rounded-md text-xs transition-all text-center ${
+                  entryType === tab.id
+                    ? 'bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 shadow-2xs font-semibold'
+                    : 'text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-300 font-medium'
+                }`}
+              >
+                {tab.label}
+              </button>
+            ))}
           </div>
 
-          {/* 1. Holiday Form */}
-          {entryType === 'holiday' ? (
+          {/* 1. Public Holiday Form */}
+          {entryType === 'public_holiday' ? (
             <div className="space-y-4 pt-1">
               <div>
-                <label className="block text-zinc-500 font-medium mb-1">Holiday Name (Optional)</label>
+                <label className="block text-zinc-500 font-medium mb-1">Public Holiday Name (Optional)</label>
                 <input
                   type="text"
-                  placeholder="e.g. Tahun Baru 2027, Libur Nasional"
+                  placeholder="e.g. Tahun Baru 2027, Hari Kemerdekaan"
                   value={holidayName}
                   onChange={(e) => setHolidayName(e.target.value)}
                   className="h-9 w-full px-3 bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-lg focus:outline-none focus:border-blue-500 text-zinc-900 dark:text-zinc-100 text-xs"
@@ -653,8 +625,8 @@ export const NewTaskModal: React.FC<NewTaskModalProps> = ({
             >
               {entryType === 'task'
                 ? 'Create Task'
-                : entryType === 'holiday'
-                ? 'Save Holiday'
+                : entryType === 'public_holiday'
+                ? 'Save Public Holiday'
                 : 'Record Leave'}
             </button>
           </div>
