@@ -1,0 +1,692 @@
+[
+  {
+    "id": "3ec30a0f-8091-809d-b7a6-fdd43bb4a431",
+    "title": "[Fulfillment] Amandemen PO",
+    "status": "In PM review",
+    "priority": "High",
+    "wbs": "FUL#1",
+    "squads": [
+      "Fullfilment"
+    ],
+    "pms": [
+      "Fanny/Alya",
+      "Ammar"
+    ],
+    "assignees": [
+      "Frans",
+      "Widy"
+    ],
+    "start_date": "2026-10-05",
+    "end_date": "2026-10-16",
+    "figma_url": "https://www.figma.com/design/ZpKwhiyxCDiaGyBMjNZxub/Amandemen-PO?node-id=0-1&p=f&t=oasWnbm8NZeZ2FDT-0",
+    "prd_url": "https://docs.google.com/document/d/1n9FyNk4ojjS_u5pwaMgknDabBaAHCZhof5Sz2Igpp8k/edit?usp=sharing",
+    "taiga_url": "",
+    "userflow_url": "",
+    "other_docs": "https://docs.google.com/presentation/d/1_mph35IFPMVShp3YYwuW3xVLN0y4v92yJlplqGFzTBc/edit?usp=sharing"
+  },
+  {
+    "id": "3ed30a0f-8091-80bc-82aa-f77364c730ee",
+    "title": "[Disco] Streamlined Product Upload",
+    "status": "In progress design",
+    "priority": "High",
+    "wbs": "DSC#2",
+    "squads": [
+      "Discovery"
+    ],
+    "pms": [
+      "Enrico"
+    ],
+    "assignees": [
+      "Sigit",
+      "Dian"
+    ],
+    "start_date": "2026-10-06",
+    "end_date": "2026-10-30",
+    "figma_url": "https://www.figma.com/design/6AG9LSx1GAag28roAt2luP/New-Add-Product?node-id=6935-7550&t=peoR4dhCZvuQMyDH-0",
+    "prd_url": "",
+    "taiga_url": "",
+    "userflow_url": "",
+    "other_docs": "https://docs.google.com/spreadsheets/d/1lA0lxEBhC2pmKRpSAcPe9cbAaFphL6-Tl80T7gRTDjo/edit?usp=sharing"
+  },
+  {
+    "id": "3ed30a0f-8091-80fb-a5b1-cab9f823167f",
+    "title": "[Financing] Borrower Scoring System",
+    "status": "Done",
+    "priority": "High",
+    "wbs": "FIN#1",
+    "squads": [
+      "Financing"
+    ],
+    "pms": [
+      "Hana"
+    ],
+    "assignees": [
+      "Widy"
+    ],
+    "start_date": "2026-10-05",
+    "end_date": "2026-10-16",
+    "figma_url": "https://www.figma.com/design/fNmJJ4X6ZZ2UWS9UBpTFST/Dashboard---User-Financier?node-id=1644-58178&t=QpwDXRtNbCGVUzZa-4",
+    "prd_url": "",
+    "taiga_url": "",
+    "userflow_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "3ed30a0f-8091-804e-9d14-e0ac751ad7f3",
+    "title": "[Identity] Registration SPPKP & Bank Account",
+    "status": "Done",
+    "priority": "High",
+    "wbs": "IDE#1",
+    "squads": [
+      "Identity"
+    ],
+    "pms": [
+      "Lavie"
+    ],
+    "assignees": [
+      "Banu"
+    ],
+    "start_date": "2026-10-05",
+    "end_date": "2026-10-16",
+    "figma_url": "https://www.figma.com/design/Oh8hQRZATGjoUMOYbGEuk3/Dokumen-Pendukung-SPPKP---Rekening-Seller?node-id=2007-30560&t=SE5Bt6jFtpJnl2gh-1",
+    "prd_url": "https://dbttelkom.sharepoint.com/:w:/s/PaDiUMKM/IQBQv5yMoqMwQpaSEpmoMjBjAaSEPYvMOdT7jzkywKXac3Q?e=kKVai3",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/epic/15456",
+    "userflow_url": "https://whimsical.com/visit6/seller-as-buyer-PB13vgQRQNciDEKMUL6DgK",
+    "other_docs": ""
+  },
+  {
+    "id": "3ff30a0f-8091-80d9-9030-fa4ca4adcc29",
+    "title": "[Core] in-app action chat phase 2",
+    "status": "In progress design",
+    "priority": "High",
+    "wbs": "COR#1",
+    "squads": [
+      "Core"
+    ],
+    "pms": [
+      "Alvin"
+    ],
+    "assignees": [
+      "Frans"
+    ],
+    "start_date": "2026-10-20",
+    "end_date": "2026-10-30",
+    "figma_url": "https://www.figma.com/design/HUntytoVyGHSxbnSZ8l2pu/Fitur-Chat?m=auto&t=hRTSM70hBnJWIdF4-6",
+    "prd_url": "https://docs.google.com/document/d/1y6P9-NtQCFnBTLUEx3C0tp5xsWGJ4T4K/edit?usp=sharing&ouid=114762300602920565279&rtpof=true&sd=true",
+    "taiga_url": "",
+    "userflow_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "3ff30a0f-8091-80e7-b899-edb1aa624587",
+    "title": "[PaDi] Penyesuaian Landing Page",
+    "status": "In progress design",
+    "priority": "P0 - SUPER HIGH",
+    "wbs": "IDE#1",
+    "squads": [
+      "Identity"
+    ],
+    "pms": [
+      "Lavie"
+    ],
+    "assignees": [
+      "Banu"
+    ],
+    "start_date": "2026-10-20",
+    "end_date": "2026-10-23",
+    "figma_url": "https://www.figma.com/design/WERrgS6hnyJlXGa8DWfY3K/Landing-Torasera--PaDi-Seller--PaDi-B2B?node-id=780-3281&t=GmDusfSfIz886Jt1-11",
+    "prd_url": "",
+    "taiga_url": "",
+    "userflow_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "3fe30a0f-8091-806c-9dd4-fcd49f9c94be",
+    "title": "[Payment] Penambahan Keterangan VA Expired pada Dokumen Instruksi Pembayaran",
+    "status": "In PM review",
+    "priority": "High",
+    "wbs": "",
+    "squads": [
+      "Payment"
+    ],
+    "pms": [
+      "Nadhifah"
+    ],
+    "assignees": [
+      "Widy"
+    ],
+    "start_date": "2026-10-19",
+    "end_date": "2026-10-23",
+    "figma_url": "https://www.figma.com/design/6AmQqVaNykcXDv4LcWyOe6/Instruksi-Pembayaran?node-id=0-1&t=RGzmlW0JihzJMCPQ-1",
+    "prd_url": "https://projects.digitaltelkom.id/project/SPDPT/us/15676?kanban-status=1283",
+    "taiga_url": "",
+    "userflow_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "3fe30a0f-8091-8033-ae50-c232c1086ada",
+    "title": "[Identity] Preparing all assets for new branding",
+    "status": "On hold",
+    "priority": "P0 - SUPER HIGH",
+    "wbs": "IDE#1",
+    "squads": [
+      "All"
+    ],
+    "pms": [
+      "Lavie"
+    ],
+    "assignees": [],
+    "start_date": "2026-10-20",
+    "end_date": "2026-10-23",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "userflow_url": "",
+    "other_docs": "https://dbttelkom.sharepoint.com/:x:/s/PaDiUMKM/IQAzM1lqPZMMTLrgcXkwCA6gAcEjeIPFXvdHnkSJjeOb1Ro?e=dogh0R"
+  },
+  {
+    "id": "3fe30a0f-8091-80dd-87e0-c9b8443e6799",
+    "title": "[Identity] Compliance Tier Progression for Seller (Seller Ranking)",
+    "status": "In progress design",
+    "priority": "High",
+    "wbs": "IDE#1",
+    "squads": [
+      "Identity"
+    ],
+    "pms": [
+      "Lavie"
+    ],
+    "assignees": [
+      "Banu"
+    ],
+    "start_date": "2026-10-19",
+    "end_date": "2026-11-14",
+    "figma_url": "https://www.figma.com/design/l1N7OlwMTrxzmpt2IwoGDU/Visit---Leveling-Compliance-Seller--Seller-Ranking-?node-id=0-1&t=agi2O7kHIko7eLNE-1",
+    "prd_url": "https://dbttelkom.sharepoint.com/:w:/s/PaDiUMKM/IQBQv5yMoqMwQpaSEpmoMjBjAaSEPYvMOdT7jzkywKXac3Q?e=cCsZLD",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/epic/15668",
+    "userflow_url": "",
+    "other_docs": "https://dbttelkom.sharepoint.com/:x:/r/sites/PaDiUMKM/_layouts/15/Doc.aspx?action=editNew&sourcedoc=%7B0fbbe511-3fa0-4f11-b52c-3738dbb77649%7D&wdExp=TEAMS-TREATMENT&web=1"
+  },
+  {
+    "id": "3fe30a0f-8091-806f-8e43-e1b13f5214e0",
+    "title": "[eProc] Template penawaran tender kilat",
+    "status": "In progress design",
+    "priority": "High",
+    "wbs": "EPC#2",
+    "squads": [
+      "eProc"
+    ],
+    "pms": [
+      "Adnia"
+    ],
+    "assignees": [
+      "Sigit"
+    ],
+    "start_date": "2026-10-19",
+    "end_date": "2026-10-30",
+    "figma_url": "",
+    "prd_url": "https://docs.google.com/document/d/1fl1vmdCUcP0uxqeWQDXNDg4kb6QG6zQnlxwi8YgtVh8/edit?usp=sharing",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/15677",
+    "userflow_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "3fe30a0f-8091-8063-84e3-f3f2d8ac5b0e",
+    "title": "Landing page Padisera",
+    "status": "Done",
+    "priority": "Medium",
+    "wbs": "",
+    "squads": [],
+    "pms": [],
+    "assignees": [
+      "Banu"
+    ],
+    "start_date": "2026-10-16",
+    "end_date": null,
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "userflow_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "3f930a0f-8091-806c-9e5c-f193632702b4",
+    "title": "[PaDi] ERP Merah Putih Landing Page",
+    "status": "Done",
+    "priority": "P0 - SUPER HIGH",
+    "wbs": "",
+    "squads": [
+      "All"
+    ],
+    "pms": [
+      "Enrico"
+    ],
+    "assignees": [
+      "Widy"
+    ],
+    "start_date": "2026-10-14",
+    "end_date": "2026-10-16",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "userflow_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "3f730a0f-8091-8032-aacc-e8f921b5806d",
+    "title": "Untitled",
+    "status": "Not started",
+    "priority": "Medium",
+    "wbs": "",
+    "squads": [],
+    "pms": [],
+    "assignees": [],
+    "start_date": null,
+    "end_date": null,
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "userflow_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "3f730a0f-8091-80f3-bcb0-ef31b5a2aef1",
+    "title": "[Core] Adjustment Mekanisme Generate Production Credential Open API PaDi UMKM\n",
+    "status": "In PM review",
+    "priority": "Medium",
+    "wbs": "",
+    "squads": [
+      "Core"
+    ],
+    "pms": [
+      "Alvin"
+    ],
+    "assignees": [
+      "Banu"
+    ],
+    "start_date": "2026-10-13",
+    "end_date": "2026-10-16",
+    "figma_url": "https://www.figma.com/design/MmyB3l3DdaVuDnxtZwdfzT/New-Dashboard-OPEN-API?node-id=7483-4427&t=FesU8GlxUJZprmxR-4",
+    "prd_url": "https://wiki.digitaltelkom.id/doc/prd-adjustment-mekanisme-generate-production-credential-open-api-padi-umkm-vYSZsz27sG",
+    "taiga_url": "",
+    "userflow_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "3f730a0f-8091-801d-a52d-ce55e6f5c441",
+    "title": "Amandemen PO Mobile",
+    "status": "In PM review",
+    "priority": "High",
+    "wbs": "",
+    "squads": [],
+    "pms": [],
+    "assignees": [
+      "Frans"
+    ],
+    "start_date": null,
+    "end_date": null,
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "userflow_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "3f730a0f-8091-801c-9f85-e49e8059c4fd",
+    "title": "Amandemen PO Desktop",
+    "status": "In PM review",
+    "priority": "High",
+    "wbs": "",
+    "squads": [],
+    "pms": [],
+    "assignees": [
+      "Frans"
+    ],
+    "start_date": null,
+    "end_date": null,
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "userflow_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "3f730a0f-8091-805f-9105-d2fcf994ff30",
+    "title": "[ALL] PaDi Design System",
+    "status": "In review",
+    "priority": "High",
+    "wbs": "FIN#3",
+    "squads": [
+      "All",
+      "Financing"
+    ],
+    "pms": [
+      "All"
+    ],
+    "assignees": [
+      "Dian"
+    ],
+    "start_date": "2026-10-07",
+    "end_date": "2026-11-14",
+    "figma_url": "https://www.figma.com/design/eJ2zmG6e6i86o9aVdCg95k/PaDi-DS-v3.0?node-id=7207-227402&p=f&t=RgBj7UHHsKR9pvEi-11",
+    "prd_url": "",
+    "taiga_url": "",
+    "userflow_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "40e30a0f-8091-8382-96f0-01c7eb4a88b9",
+    "title": "[Financing] Reactivate Multi PO financing",
+    "status": "In review",
+    "priority": "High",
+    "wbs": "FIN#1",
+    "squads": [
+      "Financing"
+    ],
+    "pms": [
+      "Hana"
+    ],
+    "assignees": [
+      "Widy",
+      "Frans"
+    ],
+    "start_date": "2026-10-19",
+    "end_date": "2026-10-23",
+    "figma_url": "https://www.figma.com/design/SyAvzqHZ3gn9wg41RphSnB/PO-Financing-Revival?node-id=290-31966",
+    "prd_url": "",
+    "taiga_url": "",
+    "userflow_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "3f330a0f-8091-80c7-8023-e023fac8bf46",
+    "title": "[Payment] Update Order Self-Service by Seller",
+    "status": "Done",
+    "priority": "High",
+    "wbs": "",
+    "squads": [
+      "Payment"
+    ],
+    "pms": [
+      "Nadhifah"
+    ],
+    "assignees": [
+      "Banu"
+    ],
+    "start_date": "2026-10-08",
+    "end_date": "2026-10-09",
+    "figma_url": "https://www.figma.com/design/8IOU0FxRk1zTMya50kzqdy/Update-Order---Resolution-Center---Solution-Center?node-id=5293-43344",
+    "prd_url": "https://projects.digitaltelkom.id/project/SPDPT/us/15535?kanban-status=1283",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/15535?kanban-status=1283",
+    "userflow_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "3f130a0f-8091-8004-9238-fc8ebb629011",
+    "title": "Design Product visibility Components",
+    "status": "In progress design",
+    "priority": "Medium",
+    "wbs": "DSC#2",
+    "squads": [],
+    "pms": [],
+    "assignees": [
+      "Sigit"
+    ],
+    "start_date": null,
+    "end_date": null,
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "userflow_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "3f130a0f-8091-8086-a699-de6496dca870",
+    "title": "Design Product shipping Components",
+    "status": "In progress design",
+    "priority": "Medium",
+    "wbs": "DSC#2",
+    "squads": [],
+    "pms": [],
+    "assignees": [
+      "Sigit"
+    ],
+    "start_date": null,
+    "end_date": null,
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "userflow_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "3f130a0f-8091-800f-b4a9-c7bc0288e003",
+    "title": "Design Product Stock Components",
+    "status": "In progress design",
+    "priority": "Medium",
+    "wbs": "DSC#2",
+    "squads": [],
+    "pms": [],
+    "assignees": [
+      "Sigit"
+    ],
+    "start_date": null,
+    "end_date": null,
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "userflow_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "3f130a0f-8091-80ea-91dd-d105d9c87f4f",
+    "title": "Design Product price Components",
+    "status": "In progress design",
+    "priority": "Medium",
+    "wbs": "DSC#2",
+    "squads": [],
+    "pms": [],
+    "assignees": [
+      "Sigit"
+    ],
+    "start_date": null,
+    "end_date": null,
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "userflow_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "3f130a0f-8091-80e1-9666-e090e0f7ee83",
+    "title": "Design Media Product Components",
+    "status": "In progress design",
+    "priority": "Medium",
+    "wbs": "DSC#2",
+    "squads": [],
+    "pms": [],
+    "assignees": [
+      "Sigit"
+    ],
+    "start_date": null,
+    "end_date": null,
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "userflow_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "3f130a0f-8091-8031-8919-c3ec94e71f20",
+    "title": "Design Certificate Table Components",
+    "status": "In progress design",
+    "priority": "Medium",
+    "wbs": "DSC#2",
+    "squads": [],
+    "pms": [],
+    "assignees": [
+      "Sigit"
+    ],
+    "start_date": null,
+    "end_date": null,
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "userflow_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "3f130a0f-8091-8078-b869-d5d008d31ae9",
+    "title": "Design Product Information Components",
+    "status": "In progress design",
+    "priority": "Medium",
+    "wbs": "DSC#2",
+    "squads": [],
+    "pms": [],
+    "assignees": [
+      "Sigit"
+    ],
+    "start_date": null,
+    "end_date": null,
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "userflow_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "3f130a0f-8091-808f-9487-c8a5ec8eb6ce",
+    "title": "Explore & Design add product option",
+    "status": "In progress design",
+    "priority": "Medium",
+    "wbs": "DSC#2",
+    "squads": [],
+    "pms": [],
+    "assignees": [
+      "Sigit"
+    ],
+    "start_date": null,
+    "end_date": null,
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "userflow_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "3f130a0f-8091-80e2-ac24-f3b60992fb15",
+    "title": "Design Stepper Components",
+    "status": "In progress design",
+    "priority": "Medium",
+    "wbs": "DSC#2",
+    "squads": [],
+    "pms": [],
+    "assignees": [
+      "Sigit"
+    ],
+    "start_date": "2026-10-07",
+    "end_date": "2026-10-09",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "userflow_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "3f030a0f-8091-8042-b5a7-dd81f900dc3d",
+    "title": "[Financing] Reactivate PO financing",
+    "status": "In PM review",
+    "priority": "High",
+    "wbs": "FIN#1",
+    "squads": [
+      "Financing"
+    ],
+    "pms": [
+      "Hana"
+    ],
+    "assignees": [
+      "Widy",
+      "Frans"
+    ],
+    "start_date": "2026-10-08",
+    "end_date": "2026-10-21",
+    "figma_url": "https://www.figma.com/design/SyAvzqHZ3gn9wg41RphSnB/PO-Financing-Revival",
+    "prd_url": "https://docs.google.com/document/d/1eyXI3qBaJoLxYyL8wWHtDGFm8wHMq0cgm1IUsSXMZMY/edit?tab=t.0",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/epic/15455",
+    "userflow_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "46a30a0f-8091-829d-b455-0165a7552b66",
+    "title": "[AIX] Fixing design check in",
+    "status": "Need review",
+    "priority": "Medium",
+    "wbs": "",
+    "squads": [
+      "All"
+    ],
+    "pms": [
+      "All"
+    ],
+    "assignees": [
+      "Sigit",
+      "Banu",
+      "Widy",
+      "Frans"
+    ],
+    "start_date": "2026-10-05",
+    "end_date": "2026-11-28",
+    "figma_url": "https://www.figma.com/design/hiyG62RGGYJ3nYv4DSkl9K/Flow-Discovery?t=UJjos1cAqeW9HzC3-0",
+    "prd_url": "",
+    "taiga_url": "",
+    "userflow_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "3f030a0f-8091-805e-8a70-de67565afc10",
+    "title": "[Core] In-App Chat Room Request Action User Button MVP",
+    "status": "Done",
+    "priority": "High",
+    "wbs": "COR#1",
+    "squads": [
+      "Core"
+    ],
+    "pms": [
+      "Alvin"
+    ],
+    "assignees": [
+      "Dian",
+      "Widy"
+    ],
+    "start_date": "2026-10-05",
+    "end_date": "2026-10-07",
+    "figma_url": "https://www.figma.com/design/HUntytoVyGHSxbnSZ8l2pu/Fitur-Chat?node-id=6691-11121",
+    "prd_url": "https://wiki.digitaltelkom.id/doc/in-app-chat-room-request-action-user-button-OaEJHmt05e",
+    "taiga_url": "",
+    "userflow_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "3ed30a0f-8091-80de-b5bf-e93b0b137e4c",
+    "title": "[Disburse] Accelerate Disbursement Time Case Invoice Financing",
+    "status": "In PM review",
+    "priority": "High",
+    "wbs": "DIS#1",
+    "squads": [
+      "Disbursement"
+    ],
+    "pms": [
+      "Fanny/Rahimi"
+    ],
+    "assignees": [
+      "Banu"
+    ],
+    "start_date": "2026-10-12",
+    "end_date": "2026-10-16",
+    "figma_url": "https://www.figma.com/design/YNSroUC6uTxZH36QY3cQkV/Mimin---Disbursement-Financing?node-id=0-1&t=ymJu2wjiqJkBqWuq-1",
+    "prd_url": "https://docs.google.com/document/d/1h5DD5FW-pMpxr4gInjQlFRuqVA-PmGgdiJ1u3sFt-jw/edit?usp=sharing",
+    "taiga_url": "",
+    "userflow_url": "",
+    "other_docs": ""
+  }
+]
