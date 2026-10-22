@@ -115,6 +115,10 @@ export default function HomePage() {
   }, [tasks, extraQuarters]);
 
   // Filtered tasks
+  const activeQuarterTasksCount = useMemo(() => {
+    return tasks.filter((t) => (t.quarter || 'Q4 2026') === activeQuarter).length;
+  }, [tasks, activeQuarter]);
+
   const filteredTasks = useMemo(() => {
     return tasks.filter((t) => {
       // Quarter filter (Top level workspace scope)
@@ -225,7 +229,7 @@ export default function HomePage() {
         selectedAssignee={selectedAssignee}
         setSelectedAssignee={setSelectedAssignee}
         assignees={assigneesList}
-        totalTasks={tasks.length}
+        totalTasks={activeQuarterTasksCount}
         isSupabaseConnected={isSupabaseConfigured}
         dbStatus={dbStatus}
         activeQuarter={activeQuarter}
