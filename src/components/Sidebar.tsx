@@ -210,12 +210,12 @@ export const Sidebar: React.FC<SidebarProps> = ({
                     {isDesigning ? (
                       <span className="flex items-center gap-1 text-emerald-600 dark:text-emerald-400 font-medium text-[10px] shrink-0 ml-1">
                         <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                        Designing
+                        Nguli
                       </span>
                     ) : (
                       <span className="flex items-center gap-1 text-zinc-400 dark:text-zinc-500 text-[10px] shrink-0 ml-1">
                         <span className="w-1.5 h-1.5 rounded-full bg-zinc-300 dark:bg-zinc-600" />
-                        Standby
+                        Ngopi
                       </span>
                     )}
                   </button>
@@ -291,22 +291,14 @@ export const Sidebar: React.FC<SidebarProps> = ({
         </div>
 
         {/* Supabase Status */}
-        <div className="flex items-center justify-between py-1.5 px-1 text-zinc-500 border-t border-zinc-200/60 dark:border-zinc-800/60">
-          <div className="flex items-center gap-1.5">
-            <Database className="w-3.5 h-3.5 text-zinc-400" />
-            <span>Supabase</span>
+        <div className="border-t border-zinc-200/60 dark:border-zinc-800/60 pt-1">
+          <div className="flex items-center gap-2 py-0.5 px-1 text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors">
+            <Database className="w-3.5 h-3.5 text-zinc-400 shrink-0" />
+            <span className="font-medium">Supabase Database</span>
           </div>
-          {isSupabaseConnected ? (
-            <span className="flex items-center gap-1 text-emerald-600 dark:text-emerald-400 font-medium text-[10px]">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-              Connected
-            </span>
-          ) : (
-            <span className="flex items-center gap-1 text-amber-600 dark:text-amber-400 text-[10px]">
-              <span className="w-1.5 h-1.5 rounded-full bg-amber-500" />
-              Local Cache
-            </span>
-          )}
+          <p className="text-[10px] text-zinc-400 dark:text-zinc-500 pl-6 pb-1 font-mono">
+            {isSupabaseConnected ? 'Connected & Live' : 'Local Cache'}
+          </p>
         </div>
 
         {/* Lock Workspace */}

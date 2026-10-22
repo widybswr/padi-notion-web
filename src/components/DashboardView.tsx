@@ -272,13 +272,10 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Team Workload (Takes 2 cols) */}
         <div className="lg:col-span-2 bg-white dark:bg-zinc-900 p-5 rounded-xl border border-zinc-200/80 dark:border-zinc-800 shadow-2xs">
-          <div className="flex items-center justify-between mb-4">
+          <div className="mb-4">
             <h3 className="text-xs font-semibold uppercase tracking-wider text-zinc-400">
               Team Capacity & Active Workload
             </h3>
-            <span className="text-xs text-zinc-400 font-mono">
-              {teamWorkload.filter((w) => w.active.length > 0).length} designing now
-            </span>
           </div>
 
           <div className="space-y-3.5">
@@ -298,12 +295,12 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
                     {member.active.length > 0 ? (
                       <span className="flex items-center gap-1 text-emerald-600 dark:text-emerald-400 font-medium text-[10px] ml-1">
                         <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                        Designing ({member.active.length})
+                        Nguli ({member.active.length})
                       </span>
                     ) : (
                       <span className="flex items-center gap-1 text-zinc-400 dark:text-zinc-500 text-[10px] ml-1">
                         <span className="w-1.5 h-1.5 rounded-full bg-zinc-300 dark:bg-zinc-700" />
-                        Standby
+                        Ngopi
                       </span>
                     )}
                   </div>
