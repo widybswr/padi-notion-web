@@ -20,6 +20,7 @@ import {
   Pencil,
   Check,
   Hash,
+  ArrowRight,
 } from 'lucide-react';
 
 interface TaskModalProps {
@@ -41,6 +42,15 @@ const ALL_STATUSES: TaskStatus[] = [
   'Done',
   'Cancelled',
 ];
+
+const NEXT_STATUS_MAP: Record<string, { next: TaskStatus; label: string }> = {
+  'Not started': { next: 'In progress design', label: 'Start Design' },
+  'In progress design': { next: 'In review', label: 'Submit for Review' },
+  'Need revision': { next: 'In progress design', label: 'Resume Design' },
+  'In review': { next: 'In PM review', label: 'Move to PM review' },
+  'In PM review': { next: 'Done', label: 'Mark as Done' },
+  'On hold': { next: 'In progress design', label: 'Resume Task' },
+};
 
 const ALL_PRIORITIES: TaskPriority[] = ['Low', 'Medium', 'High', 'P0 - SUPER HIGH'];
 
@@ -298,26 +308,43 @@ export const TaskModal: React.FC<TaskModalProps> = ({
 
           {/* Properties Grid (All directly editable & addable) */}
           <div className="space-y-3.5 text-xs">
-            {/* Status */}
+            {/* Status with Quick Advance Suggestion */}
             <div className="flex items-center gap-4">
               <span className="w-28 text-zinc-400 flex items-center gap-1.5 shrink-0 select-none">
                 <CheckCircle2 className="w-3.5 h-3.5" /> Status
               </span>
-              <div className="relative inline-block">
-                <select
-                  value={formData.status}
-                  onChange={(e) => updateAndSave({ status: e.target.value })}
-                  className="opacity-0 absolute inset-0 w-full h-full cursor-pointer z-10"
-                >
-                  {ALL_STATUSES.map((s) => (
-                    <option key={s} value={s}>
-                      {s}
-                    </option>
-                  ))}
-                </select>
-                <div className="cursor-pointer hover:opacity-80 transition-opacity">
-                  <StatusBadge status={formData.status} size="sm" />
+              <div className="flex items-center gap-2 flex-wrap">
+                <div className="relative inline-block">
+                  <select
+                    value={formData.status}
+                    onChange={(e) => updateAndSave({ status: e.target.value })}
+                    className="opacity-0 absolute inset-0 w-full h-full cursor-pointer z-10"
+                  >
+                    {ALL_STATUSES.map((s) => (
+                      <option key={s} value={s}>
+                        {s}
+                      </option>
+                    ))}
+                  </select>
+                  <div className="cursor-pointer hover:opacity-80 transition-opacity">
+                    <StatusBadge status={formData.status} size="sm" />
+                  </div>
                 </div>
+
+                {/* Quick Advance / Next Positive State Suggestion */}
+                {NEXT_STATUS_MAP[formData.status] && (
+                  <button
+                    type="button"
+                    onClick={() =>
+                      updateAndSave({ status: NEXT_STATUS_MAP[formData.status].next })
+                    }
+                    className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-[11px] font-medium bg-zinc-100 hover:bg-blue-50 dark:bg-zinc-800 dark:hover:bg-blue-950/40 text-zinc-600 hover:text-blue-600 dark:text-zinc-300 dark:hover:text-blue-400 border border-zinc-200/80 dark:border-zinc-700/80 transition-all shadow-2xs group cursor-pointer"
+                    title={`Advance to ${NEXT_STATUS_MAP[formData.status].next}`}
+                  >
+                    <span>{NEXT_STATUS_MAP[formData.status].label}</span>
+                    <ArrowRight className="w-3 h-3 text-zinc-400 group-hover:text-blue-500 transition-transform group-hover:translate-x-0.5" />
+                  </button>
+                )}
               </div>
             </div>
 
