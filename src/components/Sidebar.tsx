@@ -181,11 +181,54 @@ export const Sidebar: React.FC<SidebarProps> = ({
         </div>
       </div>
 
-      {/* Footer / Database Status */}
-      <div className="p-3 border-t border-zinc-200/70 dark:border-zinc-800/80 bg-zinc-100/40 dark:bg-zinc-900/40 text-[11px]">
-        <div className="flex items-center justify-between text-zinc-500">
+      {/* Footer / Resources & Database Status */}
+      <div className="p-3 border-t border-zinc-200/70 dark:border-zinc-800/80 bg-zinc-100/40 dark:bg-zinc-900/40 text-[11px] space-y-1">
+        {/* PaDi Daily Standup */}
+        <a
+          href="https://teams.cloud.microsoft/l/chat/19:meeting_ZTY2ODVhYzQtMjcxNy00NzgwLTlkZDAtODQ0YjFiMzhkMTlm@thread.v2/conversations?context=%7B%22contextType%22%3A%22chat%22%7D"
+          target="_blank"
+          rel="noreferrer"
+          className="flex items-center justify-between py-1.5 px-1 text-zinc-500 hover:text-blue-600 dark:text-zinc-400 dark:hover:text-blue-400 transition-colors"
+        >
+          <div className="flex items-center gap-1.5 truncate">
+            <span>👥</span>
+            <span className="truncate font-medium">PaDi Daily Standup</span>
+          </div>
+          <ExternalLink className="w-3 h-3 shrink-0 opacity-70" />
+        </a>
+
+        {/* Figma File Catalogue */}
+        <a
+          href="https://padi-figma-index.vercel.app"
+          target="_blank"
+          rel="noreferrer"
+          className="flex items-center justify-between py-1.5 px-1 text-zinc-500 hover:text-purple-600 dark:text-zinc-400 dark:hover:text-purple-400 transition-colors border-t border-zinc-200/60 dark:border-zinc-800/60"
+        >
+          <div className="flex items-center gap-1.5 truncate">
+            <span>🎨</span>
+            <span className="truncate font-medium">Figma File Catalogue</span>
+          </div>
+          <ExternalLink className="w-3 h-3 shrink-0 opacity-70" />
+        </a>
+
+        {/* PaDi Design Notion */}
+        <a
+          href="https://app.notion.com/p/PaDi-Design-2e630a0f809180caaecdeff6a5b4b597?pvs=18"
+          target="_blank"
+          rel="noreferrer"
+          className="flex items-center justify-between py-1.5 px-1 text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors border-t border-zinc-200/60 dark:border-zinc-800/60"
+        >
+          <div className="flex items-center gap-1.5 truncate">
+            <span>🌾</span>
+            <span className="truncate font-medium">PaDi Design Notion</span>
+          </div>
+          <ExternalLink className="w-3 h-3 shrink-0 opacity-70" />
+        </a>
+
+        {/* Supabase Status */}
+        <div className="flex items-center justify-between py-1.5 px-1 text-zinc-500 border-t border-zinc-200/60 dark:border-zinc-800/60">
           <div className="flex items-center gap-1.5">
-            <Database className="w-3.5 h-3.5" />
+            <Database className="w-3.5 h-3.5 text-zinc-400" />
             <span>Supabase</span>
           </div>
           {isSupabaseConnected ? (
@@ -200,23 +243,15 @@ export const Sidebar: React.FC<SidebarProps> = ({
             </span>
           )}
         </div>
-        <a
-          href="https://app.notion.com/p/3ec30a0f80918060b6ace35432418190?v=12a30a0f809183149a5808b855188683"
-          target="_blank"
-          rel="noreferrer"
-          className="mt-2 flex items-center justify-between text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-200 transition-colors pt-2 border-t border-zinc-200/40 dark:border-zinc-800/40"
-        >
-          <span>Original Notion</span>
-          <ExternalLink className="w-3 h-3" />
-        </a>
 
+        {/* Lock Workspace */}
         {onLogout && (
           <button
             onClick={onLogout}
-            className="w-full mt-2 flex items-center justify-between text-zinc-400 hover:text-red-500 dark:hover:text-red-400 transition-colors pt-2 border-t border-zinc-200/40 dark:border-zinc-800/40"
+            className="w-full flex items-center justify-between py-1.5 px-1 text-zinc-400 hover:text-red-500 dark:hover:text-red-400 transition-colors border-t border-zinc-200/60 dark:border-zinc-800/60"
           >
             <span>Lock workspace</span>
-            <LogOut className="w-3 h-3" />
+            <LogOut className="w-3 h-3 shrink-0" />
           </button>
         )}
       </div>
