@@ -105,12 +105,13 @@ export default function HomePage() {
   }, [tasks]);
 
   const quartersList = useMemo(() => {
-    const set = new Set<string>(['Q4 2026']);
+    const set = new Set<string>(['Q4 2026', 'Q3 2026', 'Q2 2026', 'Q1 2026']);
     tasks.forEach((t) => {
       if (t.quarter) set.add(t.quarter);
     });
     extraQuarters.forEach((q) => set.add(q));
-    return Array.from(set).sort();
+    // Sort in reverse chronological order (Q4 2026, Q3 2026, Q2 2026, Q1 2026)
+    return Array.from(set).sort((a, b) => b.localeCompare(a));
   }, [tasks, extraQuarters]);
 
   // Filtered tasks

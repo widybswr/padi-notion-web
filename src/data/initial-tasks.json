@@ -4,6 +4,7 @@
     "title": "[Fulfillment] Amandemen PO",
     "status": "In PM review",
     "priority": "High",
+    "quarter": "Q4 2026",
     "wbs": "FUL#1",
     "squads": [
       "Fullfilment"
@@ -21,7 +22,6 @@
     "figma_url": "https://www.figma.com/design/ZpKwhiyxCDiaGyBMjNZxub/Amandemen-PO?node-id=0-1&p=f&t=oasWnbm8NZeZ2FDT-0",
     "prd_url": "https://docs.google.com/document/d/1n9FyNk4ojjS_u5pwaMgknDabBaAHCZhof5Sz2Igpp8k/edit?usp=sharing",
     "taiga_url": "",
-    "userflow_url": "",
     "other_docs": "https://docs.google.com/presentation/d/1_mph35IFPMVShp3YYwuW3xVLN0y4v92yJlplqGFzTBc/edit?usp=sharing"
   },
   {
@@ -29,6 +29,7 @@
     "title": "[Disco] Streamlined Product Upload",
     "status": "In progress design",
     "priority": "High",
+    "quarter": "Q4 2026",
     "wbs": "DSC#2",
     "squads": [
       "Discovery"
@@ -45,7 +46,6 @@
     "figma_url": "https://www.figma.com/design/6AG9LSx1GAag28roAt2luP/New-Add-Product?node-id=6935-7550&t=peoR4dhCZvuQMyDH-0",
     "prd_url": "",
     "taiga_url": "",
-    "userflow_url": "",
     "other_docs": "https://docs.google.com/spreadsheets/d/1lA0lxEBhC2pmKRpSAcPe9cbAaFphL6-Tl80T7gRTDjo/edit?usp=sharing"
   },
   {
@@ -53,6 +53,7 @@
     "title": "[Financing] Borrower Scoring System",
     "status": "Done",
     "priority": "High",
+    "quarter": "Q4 2026",
     "wbs": "FIN#1",
     "squads": [
       "Financing"
@@ -68,7 +69,6 @@
     "figma_url": "https://www.figma.com/design/fNmJJ4X6ZZ2UWS9UBpTFST/Dashboard---User-Financier?node-id=1644-58178&t=QpwDXRtNbCGVUzZa-4",
     "prd_url": "",
     "taiga_url": "",
-    "userflow_url": "",
     "other_docs": ""
   },
   {
@@ -76,6 +76,7 @@
     "title": "[Identity] Registration SPPKP & Bank Account",
     "status": "Done",
     "priority": "High",
+    "quarter": "Q4 2026",
     "wbs": "IDE#1",
     "squads": [
       "Identity"
@@ -91,14 +92,14 @@
     "figma_url": "https://www.figma.com/design/Oh8hQRZATGjoUMOYbGEuk3/Dokumen-Pendukung-SPPKP---Rekening-Seller?node-id=2007-30560&t=SE5Bt6jFtpJnl2gh-1",
     "prd_url": "https://dbttelkom.sharepoint.com/:w:/s/PaDiUMKM/IQBQv5yMoqMwQpaSEpmoMjBjAaSEPYvMOdT7jzkywKXac3Q?e=kKVai3",
     "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/epic/15456",
-    "userflow_url": "https://whimsical.com/visit6/seller-as-buyer-PB13vgQRQNciDEKMUL6DgK",
-    "other_docs": ""
+    "other_docs": "https://whimsical.com/visit6/seller-as-buyer-PB13vgQRQNciDEKMUL6DgK"
   },
   {
     "id": "3ff30a0f-8091-80d9-9030-fa4ca4adcc29",
     "title": "[Core] in-app action chat phase 2",
     "status": "In progress design",
     "priority": "High",
+    "quarter": "Q4 2026",
     "wbs": "COR#1",
     "squads": [
       "Core"
@@ -114,7 +115,6 @@
     "figma_url": "https://www.figma.com/design/HUntytoVyGHSxbnSZ8l2pu/Fitur-Chat?m=auto&t=hRTSM70hBnJWIdF4-6",
     "prd_url": "https://docs.google.com/document/d/1y6P9-NtQCFnBTLUEx3C0tp5xsWGJ4T4K/edit?usp=sharing&ouid=114762300602920565279&rtpof=true&sd=true",
     "taiga_url": "",
-    "userflow_url": "",
     "other_docs": ""
   },
   {
@@ -122,6 +122,7 @@
     "title": "[PaDi] Penyesuaian Landing Page",
     "status": "In progress design",
     "priority": "P0 - SUPER HIGH",
+    "quarter": "Q4 2026",
     "wbs": "IDE#1",
     "squads": [
       "Identity"
@@ -137,7 +138,6 @@
     "figma_url": "https://www.figma.com/design/WERrgS6hnyJlXGa8DWfY3K/Landing-Torasera--PaDi-Seller--PaDi-B2B?node-id=780-3281&t=GmDusfSfIz886Jt1-11",
     "prd_url": "",
     "taiga_url": "",
-    "userflow_url": "",
     "other_docs": ""
   },
   {
@@ -145,6 +145,7 @@
     "title": "[Payment] Penambahan Keterangan VA Expired pada Dokumen Instruksi Pembayaran",
     "status": "In PM review",
     "priority": "High",
+    "quarter": "Q4 2026",
     "wbs": "",
     "squads": [
       "Payment"
@@ -160,7 +161,6 @@
     "figma_url": "https://www.figma.com/design/6AmQqVaNykcXDv4LcWyOe6/Instruksi-Pembayaran?node-id=0-1&t=RGzmlW0JihzJMCPQ-1",
     "prd_url": "https://projects.digitaltelkom.id/project/SPDPT/us/15676?kanban-status=1283",
     "taiga_url": "",
-    "userflow_url": "",
     "other_docs": ""
   },
   {
@@ -168,6 +168,7 @@
     "title": "[Identity] Preparing all assets for new branding",
     "status": "On hold",
     "priority": "P0 - SUPER HIGH",
+    "quarter": "Q4 2026",
     "wbs": "IDE#1",
     "squads": [
       "All"
@@ -181,7 +182,6 @@
     "figma_url": "",
     "prd_url": "",
     "taiga_url": "",
-    "userflow_url": "",
     "other_docs": "https://dbttelkom.sharepoint.com/:x:/s/PaDiUMKM/IQAzM1lqPZMMTLrgcXkwCA6gAcEjeIPFXvdHnkSJjeOb1Ro?e=dogh0R"
   },
   {
@@ -189,6 +189,7 @@
     "title": "[Identity] Compliance Tier Progression for Seller (Seller Ranking)",
     "status": "In progress design",
     "priority": "High",
+    "quarter": "Q4 2026",
     "wbs": "IDE#1",
     "squads": [
       "Identity"
@@ -204,7 +205,6 @@
     "figma_url": "https://www.figma.com/design/l1N7OlwMTrxzmpt2IwoGDU/Visit---Leveling-Compliance-Seller--Seller-Ranking-?node-id=0-1&t=agi2O7kHIko7eLNE-1",
     "prd_url": "https://dbttelkom.sharepoint.com/:w:/s/PaDiUMKM/IQBQv5yMoqMwQpaSEpmoMjBjAaSEPYvMOdT7jzkywKXac3Q?e=cCsZLD",
     "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/epic/15668",
-    "userflow_url": "",
     "other_docs": "https://dbttelkom.sharepoint.com/:x:/r/sites/PaDiUMKM/_layouts/15/Doc.aspx?action=editNew&sourcedoc=%7B0fbbe511-3fa0-4f11-b52c-3738dbb77649%7D&wdExp=TEAMS-TREATMENT&web=1"
   },
   {
@@ -212,6 +212,7 @@
     "title": "[eProc] Template penawaran tender kilat",
     "status": "In progress design",
     "priority": "High",
+    "quarter": "Q4 2026",
     "wbs": "EPC#2",
     "squads": [
       "eProc"
@@ -227,7 +228,6 @@
     "figma_url": "",
     "prd_url": "https://docs.google.com/document/d/1fl1vmdCUcP0uxqeWQDXNDg4kb6QG6zQnlxwi8YgtVh8/edit?usp=sharing",
     "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/15677",
-    "userflow_url": "",
     "other_docs": ""
   },
   {
@@ -235,6 +235,7 @@
     "title": "Landing page Padisera",
     "status": "Done",
     "priority": "Medium",
+    "quarter": "Q4 2026",
     "wbs": "",
     "squads": [],
     "pms": [],
@@ -246,7 +247,6 @@
     "figma_url": "",
     "prd_url": "",
     "taiga_url": "",
-    "userflow_url": "",
     "other_docs": ""
   },
   {
@@ -254,6 +254,7 @@
     "title": "[PaDi] ERP Merah Putih Landing Page",
     "status": "Done",
     "priority": "P0 - SUPER HIGH",
+    "quarter": "Q4 2026",
     "wbs": "",
     "squads": [
       "All"
@@ -269,7 +270,6 @@
     "figma_url": "",
     "prd_url": "",
     "taiga_url": "",
-    "userflow_url": "",
     "other_docs": ""
   },
   {
@@ -277,6 +277,7 @@
     "title": "Untitled",
     "status": "Not started",
     "priority": "Medium",
+    "quarter": "Q4 2026",
     "wbs": "",
     "squads": [],
     "pms": [],
@@ -286,7 +287,6 @@
     "figma_url": "",
     "prd_url": "",
     "taiga_url": "",
-    "userflow_url": "",
     "other_docs": ""
   },
   {
@@ -294,6 +294,7 @@
     "title": "[Core] Adjustment Mekanisme Generate Production Credential Open API PaDi UMKM\n",
     "status": "In PM review",
     "priority": "Medium",
+    "quarter": "Q4 2026",
     "wbs": "",
     "squads": [
       "Core"
@@ -309,7 +310,6 @@
     "figma_url": "https://www.figma.com/design/MmyB3l3DdaVuDnxtZwdfzT/New-Dashboard-OPEN-API?node-id=7483-4427&t=FesU8GlxUJZprmxR-4",
     "prd_url": "https://wiki.digitaltelkom.id/doc/prd-adjustment-mekanisme-generate-production-credential-open-api-padi-umkm-vYSZsz27sG",
     "taiga_url": "",
-    "userflow_url": "",
     "other_docs": ""
   },
   {
@@ -317,6 +317,7 @@
     "title": "Amandemen PO Mobile",
     "status": "In PM review",
     "priority": "High",
+    "quarter": "Q4 2026",
     "wbs": "",
     "squads": [],
     "pms": [],
@@ -328,7 +329,6 @@
     "figma_url": "",
     "prd_url": "",
     "taiga_url": "",
-    "userflow_url": "",
     "other_docs": ""
   },
   {
@@ -336,6 +336,7 @@
     "title": "Amandemen PO Desktop",
     "status": "In PM review",
     "priority": "High",
+    "quarter": "Q4 2026",
     "wbs": "",
     "squads": [],
     "pms": [],
@@ -347,7 +348,6 @@
     "figma_url": "",
     "prd_url": "",
     "taiga_url": "",
-    "userflow_url": "",
     "other_docs": ""
   },
   {
@@ -355,6 +355,7 @@
     "title": "[ALL] PaDi Design System",
     "status": "In review",
     "priority": "High",
+    "quarter": "Q4 2026",
     "wbs": "FIN#3",
     "squads": [
       "All",
@@ -371,7 +372,6 @@
     "figma_url": "https://www.figma.com/design/eJ2zmG6e6i86o9aVdCg95k/PaDi-DS-v3.0?node-id=7207-227402&p=f&t=RgBj7UHHsKR9pvEi-11",
     "prd_url": "",
     "taiga_url": "",
-    "userflow_url": "",
     "other_docs": ""
   },
   {
@@ -379,6 +379,7 @@
     "title": "[Financing] Reactivate Multi PO financing",
     "status": "In review",
     "priority": "High",
+    "quarter": "Q4 2026",
     "wbs": "FIN#1",
     "squads": [
       "Financing"
@@ -395,7 +396,6 @@
     "figma_url": "https://www.figma.com/design/SyAvzqHZ3gn9wg41RphSnB/PO-Financing-Revival?node-id=290-31966",
     "prd_url": "",
     "taiga_url": "",
-    "userflow_url": "",
     "other_docs": ""
   },
   {
@@ -403,6 +403,7 @@
     "title": "[Payment] Update Order Self-Service by Seller",
     "status": "Done",
     "priority": "High",
+    "quarter": "Q4 2026",
     "wbs": "",
     "squads": [
       "Payment"
@@ -418,7 +419,6 @@
     "figma_url": "https://www.figma.com/design/8IOU0FxRk1zTMya50kzqdy/Update-Order---Resolution-Center---Solution-Center?node-id=5293-43344",
     "prd_url": "https://projects.digitaltelkom.id/project/SPDPT/us/15535?kanban-status=1283",
     "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/15535?kanban-status=1283",
-    "userflow_url": "",
     "other_docs": ""
   },
   {
@@ -426,6 +426,7 @@
     "title": "Design Product visibility Components",
     "status": "In progress design",
     "priority": "Medium",
+    "quarter": "Q4 2026",
     "wbs": "DSC#2",
     "squads": [],
     "pms": [],
@@ -437,7 +438,6 @@
     "figma_url": "",
     "prd_url": "",
     "taiga_url": "",
-    "userflow_url": "",
     "other_docs": ""
   },
   {
@@ -445,6 +445,7 @@
     "title": "Design Product shipping Components",
     "status": "In progress design",
     "priority": "Medium",
+    "quarter": "Q4 2026",
     "wbs": "DSC#2",
     "squads": [],
     "pms": [],
@@ -456,7 +457,6 @@
     "figma_url": "",
     "prd_url": "",
     "taiga_url": "",
-    "userflow_url": "",
     "other_docs": ""
   },
   {
@@ -464,6 +464,7 @@
     "title": "Design Product Stock Components",
     "status": "In progress design",
     "priority": "Medium",
+    "quarter": "Q4 2026",
     "wbs": "DSC#2",
     "squads": [],
     "pms": [],
@@ -475,7 +476,6 @@
     "figma_url": "",
     "prd_url": "",
     "taiga_url": "",
-    "userflow_url": "",
     "other_docs": ""
   },
   {
@@ -483,6 +483,7 @@
     "title": "Design Product price Components",
     "status": "In progress design",
     "priority": "Medium",
+    "quarter": "Q4 2026",
     "wbs": "DSC#2",
     "squads": [],
     "pms": [],
@@ -494,7 +495,6 @@
     "figma_url": "",
     "prd_url": "",
     "taiga_url": "",
-    "userflow_url": "",
     "other_docs": ""
   },
   {
@@ -502,6 +502,7 @@
     "title": "Design Media Product Components",
     "status": "In progress design",
     "priority": "Medium",
+    "quarter": "Q4 2026",
     "wbs": "DSC#2",
     "squads": [],
     "pms": [],
@@ -513,7 +514,6 @@
     "figma_url": "",
     "prd_url": "",
     "taiga_url": "",
-    "userflow_url": "",
     "other_docs": ""
   },
   {
@@ -521,6 +521,7 @@
     "title": "Design Certificate Table Components",
     "status": "In progress design",
     "priority": "Medium",
+    "quarter": "Q4 2026",
     "wbs": "DSC#2",
     "squads": [],
     "pms": [],
@@ -532,7 +533,6 @@
     "figma_url": "",
     "prd_url": "",
     "taiga_url": "",
-    "userflow_url": "",
     "other_docs": ""
   },
   {
@@ -540,6 +540,7 @@
     "title": "Design Product Information Components",
     "status": "In progress design",
     "priority": "Medium",
+    "quarter": "Q4 2026",
     "wbs": "DSC#2",
     "squads": [],
     "pms": [],
@@ -551,7 +552,6 @@
     "figma_url": "",
     "prd_url": "",
     "taiga_url": "",
-    "userflow_url": "",
     "other_docs": ""
   },
   {
@@ -559,6 +559,7 @@
     "title": "Explore & Design add product option",
     "status": "In progress design",
     "priority": "Medium",
+    "quarter": "Q4 2026",
     "wbs": "DSC#2",
     "squads": [],
     "pms": [],
@@ -570,7 +571,6 @@
     "figma_url": "",
     "prd_url": "",
     "taiga_url": "",
-    "userflow_url": "",
     "other_docs": ""
   },
   {
@@ -578,6 +578,7 @@
     "title": "Design Stepper Components",
     "status": "In progress design",
     "priority": "Medium",
+    "quarter": "Q4 2026",
     "wbs": "DSC#2",
     "squads": [],
     "pms": [],
@@ -589,7 +590,6 @@
     "figma_url": "",
     "prd_url": "",
     "taiga_url": "",
-    "userflow_url": "",
     "other_docs": ""
   },
   {
@@ -597,6 +597,7 @@
     "title": "[Financing] Reactivate PO financing",
     "status": "In PM review",
     "priority": "High",
+    "quarter": "Q4 2026",
     "wbs": "FIN#1",
     "squads": [
       "Financing"
@@ -613,7 +614,6 @@
     "figma_url": "https://www.figma.com/design/SyAvzqHZ3gn9wg41RphSnB/PO-Financing-Revival",
     "prd_url": "https://docs.google.com/document/d/1eyXI3qBaJoLxYyL8wWHtDGFm8wHMq0cgm1IUsSXMZMY/edit?tab=t.0",
     "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/epic/15455",
-    "userflow_url": "",
     "other_docs": ""
   },
   {
@@ -621,6 +621,7 @@
     "title": "[AIX] Fixing design check in",
     "status": "Need review",
     "priority": "Medium",
+    "quarter": "Q4 2026",
     "wbs": "",
     "squads": [
       "All"
@@ -639,7 +640,6 @@
     "figma_url": "https://www.figma.com/design/hiyG62RGGYJ3nYv4DSkl9K/Flow-Discovery?t=UJjos1cAqeW9HzC3-0",
     "prd_url": "",
     "taiga_url": "",
-    "userflow_url": "",
     "other_docs": ""
   },
   {
@@ -647,6 +647,7 @@
     "title": "[Core] In-App Chat Room Request Action User Button MVP",
     "status": "Done",
     "priority": "High",
+    "quarter": "Q4 2026",
     "wbs": "COR#1",
     "squads": [
       "Core"
@@ -663,7 +664,6 @@
     "figma_url": "https://www.figma.com/design/HUntytoVyGHSxbnSZ8l2pu/Fitur-Chat?node-id=6691-11121",
     "prd_url": "https://wiki.digitaltelkom.id/doc/in-app-chat-room-request-action-user-button-OaEJHmt05e",
     "taiga_url": "",
-    "userflow_url": "",
     "other_docs": ""
   },
   {
@@ -671,6 +671,7 @@
     "title": "[Disburse] Accelerate Disbursement Time Case Invoice Financing",
     "status": "In PM review",
     "priority": "High",
+    "quarter": "Q4 2026",
     "wbs": "DIS#1",
     "squads": [
       "Disbursement"
@@ -686,7 +687,6715 @@
     "figma_url": "https://www.figma.com/design/YNSroUC6uTxZH36QY3cQkV/Mimin---Disbursement-Financing?node-id=0-1&t=ymJu2wjiqJkBqWuq-1",
     "prd_url": "https://docs.google.com/document/d/1h5DD5FW-pMpxr4gInjQlFRuqVA-PmGgdiJ1u3sFt-jw/edit?usp=sharing",
     "taiga_url": "",
-    "userflow_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "39730a0f-8091-80de-9343-f9acc9ccaca3",
+    "title": "Danantara Innovation Hub",
+    "status": "On hold",
+    "priority": "P0 - SUPER HIGH",
+    "quarter": "Q3 2026",
+    "wbs": "",
+    "squads": [
+      "Danantara"
+    ],
+    "pms": [
+      "Naufal"
+    ],
+    "assignees": [
+      "Dian"
+    ],
+    "start_date": "2026-07-07",
+    "end_date": "2026-07-10",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": "maroon-iron.vercel.app"
+  },
+  {
+    "id": "39730a0f-8091-8022-91ce-c1fe77d9ff76",
+    "title": "Torasera transit landing page",
+    "status": "Done",
+    "priority": "P0 - SUPER HIGH",
+    "quarter": "Q3 2026",
+    "wbs": "",
+    "squads": [
+      "Danantara"
+    ],
+    "pms": [
+      "Naufal"
+    ],
+    "assignees": [
+      "Dian"
+    ],
+    "start_date": "2026-07-07",
+    "end_date": "2026-07-08",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "39530a0f-8091-80a1-b9ec-d813968e6a3f",
+    "title": "[Fulfillment] Enhancement order cancelation",
+    "status": "In PM review",
+    "priority": "High",
+    "quarter": "Q3 2026",
+    "wbs": "",
+    "squads": [
+      "Fullfilment"
+    ],
+    "pms": [
+      "Fanny/Alya"
+    ],
+    "assignees": [
+      "Banu"
+    ],
+    "start_date": "2026-07-07",
+    "end_date": "2026-07-10",
+    "figma_url": "https://www.figma.com/design/F8dOMdU8POHc6hoRfH2ewP/Buyer---Batalkan-Pesanan-v1.1?node-id=3002-41459&t=y0TS7t4gm5inNCzV-4",
+    "prd_url": "",
+    "taiga_url": "https://docs.google.com/document/d/1u2tq1haoV-GIhdJtm2W9jDQnHG9CO8Fi5u5ZtZRMM4Y/edit?usp=sharing",
+    "other_docs": ""
+  },
+  {
+    "id": "39730a0f-8091-80ce-9c87-e3b8cb589316",
+    "title": "[Fulfillment] Enhancement order cancelation - Mobile",
+    "status": "In PM review",
+    "priority": "Medium",
+    "quarter": "Q3 2026",
+    "wbs": "",
+    "squads": [
+      "Fullfilment"
+    ],
+    "pms": [],
+    "assignees": [
+      "Banu"
+    ],
+    "start_date": null,
+    "end_date": null,
+    "figma_url": "https://www.figma.com/design/F8dOMdU8POHc6hoRfH2ewP/Buyer---Batalkan-Pesanan-v1.1?node-id=3002-52577&t=y0TS7t4gm5inNCzV-4",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "3e330a0f-8091-8021-892a-fd156232cf58",
+    "title": "[AIX] Fixing design check in",
+    "status": "On hold",
+    "priority": "Medium",
+    "quarter": "Q3 2026",
+    "wbs": "",
+    "squads": [
+      "All"
+    ],
+    "pms": [
+      "All"
+    ],
+    "assignees": [
+      "Sigit",
+      "Banu",
+      "Widy",
+      "Frans"
+    ],
+    "start_date": "2026-09-28",
+    "end_date": "2026-10-02",
+    "figma_url": "https://www.figma.com/design/hiyG62RGGYJ3nYv4DSkl9K/Flow-Discovery?t=UJjos1cAqeW9HzC3-0",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "3e330a0f-8091-80ee-856b-e74525e714d8",
+    "title": "[Financing] Enhancement notification center",
+    "status": "In PM review",
+    "priority": "High",
+    "quarter": "Q3 2026",
+    "wbs": "",
+    "squads": [
+      "Financing"
+    ],
+    "pms": [
+      "Hana"
+    ],
+    "assignees": [
+      "Frans",
+      "Widy"
+    ],
+    "start_date": "2026-09-22",
+    "end_date": "2026-09-25",
+    "figma_url": "https://www.figma.com/design/bBtdsDd1h9wxsgh7bdONlD/-Mimin-PaDi--Notification-Center?node-id=517-10017&t=Qb4gtxJbYqUiRvTz-1",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/15380",
+    "other_docs": ""
+  },
+  {
+    "id": "3e330a0f-8091-8054-9620-d4b2928f7694",
+    "title": "[Disbursement] Improve Balance History",
+    "status": "In PM review",
+    "priority": "High",
+    "quarter": "Q3 2026",
+    "wbs": "",
+    "squads": [
+      "Disbursement"
+    ],
+    "pms": [
+      "Fanny/Alya"
+    ],
+    "assignees": [
+      "Banu"
+    ],
+    "start_date": "2026-09-22",
+    "end_date": "2026-09-25",
+    "figma_url": "https://www.figma.com/design/8joR4kShLsLVNXWjNm1uOV/Mimin---Balance-History?node-id=0-1&t=LECS7MCaKla9vlmP-1",
+    "prd_url": "",
+    "taiga_url": "https://docs.google.com/document/d/1PUmbmmCwkf-45MqXKXy9GMalxYSIRKuPjxD93Teb9uQ/edit?usp=sharing",
+    "other_docs": "https://www.figma.com/board/8NjDl1YldHFaxOBluFOekL/PaDi-UMKM--Copy-?node-id=3807-7403&t=pCyeUJN4Mp96FuEq-11"
+  },
+  {
+    "id": "3de30a0f-8091-80f4-877b-d680602311b3",
+    "title": "[Fulfillment] batalkan permohonann denda",
+    "status": "In PM review",
+    "priority": "High",
+    "quarter": "Q3 2026",
+    "wbs": "",
+    "squads": [
+      "Fullfilment"
+    ],
+    "pms": [
+      "Fanny/Alya"
+    ],
+    "assignees": [
+      "Frans"
+    ],
+    "start_date": "2026-09-17",
+    "end_date": "2026-09-25",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "https://docs.google.com/document/d/1G7SuiNSpBTNAipShtHESiIa8PfaTXu53BzTb-VjQpJ4/edit?usp=sharing",
+    "other_docs": ""
+  },
+  {
+    "id": "3de30a0f-8091-80e1-9746-c7401879109f",
+    "title": "[Payment] replicate UI forms xendit V3",
+    "status": "In PM review",
+    "priority": "Medium",
+    "quarter": "Q3 2026",
+    "wbs": "",
+    "squads": [
+      "Payment"
+    ],
+    "pms": [
+      "Nadhifah"
+    ],
+    "assignees": [
+      "Sigit"
+    ],
+    "start_date": "2026-09-21",
+    "end_date": "2026-09-25",
+    "figma_url": "https://www.figma.com/design/NvA4uLylM6UM3HkRBC9hzw/Checkout---Pengiriman---Payment?node-id=2021-28843&t=Iwe6RvNeq6BD3Eva-4",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "3de30a0f-8091-808a-96d2-d48a568ee8b1",
+    "title": "[Fulfillment] revisi + denda",
+    "status": "In PM review",
+    "priority": "High",
+    "quarter": "Q3 2026",
+    "wbs": "",
+    "squads": [
+      "Fullfilment"
+    ],
+    "pms": [
+      "Fanny/Alya"
+    ],
+    "assignees": [
+      "Widy"
+    ],
+    "start_date": "2026-09-17",
+    "end_date": "2026-09-25",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "https://docs.google.com/document/d/10txGnJTK9uIt5zrGXObTomvbjLWz7RcdeWH7AACz3uA/edit?usp=sharing",
+    "other_docs": ""
+  },
+  {
+    "id": "3dc30a0f-8091-800e-bfd4-d5cbefe8720c",
+    "title": "[Visit] enhancement design banner NIB",
+    "status": "In PM review",
+    "priority": "Medium",
+    "quarter": "Q3 2026",
+    "wbs": "",
+    "squads": [
+      "Visit"
+    ],
+    "pms": [
+      "Lavie"
+    ],
+    "assignees": [
+      "Banu"
+    ],
+    "start_date": "2026-09-15",
+    "end_date": "2026-09-17",
+    "figma_url": "https://www.figma.com/design/gjdiCmg8IHJlHGfxiiTeWP/NIB-Wajib-untuk-Pengisian-Data-Perusahaan-Seller?node-id=614-28912&t=Xcrqvw9th10wrpaY-4",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/15287",
+    "other_docs": ""
+  },
+  {
+    "id": "3db30a0f-8091-8031-a3d0-c8edd17c9fad",
+    "title": "[Core] Banner info untuk migrasi user CT lama ke yg baru",
+    "status": "In PM review",
+    "priority": "High",
+    "quarter": "Q3 2026",
+    "wbs": "",
+    "squads": [],
+    "pms": [],
+    "assignees": [
+      "Frans"
+    ],
+    "start_date": null,
+    "end_date": null,
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "3d830a0f-8091-80a8-b2da-cd0e4c97a765",
+    "title": "Additional CC Input Fields (First/Last Name & Email)",
+    "status": "In PM review",
+    "priority": "High",
+    "quarter": "Q3 2026",
+    "wbs": "",
+    "squads": [],
+    "pms": [],
+    "assignees": [
+      "Frans"
+    ],
+    "start_date": null,
+    "end_date": null,
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/15259?kanban-status=1283",
+    "other_docs": ""
+  },
+  {
+    "id": "3d730a0f-8091-80b1-bc36-dff2cc93429d",
+    "title": "[Payment] Additional CC Input Fields (First/Last Name & Email)",
+    "status": "In PM review",
+    "priority": "High",
+    "quarter": "Q3 2026",
+    "wbs": "",
+    "squads": [
+      "Payment"
+    ],
+    "pms": [
+      "Nadhifah"
+    ],
+    "assignees": [
+      "Frans"
+    ],
+    "start_date": "2026-09-11",
+    "end_date": null,
+    "figma_url": "https://www.figma.com/design/NvA4uLylM6UM3HkRBC9hzw/Checkout---Pengiriman---Payment?node-id=2021-28843&t=Diei8VzMXurpq6uk-11",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/15259?kanban-status=1283",
+    "other_docs": ""
+  },
+  {
+    "id": "3d530a0f-8091-80b8-b98d-d872225f40c2",
+    "title": "[Fulfillment] Coloring tag status refund",
+    "status": "In PM review",
+    "priority": "High",
+    "quarter": "Q3 2026",
+    "wbs": "",
+    "squads": [
+      "Fullfilment"
+    ],
+    "pms": [
+      "Fanny/Alya"
+    ],
+    "assignees": [
+      "Banu"
+    ],
+    "start_date": "2026-09-08",
+    "end_date": "2026-09-10",
+    "figma_url": "https://www.figma.com/design/TD8poWJhgSpupttZN8YGm8/Pesanan---Transaksi?node-id=2-44432&t=CCZuxu1gUxSmabZ4-4",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "3d530a0f-8091-808e-8d4f-e9ada6c99bc6",
+    "title": "[Financing] Landing page PNM",
+    "status": "In PM review",
+    "priority": "Medium",
+    "quarter": "Q3 2026",
+    "wbs": "",
+    "squads": [
+      "Financing"
+    ],
+    "pms": [
+      "Hana"
+    ],
+    "assignees": [
+      "Widy"
+    ],
+    "start_date": "2026-09-14",
+    "end_date": "2026-09-18",
+    "figma_url": "https://www.figma.com/design/Gm9SuTPAa3zeKIY0BCpljl/Landing-Page---Financing-PNM?node-id=0-1",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/15238",
+    "other_docs": "https://dbttelkom-my.sharepoint.com/:p:/r/personal/zahrotus_sholihah_digitaltelkom_id/_layouts/15/Doc.aspx?sourcedoc=%7BB9426DE7-8D2A-43D0-AAF7-E001290C12AA%7D&file=Revamp%20Landing%20Page%20IF%20PNM.pptx&action=edit&mobileredirect=true&DefaultItemOpen=1&web=1"
+  },
+  {
+    "id": "3d530a0f-8091-80bb-a1a0-fa359ee48ef0",
+    "title": "[Core] Banner info untuk migrasi user CT lama ke yg baru",
+    "status": "In PM review",
+    "priority": "Medium",
+    "quarter": "Q3 2026",
+    "wbs": "",
+    "squads": [
+      "Core"
+    ],
+    "pms": [
+      "Alvin"
+    ],
+    "assignees": [
+      "Frans"
+    ],
+    "start_date": "2026-09-08",
+    "end_date": "2026-09-18",
+    "figma_url": "https://www.figma.com/design/bmLkQZVYLM2wcFlbblt4OP/CT-Dashboard---Revamp?node-id=1-11&p=f&t=AVNSnkZpbT7pjwOX-11",
+    "prd_url": "",
+    "taiga_url": "https://docs.google.com/document/d/1pZs4zORLchb7eKGeGBCMnAT33UZqst4dUAvqX551R58/edit?tab=t.0",
+    "other_docs": "https://www.figma.com/board/94xWmt5lIigwPtsSeP1mRO/Flow-Transisi-Platform--New-Control-Tower-Padi?node-id=0-1&p=f&t=bWkhK93xFo1kp0Pq-11"
+  },
+  {
+    "id": "3d430a0f-8091-80ba-9b15-e049fa6fb8a4",
+    "title": "[Transaction] Improve detail PR dan PO di BG under admin perusahaan",
+    "status": "In PM review",
+    "priority": "Medium",
+    "quarter": "Q3 2026",
+    "wbs": "",
+    "squads": [
+      "Transaction"
+    ],
+    "pms": [
+      "Dhana"
+    ],
+    "assignees": [
+      "Banu"
+    ],
+    "start_date": "2026-09-07",
+    "end_date": "2026-09-09",
+    "figma_url": "https://www.figma.com/design/qy4kqL6xVXfX8LZwU30OjZ/Admin-Perusahaan---Buyer-Group-Single-BG?node-id=15745-48448&t=TSpsRI9N2xACknAg-4",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "3d430a0f-8091-80fc-bf7a-c7f9eb5e0dd4",
+    "title": "[Visit] Enhancement registrasi nama toko",
+    "status": "In PM review",
+    "priority": "High",
+    "quarter": "Q3 2026",
+    "wbs": "",
+    "squads": [
+      "Visit"
+    ],
+    "pms": [
+      "Lavie"
+    ],
+    "assignees": [
+      "Banu"
+    ],
+    "start_date": "2026-09-07",
+    "end_date": "2026-09-11",
+    "figma_url": "https://www.figma.com/design/VqLIctrcx2D2ykyCRSxAqG/Seller---Branding-Store---Pop-Up-Nama-Toko?node-id=18-15079&t=PVq4pbWHcOzeqbzq-4",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/15216 ",
+    "other_docs": ""
+  },
+  {
+    "id": "3d430a0f-8091-8007-a14b-ccfcd661f8af",
+    "title": "[Fulfillment] Enhancement detail laporan BAST",
+    "status": "In PM review",
+    "priority": "P0 - SUPER HIGH",
+    "quarter": "Q3 2026",
+    "wbs": "",
+    "squads": [
+      "Fullfilment"
+    ],
+    "pms": [
+      "Fanny/Alya"
+    ],
+    "assignees": [
+      "Widy"
+    ],
+    "start_date": "2026-09-07",
+    "end_date": "2026-09-11",
+    "figma_url": "https://www.figma.com/design/luGg1MC97KLH06JG4c5CQt/Manajemen-Penerimaan-Pesanan-Buyer--Terima-Sebagian-?node-id=546-174883&t=rD0ej4sOfAHhcayK-11",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "3d430a0f-8091-8095-9b20-e8d4ea151ffc",
+    "title": "[Fulfillment] Enhancement pengajuan revisi ditolak",
+    "status": "In PM review",
+    "priority": "High",
+    "quarter": "Q3 2026",
+    "wbs": "",
+    "squads": [
+      "Fullfilment"
+    ],
+    "pms": [
+      "Fanny/Alya"
+    ],
+    "assignees": [
+      "Widy"
+    ],
+    "start_date": "2026-09-14",
+    "end_date": "2026-09-18",
+    "figma_url": "https://www.figma.com/design/luGg1MC97KLH06JG4c5CQt/Manajemen-Penerimaan-Pesanan-Buyer--Terima-Sebagian-?node-id=546-128321&t=rD0ej4sOfAHhcayK-11",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "3d430a0f-8091-8010-825a-f2c328ff5df9",
+    "title": "Daftar Detail Transaksi - Buyer Seller - master file",
+    "status": "In PM review",
+    "priority": "Medium",
+    "quarter": "Q3 2026",
+    "wbs": "",
+    "squads": [],
+    "pms": [],
+    "assignees": [
+      "Widy",
+      "Frans"
+    ],
+    "start_date": null,
+    "end_date": null,
+    "figma_url": "https://www.figma.com/design/TD8poWJhgSpupttZN8YGm8/Pesanan---Transaksi?node-id=55-147671&t=UK3Kqkd6z2m12LSu-0",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "3cf30a0f-8091-80bc-b4ce-ea09bccc53f2",
+    "title": "[Fulfillment] Tunda penerimaan pesanan",
+    "status": "In PM review",
+    "priority": "High",
+    "quarter": "Q3 2026",
+    "wbs": "",
+    "squads": [
+      "Fullfilment"
+    ],
+    "pms": [
+      "Fanny/Alya"
+    ],
+    "assignees": [
+      "Widy"
+    ],
+    "start_date": "2026-09-02",
+    "end_date": "2026-09-11",
+    "figma_url": "https://www.figma.com/design/luGg1MC97KLH06JG4c5CQt/Manajemen-Penerimaan-Pesanan-Buyer--Terima-Sebagian-?node-id=0-1&t=ux3SQWIW4XUulmuE-1",
+    "prd_url": "",
+    "taiga_url": "https://docs.google.com/document/d/10txGnJTK9uIt5zrGXObTomvbjLWz7RcdeWH7AACz3uA/edit?usp=sharing",
+    "other_docs": "https://docs.google.com/presentation/d/1B4IbH-2nQrcjEA294dwJmdyJBfkQ5eHWjZzLzN5aGwA/edit?usp=sharing"
+  },
+  {
+    "id": "3cf30a0f-8091-8000-83f3-f672b5312cd3",
+    "title": "[Core] AI Chat Assistant for Seller",
+    "status": "In PM review",
+    "priority": "High",
+    "quarter": "Q3 2026",
+    "wbs": "",
+    "squads": [
+      "Core"
+    ],
+    "pms": [
+      "Alvin"
+    ],
+    "assignees": [
+      "Frans"
+    ],
+    "start_date": "2026-09-02",
+    "end_date": "2026-09-09",
+    "figma_url": "https://www.figma.com/design/HUntytoVyGHSxbnSZ8l2pu/Fitur-Chat?t=8a7quuxbIkDvvWew-11",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "3ce30a0f-8091-8008-bdb0-feb6a35db438",
+    "title": "[Disbursement] Adjustment menu informasi pencairan dana",
+    "status": "Done",
+    "priority": "High",
+    "quarter": "Q3 2026",
+    "wbs": "",
+    "squads": [],
+    "pms": [],
+    "assignees": [
+      "Frans"
+    ],
+    "start_date": null,
+    "end_date": null,
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "3ce30a0f-8091-8097-ab5c-dbcdb84ef28a",
+    "title": "[Core] Automated Shopping Reminder Based on User Behavior ",
+    "status": "In PM review",
+    "priority": "High",
+    "quarter": "Q3 2026",
+    "wbs": "",
+    "squads": [
+      "Core"
+    ],
+    "pms": [
+      "Alvin"
+    ],
+    "assignees": [
+      "Sigit"
+    ],
+    "start_date": "2026-09-02",
+    "end_date": "2026-09-09",
+    "figma_url": "https://www.figma.com/design/ZVhygJIEnNMQzbWUvvwY3N/Broadcast-Chat-Marketing?node-id=17147-9926&p=f&t=BpdYH5N9rgN7CLEi-11",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "3cd30a0f-8091-80a5-870c-d30c40798973",
+    "title": "[eProc] Thread discussion within penawaran tender kilat",
+    "status": "In PM review",
+    "priority": "High",
+    "quarter": "Q3 2026",
+    "wbs": "",
+    "squads": [
+      "eProc"
+    ],
+    "pms": [
+      "Adnia"
+    ],
+    "assignees": [
+      "Banu"
+    ],
+    "start_date": "2026-08-31",
+    "end_date": "2026-09-11",
+    "figma_url": "https://www.figma.com/design/cqn8z6OvFqGDKuwxTuNsTh/Buyer---Tender-Kilat-v1.2?node-id=4027-36298&t=NbB18km9c1Wgs5Sh-4",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/15144?kanban-status=1283",
+    "other_docs": "https://www.canva.com/design/DAHTW1W2uJg/dKn-AJnif4rbUIQkWPX6gg/edit?utm_content=DAHTW1W2uJg&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"
+  },
+  {
+    "id": "3c830a0f-8091-8029-9b66-d65bba57e2a9",
+    "title": "[Payment] Design simplifikasi invoice retail",
+    "status": "In PM review",
+    "priority": "High",
+    "quarter": "Q3 2026",
+    "wbs": "",
+    "squads": [
+      "Payment"
+    ],
+    "pms": [
+      "Nadhifah"
+    ],
+    "assignees": [
+      "Banu"
+    ],
+    "start_date": "2026-08-26",
+    "end_date": "2026-08-28",
+    "figma_url": "https://www.figma.com/design/xqJfZaQgoTcotRAbdomCfp/Buyer---Invoice?node-id=12-10024&t=BMfa8uiZJrybC081-4",
+    "prd_url": "",
+    "taiga_url": "https://docs.google.com/document/d/1ccR0_4kwM3VF_h1DnSeTH5q5Mfbg3wVKJdopv7QSTBU/edit?tab=t.0",
+    "other_docs": ""
+  },
+  {
+    "id": "3c230a0f-8091-80ad-ac65-ed0cf9071e7e",
+    "title": "[Visit] Authorize Seller phase 1",
+    "status": "In PM review",
+    "priority": "High",
+    "quarter": "Q3 2026",
+    "wbs": "",
+    "squads": [
+      "Visit"
+    ],
+    "pms": [
+      "Lavie"
+    ],
+    "assignees": [
+      "Sigit"
+    ],
+    "start_date": "2026-08-20",
+    "end_date": "2026-09-04",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/epic/15061",
+    "other_docs": ""
+  },
+  {
+    "id": "3c130a0f-8091-8066-a68f-fe38b4ebff47",
+    "title": "[Visit] enhancement design NIB",
+    "status": "Done",
+    "priority": "High",
+    "quarter": "Q3 2026",
+    "wbs": "",
+    "squads": [
+      "Visit"
+    ],
+    "pms": [
+      "Lavie"
+    ],
+    "assignees": [
+      "Frans"
+    ],
+    "start_date": "2026-08-19",
+    "end_date": "2026-08-21",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "3c130a0f-8091-8068-b0e3-d699ec3c30be",
+    "title": "[Transaksi] Wording enhancement daftar transaksi/PR",
+    "status": "Done",
+    "priority": "Medium",
+    "quarter": "Q3 2026",
+    "wbs": "",
+    "squads": [
+      "Transaction"
+    ],
+    "pms": [
+      "Dhana"
+    ],
+    "assignees": [
+      "Banu"
+    ],
+    "start_date": "2026-08-18",
+    "end_date": null,
+    "figma_url": "https://www.figma.com/design/736qROV9HOC8VxWTNC89DE/Buyer---Daftar---Detail-Transaksi-v1.0?node-id=3692-48904&t=a6kHiNHHdgiFrXOs-4",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "3c030a0f-8091-809b-9809-c7ece0ec0114",
+    "title": "Landing page tora enhancement",
+    "status": "In PM review",
+    "priority": "High",
+    "quarter": "Q3 2026",
+    "wbs": "",
+    "squads": [
+      "Visit"
+    ],
+    "pms": [
+      "Lavie"
+    ],
+    "assignees": [
+      "Widy"
+    ],
+    "start_date": "2026-08-19",
+    "end_date": "2026-08-21",
+    "figma_url": "https://www.figma.com/design/WERrgS6hnyJlXGa8DWfY3K/Landing-Torasera?node-id=651-462&t=9mIdlHzwML7lxAoi-11",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "3c030a0f-8091-8042-8eac-d50a267d2bed",
+    "title": "Landing page Seller enhancement",
+    "status": "In PM review",
+    "priority": "High",
+    "quarter": "Q3 2026",
+    "wbs": "",
+    "squads": [
+      "Visit"
+    ],
+    "pms": [
+      "Lavie"
+    ],
+    "assignees": [
+      "Widy"
+    ],
+    "start_date": "2026-08-19",
+    "end_date": "2026-08-21",
+    "figma_url": "https://www.figma.com/design/Kradpq9jiuqgAt57QXcUFd/-Seller--Landing-Page?node-id=2091-462&t=DZ22DBmg8gu6h2JH-11",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "3c030a0f-8091-80f6-868a-f88b126e6ad2",
+    "title": "Landing page B2B enhancement",
+    "status": "Done",
+    "priority": "High",
+    "quarter": "Q3 2026",
+    "wbs": "",
+    "squads": [
+      "Visit"
+    ],
+    "pms": [
+      "Lavie"
+    ],
+    "assignees": [
+      "Frans"
+    ],
+    "start_date": "2026-08-19",
+    "end_date": "2026-08-21",
+    "figma_url": "https://www.figma.com/design/h7Q5bZQ0adBQQhUprCa4av/Visit---Landing-Page-B2B?node-id=0-1&p=f&t=ntLwRNy7ydp8VnrN-11",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "3bc30a0f-8091-8052-a56a-e09e4fcda0be",
+    "title": "[Discovery] Tampilkan informasi product uploaded, product updated di halaman detail produk",
+    "status": "In PM review",
+    "priority": "High",
+    "quarter": "Q3 2026",
+    "wbs": "",
+    "squads": [
+      "Discovery"
+    ],
+    "pms": [
+      "Adnia",
+      "Enrico"
+    ],
+    "assignees": [
+      "Banu"
+    ],
+    "start_date": "2026-08-18",
+    "end_date": "2026-08-20",
+    "figma_url": "https://www.figma.com/design/0h3zX5qhCNk0J32rXMuv67/Disco---Brand-Management?node-id=5-19376&t=s3jMgiMhVeAa1Ods-4",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/14984?kanban-status=1283",
+    "other_docs": ""
+  },
+  {
+    "id": "3bc30a0f-8091-8015-b835-c5bc727c40d4",
+    "title": "[Discovery] Brand Management",
+    "status": "In PM review",
+    "priority": "High",
+    "quarter": "Q3 2026",
+    "wbs": "",
+    "squads": [
+      "Discovery"
+    ],
+    "pms": [
+      "Adnia",
+      "Enrico"
+    ],
+    "assignees": [
+      "Banu"
+    ],
+    "start_date": "2026-08-18",
+    "end_date": "2026-08-20",
+    "figma_url": "https://www.figma.com/design/0h3zX5qhCNk0J32rXMuv67/Disco---Brand-Management?node-id=5-19375&t=s3jMgiMhVeAa1Ods-1",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/14976?kanban-status=1283",
+    "other_docs": ""
+  },
+  {
+    "id": "3b930a0f-8091-80ee-824e-c002918521f6",
+    "title": "[Financing] Enhancement Dashboard Portal Financing",
+    "status": "In PM review",
+    "priority": "Medium",
+    "quarter": "Q3 2026",
+    "wbs": "",
+    "squads": [
+      "Financing"
+    ],
+    "pms": [
+      "Hana"
+    ],
+    "assignees": [
+      "Widy"
+    ],
+    "start_date": "2026-08-11",
+    "end_date": "2026-08-13",
+    "figma_url": "https://www.figma.com/design/fNmJJ4X6ZZ2UWS9UBpTFST/Dashboard---User-Financier?node-id=26-14614&t=8p7S5HiBbvkBqOh2-11",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "3b930a0f-8091-803d-abb9-d6312e98659f",
+    "title": "Adjustment Landing pages (seller, b2b,tora)",
+    "status": "In PM review",
+    "priority": "High",
+    "quarter": "Q3 2026",
+    "wbs": "",
+    "squads": [
+      "All"
+    ],
+    "pms": [
+      "All"
+    ],
+    "assignees": [
+      "Widy"
+    ],
+    "start_date": "2026-08-11",
+    "end_date": "2026-08-13",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "3b830a0f-8091-803d-8d9f-c4cda6bd260c",
+    "title": "adjustment ilustrasi CT login",
+    "status": "Done",
+    "priority": "Medium",
+    "quarter": "Q3 2026",
+    "wbs": "",
+    "squads": [
+      "Core"
+    ],
+    "pms": [
+      "Alvin"
+    ],
+    "assignees": [
+      "Sigit"
+    ],
+    "start_date": "2026-08-10",
+    "end_date": "2026-08-11",
+    "figma_url": "https://www.figma.com/design/iIgDoHcElZgp1nrg1zNL6F/PaDi-Illustrations-v1.0?node-id=314-13451&t=xFlwHXFCf45nnQ4T-11",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "3b430a0f-8091-8051-ba1f-f99e007ec3c8",
+    "title": "[TRX] Dokumen Pendukung PR ",
+    "status": "Done",
+    "priority": "High",
+    "quarter": "Q3 2026",
+    "wbs": "",
+    "squads": [
+      "Transaction"
+    ],
+    "pms": [
+      "Dhana"
+    ],
+    "assignees": [
+      "Banu"
+    ],
+    "start_date": null,
+    "end_date": null,
+    "figma_url": "https://www.figma.com/design/1wbGLblEEDTSwocpDAOKVn/-Trx--Dokumen-Pendukung-PR?node-id=0-1&t=VSdfRkoUgzL7D8pI-1",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "3b230a0f-8091-8073-8207-df708c13365e",
+    "title": "[Visit] Flow Registrasi Seller Wajib NIB",
+    "status": "Done",
+    "priority": "High",
+    "quarter": "Q3 2026",
+    "wbs": "",
+    "squads": [
+      "Visit"
+    ],
+    "pms": [
+      "Lavie"
+    ],
+    "assignees": [
+      "Frans"
+    ],
+    "start_date": "2026-08-05",
+    "end_date": "2026-08-11",
+    "figma_url": "https://www.figma.com/design/gjdiCmg8IHJlHGfxiiTeWP/NIB-Wajib-untuk-Pengisian-Data-Perusahaan-Seller?node-id=0-1&p=f&t=3w10hix1G7Nvx45S-11",
+    "prd_url": "",
+    "taiga_url": "https://dbttelkom.sharepoint.com/:w:/r/sites/PaDiUMKM/_layouts/15/Doc.aspx?action=edit&sourcedoc=%7B2634a110-45d1-47e3-a8db-a9bd0fd6046b%7D&wdExp=TEAMS-TREATMENT&web=1",
+    "other_docs": "https://dbttelkom.sharepoint.com/:p:/r/sites/PaDiUMKM/_layouts/15/Doc.aspx?sourcedoc=%7B91A9F75E-8542-4011-9A83-A4C5F37FB863%7D&file=%5BVisit%5D%20User%20Guide%20Pengecekan%20NPWP%20Penjual.pptx&action=edit&mobileredirect=true&wdExp=TEAMS-TREATMENT&web=1"
+  },
+  {
+    "id": "3b230a0f-8091-80f0-a4f9-cc78abf642b8",
+    "title": "[TRX] Enhancement flow revisi PR",
+    "status": "In PM review",
+    "priority": "High",
+    "quarter": "Q3 2026",
+    "wbs": "",
+    "squads": [
+      "Transaction"
+    ],
+    "pms": [
+      "Dhana"
+    ],
+    "assignees": [
+      "Banu"
+    ],
+    "start_date": "2026-08-04",
+    "end_date": "2026-08-06",
+    "figma_url": "https://www.figma.com/design/9dGlVBK80wiIViB1DyM7Il/Revisi-Pesanan---2025?node-id=5426-43822&t=yY3ZyK4PsONdib3h-4",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "3b130a0f-8091-80f7-9159-d819af373dc1",
+    "title": "[TRX] Enhancement rekomendasi pembayaran pintar",
+    "status": "In PM review",
+    "priority": "High",
+    "quarter": "Q3 2026",
+    "wbs": "",
+    "squads": [
+      "Transaction"
+    ],
+    "pms": [
+      "Dhana"
+    ],
+    "assignees": [
+      "Sigit"
+    ],
+    "start_date": "2026-08-04",
+    "end_date": "2026-08-06",
+    "figma_url": "https://www.figma.com/design/PveRWyo0PJzGdThvQLJxMy/Revamp-CO-process--%3E-Detail-PR?node-id=7131-4153&t=Z96SAM07GI4sjCo5-4",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "3b130a0f-8091-80d4-8566-cd6c141669b6",
+    "title": "[Visit] Field Nama Toko sebagai Brand untuk pencarian Seller",
+    "status": "In PM review",
+    "priority": "Medium",
+    "quarter": "Q3 2026",
+    "wbs": "",
+    "squads": [
+      "Visit"
+    ],
+    "pms": [
+      "Lavie"
+    ],
+    "assignees": [
+      "Sigit"
+    ],
+    "start_date": "2026-08-04",
+    "end_date": "2026-08-18",
+    "figma_url": "https://www.figma.com/design/eezw2fNLa5Ibq4XbLKCURF/Branding-Store?node-id=1-6&p=f&t=KqNUDlDdkXVV5ahf-0",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/epic/14898",
+    "other_docs": ""
+  },
+  {
+    "id": "3b130a0f-8091-80c0-bb8c-fa97656d4669",
+    "title": "[Core][Revisi] Dashboard open API",
+    "status": "Done",
+    "priority": "High",
+    "quarter": "Q3 2026",
+    "wbs": "",
+    "squads": [
+      "Core"
+    ],
+    "pms": [
+      "Alvin"
+    ],
+    "assignees": [
+      "Sigit"
+    ],
+    "start_date": "2026-08-03",
+    "end_date": "2026-08-05",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "3ad30a0f-8091-8038-84ed-c1e038315bcd",
+    "title": "[Discovery] Penambahan badge \"Khusus B2B\" di card produk",
+    "status": "In PM review",
+    "priority": "Medium",
+    "quarter": "Q3 2026",
+    "wbs": "",
+    "squads": [
+      "Discovery"
+    ],
+    "pms": [
+      "Adnia",
+      "Enrico"
+    ],
+    "assignees": [
+      "Banu"
+    ],
+    "start_date": "2026-07-29",
+    "end_date": "2026-07-31",
+    "figma_url": "https://www.figma.com/design/qafAzRsbcm3mQIqGwZtM7H/Buyer---Card-Product?node-id=15-14541&t=ufNVYf2zqIu5YS4m-4",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "3ac30a0f-8091-8002-b7ea-e2c4817ba6f0",
+    "title": "Landing Page Torasera",
+    "status": "On hold",
+    "priority": "High",
+    "quarter": "Q3 2026",
+    "wbs": "",
+    "squads": [
+      "Torasera"
+    ],
+    "pms": [
+      "Naufal"
+    ],
+    "assignees": [
+      "Widy"
+    ],
+    "start_date": "2026-07-29",
+    "end_date": "2026-07-31",
+    "figma_url": "https://www.figma.com/design/WERrgS6hnyJlXGa8DWfY3K/Landing-Torasera?node-id=0-1&p=f&t=pvuy5hl8L6314geL-0",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "3ac30a0f-8091-8000-89c4-fa83425c1ebe",
+    "title": "[Pegadaian] [Seller] [Mimin] Sebagai user, saya dapat melihat nilai Sisa Bayar ke Financier dan nilai Saldo Rekening Pendamping",
+    "status": "Done",
+    "priority": "High",
+    "quarter": "Q3 2026",
+    "wbs": "",
+    "squads": [
+      "Financing"
+    ],
+    "pms": [
+      "Hana"
+    ],
+    "assignees": [
+      "Frans"
+    ],
+    "start_date": "2026-07-29",
+    "end_date": "2026-07-31",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/14869",
+    "other_docs": ""
+  },
+  {
+    "id": "3ab30a0f-8091-8078-afbc-f6b808517e51",
+    "title": "[Visit][Buyer] Fitur baru pendaftaran Buyer sebagai Akun B2B",
+    "status": "In PM review",
+    "priority": "High",
+    "quarter": "Q3 2026",
+    "wbs": "",
+    "squads": [
+      "Visit"
+    ],
+    "pms": [
+      "Lavie"
+    ],
+    "assignees": [
+      "Banu"
+    ],
+    "start_date": "2026-07-27",
+    "end_date": "2026-07-29",
+    "figma_url": "https://www.figma.com/design/vd74qmpFkULOSMcRrZLT17/Visit---Register-B2B-v3.0?node-id=3333-90605&t=fyLFTMK8Il85qDIS-11",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/14654",
+    "other_docs": ""
+  },
+  {
+    "id": "3ab30a0f-8091-801c-bed5-fa04e1fd2f84",
+    "title": "[Visit] [Buyer] Landing page pendaftaran B2B",
+    "status": "In PM review",
+    "priority": "High",
+    "quarter": "Q3 2026",
+    "wbs": "",
+    "squads": [
+      "Torasera",
+      "Visit"
+    ],
+    "pms": [
+      "Lavie"
+    ],
+    "assignees": [
+      "Banu"
+    ],
+    "start_date": "2026-07-27",
+    "end_date": "2026-07-31",
+    "figma_url": "https://www.figma.com/design/h7Q5bZQ0adBQQhUprCa4av/Visit---Landing-Page-B2B?node-id=0-1&t=a9lr7dzVarwQ1kIp-1",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/14654",
+    "other_docs": "https://dbttelkom-my.sharepoint.com/:p:/r/personal/umi_ismiati_digitaltelkom_id/_layouts/15/Doc.aspx?sourcedoc=%7B2237223C-6A02-4949-94E5-ED76C5425FEC%7D&file=Landingpage%20Registration%20B2B.pptx&fromShare=true&action=edit&mobileredirect=true"
+  },
+  {
+    "id": "3aa30a0f-8091-802d-9eb5-fe1f7d76270e",
+    "title": "[Financier] Sebagai user, saya dapat melihat dan mengunduh folder berisi file-file ZIP untuk keperluan assessment",
+    "status": "In PM review",
+    "priority": "Medium",
+    "quarter": "Q3 2026",
+    "wbs": "",
+    "squads": [
+      "Financing"
+    ],
+    "pms": [
+      "Hana"
+    ],
+    "assignees": [
+      "Widy",
+      "Frans"
+    ],
+    "start_date": "2026-07-27",
+    "end_date": "2026-07-31",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/14857?kanban-status=1283",
+    "other_docs": ""
+  },
+  {
+    "id": "3aa30a0f-8091-808a-ad99-caea2634cfb6",
+    "title": "[Financier] Sebagai user, saya dapat melihat informasi terkait Aging Pembayaran dan Average Overdue Days dari buyer yang bertransaksi dalam invoice yang diajukan",
+    "status": "In PM review",
+    "priority": "Medium",
+    "quarter": "Q3 2026",
+    "wbs": "",
+    "squads": [
+      "Financing"
+    ],
+    "pms": [
+      "Hana"
+    ],
+    "assignees": [
+      "Widy",
+      "Frans"
+    ],
+    "start_date": "2026-07-27",
+    "end_date": "2026-07-31",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/14856?kanban-status=1283",
+    "other_docs": ""
+  },
+  {
+    "id": "3a730a0f-8091-80b0-a053-ecc932591aae",
+    "title": "[Info PaDi] Landing page Info PaDi mengikuti Identitas Brand",
+    "status": "On hold",
+    "priority": "Medium",
+    "quarter": "Q3 2026",
+    "wbs": "",
+    "squads": [],
+    "pms": [],
+    "assignees": [
+      "Dian"
+    ],
+    "start_date": "2026-07-16",
+    "end_date": "2026-07-31",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/14826",
+    "other_docs": ""
+  },
+  {
+    "id": "3a730a0f-8091-8079-afa0-d8e89fd1d0a6",
+    "title": "[Seller] PaDi UMKM - Mendaftarkan diri menjadi seller retail (konversi dan nambahin diampu Retail aja)",
+    "status": "On hold",
+    "priority": "Medium",
+    "quarter": "Q3 2026",
+    "wbs": "",
+    "squads": [],
+    "pms": [],
+    "assignees": [
+      "Sigit"
+    ],
+    "start_date": "2026-07-16",
+    "end_date": "2026-07-31",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/14666",
+    "other_docs": ""
+  },
+  {
+    "id": "3a030a0f-8091-8093-8e98-e866a43db713",
+    "title": "[Torasera][Financing] Dashboard seller",
+    "status": "Done",
+    "priority": "P0 - SUPER HIGH",
+    "quarter": "Q3 2026",
+    "wbs": "",
+    "squads": [
+      "Financing"
+    ],
+    "pms": [
+      "Hana"
+    ],
+    "assignees": [
+      "Dian"
+    ],
+    "start_date": "2026-07-16",
+    "end_date": "2026-07-24",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/14683?kanban-status=1283",
+    "other_docs": ""
+  },
+  {
+    "id": "3a030a0f-8091-809c-9c09-e7e3af5c119d",
+    "title": "[Discovery - Torasera] Buat design beberapa halaman Torasera untuk Seller",
+    "status": "On hold",
+    "priority": "P0 - SUPER HIGH",
+    "quarter": "Q3 2026",
+    "wbs": "",
+    "squads": [
+      "Discovery"
+    ],
+    "pms": [
+      "Enrico"
+    ],
+    "assignees": [
+      "Sigit"
+    ],
+    "start_date": "2026-07-16",
+    "end_date": "2026-07-24",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/14681?kanban-status=1283",
+    "other_docs": ""
+  },
+  {
+    "id": "3a030a0f-8091-80f2-847c-c072624298d5",
+    "title": "[Torasera][Discovery] Buat design beberapa halaman Torasera untuk Buyer Retail",
+    "status": "On hold",
+    "priority": "P0 - SUPER HIGH",
+    "quarter": "Q3 2026",
+    "wbs": "",
+    "squads": [
+      "Discovery"
+    ],
+    "pms": [
+      "Enrico"
+    ],
+    "assignees": [
+      "Frans"
+    ],
+    "start_date": "2026-07-16",
+    "end_date": "2026-07-24",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/14680?kanban-status=1283",
+    "other_docs": ""
+  },
+  {
+    "id": "3a030a0f-8091-8027-848d-f5ffe33cfa94",
+    "title": "[Toraresa][Disco] Tora epic",
+    "status": "Done",
+    "priority": "P0 - SUPER HIGH",
+    "quarter": "Q3 2026",
+    "wbs": "",
+    "squads": [
+      "Discovery"
+    ],
+    "pms": [
+      "Enrico"
+    ],
+    "assignees": [
+      "Sigit",
+      "Frans"
+    ],
+    "start_date": "2026-07-16",
+    "end_date": "2026-07-24",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "39f30a0f-8091-8001-a840-c1460e9777f1",
+    "title": "[Mimin] Pembeda/filtering user torasera.id (gapapa masih di list yang sama) (apply ke Buyer sama Seller)",
+    "status": "In PM review",
+    "priority": "P0 - SUPER HIGH",
+    "quarter": "Q3 2026",
+    "wbs": "",
+    "squads": [
+      "Visit"
+    ],
+    "pms": [
+      "Lavie"
+    ],
+    "assignees": [
+      "Banu"
+    ],
+    "start_date": "2026-07-16",
+    "end_date": "2026-07-24",
+    "figma_url": "https://www.figma.com/design/MFF7Uq1JM3lK6kTrtAhTlS/-User--Buyer---Seller?node-id=0-1&t=h6aR7uO84viufDFz-1",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/14668",
+    "other_docs": ""
+  },
+  {
+    "id": "39f30a0f-8091-8086-8fd7-d43e96fd1a18",
+    "title": "[Seller] Data diri perusahaan torasera.id",
+    "status": "On hold",
+    "priority": "P0 - SUPER HIGH",
+    "quarter": "Q3 2026",
+    "wbs": "",
+    "squads": [
+      "Visit"
+    ],
+    "pms": [
+      "Lavie"
+    ],
+    "assignees": [
+      "Sigit"
+    ],
+    "start_date": "2026-07-16",
+    "end_date": "2026-07-24",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/14667",
+    "other_docs": ""
+  },
+  {
+    "id": "39f30a0f-8091-8090-b7e0-d523124987fa",
+    "title": "[Seller] PaDi UMKM - Mendaftarkan diri menjadi seller torasera.id (nambah flagging)",
+    "status": "On hold",
+    "priority": "P0 - SUPER HIGH",
+    "quarter": "Q3 2026",
+    "wbs": "",
+    "squads": [
+      "Visit"
+    ],
+    "pms": [
+      "Lavie"
+    ],
+    "assignees": [
+      "Sigit"
+    ],
+    "start_date": "2026-07-16",
+    "end_date": "2026-07-24",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/14666",
+    "other_docs": ""
+  },
+  {
+    "id": "39f30a0f-8091-802d-958d-e6c57fdf0ab2",
+    "title": "[Seller] Daftar sebagai penjual torasera.id",
+    "status": "Done",
+    "priority": "P0 - SUPER HIGH",
+    "quarter": "Q3 2026",
+    "wbs": "",
+    "squads": [
+      "Visit"
+    ],
+    "pms": [
+      "Lavie"
+    ],
+    "assignees": [
+      "Frans",
+      "Widy"
+    ],
+    "start_date": "2026-07-16",
+    "end_date": "2026-07-24",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/14665",
+    "other_docs": ""
+  },
+  {
+    "id": "39f30a0f-8091-80a3-9e62-cedd6caee6b8",
+    "title": "[Seller] Landing page seller torasera.id",
+    "status": "In PM review",
+    "priority": "P0 - SUPER HIGH",
+    "quarter": "Q3 2026",
+    "wbs": "",
+    "squads": [
+      "Visit"
+    ],
+    "pms": [
+      "Lavie"
+    ],
+    "assignees": [
+      "Widy",
+      "Banu"
+    ],
+    "start_date": "2026-07-16",
+    "end_date": "2026-07-24",
+    "figma_url": "https://www.figma.com/design/Kradpq9jiuqgAt57QXcUFd/Landing-Page?node-id=2038-160",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/14661",
+    "other_docs": ""
+  },
+  {
+    "id": "39f30a0f-8091-80b8-ada3-ebc1a81b7dde",
+    "title": "[Buyer][Seller] SnK Torasera",
+    "status": "On hold",
+    "priority": "P0 - SUPER HIGH",
+    "quarter": "Q3 2026",
+    "wbs": "",
+    "squads": [
+      "Visit"
+    ],
+    "pms": [
+      "Lavie"
+    ],
+    "assignees": [
+      "Dian"
+    ],
+    "start_date": "2026-07-16",
+    "end_date": "2026-07-24",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/14658",
+    "other_docs": ""
+  },
+  {
+    "id": "39f30a0f-8091-8068-bd8b-f9aed39c387f",
+    "title": "[Buyer] Konten/branding all feature khusus torasera.id",
+    "status": "On hold",
+    "priority": "P0 - SUPER HIGH",
+    "quarter": "Q3 2026",
+    "wbs": "",
+    "squads": [
+      "Visit"
+    ],
+    "pms": [
+      "Lavie"
+    ],
+    "assignees": [
+      "Dian"
+    ],
+    "start_date": "2026-07-16",
+    "end_date": "2026-07-24",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/14660",
+    "other_docs": ""
+  },
+  {
+    "id": "39f30a0f-8091-8085-89d6-dc8478161adf",
+    "title": "[Buyer] Tampilan negative case Buyer B2B PaDi tidak dapat login di torasera.id",
+    "status": "Cancelled",
+    "priority": "P0 - SUPER HIGH",
+    "quarter": "Q3 2026",
+    "wbs": "",
+    "squads": [
+      "Visit"
+    ],
+    "pms": [
+      "Lavie"
+    ],
+    "assignees": [
+      "Banu"
+    ],
+    "start_date": "2026-07-16",
+    "end_date": "2026-07-24",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/14659",
+    "other_docs": ""
+  },
+  {
+    "id": "39f30a0f-8091-807d-acad-d5d3e75223f4",
+    "title": "[Buyer] Template Mailing/Notification service khusus torasera.id",
+    "status": "On hold",
+    "priority": "P0 - SUPER HIGH",
+    "quarter": "Q3 2026",
+    "wbs": "",
+    "squads": [
+      "Visit"
+    ],
+    "pms": [
+      "Lavie"
+    ],
+    "assignees": [
+      "Dian"
+    ],
+    "start_date": "2026-07-16",
+    "end_date": "2026-07-24",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/14657",
+    "other_docs": ""
+  },
+  {
+    "id": "39f30a0f-8091-80a1-bf48-ce4fef3f9581",
+    "title": "[Buyer-Retail] PaDi UMKM - Login ke torasera.id dengan credentials yang sama setelah dia approve didaftarkan",
+    "status": "On hold",
+    "priority": "P0 - SUPER HIGH",
+    "quarter": "Q3 2026",
+    "wbs": "",
+    "squads": [
+      "Visit"
+    ],
+    "pms": [
+      "Lavie"
+    ],
+    "assignees": [
+      "Sigit"
+    ],
+    "start_date": "2026-07-16",
+    "end_date": "2026-07-24",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/14656",
+    "other_docs": ""
+  },
+  {
+    "id": "39f30a0f-8091-80d6-9065-e7713b8fbe8f",
+    "title": "[Buyer-Retail] PaDi UMKM - Pop up untuk mendaftarkan user retail ke torasera (nambah flagging)",
+    "status": "On hold",
+    "priority": "P0 - SUPER HIGH",
+    "quarter": "Q3 2026",
+    "wbs": "",
+    "squads": [
+      "Visit"
+    ],
+    "pms": [
+      "Lavie"
+    ],
+    "assignees": [
+      "Dian"
+    ],
+    "start_date": "2026-07-16",
+    "end_date": "2026-07-24",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/14655",
+    "other_docs": ""
+  },
+  {
+    "id": "39f30a0f-8091-8019-981f-ef966fde887c",
+    "title": "[Buyer] Fitur baru daftar sebagai Retail torasera.id",
+    "status": "Done",
+    "priority": "P0 - SUPER HIGH",
+    "quarter": "Q3 2026",
+    "wbs": "",
+    "squads": [
+      "Visit",
+      "Torasera"
+    ],
+    "pms": [
+      "Lavie"
+    ],
+    "assignees": [
+      "Frans",
+      "Widy"
+    ],
+    "start_date": "2026-07-16",
+    "end_date": "2026-07-24",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/14653",
+    "other_docs": ""
+  },
+  {
+    "id": "39f30a0f-8091-80fd-ab14-df0371102545",
+    "title": "[Torasera][Visit] Tora visit project",
+    "status": "On hold",
+    "priority": "Medium",
+    "quarter": "Q3 2026",
+    "wbs": "",
+    "squads": [
+      "Visit",
+      "Torasera"
+    ],
+    "pms": [],
+    "assignees": [
+      "Dian",
+      "Sigit",
+      "Banu",
+      "Frans",
+      "Widy"
+    ],
+    "start_date": "2026-07-16",
+    "end_date": "2026-07-24",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "39f30a0f-8091-80ad-b273-f0917dc9f634",
+    "title": "[Torasera][Fufillment][Mimin] Sebagai Admin dapat membedakan transaksi mana yang dicheckout dari Torasera dan PaDi",
+    "status": "In PM review",
+    "priority": "P0 - SUPER HIGH",
+    "quarter": "Q3 2026",
+    "wbs": "",
+    "squads": [
+      "Fullfilment",
+      "Torasera"
+    ],
+    "pms": [
+      "Fanny/Alya"
+    ],
+    "assignees": [
+      "Banu"
+    ],
+    "start_date": "2026-07-16",
+    "end_date": "2026-07-24",
+    "figma_url": "https://www.figma.com/design/UAVv7aqA23jOl3P18X6DCj/Daftar-Transaksi-1.0?node-id=0-1&t=1AVIbBwsUUbKhb2l-1",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/14669?kanban-status=1280",
+    "other_docs": ""
+  },
+  {
+    "id": "39f30a0f-8091-80e8-85ee-cac1501cbc8f",
+    "title": "Detail PR",
+    "status": "On hold",
+    "priority": "P0 - SUPER HIGH",
+    "quarter": "Q3 2026",
+    "wbs": "",
+    "squads": [
+      "Transaction",
+      "Torasera"
+    ],
+    "pms": [
+      "Dhana"
+    ],
+    "assignees": [],
+    "start_date": "2026-07-16",
+    "end_date": "2026-07-18",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "39f30a0f-8091-807e-a631-d8dd1428d3ae",
+    "title": "List PR/daftar PR",
+    "status": "On hold",
+    "priority": "P0 - SUPER HIGH",
+    "quarter": "Q3 2026",
+    "wbs": "",
+    "squads": [
+      "Transaction",
+      "Torasera"
+    ],
+    "pms": [
+      "Dhana"
+    ],
+    "assignees": [],
+    "start_date": "2026-07-16",
+    "end_date": "2026-07-18",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "39f30a0f-8091-80f1-a069-ff9069c2c2d1",
+    "title": "Cart",
+    "status": "On hold",
+    "priority": "P0 - SUPER HIGH",
+    "quarter": "Q3 2026",
+    "wbs": "",
+    "squads": [
+      "Transaction",
+      "Torasera"
+    ],
+    "pms": [
+      "Dhana"
+    ],
+    "assignees": [],
+    "start_date": "2026-07-16",
+    "end_date": "2026-07-18",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "39f30a0f-8091-8043-8075-ee1cca55acac",
+    "title": "Checkout page",
+    "status": "On hold",
+    "priority": "P0 - SUPER HIGH",
+    "quarter": "Q3 2026",
+    "wbs": "",
+    "squads": [
+      "Transaction",
+      "Torasera"
+    ],
+    "pms": [
+      "Dhana"
+    ],
+    "assignees": [],
+    "start_date": "2026-07-16",
+    "end_date": "2026-07-18",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "39f30a0f-8091-80ba-8858-c54f9fe4b6b0",
+    "title": "[Torasera][TRX] Design Torasera Halaman checkout page, cart, Detail PR dan list PR",
+    "status": "Done",
+    "priority": "P0 - SUPER HIGH",
+    "quarter": "Q3 2026",
+    "wbs": "",
+    "squads": [
+      "Transaction",
+      "Torasera"
+    ],
+    "pms": [
+      "Dhana"
+    ],
+    "assignees": [
+      "Widy",
+      "Frans"
+    ],
+    "start_date": "2026-07-16",
+    "end_date": "2026-07-24",
+    "figma_url": "https://www.figma.com/design/NPCZLnyNB54SekgN35gGV7/Checkout-1.0?m=auto&t=b8adzGSQOnWf5jYp-6",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/14670?kanban-status=1283",
+    "other_docs": ""
+  },
+  {
+    "id": "39f30a0f-8091-80d6-9fb0-fec3770e5313",
+    "title": "[Fulfillment] Enhancement BA Rekon",
+    "status": "Done",
+    "priority": "High",
+    "quarter": "Q3 2026",
+    "wbs": "",
+    "squads": [
+      "Fullfilment"
+    ],
+    "pms": [
+      "Fanny/Alya"
+    ],
+    "assignees": [
+      "Widy",
+      "Frans"
+    ],
+    "start_date": "2026-07-13",
+    "end_date": "2026-07-17",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "https://docs.google.com/document/d/10txGnJTK9uIt5zrGXObTomvbjLWz7RcdeWH7AACz3uA/edit?usp=sharing",
+    "other_docs": ""
+  },
+  {
+    "id": "39830a0f-8091-804b-9f69-d7565bb3f26d",
+    "title": "[Transaction] Enhancement Approval Berjenjang ",
+    "status": "Done",
+    "priority": "High",
+    "quarter": "Q3 2026",
+    "wbs": "",
+    "squads": [
+      "Transaction"
+    ],
+    "pms": [
+      "Dhana"
+    ],
+    "assignees": [
+      "Frans",
+      "Widy"
+    ],
+    "start_date": "2026-07-09",
+    "end_date": "2026-07-10",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "33330a0f-8091-803a-a708-f99a9669107f",
+    "title": "[Financing] Revisian di BNI dan Danareksa",
+    "status": "In PM review",
+    "priority": "High",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [
+      "Financing"
+    ],
+    "pms": [
+      "Hana"
+    ],
+    "assignees": [
+      "Widy"
+    ],
+    "start_date": "2026-03-30",
+    "end_date": "2026-04-01",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "33330a0f-8091-808e-a35d-f4665cce7b61",
+    "title": "[Financing] Financier Dashboard",
+    "status": "In PM review",
+    "priority": "High",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [
+      "Financing"
+    ],
+    "pms": [
+      "Hana"
+    ],
+    "assignees": [
+      "Widy"
+    ],
+    "start_date": "2026-03-30",
+    "end_date": "2026-04-01",
+    "figma_url": "https://www.figma.com/design/fNmJJ4X6ZZ2UWS9UBpTFST/Financier-Dashboard?node-id=0-1&p=f&t=21unBHt7y7z3mrfY-0",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/13198?kanban-q=financier%20dashboard&kanban-status=1283",
+    "other_docs": ""
+  },
+  {
+    "id": "34230a0f-8091-804e-8019-cbbbf3059139",
+    "title": "[Financing] dashboard set password",
+    "status": "In PM review",
+    "priority": "Medium",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [
+      "Financing"
+    ],
+    "pms": [
+      "Hana"
+    ],
+    "assignees": [
+      "Widy"
+    ],
+    "start_date": "2026-04-14",
+    "end_date": "2026-04-16",
+    "figma_url": "https://www.figma.com/design/fNmJJ4X6ZZ2UWS9UBpTFST/Financier-Dashboard?node-id=0-1&p=f&t=n9jeonaqoiBRkZae-0",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "34230a0f-8091-807c-93d6-fc155f55551e",
+    "title": "[Financing] [Seller] Sebagai user, saya dapat mengajukan pinjaman ke financier yang menggunakan portal",
+    "status": "In PM review",
+    "priority": "High",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [
+      "Financing"
+    ],
+    "pms": [
+      "Hana"
+    ],
+    "assignees": [
+      "Widy"
+    ],
+    "start_date": "2026-04-14",
+    "end_date": "2026-04-17",
+    "figma_url": "https://www.figma.com/design/YFJHu0x3W6dsFMMDDtwYUe/Financing-Portal?node-id=0-1&t=uk79dwrOfbe4rdNe-1",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/13570?kanban-status=1283",
+    "other_docs": ""
+  },
+  {
+    "id": "33430a0f-8091-801a-8bef-e81d1a9bb523",
+    "title": "[Fulfillment] Fitur denda ultimate version",
+    "status": "In PM review",
+    "priority": "High",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [
+      "Fullfilment"
+    ],
+    "pms": [
+      "Fanny/Lintang"
+    ],
+    "assignees": [
+      "Widy"
+    ],
+    "start_date": "2026-04-01",
+    "end_date": "2026-04-17",
+    "figma_url": "https://www.figma.com/design/E9hwRf9fLIZwfKI1uaF4WW/Denda-Pengiriman-Terlambat?node-id=31-4198&t=YhCEPJTx8n7ZMR5Y-0",
+    "prd_url": "",
+    "taiga_url": "https://docs.google.com/document/d/1V9zF6CS4NmDsPfyiF1I_tWI2Z74yx6n2/edit?usp=sharing&ouid=108722546911374127538&rtpof=true&sd=true",
+    "other_docs": "https://www.figma.com/board/8NjDl1YldHFaxOBluFOekL/PaDi-UMKM--Copy-?node-id=2192-1067&t=DUyRUHctwHcnkmmU-4"
+  },
+  {
+    "id": "34930a0f-8091-8003-804d-ff0dbe415a8c",
+    "title": "[Visit] [Seller Suspend] Bagde dan pop up batasan akses pada fitur tertentu",
+    "status": "In PM review",
+    "priority": "High",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [
+      "Visit"
+    ],
+    "pms": [
+      "Lavie"
+    ],
+    "assignees": [
+      "Widy"
+    ],
+    "start_date": "2026-04-22",
+    "end_date": "2026-04-24",
+    "figma_url": "https://www.figma.com/design/y30P1Ixi2NPD7ljEzszTX5/-Visit--Automated-seller---Manual-Buyer-suspend-system?node-id=804-28372&t=YWz4H752E9sfkIDi-11",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/13669",
+    "other_docs": ""
+  },
+  {
+    "id": "34930a0f-8091-8033-9b10-ce5d6f9fd30f",
+    "title": "[Financier] Saya dapat melihat detail pinjaman dan update status pengajuan pinjaman multi-invoice",
+    "status": "Done",
+    "priority": "Medium",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [
+      "Financing"
+    ],
+    "pms": [
+      "Hana"
+    ],
+    "assignees": [
+      "Frans",
+      "Widy"
+    ],
+    "start_date": "2026-04-20",
+    "end_date": "2026-04-22",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/13665",
+    "other_docs": ""
+  },
+  {
+    "id": "34930a0f-8091-801d-9435-e916ca236d90",
+    "title": "[Visit] [Multi-BG Manager] Pop up switch pada notifikasi pada BG lain yang terdaftar namun tidak sedang dipilih",
+    "status": "In PM review",
+    "priority": "High",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [
+      "Visit"
+    ],
+    "pms": [
+      "Lavie"
+    ],
+    "assignees": [
+      "Widy"
+    ],
+    "start_date": "2026-04-21",
+    "end_date": "2026-04-24",
+    "figma_url": "https://www.figma.com/design/ekzrYybQttVo9R9zCcenm4/Buyer-Manager-Multiple-Buyer-Group?node-id=4394-15771&t=WACPgPCdoAVY4NXk-11",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/13668",
+    "other_docs": ""
+  },
+  {
+    "id": "34830a0f-8091-8015-a0ba-f088f14e8cf6",
+    "title": "[Financing] Pemisahan antara single invoice dan multi invoice",
+    "status": "Done",
+    "priority": "High",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [
+      "Financing"
+    ],
+    "pms": [
+      "Hana"
+    ],
+    "assignees": [
+      "Frans",
+      "Widy"
+    ],
+    "start_date": "2026-04-20",
+    "end_date": "2026-04-22",
+    "figma_url": "https://www.figma.com/design/fNmJJ4X6ZZ2UWS9UBpTFST/Financier-Dashboard?node-id=0-1&p=f&t=MMYimXJkHPZMvZmq-11",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/13646",
+    "other_docs": ""
+  },
+  {
+    "id": "35230a0f-8091-80b6-ab7d-f89b12669861",
+    "title": "Mapping All Cases Daftar & Detail Transaksi",
+    "status": "On hold",
+    "priority": "Medium",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [],
+    "pms": [],
+    "assignees": [
+      "Widy"
+    ],
+    "start_date": null,
+    "end_date": null,
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "36530a0f-8091-80d0-af6c-f3ba8f82c1cf",
+    "title": "[Mimin PaDi] Dashboard Financing Mimin CMS - Revisions",
+    "status": "Done",
+    "priority": "Medium",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [],
+    "pms": [],
+    "assignees": [
+      "Widy"
+    ],
+    "start_date": null,
+    "end_date": null,
+    "figma_url": "https://www.figma.com/design/MLThU5HkzE2r7CBL2GkmQv/-Mimin-PaDi--Dashboard-Financing-Mimin-CMS?node-id=0-1&p=f&t=QnFeVGFz5Sp9BCNy-11",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "35130a0f-8091-80a5-abb8-fa40b5aba5bc",
+    "title": "Financier Dashboard sync data di Figma dan API",
+    "status": "In PM review",
+    "priority": "Medium",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [],
+    "pms": [
+      "Hana"
+    ],
+    "assignees": [
+      "Widy"
+    ],
+    "start_date": null,
+    "end_date": null,
+    "figma_url": "https://www.figma.com/design/fNmJJ4X6ZZ2UWS9UBpTFST/Financier-Dashboard?node-id=887-18817&t=fjfL98Kwk6UN0zJA-1",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "35130a0f-8091-8092-9f8e-ef3450caca66",
+    "title": "[Seller] Halaman Detail Pinjaman khusus Pinjaman BNI",
+    "status": "In PM review",
+    "priority": "Medium",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [
+      "Financing"
+    ],
+    "pms": [
+      "Hana"
+    ],
+    "assignees": [
+      "Widy"
+    ],
+    "start_date": null,
+    "end_date": null,
+    "figma_url": "https://www.figma.com/design/JxydRgsJK7V1notVRX0OND/BANK-BNI---Financing?node-id=1951-24615",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/13806",
+    "other_docs": ""
+  },
+  {
+    "id": "34b30a0f-8091-8032-8adb-f4bcdae67dba",
+    "title": "Rebuild Master Component BUYER SELLER MIMIN",
+    "status": "On hold",
+    "priority": "Medium",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [],
+    "pms": [],
+    "assignees": [
+      "Widy",
+      "Sigit",
+      "Banu",
+      "Frans"
+    ],
+    "start_date": null,
+    "end_date": null,
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "35930a0f-8091-803b-a91a-d28d3c10c4b8",
+    "title": "Rapi2 design sytem (fokus di rapi2 design pattern)",
+    "status": "On hold",
+    "priority": "High",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [
+      "All"
+    ],
+    "pms": [],
+    "assignees": [
+      "Sigit",
+      "Banu",
+      "Dian",
+      "Widy",
+      "Frans"
+    ],
+    "start_date": "2026-05-07",
+    "end_date": "2026-05-08",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "35630a0f-8091-80dd-8ab5-ea9b311316bb",
+    "title": "Fulfill part seller",
+    "status": "In PM review",
+    "priority": "Medium",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [],
+    "pms": [],
+    "assignees": [
+      "Widy"
+    ],
+    "start_date": "2026-05-04",
+    "end_date": "2026-05-06",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "35230a0f-8091-8006-ba4f-ce92f239377f",
+    "title": "Part Fulfillment",
+    "status": "In PM review",
+    "priority": "Medium",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [],
+    "pms": [],
+    "assignees": [
+      "Widy",
+      "Frans"
+    ],
+    "start_date": "2026-05-04",
+    "end_date": "2026-05-06",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "34930a0f-8091-80a4-986d-ecd1c9c883e3",
+    "title": "[Financier] Jika halaman Aktivasi Password sudah expired maka saya dapat mengetahui informasinya secara jelas",
+    "status": "Done",
+    "priority": "Medium",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [
+      "Financing"
+    ],
+    "pms": [
+      "Hana"
+    ],
+    "assignees": [
+      "Widy"
+    ],
+    "start_date": "2026-04-20",
+    "end_date": "2026-04-22",
+    "figma_url": "https://www.figma.com/design/fNmJJ4X6ZZ2UWS9UBpTFST/Financier-Dashboard?node-id=575-15675&t=xGbWMz6MTp3CNr6l-11",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/13664",
+    "other_docs": ""
+  },
+  {
+    "id": "36530a0f-8091-80a8-ba7c-c3cf05c1595d",
+    "title": "[Seller] Flow Ajukan Pinjaman - BNI",
+    "status": "Done",
+    "priority": "Medium",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [],
+    "pms": [],
+    "assignees": [
+      "Widy"
+    ],
+    "start_date": null,
+    "end_date": null,
+    "figma_url": "https://www.figma.com/design/JxydRgsJK7V1notVRX0OND/-Seller--Flow-Ajukan-Pinjaman---BNI?node-id=1951-24813&t=GCDJSUJtDNiBV8sq-11",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "34f30a0f-8091-8074-93f8-e5fa405cce28",
+    "title": "[Financing] Adjustment wording BNI",
+    "status": "In PM review",
+    "priority": "High",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [
+      "Financing"
+    ],
+    "pms": [
+      "Hana"
+    ],
+    "assignees": [
+      "Widy"
+    ],
+    "start_date": "2026-04-29",
+    "end_date": "2026-04-30",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "34430a0f-8091-8048-997e-f4c02961d014",
+    "title": "Revisi Retensi",
+    "status": "In PM review",
+    "priority": "High",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [
+      "All"
+    ],
+    "pms": [
+      "All"
+    ],
+    "assignees": [
+      "Sigit",
+      "Frans",
+      "Widy",
+      "Banu"
+    ],
+    "start_date": "2026-04-16",
+    "end_date": "2026-04-30",
+    "figma_url": "https://www.figma.com/design/fJ04PVkN4Px4awnWJaV0LF/Retensi?node-id=1-6&p=f&t=XiCJBhCf0WQmONJZ-11",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "37a30a0f-8091-8096-b4f3-fcf0da4bd458",
+    "title": "[Visit] Approval manager from visit side",
+    "status": "In PM review",
+    "priority": "High",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [
+      "Visit"
+    ],
+    "pms": [
+      "Lavie",
+      "Enrico"
+    ],
+    "assignees": [
+      "Widy",
+      "Frans"
+    ],
+    "start_date": "2026-06-09",
+    "end_date": "2026-06-19",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "37530a0f-8091-80e4-9c99-fa595786e138",
+    "title": "[Financing][Seller] Sebagai user, saya dapat mengetahui informasi terkait tentang masing-masing penyedia pinjaman dan mengajukan pinjaman ke penyedia yang saya inginkan",
+    "status": "In PM review",
+    "priority": "Medium",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [
+      "Financing"
+    ],
+    "pms": [
+      "Hana"
+    ],
+    "assignees": [
+      "Widy"
+    ],
+    "start_date": "2026-06-04",
+    "end_date": "2026-06-12",
+    "figma_url": "https://www.figma.com/design/egUXKrnoOIHAN4IJp4ZCVx/-Dashboard-Pinjaman--Revamp-june-2026?node-id=0-1&t=E6XtMXz04bGaenat-1",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/14145",
+    "other_docs": ""
+  },
+  {
+    "id": "37530a0f-8091-80b7-9e6d-da219a8a8e4b",
+    "title": "[Financing][Seller] Sebagai user, saya dapat membaca informasi terkait pinjaman tersedia dengan jelas",
+    "status": "In PM review",
+    "priority": "Medium",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [
+      "Financing"
+    ],
+    "pms": [
+      "Hana"
+    ],
+    "assignees": [
+      "Widy"
+    ],
+    "start_date": "2026-06-04",
+    "end_date": "2026-06-12",
+    "figma_url": "https://www.figma.com/design/EFy5hd5bXQ1GEVJo2Ogoju/-Pilihan-Pinjaman--Revamp-JUN-2026?node-id=0-1&t=nTR7hBogQ6Zlwmut-1",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/14143",
+    "other_docs": ""
+  },
+  {
+    "id": "37430a0f-8091-802c-8855-d318466f448b",
+    "title": "[Trx] Approval berjenjang",
+    "status": "In PM review",
+    "priority": "High",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [
+      "Transaction"
+    ],
+    "pms": [
+      "Dhana"
+    ],
+    "assignees": [
+      "Widy",
+      "Frans"
+    ],
+    "start_date": "2026-06-03",
+    "end_date": "2026-06-12",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "https://docs.google.com/document/d/1vwFbPWJb6CtIZ6nw-T08Pk6GrmnyAcQTSrCntnzDw44/edit?tab=t.0",
+    "other_docs": ""
+  },
+  {
+    "id": "36830a0f-8091-80da-8d26-c9667b7a5195",
+    "title": "[Mimin PaDi] Dashboard Financing Mimin CMS – Figma",
+    "status": "In PM review",
+    "priority": "High",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [
+      "Financing"
+    ],
+    "pms": [
+      "Hana"
+    ],
+    "assignees": [
+      "Widy"
+    ],
+    "start_date": "2026-05-22",
+    "end_date": "2026-05-25",
+    "figma_url": "https://www.figma.com/design/MLThU5HkzE2r7CBL2GkmQv/-Mimin-PaDi--Dashboard-Financing-Mimin-CMS?node-id=71-7744&t=jS8kTIX5cJvARLwP-0",
+    "prd_url": "",
+    "taiga_url": "by figma comments",
+    "other_docs": ""
+  },
+  {
+    "id": "34f30a0f-8091-8011-bf1e-f142f2c11a6a",
+    "title": "[Disburse] Adjustment rekening disburse di refund saldo",
+    "status": "In PM review",
+    "priority": "High",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [
+      "Disbursement"
+    ],
+    "pms": [
+      "Rizki"
+    ],
+    "assignees": [
+      "Dian",
+      "Widy"
+    ],
+    "start_date": "2026-04-29",
+    "end_date": "2026-04-30",
+    "figma_url": "https://www.figma.com/design/fJ04PVkN4Px4awnWJaV0LF/Retensi?node-id=7100-38782&p=f&t=77imgvvyOOMgGd1i-11",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "34b30a0f-8091-80e0-aff3-db7a66d73eb5",
+    "title": "[Mimin] Sidebar Navigation",
+    "status": "Done",
+    "priority": "Medium",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [],
+    "pms": [],
+    "assignees": [
+      "Widy"
+    ],
+    "start_date": null,
+    "end_date": null,
+    "figma_url": "https://www.figma.com/design/00A5trbVLiEDcWltUucoMw/Mimin---Sidebar-Navigation?m=auto&t=MGrx0UjOJ0ooypSY-6",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "38330a0f-8091-8048-86cd-ee670ade77f1",
+    "title": "[Financing] Revamp Dashboard Pinjaman, Pilihan Pinjaman, Multi-Invoice Financing",
+    "status": "In PM review",
+    "priority": "Medium",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [],
+    "pms": [
+      "Hana"
+    ],
+    "assignees": [
+      "Widy"
+    ],
+    "start_date": null,
+    "end_date": null,
+    "figma_url": "https://www.figma.com/design/egUXKrnoOIHAN4IJp4ZCVx/-Dashboard-Pinjaman--Revamp-june-2026?node-id=0-1&p=f&t=L3T7XBThjEsBa8BZ-0",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "38e30a0f-8091-807a-b309-cb2a306b7530",
+    "title": "[Approval Berjenjang] [Mimin] Sebagai user, saya dapat melihat data pengguna buyer group yang ditambahkan oleh Admin Perusahaan ",
+    "status": "In PM review",
+    "priority": "High",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [
+      "Visit"
+    ],
+    "pms": [
+      "Lavie"
+    ],
+    "assignees": [
+      "Widy",
+      "Frans"
+    ],
+    "start_date": "2026-06-29",
+    "end_date": "2026-07-01",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "38e30a0f-8091-8016-966d-ff20042e74ee",
+    "title": "[BNI] [Seller] Jika saya ingin mengajukan pengaktifan limit maka saya harus memiliki dokumen NIB",
+    "status": "In PM review",
+    "priority": "High",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [
+      "Financing"
+    ],
+    "pms": [
+      "Hana"
+    ],
+    "assignees": [
+      "Widy"
+    ],
+    "start_date": "2026-06-29",
+    "end_date": "2026-07-01",
+    "figma_url": "https://www.figma.com/design/JxydRgsJK7V1notVRX0OND/Ajukan-Pinjaman---BNI?node-id=2104-13897&t=b1nrLfw72M7SR9bV-4",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/14479",
+    "other_docs": ""
+  },
+  {
+    "id": "38430a0f-8091-800b-b4ca-f99573383af4",
+    "title": "[Visit] Revisi approval berjenjang",
+    "status": "In progress design",
+    "priority": "Medium",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [
+      "Visit"
+    ],
+    "pms": [
+      "Lavie"
+    ],
+    "assignees": [
+      "Widy",
+      "Frans"
+    ],
+    "start_date": "2026-06-19",
+    "end_date": "2026-06-23",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "39030a0f-8091-8053-aa07-d5a5c87b8de2",
+    "title": "Pop up illustration Revamp",
+    "status": "In review",
+    "priority": "Medium",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [],
+    "pms": [],
+    "assignees": [
+      "Widy",
+      "Frans"
+    ],
+    "start_date": null,
+    "end_date": null,
+    "figma_url": "https://www.figma.com/design/iIgDoHcElZgp1nrg1zNL6F/PaDi-Illustrations-v1.0?node-id=24-11667&p=f&t=cCYtqMmMLVVnXT6A-0",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "38f30a0f-8091-80f0-aa97-c68bf9be3ccf",
+    "title": "[Transaction] update informasi pada list PR dan detail PR",
+    "status": "Need review",
+    "priority": "High",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [
+      "Transaction"
+    ],
+    "pms": [
+      "Dhana"
+    ],
+    "assignees": [
+      "Banu"
+    ],
+    "start_date": "2026-07-01",
+    "end_date": "2026-07-03",
+    "figma_url": "https://www.figma.com/design/736qROV9HOC8VxWTNC89DE/Buyer---Daftar-Transaksi-v1.0?node-id=78-23480&t=BpkDydqmpXS3JlbO-1",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/14491?kanban-status=1283",
+    "other_docs": ""
+  },
+  {
+    "id": "afe30a0f-8091-8224-b508-01394662f917",
+    "title": "[Disbursement][Revisi] Monitoring page pencairan dana",
+    "status": "In PM review",
+    "priority": "Medium",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [
+      "Disbursement"
+    ],
+    "pms": [
+      "Naufal"
+    ],
+    "assignees": [
+      "Banu"
+    ],
+    "start_date": "2026-06-29",
+    "end_date": "2026-07-01",
+    "figma_url": "https://www.figma.com/design/GVtQKFliqrCyz6MZCFUMQW/05-Menu-Pencairan-Disbursement?node-id=1109-26088",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/14409?kanban-status=1283",
+    "other_docs": ""
+  },
+  {
+    "id": "38930a0f-8091-8012-bba2-f28301fc525f",
+    "title": "[Core] Sticky message di chat room",
+    "status": "In progress design",
+    "priority": "Low",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [
+      "Core"
+    ],
+    "pms": [
+      "Alvin"
+    ],
+    "assignees": [
+      "Sigit"
+    ],
+    "start_date": "2026-06-26",
+    "end_date": "2026-07-01",
+    "figma_url": "https://www.figma.com/design/6281b3OzpbD8hrPMoi4Ah5/Sticky-Chat-Room?node-id=6908-2118&t=2XnUxhQa6rgBrvVx-0",
+    "prd_url": "",
+    "taiga_url": "https://docs.google.com/document/d/1wOP2UlYTS2_ad9UI1RtBzvbpr82qhGJnEEQOZi082Oo/edit?usp=sharing",
+    "other_docs": ""
+  },
+  {
+    "id": "38830a0f-8091-8042-a8c5-cdc8e368e1fe",
+    "title": "[Disbursement] Monitoring page pencairan dana",
+    "status": "In PM review",
+    "priority": "Medium",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [
+      "Disbursement"
+    ],
+    "pms": [
+      "Naufal"
+    ],
+    "assignees": [
+      "Banu"
+    ],
+    "start_date": "2026-06-23",
+    "end_date": "2026-06-25",
+    "figma_url": "https://www.figma.com/design/GVtQKFliqrCyz6MZCFUMQW/05-Menu-Pencairan-Disbursement?node-id=1109-26088",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/14409?kanban-status=1283",
+    "other_docs": ""
+  },
+  {
+    "id": "38730a0f-8091-8026-986c-e556455d7c8b",
+    "title": "Enhancement Landing Page ERP MP",
+    "status": "In PM review",
+    "priority": "P0 - SUPER HIGH",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [
+      "All"
+    ],
+    "pms": [
+      "Enrico"
+    ],
+    "assignees": [
+      "Frans"
+    ],
+    "start_date": "2026-06-22",
+    "end_date": "2026-06-22",
+    "figma_url": "https://www.figma.com/design/AlngvdtaxETXnJJ2L0bkMF/ERP-merah-putih-landing-page?node-id=0-1&p=f&t=eLWFgpxYCLb6CIrD-11",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "38730a0f-8091-80a8-b540-e3daa993e8c4",
+    "title": "Enhancement Subscription",
+    "status": "In PM review",
+    "priority": "P0 - SUPER HIGH",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [
+      "All"
+    ],
+    "pms": [
+      "Enrico"
+    ],
+    "assignees": [
+      "Sigit"
+    ],
+    "start_date": "2026-06-22",
+    "end_date": "2026-06-22",
+    "figma_url": "https://www.figma.com/design/tmGB8BqHWY3rs6jhpm1bvB/Subscription-v1.0?node-id=0-1&p=f&t=dEw9Do7yjZFkVdEw-11",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "38730a0f-8091-80d4-aeab-ce67b764bad5",
+    "title": "[Discovery] Desain Fair Pricing Buyer & Seller",
+    "status": "In PM review",
+    "priority": "High",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [
+      "Discovery"
+    ],
+    "pms": [
+      "Enrico",
+      "Adnia"
+    ],
+    "assignees": [
+      "Banu"
+    ],
+    "start_date": "2026-06-22",
+    "end_date": "2026-06-24",
+    "figma_url": "https://www.figma.com/design/TbDTmlzhYu6uNjyIfQ3uKB/Disco---Fair-Pricing-Seller---Buyer-v1.0?node-id=2-2&t=WbF7ZJ7oQgoNM62I-1",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/14351?kanban-status=1283",
+    "other_docs": ""
+  },
+  {
+    "id": "38330a0f-8091-80b3-a239-f14bf1605bf5",
+    "title": "[P0] ERP merah putih landing page",
+    "status": "In PM review",
+    "priority": "P0 - SUPER HIGH",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [
+      "All"
+    ],
+    "pms": [
+      "Naufal"
+    ],
+    "assignees": [
+      "Frans"
+    ],
+    "start_date": "2026-06-18",
+    "end_date": "2026-06-20",
+    "figma_url": "https://www.figma.com/design/AlngvdtaxETXnJJ2L0bkMF/ERP-merah-putih-landing-page?node-id=0-1&p=f&t=7PV46X4qcM8nwyAi-11",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "37c30a0f-8091-8069-bbe2-ff161f58236c",
+    "title": "[Payment] adjustment di update order",
+    "status": "In PM review",
+    "priority": "Medium",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [
+      "Payment"
+    ],
+    "pms": [
+      "Nadhifah"
+    ],
+    "assignees": [
+      "Banu"
+    ],
+    "start_date": "2026-06-15",
+    "end_date": "2026-06-19",
+    "figma_url": "https://www.figma.com/design/8IOU0FxRk1zTMya50kzqdy/Update-Order---Resolution-Center---Solution-Center?node-id=3265-12000&t=WM93dI0cYCEjyasV-0",
+    "prd_url": "",
+    "taiga_url": "https://docs.google.com/document/d/1GGtJIM9tsNR8enxI_fx8__ff4872wSjDum_5ol5A-8A/edit?tab=t.0",
+    "other_docs": ""
+  },
+  {
+    "id": "37c30a0f-8091-80e6-9b21-ddf335ba080f",
+    "title": "[eTender/Portal Tender] Desain halaman portal tender berisi informasi tender dari berbagai BUMN yang terintegrasi",
+    "status": "In PM review",
+    "priority": "Medium",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [
+      "eProc"
+    ],
+    "pms": [
+      "Adnia",
+      "Enrico"
+    ],
+    "assignees": [
+      "Banu"
+    ],
+    "start_date": "2026-06-11",
+    "end_date": "2026-06-19",
+    "figma_url": "https://www.figma.com/design/BEQZPbcGZyZQPHV9jRA5Xx/Portal-Tender-BUMN?node-id=1-514&t=sUlERRghPmVaI4f7-1",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/14207",
+    "other_docs": ""
+  },
+  {
+    "id": "37b30a0f-8091-80e6-8477-cda7a4217d6a",
+    "title": "[Financing] Filter financing di mimin",
+    "status": "In PM review",
+    "priority": "Medium",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [
+      "Financing"
+    ],
+    "pms": [
+      "Hana"
+    ],
+    "assignees": [
+      "Banu"
+    ],
+    "start_date": "2026-06-10",
+    "end_date": "2026-06-11",
+    "figma_url": "https://www.figma.com/design/PqHxEb6GY96rAgWbe8u5YN/Filter-Daftar-Transaksi-Financing?node-id=0-1&t=JVvLOvWMY0f9GxWx-1",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/14216?kanban-status=1283",
+    "other_docs": ""
+  },
+  {
+    "id": "37930a0f-8091-805f-8573-d21629cbeedc",
+    "title": "Tender kilat negosiasi ongkir - Mimin",
+    "status": "In PM review",
+    "priority": "Medium",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [],
+    "pms": [],
+    "assignees": [
+      "Banu"
+    ],
+    "start_date": null,
+    "end_date": null,
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "37930a0f-8091-804b-b46b-eca53ec051f1",
+    "title": "Tender kilat negosiasi ongkir - Seller",
+    "status": "In PM review",
+    "priority": "Medium",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [],
+    "pms": [],
+    "assignees": [
+      "Banu"
+    ],
+    "start_date": null,
+    "end_date": null,
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "37930a0f-8091-8079-8938-dbde14dd6df0",
+    "title": "Tender kilat negosiasi ongkir - Buyer",
+    "status": "In PM review",
+    "priority": "Medium",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [],
+    "pms": [],
+    "assignees": [
+      "Banu"
+    ],
+    "start_date": null,
+    "end_date": null,
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "37630a0f-8091-807f-a3de-e534e4e77e90",
+    "title": "[Core] Dashboard open API",
+    "status": "In progress design",
+    "priority": "High",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [
+      "Core"
+    ],
+    "pms": [
+      "Alvin"
+    ],
+    "assignees": [
+      "Sigit"
+    ],
+    "start_date": "2026-06-09",
+    "end_date": "2026-06-19",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "37430a0f-8091-804d-b75a-fd7e0b2a9218",
+    "title": "Tender kilat negosiasi ongkir",
+    "status": "In PM review",
+    "priority": "Medium",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [
+      "eProc"
+    ],
+    "pms": [
+      "Enrico",
+      "Adnia"
+    ],
+    "assignees": [
+      "Banu"
+    ],
+    "start_date": "2026-06-03",
+    "end_date": "2026-06-12",
+    "figma_url": "https://www.figma.com/design/4p3z7NArJpsDipMjCD6F1s/Buyer---Tender-Kilat-v1.1?node-id=0-1&t=T9m2YKtmptVAySEK-1",
+    "prd_url": "",
+    "taiga_url": "https://docs.google.com/document/d/1C0sWOr1Cnz5QGT4kBuVzQqzvLL3y9jnFkGocSqMBGyA/edit?usp=sharing&pli=1&authuser=2",
+    "other_docs": ""
+  },
+  {
+    "id": "36b30a0f-8091-80fa-bef5-ccdd1c1792c2",
+    "title": "[Buyer] Buyer Retail",
+    "status": "On hold",
+    "priority": "Medium",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [],
+    "pms": [],
+    "assignees": [
+      "Banu"
+    ],
+    "start_date": null,
+    "end_date": null,
+    "figma_url": "https://www.figma.com/design/iCJEDBGlPzC5A4zAUMiEHZ/Mimin---Buyer-Retail?m=auto&t=j6nM6SwiK6BbnIji-6",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "36b30a0f-8091-80e0-85d4-db2112274856",
+    "title": "[Buyer] Buyer Group",
+    "status": "On hold",
+    "priority": "Medium",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [],
+    "pms": [],
+    "assignees": [
+      "Banu"
+    ],
+    "start_date": null,
+    "end_date": null,
+    "figma_url": "https://www.figma.com/design/prpH5qvbI9kbgpX8UriXEo/Mimin---Buyer-Group?node-id=0-1&t=ck78dL52rBlFcuKJ-1",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "36530a0f-8091-8081-9002-d04ffc447482",
+    "title": "Mimin side",
+    "status": "In PM review",
+    "priority": "Medium",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [],
+    "pms": [],
+    "assignees": [],
+    "start_date": null,
+    "end_date": null,
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "36530a0f-8091-8060-870c-d553ae3bcfa0",
+    "title": "Seller side",
+    "status": "In PM review",
+    "priority": "Medium",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [],
+    "pms": [],
+    "assignees": [],
+    "start_date": null,
+    "end_date": null,
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "36530a0f-8091-804b-b549-cf3462146a61",
+    "title": "Buyer side",
+    "status": "In PM review",
+    "priority": "Medium",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [],
+    "pms": [],
+    "assignees": [],
+    "start_date": null,
+    "end_date": null,
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "36530a0f-8091-8045-bccb-f9dc2cd24e70",
+    "title": "[Tender Kilat] Crete offering locking mechanism when first offer deadline is finish ",
+    "status": "In PM review",
+    "priority": "High",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [
+      "Discovery",
+      "eProc"
+    ],
+    "pms": [
+      "Adnia",
+      "Enrico"
+    ],
+    "assignees": [
+      "Sigit"
+    ],
+    "start_date": "2026-05-20",
+    "end_date": "2026-06-12",
+    "figma_url": "https://www.figma.com/design/WNPtDJ3j94H2FueizzzWWV/Konfigurasi-Timeline---Notifikasi?node-id=1-6&p=f&t=PanW7oxCN2X5G3yT-0",
+    "prd_url": "",
+    "taiga_url": "https://docs.google.com/document/d/1xfNzMoXu7pX5OeSxqoehvHf7M92AG9JdACie8b43g6g/edit?tab=t.0#heading=h.ww079adqj4f5",
+    "other_docs": ""
+  },
+  {
+    "id": "35f30a0f-8091-80c4-8167-c21f64f266bf",
+    "title": "[Core] Adjustment field lokasi pada fitur custom whitelist ",
+    "status": "In PM review",
+    "priority": "High",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [
+      "Core"
+    ],
+    "pms": [
+      "Alvin"
+    ],
+    "assignees": [
+      "Banu"
+    ],
+    "start_date": "2026-05-12",
+    "end_date": "2026-05-13",
+    "figma_url": "https://www.figma.com/design/befzgBVlwNUsAxAkh09y1M/New-Menu---Custom-Feature-Whitelist?node-id=7134-13300",
+    "prd_url": "",
+    "taiga_url": "-",
+    "other_docs": ""
+  },
+  {
+    "id": "35d30a0f-8091-8048-982a-f813a1165a98",
+    "title": "[Owner-Staff Management] Penjagaan pop up untuk staff jika data toko ditolak atau dalam review admin PaDi UMKM",
+    "status": "Done",
+    "priority": "High",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [],
+    "pms": [],
+    "assignees": [
+      "Frans"
+    ],
+    "start_date": "2026-05-08",
+    "end_date": "2026-05-12",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "35930a0f-8091-80eb-b3bd-c0d98a13a26b",
+    "title": "[Visit][Owner-Staff Management] Fitur walkthrough fitur penambahan staff toko",
+    "status": "Done",
+    "priority": "Medium",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [
+      "Visit"
+    ],
+    "pms": [
+      "Lavie"
+    ],
+    "assignees": [
+      "Frans"
+    ],
+    "start_date": "2026-05-08",
+    "end_date": "2026-05-12",
+    "figma_url": "https://www.figma.com/design/f1Y89pG0KiErZIa3qgNN9s/Visit---Manajemen-Akses-Owner-v1.0?m=auto&t=0oTOXvksC9UjIq41-6",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/13966",
+    "other_docs": ""
+  },
+  {
+    "id": "35930a0f-8091-801b-b82c-d27e6fc8cfa1",
+    "title": "[Visit][Multi BG] Fitur Walkthrough Multi Buyer Group Manager",
+    "status": "In PM review",
+    "priority": "Medium",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [
+      "Visit"
+    ],
+    "pms": [
+      "Lavie"
+    ],
+    "assignees": [
+      "Sigit"
+    ],
+    "start_date": "2026-05-08",
+    "end_date": "2026-05-12",
+    "figma_url": "https://www.figma.com/design/ekzrYybQttVo9R9zCcenm4/Buyer-Manager-Multiple-Buyer-Group?m=auto&t=0oTOXvksC9UjIq41-6",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/13965",
+    "other_docs": ""
+  },
+  {
+    "id": "35930a0f-8091-8046-96b0-de81c2b655bf",
+    "title": "[Transaction] perbaikan wording di keranjang untuk seller suspend",
+    "status": "In PM review",
+    "priority": "High",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [
+      "Transaction"
+    ],
+    "pms": [
+      "Dhana"
+    ],
+    "assignees": [
+      "Banu"
+    ],
+    "start_date": "2026-05-07",
+    "end_date": "2026-05-08",
+    "figma_url": "https://www.figma.com/design/y30P1Ixi2NPD7ljEzszTX5?node-id=540-153103#1749873057",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "35930a0f-8091-8060-856a-ebc9ef402ffe",
+    "title": "[Disburse] Perbaikan filter untuk list transaksi gagal",
+    "status": "Done",
+    "priority": "Medium",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [
+      "Disbursement"
+    ],
+    "pms": [
+      "Rizki"
+    ],
+    "assignees": [
+      "Frans"
+    ],
+    "start_date": "2026-05-07",
+    "end_date": null,
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "35930a0f-8091-80f2-9367-eb543b7dd6cb",
+    "title": "[Payment] Invoice enhancement denda",
+    "status": "In PM review",
+    "priority": "Medium",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [
+      "Transaction"
+    ],
+    "pms": [
+      "Nadhifah"
+    ],
+    "assignees": [
+      "Sigit"
+    ],
+    "start_date": "2026-05-06",
+    "end_date": "2026-05-07",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "35630a0f-8091-80de-a9d3-f125772da17f",
+    "title": "Fulfill part buyer",
+    "status": "In PM review",
+    "priority": "Medium",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [],
+    "pms": [],
+    "assignees": [
+      "Frans"
+    ],
+    "start_date": "2026-05-04",
+    "end_date": "2026-05-06",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "35230a0f-8091-8092-b301-d81c7b6d8cb4",
+    "title": "Part Transaction",
+    "status": "In PM review",
+    "priority": "Medium",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [],
+    "pms": [],
+    "assignees": [
+      "Sigit"
+    ],
+    "start_date": "2026-05-04",
+    "end_date": "2026-05-06",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "35230a0f-8091-805c-8424-de11e0e50e4f",
+    "title": "Part Discovery",
+    "status": "In PM review",
+    "priority": "Medium",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [],
+    "pms": [],
+    "assignees": [
+      "Sigit"
+    ],
+    "start_date": "2026-05-04",
+    "end_date": "2026-05-06",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "35230a0f-8091-80c3-a074-c3cfd4a5b354",
+    "title": "[Fulfillment] Mobile Retensi - end to end",
+    "status": "In PM review",
+    "priority": "P0 - SUPER HIGH",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [
+      "All"
+    ],
+    "pms": [
+      "All"
+    ],
+    "assignees": [
+      "Sigit",
+      "Banu",
+      "Frans"
+    ],
+    "start_date": "2026-05-04",
+    "end_date": "2026-05-06",
+    "figma_url": "https://www.figma.com/design/fJ04PVkN4Px4awnWJaV0LF/Retensi?node-id=7100-38782&p=f&t=77imgvvyOOMgGd1i-11",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "35230a0f-8091-805c-b428-dd745d0a5681",
+    "title": "[Fulfillment] Fitur Retensi - Mimin",
+    "status": "In PM review",
+    "priority": "High",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [
+      "All"
+    ],
+    "pms": [
+      "All"
+    ],
+    "assignees": [
+      "Banu"
+    ],
+    "start_date": "2026-05-04",
+    "end_date": "2026-05-08",
+    "figma_url": "https://www.figma.com/design/fJ04PVkN4Px4awnWJaV0LF/Retensi?node-id=7840-61225&t=ZWtIR1fKyoSzdcDg-11",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/13894?kanban-status=1283",
+    "other_docs": ""
+  },
+  {
+    "id": "35130a0f-8091-80e9-8508-c138c4d37816",
+    "title": "[Transaksi] Adjustment wording PPn 1.1%",
+    "status": "In PM review",
+    "priority": "Medium",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [
+      "Transaction"
+    ],
+    "pms": [
+      "Dhana"
+    ],
+    "assignees": [
+      "Dian"
+    ],
+    "start_date": "2026-04-29",
+    "end_date": null,
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "34f30a0f-8091-8071-a458-ec9b65004ec1",
+    "title": "[Seller Buyer Mimin] Standarisasi Tabel",
+    "status": "Not started",
+    "priority": "Medium",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [],
+    "pms": [],
+    "assignees": [],
+    "start_date": null,
+    "end_date": null,
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "34f30a0f-8091-80e4-87ea-d04f943dc562",
+    "title": "[Payment] Enhancement di dashboard buyer",
+    "status": "Done",
+    "priority": "Low",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [
+      "Payment"
+    ],
+    "pms": [
+      "Nadhifah"
+    ],
+    "assignees": [
+      "Frans"
+    ],
+    "start_date": "2026-04-27",
+    "end_date": "2026-04-29",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "34c30a0f-8091-800a-9add-cab0dabd5760",
+    "title": "[O-S Management Access][Seller][Apps] Sebagai Staff, saya memiliki akses pada data dan fitur tertentu",
+    "status": "In PM review",
+    "priority": "Medium",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [
+      "Visit"
+    ],
+    "pms": [
+      "Lavie"
+    ],
+    "assignees": [
+      "Banu"
+    ],
+    "start_date": "2026-04-24",
+    "end_date": "2026-04-26",
+    "figma_url": "https://www.figma.com/design/f1Y89pG0KiErZIa3qgNN9s/Visit---Manajemen-Akses-Owner-v1.0?node-id=7007-89043&t=eFjFLz61j45ZB4zU-11",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/13714",
+    "other_docs": ""
+  },
+  {
+    "id": "34b30a0f-8091-8051-be1d-e8adee59cf79",
+    "title": "[Buyer] Detail Transaksi",
+    "status": "Not started",
+    "priority": "Medium",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [],
+    "pms": [],
+    "assignees": [],
+    "start_date": null,
+    "end_date": null,
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "34b30a0f-8091-806a-878c-ecbcf80f7673",
+    "title": "[Buyer] Daftar Transaksi",
+    "status": "Not started",
+    "priority": "Medium",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [],
+    "pms": [],
+    "assignees": [],
+    "start_date": null,
+    "end_date": null,
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "34b30a0f-8091-80e0-b068-c58b1b0aadf0",
+    "title": "[Seller] Detail Transaksi",
+    "status": "Not started",
+    "priority": "Medium",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [],
+    "pms": [],
+    "assignees": [],
+    "start_date": null,
+    "end_date": null,
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "34b30a0f-8091-8045-b7e5-dfdc102e4efd",
+    "title": "[Seller] Daftar Transaksi",
+    "status": "Not started",
+    "priority": "Medium",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [],
+    "pms": [],
+    "assignees": [],
+    "start_date": null,
+    "end_date": null,
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "34930a0f-8091-8099-8380-c2a37ad01a29",
+    "title": "[Financier] Sebagai user, saya dapat melihat dan mengunduh summary dari pengajuan multi-invoice",
+    "status": "Done",
+    "priority": "Medium",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [
+      "Financing"
+    ],
+    "pms": [
+      "Hana"
+    ],
+    "assignees": [
+      "Frans"
+    ],
+    "start_date": "2026-04-20",
+    "end_date": "2026-04-22",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/13649",
+    "other_docs": ""
+  },
+  {
+    "id": "34930a0f-8091-80e8-a7ac-f54e58aaf7f8",
+    "title": "[Visit] [Seller] Penyesuaian data existing pada sumber daya Manusia",
+    "status": "In PM review",
+    "priority": "High",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [
+      "Visit"
+    ],
+    "pms": [
+      "Lavie"
+    ],
+    "assignees": [
+      "Banu"
+    ],
+    "start_date": "2026-04-21",
+    "end_date": "2026-04-24",
+    "figma_url": "https://www.figma.com/design/f1Y89pG0KiErZIa3qgNN9s/Visit---Manajemen-Akses-Owner?node-id=6917-63041&t=yIotVsnEZPyoue0h-11",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/13663",
+    "other_docs": ""
+  },
+  {
+    "id": "34930a0f-8091-80c3-b7b0-dea2d6a3b6bd",
+    "title": "[Buyer] pop up seller sedang dalam masa penangguhan di halaman keranjang dan checkout",
+    "status": "In PM review",
+    "priority": "High",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [
+      "Visit"
+    ],
+    "pms": [
+      "Lavie"
+    ],
+    "assignees": [
+      "Banu"
+    ],
+    "start_date": "2026-04-21",
+    "end_date": "2026-04-22",
+    "figma_url": "https://www.figma.com/design/y30P1Ixi2NPD7ljEzszTX5/-Visit--Automated-seller---Manual-Buyer-suspend-system?node-id=524-152854&t=qy9anGpteAuOgWg8-4",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/13646",
+    "other_docs": ""
+  },
+  {
+    "id": "34930a0f-8091-80d0-91b1-da067b5fb325",
+    "title": "[Core][Telkomsel] RFQ Integration (FC & FPJP)",
+    "status": "Done",
+    "priority": "Medium",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [
+      "Core"
+    ],
+    "pms": [
+      "Alvin"
+    ],
+    "assignees": [
+      "Frans"
+    ],
+    "start_date": "2026-04-21",
+    "end_date": "2026-04-28",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "34830a0f-8091-809e-bfad-e00ba0c9bc28",
+    "title": "[Visit][Buyer] pop up seller sedang dalam masa penangguhan di halaman keranjang dan checkout",
+    "status": "In PM review",
+    "priority": "Medium",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [
+      "Visit"
+    ],
+    "pms": [
+      "Lavie"
+    ],
+    "assignees": [
+      "Banu"
+    ],
+    "start_date": "2026-04-20",
+    "end_date": "2026-04-22",
+    "figma_url": "https://www.figma.com/design/y30P1Ixi2NPD7ljEzszTX5/-Visit--Automated-seller---Manual-Buyer-suspend-system?node-id=0-1&p=f&t=3YEppqlCPvF2wVCT-0",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/13646",
+    "other_docs": ""
+  },
+  {
+    "id": "34530a0f-8091-803d-8d2c-f1c41127c49d",
+    "title": "Part Mimin",
+    "status": "In PM review",
+    "priority": "Medium",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [],
+    "pms": [],
+    "assignees": [],
+    "start_date": null,
+    "end_date": null,
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "34530a0f-8091-80a7-8da2-e3c21bb2c8ff",
+    "title": "Seller",
+    "status": "In PM review",
+    "priority": "Medium",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [],
+    "pms": [],
+    "assignees": [
+      "Banu"
+    ],
+    "start_date": null,
+    "end_date": null,
+    "figma_url": "https://www.figma.com/design/8IOU0FxRk1zTMya50kzqdy/Update-Order---Resolution-Center---Solution-Center?node-id=3262-8181",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "34530a0f-8091-8033-9fe2-fc416bb7a329",
+    "title": "Buyer Manager",
+    "status": "In PM review",
+    "priority": "Medium",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [],
+    "pms": [],
+    "assignees": [
+      "Banu"
+    ],
+    "start_date": null,
+    "end_date": null,
+    "figma_url": "https://www.figma.com/design/8IOU0FxRk1zTMya50kzqdy/Update-Order---Resolution-Center---Solution-Center?node-id=3266-22063",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "34530a0f-8091-80ed-80e4-e0caff4bf8e0",
+    "title": "Buyer Staff",
+    "status": "In PM review",
+    "priority": "Medium",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [],
+    "pms": [],
+    "assignees": [
+      "Banu"
+    ],
+    "start_date": null,
+    "end_date": null,
+    "figma_url": "https://www.figma.com/design/8IOU0FxRk1zTMya50kzqdy/Update-Order---Resolution-Center---Solution-Center?node-id=3253-10536&t=a4M57Lh00tA3lpaG-1",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "34430a0f-8091-80d2-b07a-dbf69edaff37",
+    "title": "Revisi based on backlog grooming",
+    "status": "Done",
+    "priority": "High",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [],
+    "pms": [],
+    "assignees": [
+      "Frans"
+    ],
+    "start_date": null,
+    "end_date": null,
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "34430a0f-8091-80da-bb04-ed8a9f795e7a",
+    "title": "[Payment] Update order phase 2",
+    "status": "In PM review",
+    "priority": "Medium",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [
+      "Payment"
+    ],
+    "pms": [
+      "Nadhifah"
+    ],
+    "assignees": [
+      "Banu"
+    ],
+    "start_date": "2026-04-17",
+    "end_date": "2026-04-22",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "https://docs.google.com/document/d/1GGtJIM9tsNR8enxI_fx8__ff4872wSjDum_5ol5A-8A/edit?tab=t.0 ",
+    "other_docs": ""
+  },
+  {
+    "id": "34430a0f-8091-801b-bd3a-e80031d564ba",
+    "title": "Mobile version",
+    "status": "In PM review",
+    "priority": "High",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [
+      "All"
+    ],
+    "pms": [
+      "All"
+    ],
+    "assignees": [
+      "Sigit"
+    ],
+    "start_date": "2026-04-21",
+    "end_date": "2026-04-24",
+    "figma_url": "https://www.figma.com/design/fJ04PVkN4Px4awnWJaV0LF/Retensi?node-id=1-6&p=f&t=XiCJBhCf0WQmONJZ-11",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "34230a0f-8091-8092-8921-d87e99f6effe",
+    "title": "[O-S Management Access][Seller] Mobile Version",
+    "status": "In PM review",
+    "priority": "High",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [
+      "Visit"
+    ],
+    "pms": [
+      "Lavie"
+    ],
+    "assignees": [
+      "Banu"
+    ],
+    "start_date": "2026-04-13",
+    "end_date": "2026-04-30",
+    "figma_url": "https://www.figma.com/design/f1Y89pG0KiErZIa3qgNN9s/Visit---Manajemen-Akses-Owner?node-id=6696-59634",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "34230a0f-8091-80e0-8b95-d6277989def5",
+    "title": "Email template terbaru dengan logo Danantara",
+    "status": "In PM review",
+    "priority": "High",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [
+      "Visit"
+    ],
+    "pms": [
+      "Lavie"
+    ],
+    "assignees": [
+      "Banu"
+    ],
+    "start_date": "2026-04-13",
+    "end_date": "2026-04-17",
+    "figma_url": "https://www.figma.com/design/fSEZrkW40Prd2Ds6rZwT6V/Email?m=auto&t=4J9CmJU3IFxvXZUZ-6",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/13539",
+    "other_docs": ""
+  },
+  {
+    "id": "34230a0f-8091-807d-8043-c64c7b12923b",
+    "title": "[O-S Management Access][Seller] Sebagai staff, saya mendapat notifikasi email dan tidak dapat login ke web seller setelah pemilik menghapus akun saya dari tokonya",
+    "status": "In PM review",
+    "priority": "High",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [
+      "lav",
+      "Visit"
+    ],
+    "pms": [
+      "Lavie"
+    ],
+    "assignees": [
+      "Banu"
+    ],
+    "start_date": "2026-04-13",
+    "end_date": "2026-04-17",
+    "figma_url": "https://www.figma.com/design/f1Y89pG0KiErZIa3qgNN9s/Visit---Manajemen-Akses-Owner?node-id=6743-144239&t=vKPtiQomnSHVFegb-11",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/13538",
+    "other_docs": ""
+  },
+  {
+    "id": "34230a0f-8091-8048-a088-e0420b1e89fb",
+    "title": "[O-S Management Access][Seller] Sebagai Pemilik, saya ingin menghapus data Staff di toko saya",
+    "status": "In PM review",
+    "priority": "High",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [
+      "Visit"
+    ],
+    "pms": [
+      "Lavie"
+    ],
+    "assignees": [
+      "Banu"
+    ],
+    "start_date": "2026-04-13",
+    "end_date": "2026-04-17",
+    "figma_url": "https://www.figma.com/design/f1Y89pG0KiErZIa3qgNN9s/Visit---Manajemen-Akses-Owner?node-id=6689-53711&t=vKPtiQomnSHVFegb-4",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/13537",
+    "other_docs": ""
+  },
+  {
+    "id": "34230a0f-8091-8049-8d34-d5ab66bbfad6",
+    "title": "Enhancement email fitur SPB disburs",
+    "status": "Done",
+    "priority": "High",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [
+      "Disbursement"
+    ],
+    "pms": [
+      "Rizki"
+    ],
+    "assignees": [
+      "Frans"
+    ],
+    "start_date": "2026-04-14",
+    "end_date": null,
+    "figma_url": "https://www.figma.com/design/aAaB7B8oqFCZ3Y0Z2QZcoC?node-id=2649-143724#1712294735",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "34230a0f-8091-8099-9235-e9d9fab11787",
+    "title": "Detail disbursement",
+    "status": "Done",
+    "priority": "High",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [
+      "Disbursement"
+    ],
+    "pms": [
+      "Rizki"
+    ],
+    "assignees": [
+      "Frans"
+    ],
+    "start_date": "2026-04-14",
+    "end_date": "2026-04-17",
+    "figma_url": "https://www.figma.com/design/aAaB7B8oqFCZ3Y0Z2QZcoC/3.--DIS--Disbursement-Data-Summary---Popup-KLPD?node-id=3356-22255&t=mAQombttflZxf3fd-11",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": "https://www.figma.com/design/GiwED2EUD6Eu5iJyuThnpp/Fitur-Monitoring-Saldo-Pendapatan--Copy---Copy-?node-id=4316-23389&p=f&t=B9PbmwbcApShQuPl-11"
+  },
+  {
+    "id": "34230a0f-8091-80a3-8c5e-d34dd9c4e556",
+    "title": "List disbursement wrapper",
+    "status": "Done",
+    "priority": "High",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [
+      "Disbursement"
+    ],
+    "pms": [
+      "Rizki"
+    ],
+    "assignees": [
+      "Frans"
+    ],
+    "start_date": "2026-04-14",
+    "end_date": "2026-04-17",
+    "figma_url": "https://www.figma.com/design/aAaB7B8oqFCZ3Y0Z2QZcoC/3.--DIS--Disbursement-Data-Summary---Popup-KLPD?node-id=3299-61127&p=f&t=mAQombttflZxf3fd-11",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "34230a0f-8091-8048-875c-f152b212d24c",
+    "title": "[Disbursement] Fitur SPB dan Bulk Disbursemen",
+    "status": "Done",
+    "priority": "High",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [
+      "Disbursement"
+    ],
+    "pms": [
+      "Rizki"
+    ],
+    "assignees": [
+      "Frans"
+    ],
+    "start_date": "2026-04-14",
+    "end_date": "2026-04-17",
+    "figma_url": "https://www.figma.com/design/aAaB7B8oqFCZ3Y0Z2QZcoC/3.--DIS--Disbursement-Data-Summary---Popup-KLPD?node-id=3299-61127&p=f&t=mAQombttflZxf3fd-11",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "34230a0f-8091-8081-b485-e24fdec97d08",
+    "title": "[O-S Management Access][Seller] Sebagai Pemilik, saya ingin mengubah data Staff di toko saya",
+    "status": "In PM review",
+    "priority": "High",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [
+      "Visit"
+    ],
+    "pms": [
+      "Lavie"
+    ],
+    "assignees": [
+      "Banu"
+    ],
+    "start_date": "2026-04-13",
+    "end_date": "2026-04-17",
+    "figma_url": "https://www.figma.com/design/f1Y89pG0KiErZIa3qgNN9s/Visit---Manajemen-Akses-Owner?node-id=6685-50715&t=vKPtiQomnSHVFegb-4",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/13536",
+    "other_docs": ""
+  },
+  {
+    "id": "34230a0f-8091-80fe-97f9-cb21817cb20e",
+    "title": "[Discovery #13535] Sebagai user, Buyer dapat melihat informasi last seen toko seller",
+    "status": "In PM review",
+    "priority": "High",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [
+      "Discovery"
+    ],
+    "pms": [
+      "Enrico",
+      "Adnia"
+    ],
+    "assignees": [
+      "Sigit"
+    ],
+    "start_date": "2026-04-13",
+    "end_date": "2026-04-17",
+    "figma_url": "https://www.figma.com/design/8oLsSCTmZspyHD3ZoJTBgI/eProc---Q2-2026?node-id=1-7&p=f&t=YIw2BOJHIpxxD6R3-11",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/13535?kanban-owner=2053&kanban-status=1285",
+    "other_docs": ""
+  },
+  {
+    "id": "34230a0f-8091-8098-b270-c63c19b07ec2",
+    "title": "[Tender Kilat #13540] Sebagai user, Buyer staff dapat re-assign PIC tender kilat yang tidak memiliki PIC",
+    "status": "In PM review",
+    "priority": "High",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [
+      "eProc"
+    ],
+    "pms": [
+      "Adnia"
+    ],
+    "assignees": [
+      "Sigit"
+    ],
+    "start_date": "2026-04-14",
+    "end_date": "2026-04-17",
+    "figma_url": "https://www.figma.com/design/8oLsSCTmZspyHD3ZoJTBgI/eProc---Q2-2026?node-id=8107-5493&p=f&t=YIw2BOJHIpxxD6R3-11",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/13540?kanban-status=1283",
+    "other_docs": ""
+  },
+  {
+    "id": "33b30a0f-8091-80c1-acec-dc03634bb925",
+    "title": "[Trx] Adjustment nama pemesan di list PR dan PO",
+    "status": "In PM review",
+    "priority": "High",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [
+      "Transaction"
+    ],
+    "pms": [
+      "Dhana"
+    ],
+    "assignees": [
+      "Banu"
+    ],
+    "start_date": "2026-04-07",
+    "end_date": "2026-04-09",
+    "figma_url": "https://www.figma.com/design/736qROV9HOC8VxWTNC89DE/Daftar-Transaksi---Buyer---Data-Pemesan?node-id=78-23480&t=LURzD8TdbhRrRXpk-1",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "32e30a0f-8091-80bc-895f-e832e7a4ce08",
+    "title": "[TRX] Fitur Retensi Jasa\n",
+    "status": "In PM review",
+    "priority": "High",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [
+      "Transaction",
+      "Discovery"
+    ],
+    "pms": [
+      "Dhana",
+      "Enrico"
+    ],
+    "assignees": [
+      "Sigit"
+    ],
+    "start_date": "2026-03-25",
+    "end_date": "2026-05-01",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "https://docs.google.com/document/d/1LYKjZCafZUzyXp6eXCbGP-ja5kLRr7_zh88whO20JSI/edit?tab=t.0",
+    "other_docs": ""
+  },
+  {
+    "id": "2ee30a0f-8091-800d-8659-c232ee29b40a",
+    "title": "Chat Marketing Official PaDi",
+    "status": "Done",
+    "priority": "Medium",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [
+      "Core"
+    ],
+    "pms": [
+      "Alvin"
+    ],
+    "assignees": [
+      "Frans"
+    ],
+    "start_date": "2026-04-01",
+    "end_date": "2026-04-10",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "https://wiki.digitaltelkom.id/doc/chatmarketing-official-padi-chat-1CcWE1Cx2G",
+    "other_docs": ""
+  },
+  {
+    "id": "2e630a0f-8091-80e8-8cb8-f3ba2859e8af",
+    "title": "[Seller as Buyer][Apps][Seller] Sebagai seller, saya ingin mengaktifikan akun buyer Retail saya dan diarahkan ke apps buyer",
+    "status": "In PM review",
+    "priority": "High",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [
+      "Visit"
+    ],
+    "pms": [],
+    "assignees": [
+      "Frans"
+    ],
+    "start_date": "2026-01-19",
+    "end_date": "2026-01-23",
+    "figma_url": "https://www.figma.com/design/gHAPGBsvqFbfAd5akG5uUP/-Visit--Seller-Aktivasi-Buyer-Retail?node-id=8922-3602&p=f&t=uF4sHLuV41OMyg9x-11",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/12677",
+    "other_docs": ""
+  },
+  {
+    "id": "2e630a0f-8091-80a1-9ce5-f3d4ad18fd81",
+    "title": "[Seller as Buyer][Dual-role] Sebagai user, saya mendapatkan email notifikasi ketika akun buyer retail sudah aktif",
+    "status": "In PM review",
+    "priority": "High",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [
+      "Visit"
+    ],
+    "pms": [],
+    "assignees": [
+      "Frans"
+    ],
+    "start_date": "2026-01-15",
+    "end_date": "2026-01-20",
+    "figma_url": "https://www.figma.com/design/gHAPGBsvqFbfAd5akG5uUP/-Visit--Seller-Aktivasi-Buyer-Retail?node-id=8922-3602&p=f&t=uF4sHLuV41OMyg9x-11",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/12675",
+    "other_docs": ""
+  },
+  {
+    "id": "2e630a0f-8091-8011-a0e8-f4d7210afadc",
+    "title": "[Seller as Buyer][Dual-role] Sebagai user, saya dapat mengganti akun saya sebagai penjual atau pembeli (sudah aktif - switching profile)",
+    "status": "In PM review",
+    "priority": "High",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [
+      "Visit"
+    ],
+    "pms": [],
+    "assignees": [
+      "Banu",
+      "Widy"
+    ],
+    "start_date": "2026-01-15",
+    "end_date": "2026-01-21",
+    "figma_url": "https://www.figma.com/design/gHAPGBsvqFbfAd5akG5uUP/-Visit--Seller-Aktivasi-Buyer-Retail?node-id=8922-3602&p=f&t=uF4sHLuV41OMyg9x-11",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/12676",
+    "other_docs": ""
+  },
+  {
+    "id": "2e630a0f-8091-8037-9a49-e125a9cdc465",
+    "title": "[Seller as Buyer] Sebagai seller, saya ingin mengaktifikan akun buyer Retail saya",
+    "status": "In PM review",
+    "priority": "High",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [
+      "Visit"
+    ],
+    "pms": [],
+    "assignees": [
+      "Sigit"
+    ],
+    "start_date": "2026-01-12",
+    "end_date": "2026-01-16",
+    "figma_url": "https://www.figma.com/design/gHAPGBsvqFbfAd5akG5uUP/-Visit--Seller-Aktivasi-Buyer-Retail?node-id=2102-29451",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/12674",
+    "other_docs": ""
+  },
+  {
+    "id": "2f630a0f-8091-80ac-9cff-c10d073ec64b",
+    "title": "Buyer",
+    "status": "Not started",
+    "priority": "High",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [
+      "All"
+    ],
+    "pms": [],
+    "assignees": [
+      "Dian"
+    ],
+    "start_date": null,
+    "end_date": null,
+    "figma_url": "https://www.figma.com/design/1K6k0ocIo4ll65B2OGo98O/Mobile-app---Buyer?node-id=106-9366",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "2f630a0f-8091-80f3-b433-ce9f46ac24c2",
+    "title": "Seller",
+    "status": "Not started",
+    "priority": "Medium",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [],
+    "pms": [],
+    "assignees": [],
+    "start_date": null,
+    "end_date": null,
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "2f630a0f-8091-8014-8b0f-f41c63284c06",
+    "title": "Buyer",
+    "status": "Not started",
+    "priority": "High",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [
+      "All"
+    ],
+    "pms": [],
+    "assignees": [],
+    "start_date": null,
+    "end_date": null,
+    "figma_url": "https://www.figma.com/design/1K6k0ocIo4ll65B2OGo98O/Mobile-app---Buyer?node-id=106-9366",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "2f630a0f-8091-80a3-a4b0-ca2fef9d2810",
+    "title": "Seller",
+    "status": "Not started",
+    "priority": "Medium",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [],
+    "pms": [],
+    "assignees": [],
+    "start_date": null,
+    "end_date": null,
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "2e630a0f-8091-8086-a9e1-ee905d23fd29",
+    "title": "Fitur Buka Kunci/blokir - Suspend user",
+    "status": "In PM review",
+    "priority": "Medium",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [
+      "Visit"
+    ],
+    "pms": [
+      "Lavie"
+    ],
+    "assignees": [
+      "Sigit"
+    ],
+    "start_date": "2026-01-19",
+    "end_date": "2026-01-21",
+    "figma_url": "https://www.figma.com/design/gHAPGBsvqFbfAd5akG5uUP/-Visit--Seller-Aktivasi-Buyer-Retail?node-id=9053-1088&t=en1apc8jmqkNes6V-11",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/12681",
+    "other_docs": ""
+  },
+  {
+    "id": "2e630a0f-8091-8072-9ffb-d2d9964c1ce4",
+    "title": "Pembatalan PO",
+    "status": "In PM review",
+    "priority": "High",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [
+      "Fullfilment"
+    ],
+    "pms": [],
+    "assignees": [
+      "Banu"
+    ],
+    "start_date": "2026-01-14",
+    "end_date": "2026-01-15",
+    "figma_url": "https://www.figma.com/design/AtZ3bbM5A4gQir69VWwYmG/Daftar---Detail-Transaksi---Buyer?node-id=78-23480",
+    "prd_url": "",
+    "taiga_url": "https://www.figma.com/board/yNP3s0aKz8ZZithqu8FOln/PaDi-UMKM?node-id=0-1&p=fx",
+    "other_docs": ""
+  },
+  {
+    "id": "2e630a0f-8091-80ff-9125-cb28e5baeecd",
+    "title": "Seller as buyer",
+    "status": "In PM review",
+    "priority": "High",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [
+      "Visit"
+    ],
+    "pms": [],
+    "assignees": [
+      "Sigit",
+      "Banu",
+      "Frans",
+      "Widy",
+      "Dian"
+    ],
+    "start_date": "2026-01-12",
+    "end_date": "2026-01-23",
+    "figma_url": "https://www.figma.com/design/gHAPGBsvqFbfAd5akG5uUP/-Visit--Seller-Aktivasi-Buyer-Retail?node-id=8922-3602&p=f&t=uF4sHLuV41OMyg9x-11",
+    "prd_url": "",
+    "taiga_url": "https://docs.google.com/document/d/1MDP949-JCoxuWvgW6KlyaKveE1S9p2YNUnI1O2sGTKc/edit?tab=t.0",
+    "other_docs": ""
+  },
+  {
+    "id": "2f430a0f-8091-8052-806b-c7d957ef1b12",
+    "title": "Control Tower",
+    "status": "In PM review",
+    "priority": "Medium",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [
+      "Core"
+    ],
+    "pms": [],
+    "assignees": [
+      "Banu"
+    ],
+    "start_date": "2026-01-26",
+    "end_date": "2026-01-30",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "2f130a0f-8091-8060-b986-efdcbf47a52e",
+    "title": "Tender Kilat",
+    "status": "In PM review",
+    "priority": "Medium",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [],
+    "pms": [],
+    "assignees": [
+      "Sigit"
+    ],
+    "start_date": "2026-01-19",
+    "end_date": "2026-01-30",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "2e630a0f-8091-8000-825c-df2a480e61dd",
+    "title": "Revamp Daftar Detail Transaksi",
+    "status": "On hold",
+    "priority": "Low",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [
+      "Fullfilment",
+      "Transaction"
+    ],
+    "pms": [],
+    "assignees": [
+      "Widy",
+      "Frans",
+      "Sigit",
+      "Banu"
+    ],
+    "start_date": null,
+    "end_date": null,
+    "figma_url": "https://www.figma.com/design/eBWvSSVc1mndTWFtSs23F6/Daftar---Detail-Transaksi--Seller--Buyer----Revamp?node-id=2092-52466&p=f&t=wMH01aoGHbbHG8Cr-0",
+    "prd_url": "",
+    "taiga_url": "https://telkomind.sharepoint.com/:p:/r/sites/ResearcherHub/Shared%20Documents/1.%20Research%20Repository%20-%20Research%20Project/SMB/PaDi%20UMKM/2025/Post%20Trx/Q4/Concept%20Testing%20Tampilan%20Pesanan/Riset%20Concept%20Testing%20Revamp%20Tampilan%20Menu%20Transaksi%20Buyer%20%26%20Seller.pptx?d=w04e290188b724dd0b37e05d1d9933c10&csf=1&web=1&e=wqIKdW",
+    "other_docs": ""
+  },
+  {
+    "id": "2e830a0f-8091-802e-8920-f9d295fd3fbc",
+    "title": "Multi-Invoice Financing Danareksa Finance - Mobile version",
+    "status": "In PM review",
+    "priority": "Medium",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [
+      "Financing"
+    ],
+    "pms": [],
+    "assignees": [
+      "Widy"
+    ],
+    "start_date": "2026-01-19",
+    "end_date": "2026-01-23",
+    "figma_url": "https://www.figma.com/design/85MCKQVLEz6dKIJv5NANK9/invoice---multi-invoice-financing---Danareksa-Finance?node-id=1-9196&t=znLWcweYMFakIFpb-1",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/12617",
+    "other_docs": ""
+  },
+  {
+    "id": "2e630a0f-8091-80de-b30e-cbc2d80127d9",
+    "title": "New Bandingkan Produk ",
+    "status": "On hold",
+    "priority": "Low",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [
+      "Discovery"
+    ],
+    "pms": [],
+    "assignees": [
+      "Sigit"
+    ],
+    "start_date": "2026-01-08",
+    "end_date": "2026-01-23",
+    "figma_url": "https://www.figma.com/design/WYABGwXvSBJh0Tujc4SPN4/-Disco--New-Bandingkan-Produk?node-id=2102-29451&p=f&t=fvbDuvrrUrJ0GbHN-0",
+    "prd_url": "",
+    "taiga_url": "TBA",
+    "other_docs": ""
+  },
+  {
+    "id": "2f630a0f-8091-80c6-83be-fc92cdfd7cb4",
+    "title": "[PaDi] Dokumentasi mobile design end to end",
+    "status": "In progress design",
+    "priority": "High",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [
+      "All"
+    ],
+    "pms": [],
+    "assignees": [
+      "Dian",
+      "Sigit",
+      "Frans",
+      "Widy",
+      "Banu"
+    ],
+    "start_date": "2026-02-23",
+    "end_date": "2026-03-27",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "2f630a0f-8091-8068-a1a8-f483bd58072f",
+    "title": "Flow registrasi",
+    "status": "In progress design",
+    "priority": "High",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [
+      "All"
+    ],
+    "pms": [],
+    "assignees": [],
+    "start_date": null,
+    "end_date": null,
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "2f630a0f-8091-8017-b790-e63295b38387",
+    "title": "Flow Login",
+    "status": "Not started",
+    "priority": "Medium",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [],
+    "pms": [],
+    "assignees": [],
+    "start_date": null,
+    "end_date": null,
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "2ed30a0f-8091-8006-8ee5-f8a3bed9976f",
+    "title": "Tender Kilat - Termin",
+    "status": "In PM review",
+    "priority": "Medium",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [],
+    "pms": [],
+    "assignees": [
+      "Sigit"
+    ],
+    "start_date": "2026-01-19",
+    "end_date": "2026-01-23",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "2f030a0f-8091-80ad-a516-f86c321a479d",
+    "title": "Task Disburse terkait update order",
+    "status": "In PM review",
+    "priority": "P0 - SUPER HIGH",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [
+      "Disbursement"
+    ],
+    "pms": [
+      "Rizki",
+      "Nadhifa"
+    ],
+    "assignees": [
+      "Widy",
+      "Banu",
+      "Frans"
+    ],
+    "start_date": "2026-01-28",
+    "end_date": "2026-01-30",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "https://docs.google.com/document/d/19_RLb6Sc0OVr-ncSawun_1gB7cIxIwYCiYFbi7INabU/edit?tab=t.0#heading=h.q5ta028yydla",
+    "other_docs": "https://www.figma.com/board/iaIbuTXzOOe0ChiQAjm4Kc/Flow-Update-Order?node-id=0-1&p=f&t=YomsajXLuxWrlFn7-0"
+  },
+  {
+    "id": "2e630a0f-8091-8096-9c65-da2acb951b64",
+    "title": "Notification Center CMS",
+    "status": "In PM review",
+    "priority": "High",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [
+      "Disbursement",
+      "Core"
+    ],
+    "pms": [
+      "Hana"
+    ],
+    "assignees": [
+      "Widy"
+    ],
+    "start_date": "2026-01-14",
+    "end_date": "2026-01-15",
+    "figma_url": "https://www.figma.com/design/bBtdsDd1h9wxsgh7bdONlD/Notification-Center-Mimin-CMS---Push?node-id=517-10017&p=f&t=1T7KGgpPjtEsx18S-0",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "2e630a0f-8091-8088-976c-c07c4710b5b2",
+    "title": "Multi-Invoice Financing Danareksa Finance",
+    "status": "In PM review",
+    "priority": "High",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [
+      "Financing"
+    ],
+    "pms": [
+      "Hana"
+    ],
+    "assignees": [
+      "Widy"
+    ],
+    "start_date": "2026-01-12",
+    "end_date": "2026-01-15",
+    "figma_url": "https://www.figma.com/design/85MCKQVLEz6dKIJv5NANK9/invoice---multi-invoice-financing---Danareksa-Finance?node-id=1-9196&t=znLWcweYMFakIFpb-1",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/12617",
+    "other_docs": ""
+  },
+  {
+    "id": "2ef30a0f-8091-80fb-9a6e-ce998f93af37",
+    "title": "[Seller] Pemisahan Modal Pop-up untuk Informasi Gagal Terhubung ke Sistem FSCM BNI\n ",
+    "status": "In PM review",
+    "priority": "Low",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [
+      "Financing"
+    ],
+    "pms": [
+      "Hana"
+    ],
+    "assignees": [
+      "Widy"
+    ],
+    "start_date": "2026-01-22",
+    "end_date": "2026-01-24",
+    "figma_url": "https://www.figma.com/design/fx0mdSUodqeLKX3dxbZZeY/Gagal-Terhubung-ke-FSCM-BNI?node-id=0-1&t=9Ic0wl9wfiYGWmbx-1",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/12745",
+    "other_docs": ""
+  },
+  {
+    "id": "2f530a0f-8091-80d2-a0de-dc666e91dc55",
+    "title": "Fitur section document in mimin - regenerate document",
+    "status": "Done",
+    "priority": "High",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [
+      "Fullfilment"
+    ],
+    "pms": [],
+    "assignees": [
+      "Frans"
+    ],
+    "start_date": "2026-01-27",
+    "end_date": "2026-01-28",
+    "figma_url": "https://www.figma.com/design/8IOU0FxRk1zTMya50kzqdy/Update-Order---Resolution-Center---Solution-Center?node-id=3262-8181&t=Jgv95XV0QXOQJgtF-1",
+    "prd_url": "",
+    "taiga_url": "https://docs.google.com/document/d/1jQp0FBSXxkylNrrurZWN761q6UOud8hdHk-aFm9m5Nc/edit?tab=t.8svvcs93r1nv#heading=h.pib7peu34y69",
+    "other_docs": ""
+  },
+  {
+    "id": "2e630a0f-8091-808d-b4cf-dbe5a0f96552",
+    "title": "Financier Criteria",
+    "status": "Done",
+    "priority": "Medium",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [
+      "Financing"
+    ],
+    "pms": [],
+    "assignees": [
+      "Widy"
+    ],
+    "start_date": null,
+    "end_date": null,
+    "figma_url": "https://www.figma.com/design/MLThU5HkzE2r7CBL2GkmQv/Dashboard-Financing-Mimin-CMS?node-id=724-3122",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/12577",
+    "other_docs": ""
+  },
+  {
+    "id": "2e630a0f-8091-80ed-a74c-c1acc5354423",
+    "title": "Revamp co proses jumlah barang dan total harga",
+    "status": "Done",
+    "priority": "Medium",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [
+      "Transaction"
+    ],
+    "pms": [],
+    "assignees": [
+      "Widy"
+    ],
+    "start_date": null,
+    "end_date": null,
+    "figma_url": "https://www.figma.com/design/PveRWyo0PJzGdThvQLJxMy/Revamp-CO-process-->-Detail-PR?node-id=6952-45879&t=B6YCjhVDprPlMm5C-0",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "2e630a0f-8091-80fc-8088-d5a70c05d442",
+    "title": "Email Reminder Unread Message",
+    "status": "Done",
+    "priority": "Medium",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [
+      "Core"
+    ],
+    "pms": [],
+    "assignees": [
+      "Frans"
+    ],
+    "start_date": null,
+    "end_date": null,
+    "figma_url": "https://www.figma.com/design/ege80vH7JYTzCnmVgt9Mfm/Email-Alert-for-Incoming-Payments-with-Unmatched-Transactions?node-id=0-1&t=JgTuMtHInDyPGedq-1",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SMB/us/19528?milestone=10095",
+    "other_docs": ""
+  },
+  {
+    "id": "2e630a0f-8091-807b-b4a4-fc1521eb6782",
+    "title": "Sub-Menu baru bagian refund di Menu ",
+    "status": "Done",
+    "priority": "Medium",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [
+      "Disbursement"
+    ],
+    "pms": [],
+    "assignees": [
+      "Frans"
+    ],
+    "start_date": null,
+    "end_date": null,
+    "figma_url": "https://www.figma.com/design/aAaB7B8oqFCZ3Y0Z2QZcoC/3.--DIS--Disbursement-Data-Summary---Popup-KLPD?node-id=3189-97415&t=3oARP6j0Q2WMtRuU-0",
+    "prd_url": "",
+    "taiga_url": "-",
+    "other_docs": ""
+  },
+  {
+    "id": "33d30a0f-8091-8055-9778-c0d50b1c8205",
+    "title": "[Design System] Versioning dan Maintaining Latest Update Live File Figma",
+    "status": "In progress design",
+    "priority": "Medium",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [],
+    "pms": [],
+    "assignees": [
+      "Widy",
+      "Sigit",
+      "Banu",
+      "Dian",
+      "Frans"
+    ],
+    "start_date": null,
+    "end_date": null,
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": "https://www.figma.com/board/EWx97cz5Y46SLKrvqsUQjn/ORET-ORET?node-id=0-1&p=f&t=AguKbqUyWRW7TNvR-0"
+  },
+  {
+    "id": "33330a0f-8091-802d-9ec4-d32c68037f96",
+    "title": "Mobile app version ",
+    "status": "Not started",
+    "priority": "Medium",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [],
+    "pms": [],
+    "assignees": [],
+    "start_date": "2026-03-30",
+    "end_date": "2026-04-01",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "32e30a0f-8091-80be-9dd2-cd73bac1fa5c",
+    "title": "[Financing] [Mimin] Sebagai user, saya dapat melakukan tracking insight per button CTA pada Push Notification dan In-App",
+    "status": "Need review",
+    "priority": "High",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [
+      "Financing"
+    ],
+    "pms": [
+      "Hana"
+    ],
+    "assignees": [
+      "Sigit",
+      "Widy"
+    ],
+    "start_date": "2026-03-25",
+    "end_date": "2026-03-27",
+    "figma_url": "https://www.figma.com/design/bBtdsDd1h9wxsgh7bdONlD/MIMIN---Notification-Center-Mimin-CMS---Push?node-id=3411-37325&t=oTNkYacwo69mNQgz-4",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/13353",
+    "other_docs": ""
+  },
+  {
+    "id": "32e30a0f-8091-80fc-ac83-c8b0fdf4ffa9",
+    "title": "[Visit] Revisian Visit",
+    "status": "In progress design",
+    "priority": "High",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [
+      "Visit"
+    ],
+    "pms": [
+      "Lavie"
+    ],
+    "assignees": [
+      "Banu"
+    ],
+    "start_date": "2026-03-25",
+    "end_date": "2026-03-27",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "https://teams.microsoft.com/l/message/19:meeting_NzZkOWE0MjMtMmFmNi00MWJhLTg0NzYtYjhmMDg2MTA0ZDI3@thread.v2/1773718321210?context=%7B%22contextType%22%3A%22chat%22%7D",
+    "other_docs": ""
+  },
+  {
+    "id": "32e30a0f-8091-8049-b1eb-c91e3759bd8e",
+    "title": "[Discovery] PPN 1.1%",
+    "status": "In PM review",
+    "priority": "High",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [
+      "Discovery"
+    ],
+    "pms": [
+      "Enrico"
+    ],
+    "assignees": [
+      "Frans"
+    ],
+    "start_date": "2026-03-25",
+    "end_date": "2026-03-27",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "https://docs.google.com/document/d/1Fr4m-x675N5LCJ_n1f7gS8y4n1VV4qeQV0pNiWUT9JM/edit?tab=t.0",
+    "other_docs": ""
+  },
+  {
+    "id": "32530a0f-8091-8067-aa84-ffa88b7f898b",
+    "title": "[Visit] Pengecekan buyer ketika melakukan pembelian pada seller yg tersuspend",
+    "status": "In review",
+    "priority": "High",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [
+      "Visit"
+    ],
+    "pms": [
+      "Lavie"
+    ],
+    "assignees": [
+      "Banu"
+    ],
+    "start_date": "2026-03-16",
+    "end_date": "2026-03-17",
+    "figma_url": "https://www.figma.com/design/y30P1Ixi2NPD7ljEzszTX5/-Visit--Automated-seller---Manual-Buyer-suspend-system?node-id=524-152854&t=qhTNOqnhIlAWYiCB-4",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "32530a0f-8091-8074-b545-fbbe5c4eee11",
+    "title": "[Financing] [Mimin] Sebagai user, saya dapat melakukan tracking insight per button CTA pada Push Notification dan In-App",
+    "status": "Done",
+    "priority": "High",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [
+      "Financing"
+    ],
+    "pms": [
+      "Hana"
+    ],
+    "assignees": [
+      "Sigit"
+    ],
+    "start_date": "2026-03-16",
+    "end_date": "2026-03-17",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/13353",
+    "other_docs": ""
+  },
+  {
+    "id": "32130a0f-8091-800d-b85f-e5b4afaacdd9",
+    "title": "[Visit] List all user in admin perusahaan",
+    "status": "In review",
+    "priority": "Medium",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [
+      "Visit"
+    ],
+    "pms": [
+      "Lavie"
+    ],
+    "assignees": [
+      "Widy"
+    ],
+    "start_date": "2026-03-09",
+    "end_date": "2026-03-11",
+    "figma_url": "https://www.figma.com/design/88n8gmjvX5ZAr5a53HFEnv/Admin-Perusahaan?node-id=7601-47848",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "32130a0f-8091-80de-b9ee-cf10375e4604",
+    "title": "[Visit] Penambahan view manager list",
+    "status": "In review",
+    "priority": "Medium",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [
+      "Visit"
+    ],
+    "pms": [
+      "Lavie"
+    ],
+    "assignees": [
+      "Banu"
+    ],
+    "start_date": "2026-03-12",
+    "end_date": "2026-03-13",
+    "figma_url": "https://www.figma.com/design/88n8gmjvX5ZAr5a53HFEnv/Admin-Perusahaan?node-id=7659-62945&t=1LSogulC8PahP3wL-4",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "32130a0f-8091-8049-b665-c091e7315e4e",
+    "title": "[Core] adjustment chat room terkait cancellation order",
+    "status": "In review",
+    "priority": "Medium",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [
+      "Core",
+      "Fullfilment"
+    ],
+    "pms": [
+      "Fanny/Lintang",
+      "Alvin"
+    ],
+    "assignees": [
+      "Sigit"
+    ],
+    "start_date": "2026-03-12",
+    "end_date": "2026-03-13",
+    "figma_url": "https://www.figma.com/design/AtZ3bbM5A4gQir69VWwYmG/Daftar---Detail-Transaksi---Buyer?node-id=1327-36480&t=RvUEm5CH56VDVVYv-11",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "32030a0f-8091-80d6-af2a-c9910f455582",
+    "title": "Admin Perusahaan - Explorasi Menu Daftar Pengguna",
+    "status": "Need review",
+    "priority": "Medium",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [],
+    "pms": [],
+    "assignees": [
+      "Widy"
+    ],
+    "start_date": null,
+    "end_date": null,
+    "figma_url": "https://www.figma.com/design/88n8gmjvX5ZAr5a53HFEnv/Admin-Perusahaan?node-id=7601-47848",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "31830a0f-8091-8034-b8d3-db83b0200ff0",
+    "title": "Fitur monitoring saldo pendapatan",
+    "status": "In PM review",
+    "priority": "Medium",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [
+      "Disbursement"
+    ],
+    "pms": [
+      "Rizki"
+    ],
+    "assignees": [
+      "Frans"
+    ],
+    "start_date": "2026-03-03",
+    "end_date": "2026-03-06",
+    "figma_url": "https://www.figma.com/design/aAaB7B8oqFCZ3Y0Z2QZcoC/3.--DIS--Disbursement-Data-Summary---Popup-KLPD?node-id=3299-61127&t=J1oqYrTbVzQEsSB9-1",
+    "prd_url": "",
+    "taiga_url": "https://docs.google.com/document/d/1WbHXxvXUmDgcpUIsWCFMlZlzeX4fyGRYHslHXrU40ZQ/edit?tab=t.0#heading=h.ozurcehqxd5l",
+    "other_docs": ""
+  },
+  {
+    "id": "31830a0f-8091-80aa-8078-d2d073827235",
+    "title": "[Seller] Sebagai user, saya dapat memahami dengan jelas kendala yang ada pada mailing system saat pengajuan saya gagal terkirim",
+    "status": "In PM review",
+    "priority": "Medium",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [
+      "Financing"
+    ],
+    "pms": [
+      "Hana"
+    ],
+    "assignees": [
+      "Widy"
+    ],
+    "start_date": "2026-03-03",
+    "end_date": "2026-03-11",
+    "figma_url": "https://www.figma.com/design/85MCKQVLEz6dKIJv5NANK9/DANAREKSA-FINANCE---Financing?node-id=598-8733&t=hcRXCXAxl2RjcMSA-4",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/13195",
+    "other_docs": ""
+  },
+  {
+    "id": "31730a0f-8091-800b-8359-c9ce1179bf18",
+    "title": "[Financing] Sebagai user, saya bisa memahami alur pengajuan limit pinjaman secara jelas",
+    "status": "In review",
+    "priority": "Medium",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [
+      "Financing"
+    ],
+    "pms": [
+      "Hana"
+    ],
+    "assignees": [
+      "Widy"
+    ],
+    "start_date": "2026-03-02",
+    "end_date": "2026-03-11",
+    "figma_url": "https://www.figma.com/design/y1vJtEcuKvnTtf0XD2BY21/BANK-RAYA----Financing?node-id=5452-11751",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/13187",
+    "other_docs": ""
+  },
+  {
+    "id": "31730a0f-8091-8078-8170-e1a8a0be2409",
+    "title": "[Mimin] Sebagai user, saya bisa melakukan Update Status Pinjaman secara manual",
+    "status": "In review",
+    "priority": "Medium",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [
+      "Financing"
+    ],
+    "pms": [
+      "Hana"
+    ],
+    "assignees": [
+      "Widy"
+    ],
+    "start_date": null,
+    "end_date": null,
+    "figma_url": "https://www.figma.com/design/85MCKQVLEz6dKIJv5NANK9/invoice---multi-invoice-financing---Danareksa-Finance?node-id=567-808",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/12916",
+    "other_docs": ""
+  },
+  {
+    "id": "31730a0f-8091-8067-930e-eb42e57ff384",
+    "title": "Adjustment design surat pernyataan non-pkp mobile",
+    "status": "Done",
+    "priority": "Medium",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [],
+    "pms": [],
+    "assignees": [
+      "Frans"
+    ],
+    "start_date": null,
+    "end_date": null,
+    "figma_url": "https://www.figma.com/design/S5MbhYs8Pz80zmMpk8DzZd/Surat-Pernyataan-for-seller-non-PKP?node-id=2553-29570&p=f&t=BO9vikrOKHYnODQj-0",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "31730a0f-8091-80b1-93b6-f2b99a7db4ca",
+    "title": "Revamp menu dokumen mobile seller",
+    "status": "Done",
+    "priority": "Medium",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [],
+    "pms": [],
+    "assignees": [
+      "Frans"
+    ],
+    "start_date": null,
+    "end_date": null,
+    "figma_url": "https://www.figma.com/design/B24PwwKgu8Q6gRjGJQOB3E/Visit---Revamp-Menu-Dokumen-Mobile?node-id=1-2&t=n7BP2vqxQFc9RiGY-1",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "31730a0f-8091-8083-b787-f523c0e87159",
+    "title": "Design rekomendasi pembayaran cerdas bagian payment mobile",
+    "status": "In PM review",
+    "priority": "Medium",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [],
+    "pms": [],
+    "assignees": [
+      "Frans"
+    ],
+    "start_date": null,
+    "end_date": null,
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "31430a0f-8091-80d1-8831-e8c1e2bb3028",
+    "title": "[Mimin] Sebagai user, saya bisa melakukan Update Status Pinjaman secara manual",
+    "status": "In review",
+    "priority": "High",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [
+      "Financing"
+    ],
+    "pms": [
+      "Hana"
+    ],
+    "assignees": [
+      "Widy"
+    ],
+    "start_date": "2026-01-12",
+    "end_date": "2026-01-14",
+    "figma_url": "https://www.figma.com/design/85MCKQVLEz6dKIJv5NANK9/DANAREKSA-FINANCE---Financing?node-id=567-808",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/12916",
+    "other_docs": ""
+  },
+  {
+    "id": "31330a0f-8091-8031-ad7e-d7d648275b04",
+    "title": "[Multi-BG Manager] [Mimin] Sebagai admin, saya dapat mempromosikan staff menjadi manager  ",
+    "status": "In review",
+    "priority": "Medium",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [],
+    "pms": [],
+    "assignees": [],
+    "start_date": "2026-02-25",
+    "end_date": "2026-03-06",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "31330a0f-8091-807e-8a5b-e8281391f94f",
+    "title": "[Multi-BG Manager][Mimin] Sebagai admin, saya tidak dapat menugaskan akun email staff di multi buyer group  ",
+    "status": "In review",
+    "priority": "Medium",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [],
+    "pms": [],
+    "assignees": [],
+    "start_date": "2026-02-25",
+    "end_date": "2026-03-06",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "31330a0f-8091-8025-9680-c463874383b5",
+    "title": "[Multi-BG Manager] [Mimin] Sebagai admin, saya dapat menambahkan manager yang sudah terdaftar sebelumnya di multi buyer group  ",
+    "status": "In review",
+    "priority": "Medium",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [],
+    "pms": [],
+    "assignees": [],
+    "start_date": "2026-02-25",
+    "end_date": "2026-03-06",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "31330a0f-8091-80de-85c8-c4e5f428e189",
+    "title": "[Multi-BG Manager] [Mimin] Sebagai admin, saya dapat menambahkan manager baru di multi buyer group  ",
+    "status": "In review",
+    "priority": "Medium",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [],
+    "pms": [],
+    "assignees": [],
+    "start_date": "2026-02-25",
+    "end_date": "2026-03-06",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "31330a0f-8091-806a-920e-d3b79b8a74c1",
+    "title": "[Multi-BG Manager][Manager B2B] Sebagai manager, saya dapat memilih buyer group lain dan melihat data buyer group tersebut sesuai kebutuhan",
+    "status": "In review",
+    "priority": "Medium",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [],
+    "pms": [],
+    "assignees": [],
+    "start_date": "2026-02-25",
+    "end_date": "2026-03-06",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "31330a0f-8091-8062-88e2-ec191d1e9776",
+    "title": "[Multi-BG Manager] [Manager B2B] Sebagai manager, saya dapat login dan memilih buyer group yang akan dilihat berdasarkan kebutuhan  ",
+    "status": "In review",
+    "priority": "Medium",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [],
+    "pms": [],
+    "assignees": [],
+    "start_date": "2026-02-25",
+    "end_date": "2026-03-06",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "31330a0f-8091-80bb-9068-da7ed82294df",
+    "title": "[Multi-BG Manager][Admin Perusahaan] Sebagai admin perusahaan, saya tidak dapat menugaskan akun email staff di multi buyer group  ",
+    "status": "In review",
+    "priority": "Medium",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [
+      "Visit"
+    ],
+    "pms": [
+      "Lavie"
+    ],
+    "assignees": [],
+    "start_date": "2026-02-25",
+    "end_date": "2026-03-06",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "31330a0f-8091-80e1-bf04-d4031c6a1e93",
+    "title": "[Multi-BG Manager] [Admin Perusahaan] Sebagai admin, saya dapat mempromosikan staff menjadi manager  ",
+    "status": "In review",
+    "priority": "Medium",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [
+      "Visit"
+    ],
+    "pms": [
+      "Lavie"
+    ],
+    "assignees": [],
+    "start_date": "2026-02-25",
+    "end_date": "2026-03-06",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "31330a0f-8091-8035-843e-f8f6948079cb",
+    "title": "[Multi-BG Manager] [Admin Perusahaan] Sebagai admin, saya dapat menambahkan manager yang sudah terdaftar sebelumnya di multi buyer group  ",
+    "status": "In review",
+    "priority": "Medium",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [
+      "Visit"
+    ],
+    "pms": [
+      "Lavie"
+    ],
+    "assignees": [],
+    "start_date": "2026-02-25",
+    "end_date": "2026-03-06",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "31330a0f-8091-80cc-9c00-f5dfb40831de",
+    "title": "[Multi-BG Manager] [Admin Perusahaan] Sebagai admin, saya dapat menambahkan manager baru di multi buyer group  ",
+    "status": "Not started",
+    "priority": "Medium",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [],
+    "pms": [],
+    "assignees": [],
+    "start_date": null,
+    "end_date": null,
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "31330a0f-8091-8052-8d82-ebb0ee5f1ae3",
+    "title": "[Multi-BG Manager] [Admin Perusahaan] Sebagai admin, saya dapat menambahkan manager baru di multi buyer group  ",
+    "status": "In review",
+    "priority": "High",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [
+      "Visit"
+    ],
+    "pms": [
+      "Lavie"
+    ],
+    "assignees": [],
+    "start_date": "2026-02-25",
+    "end_date": "2026-03-06",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "31330a0f-8091-80fc-bb78-f05ab7ab11d1",
+    "title": "[Seller as Buyer] Prevent Login Scenario",
+    "status": "In PM review",
+    "priority": "High",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [
+      "Visit"
+    ],
+    "pms": [
+      "Lavie"
+    ],
+    "assignees": [
+      "Banu"
+    ],
+    "start_date": "2026-02-27",
+    "end_date": "2026-03-02",
+    "figma_url": "https://www.figma.com/design/gHAPGBsvqFbfAd5akG5uUP/-Visit--Seller-Aktivasi-Buyer-Retail?node-id=9967-16341",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "31230a0f-8091-80e7-9437-c18fbb084a3e",
+    "title": "PO Pembayaran Tempo",
+    "status": "Not started",
+    "priority": "Medium",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [],
+    "pms": [],
+    "assignees": [],
+    "start_date": null,
+    "end_date": null,
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "31230a0f-8091-803a-9689-f2676f069a18",
+    "title": "PO Pembayaran Langsung",
+    "status": "Not started",
+    "priority": "Medium",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [],
+    "pms": [],
+    "assignees": [],
+    "start_date": null,
+    "end_date": null,
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "31230a0f-8091-800f-be72-e08839b04d97",
+    "title": "PR - Termin",
+    "status": "Not started",
+    "priority": "Medium",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [],
+    "pms": [],
+    "assignees": [],
+    "start_date": null,
+    "end_date": null,
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "31130a0f-8091-809c-8e70-c946eb3885db",
+    "title": "[Visit] Manager in multiple buyer group assignment",
+    "status": "In PM review",
+    "priority": "High",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [
+      "Visit"
+    ],
+    "pms": [
+      "Lavie"
+    ],
+    "assignees": [
+      "Sigit",
+      "Banu",
+      "Frans"
+    ],
+    "start_date": "2026-02-25",
+    "end_date": "2026-03-06",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "https://docs.google.com/document/d/1PW2QpwzKRqZ42LuYcLFksjSDz0AW8rq47Hk5LzgmOnU/edit?tab=t.0#heading=h.epfid6hgc85i",
+    "other_docs": ""
+  },
+  {
+    "id": "31130a0f-8091-80ce-bc6c-c965c28bbc9e",
+    "title": "Email notification for document non-PKP",
+    "status": "In PM review",
+    "priority": "High",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [
+      "Fullfilment"
+    ],
+    "pms": [
+      "Fanny/Lintang"
+    ],
+    "assignees": [
+      "Sigit"
+    ],
+    "start_date": "2026-02-24",
+    "end_date": null,
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "31030a0f-8091-8016-a121-f2a23622ea50",
+    "title": "Eksplorasi + Redesign list dokumen di mobile app PaDi",
+    "status": "In progress design",
+    "priority": "Low",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [
+      "Visit"
+    ],
+    "pms": [
+      "Lavie"
+    ],
+    "assignees": [
+      "Frans"
+    ],
+    "start_date": "2026-02-23",
+    "end_date": "2026-02-27",
+    "figma_url": "https://www.figma.com/design/B24PwwKgu8Q6gRjGJQOB3E/Visit---Revamp-Menu-Dokumen-Mobile?node-id=1-2&p=f&t=bH2ODj2Rix4dlxPi-11",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "31030a0f-8091-80f6-9690-fc7fd7bcba9a",
+    "title": "Validasi Denda untuk Kebutuhan Penambahan Poin Keterangan di Dokumen BAST (Khusus Transaksi Telkom)",
+    "status": "In PM review",
+    "priority": "High",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [
+      "Fullfilment"
+    ],
+    "pms": [
+      "Fanny/Lintang"
+    ],
+    "assignees": [
+      "Widy",
+      "Frans"
+    ],
+    "start_date": "2026-02-23",
+    "end_date": "2026-02-25",
+    "figma_url": "https://www.figma.com/design/E9hwRf9fLIZwfKI1uaF4WW/Denda-Pengiriman-Terlambat?m=auto&t=8QZuRRWFbvJbGp3Y-6",
+    "prd_url": "",
+    "taiga_url": "https://docs.google.com/document/d/1gT1FXnxld3cr98ti2FA2gzfJaU3fGq1zcE0KwPKqhYA/edit?tab=t.8svvcs93r1nv",
+    "other_docs": ""
+  },
+  {
+    "id": "30c30a0f-8091-804a-968a-de5e518a66b2",
+    "title": "[Notifikasi] Email & In-App untuk semua case",
+    "status": "In PM review",
+    "priority": "Medium",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [],
+    "pms": [
+      "Nadhifa"
+    ],
+    "assignees": [
+      "Widy"
+    ],
+    "start_date": null,
+    "end_date": null,
+    "figma_url": "https://www.figma.com/design/8IOU0FxRk1zTMya50kzqdy/Update-Order---Resolution-Center---Solution-Center?node-id=4276-110158",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "30630a0f-8091-8031-9382-fce66b093bd2",
+    "title": "[Mimin] Intervensi update order untuk mimin",
+    "status": "In PM review",
+    "priority": "Medium",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [
+      "Disbursement"
+    ],
+    "pms": [
+      "Nadhifa"
+    ],
+    "assignees": [
+      "Widy"
+    ],
+    "start_date": "2026-02-11",
+    "end_date": "2026-02-13",
+    "figma_url": "https://www.figma.com/design/8IOU0FxRk1zTMya50kzqdy/Update-Order---Resolution-Center---Solution-Center?node-id=3957-25780&p=f&t=RjfByU2muKCHM6Eg-11",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/12968?kanban-status=1283",
+    "other_docs": ""
+  },
+  {
+    "id": "30530a0f-8091-80a6-98b2-fcc61a1af6ae",
+    "title": "Task dadakan Sapa UMKM",
+    "status": "Done",
+    "priority": "P0 - SUPER HIGH",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [
+      "All"
+    ],
+    "pms": [
+      "Bayu"
+    ],
+    "assignees": [
+      "Frans"
+    ],
+    "start_date": "2026-02-12",
+    "end_date": "2026-02-13",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "30530a0f-8091-80f5-9714-d1c4381a2c4f",
+    "title": "Untitled",
+    "status": "Not started",
+    "priority": "Medium",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [],
+    "pms": [],
+    "assignees": [],
+    "start_date": "2026-02-10",
+    "end_date": "2026-02-12",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "30530a0f-8091-804e-95e4-dda59218409f",
+    "title": "Dokumen optional di detail transaksi",
+    "status": "In PM review",
+    "priority": "Medium",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [
+      "Fullfilment"
+    ],
+    "pms": [
+      "Fanny/Lintang"
+    ],
+    "assignees": [
+      "Sigit",
+      "Banu"
+    ],
+    "start_date": "2026-02-12",
+    "end_date": "2026-02-18",
+    "figma_url": "https://www.figma.com/design/rwp1yLhcHHDtQXN691ByXK/Detail-Transaksi---Dokumen-Lainnya?node-id=0-1&t=xwmPnkSP4jQM1eQt-1",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": "https://www.figma.com/design/ZF5VNrmFPMukvtznhd46mR/Mandatory-Surat-Jalan-dan-Hide-Button?node-id=0-1&p=f&t=1UA6fGJC3JlEEAhc-11"
+  },
+  {
+    "id": "30530a0f-8091-80bb-87c8-f4e8a53b3e77",
+    "title": "Dokumen mandatory user non-PKP",
+    "status": "In PM review",
+    "priority": "High",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [
+      "Fullfilment"
+    ],
+    "pms": [
+      "Fanny/Lintang"
+    ],
+    "assignees": [
+      "Sigit"
+    ],
+    "start_date": "2026-02-12",
+    "end_date": "2026-02-18",
+    "figma_url": "https://www.figma.com/design/S5MbhYs8Pz80zmMpk8DzZd/Surat-Pernyataan-for-seller-non-PKP?node-id=0-1&p=f&t=R0lup7BRRxAX8muP-11",
+    "prd_url": "",
+    "taiga_url": "https://docs.google.com/document/d/1yenOwtXRnMUKwJfMfXa6UU-6Tu6kR1lMZHsvWkJnxss/edit?tab=t.8svvcs93r1nv",
+    "other_docs": ""
+  },
+  {
+    "id": "30530a0f-8091-80d9-b650-d5fb4a1c2a23",
+    "title": "[Fulfillment] Dokumen mandatory and optional",
+    "status": "In PM review",
+    "priority": "High",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [
+      "Fullfilment"
+    ],
+    "pms": [
+      "Fanny/Lintang"
+    ],
+    "assignees": [
+      "Sigit",
+      "Banu"
+    ],
+    "start_date": "2026-02-12",
+    "end_date": "2026-02-18",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "https://docs.google.com/document/d/1yenOwtXRnMUKwJfMfXa6UU-6Tu6kR1lMZHsvWkJnxss/edit?tab=t.8svvcs93r1nv",
+    "other_docs": "https://www.figma.com/board/8NjDl1YldHFaxOBluFOekL/PaDi-UMKM--Copy-?node-id=0-1&p=f&t=01mROaims8py8nnZ-11"
+  },
+  {
+    "id": "30430a0f-8091-8076-bfdf-de494c4196a4",
+    "title": "[Update Order Self Service Buyer] Penjagaan Update Order Mimin",
+    "status": "In PM review",
+    "priority": "Medium",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [
+      "Payment"
+    ],
+    "pms": [
+      "Nadhifa"
+    ],
+    "assignees": [
+      "Widy"
+    ],
+    "start_date": "2026-02-12",
+    "end_date": "2026-02-13",
+    "figma_url": "https://www.figma.com/design/8IOU0FxRk1zTMya50kzqdy/Update-Order---Resolution-Center---Solution-Center?node-id=3957-25780",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/12968?kanban-status=1283",
+    "other_docs": ""
+  },
+  {
+    "id": "30330a0f-8091-80c4-81ca-c9d0d28aebac",
+    "title": "[Buyer Group][CMS][Admin Perusahaan] Sebagai admin, saya dapat menyesuaikan limitasi checkout untuk Level Buyer Group",
+    "status": "In PM review",
+    "priority": "High",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [
+      "Visit"
+    ],
+    "pms": [
+      "Lavie"
+    ],
+    "assignees": [
+      "Banu"
+    ],
+    "start_date": "2026-02-10",
+    "end_date": "2026-02-13",
+    "figma_url": "https://www.figma.com/design/QZCDgFcUArQtDIqhNT1arZ/Limitasi-Checkout?node-id=623-78482&t=NW7YENJK8x2pCtIa-1",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/12972",
+    "other_docs": ""
+  },
+  {
+    "id": "30230a0f-8091-80fd-9358-edafc8fe8dcc",
+    "title": "Financing BNI - Update 01 2026",
+    "status": "In PM review",
+    "priority": "Medium",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [
+      "Financing"
+    ],
+    "pms": [
+      "Hana"
+    ],
+    "assignees": [
+      "Widy"
+    ],
+    "start_date": "2026-02-06",
+    "end_date": null,
+    "figma_url": "https://www.figma.com/design/JxydRgsJK7V1notVRX0OND/IF-Financing---BNI?node-id=0-1&t=QK3XbwOkKESSXKjZ-1",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "2ff30a0f-8091-8083-8414-eb4692d9bd2b",
+    "title": "Improvement tax PaDi UMKM",
+    "status": "In PM review",
+    "priority": "P0 - SUPER HIGH",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [
+      "Fullfilment"
+    ],
+    "pms": [
+      "Fanny/Lintang"
+    ],
+    "assignees": [
+      "Frans"
+    ],
+    "start_date": "2026-02-09",
+    "end_date": "2026-02-11",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "https://docs.google.com/document/d/1jnJaOqqrZKKEBBtTTjiHxajFuPj11cVzuBCoi3Xpa50/edit?tab=t.8svvcs93r1nv",
+    "other_docs": ""
+  },
+  {
+    "id": "2fe30a0f-8091-805e-846b-c5cab85455c7",
+    "title": "Exploring design system via Figma MCP and AI",
+    "status": "Not started",
+    "priority": "Medium",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [],
+    "pms": [],
+    "assignees": [
+      "Dian"
+    ],
+    "start_date": null,
+    "end_date": null,
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "2fb30a0f-8091-80a9-b139-fe04ca697832",
+    "title": "[Fulfillment] Enhancement icon unggah ulang dokumen",
+    "status": "Done",
+    "priority": "High",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [
+      "Fullfilment"
+    ],
+    "pms": [],
+    "assignees": [
+      "Frans"
+    ],
+    "start_date": "2026-02-03",
+    "end_date": "2026-02-04",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "2f830a0f-8091-8074-a23c-cb5a82fb34cf",
+    "title": "[Buyer][BG] Sebagai buyer group, saya dapat melihat pemberitahuan penangguhan berupa notifikasi email (Draft)  ",
+    "status": "In PM review",
+    "priority": "High",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [
+      "Visit"
+    ],
+    "pms": [],
+    "assignees": [
+      "Banu",
+      "Sigit"
+    ],
+    "start_date": "2026-02-02",
+    "end_date": "2026-02-06",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/12817",
+    "other_docs": ""
+  },
+  {
+    "id": "2f830a0f-8091-80c8-b17f-d0f4bdc0a507",
+    "title": "[Buyer][BG] Sebagai buyer group, saya dapat melihat pemberitahuan penangguhan berupa notifikasi email (Draft)  ",
+    "status": "Not started",
+    "priority": "Medium",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [],
+    "pms": [],
+    "assignees": [],
+    "start_date": null,
+    "end_date": null,
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "2f830a0f-8091-806f-8213-d8a5c13d22eb",
+    "title": "[CMS][BG] Sebagai admin CMS, saya dapat mengaktifikan akun yang telah disuspend sementara pada buyer group di CMS  ",
+    "status": "In PM review",
+    "priority": "High",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [
+      "Visit"
+    ],
+    "pms": [],
+    "assignees": [
+      "Banu",
+      "Sigit"
+    ],
+    "start_date": "2026-02-02",
+    "end_date": "2026-02-06",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/12812",
+    "other_docs": ""
+  },
+  {
+    "id": "2f830a0f-8091-802f-adc5-ca76dbb6c882",
+    "title": "[Buyer][BG] Sebagai buyer group, saya dapat melihat pemberitahuan penangguhan berupa badge dan pop up  ",
+    "status": "In PM review",
+    "priority": "High",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [
+      "Visit"
+    ],
+    "pms": [],
+    "assignees": [
+      "Banu",
+      "Sigit"
+    ],
+    "start_date": "2026-02-02",
+    "end_date": "2026-02-06",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/12813",
+    "other_docs": ""
+  },
+  {
+    "id": "2f830a0f-8091-8024-be68-e04f17614f4e",
+    "title": "[CMS] [BG] Sebagai admin CMS, saya dapat melakukan suspend sementara atau permanen pada buyer group di CMS  ",
+    "status": "In PM review",
+    "priority": "High",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [
+      "Visit"
+    ],
+    "pms": [],
+    "assignees": [
+      "Banu",
+      "Sigit"
+    ],
+    "start_date": "2026-02-02",
+    "end_date": "2026-02-06",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/12806",
+    "other_docs": ""
+  },
+  {
+    "id": "2f830a0f-8091-80fd-808e-deccbfd0b9a5",
+    "title": "[Seller] Sebagai Seller, saya mendapatkan notifikasi pemberitahuan suspend (Draft)  ",
+    "status": "In PM review",
+    "priority": "High",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [
+      "Visit"
+    ],
+    "pms": [],
+    "assignees": [
+      "Widy",
+      "Frans"
+    ],
+    "start_date": "2026-02-02",
+    "end_date": "2026-02-06",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/12689",
+    "other_docs": ""
+  },
+  {
+    "id": "2f830a0f-8091-800a-ae5b-f8273e729e0a",
+    "title": "[Seller] Sebagai Seller, saya dapat melihat pemberitahuan penangguhan berupa badge dan pop up ",
+    "status": "In PM review",
+    "priority": "High",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [
+      "Visit"
+    ],
+    "pms": [
+      "Lavie"
+    ],
+    "assignees": [
+      "Widy",
+      "Frans"
+    ],
+    "start_date": "2026-02-02",
+    "end_date": "2026-02-06",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/12688",
+    "other_docs": ""
+  },
+  {
+    "id": "2f830a0f-8091-804d-85f3-d9ab43ef6b7b",
+    "title": "[Seller] Sebagai seller, akun saya akan aktif kembali setelah 60 hari kerja (suspend sementara)  ",
+    "status": "In PM review",
+    "priority": "High",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [
+      "Visit"
+    ],
+    "pms": [],
+    "assignees": [
+      "Widy",
+      "Frans"
+    ],
+    "start_date": "2026-02-02",
+    "end_date": "2026-02-06",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/12687",
+    "other_docs": ""
+  },
+  {
+    "id": "2f830a0f-8091-8044-9eac-fed87c0ba78b",
+    "title": "[Seller] Sebagai seller, akun saya akan ditangguhkan secara permanen karena kriteria tertentu (suspend permanen)  ",
+    "status": "In PM review",
+    "priority": "High",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [
+      "Visit"
+    ],
+    "pms": [],
+    "assignees": [
+      "Frans",
+      "Widy"
+    ],
+    "start_date": "2026-02-02",
+    "end_date": "2026-02-06",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/12686",
+    "other_docs": ""
+  },
+  {
+    "id": "2f830a0f-8091-8024-b83f-fcf32f50787f",
+    "title": "[Seller] Sebagai seller, akun saya akan ditangguhkan sementara karena kriteria tertentu  ",
+    "status": "In PM review",
+    "priority": "High",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [
+      "Visit"
+    ],
+    "pms": [],
+    "assignees": [
+      "Frans",
+      "Widy"
+    ],
+    "start_date": "2026-02-02",
+    "end_date": "2026-02-06",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/12685",
+    "other_docs": ""
+  },
+  {
+    "id": "2f830a0f-8091-8070-8143-f26b5a3afe7c",
+    "title": "#12830 [Seller] Pop-up Pemberitahuan dan Persetujuan Skema Repayment  ",
+    "status": "In PM review",
+    "priority": "Low",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [
+      "Financing"
+    ],
+    "pms": [],
+    "assignees": [
+      "Widy"
+    ],
+    "start_date": "2026-02-02",
+    "end_date": "2026-02-04",
+    "figma_url": "https://www.figma.com/design/omwNJkrhhnG2vdW2ox2Sdi/Multi-invoice-Financing---Pegadaian?node-id=0-1",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/12830",
+    "other_docs": ""
+  },
+  {
+    "id": "2f830a0f-8091-80d9-ab9f-cda683c60e50",
+    "title": "[Mimin] Repayment History pada Tampilan Detail Pinjaman",
+    "status": "In PM review",
+    "priority": "Low",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [
+      "Financing"
+    ],
+    "pms": [],
+    "assignees": [
+      "Widy"
+    ],
+    "start_date": "2026-02-02",
+    "end_date": "2026-02-07",
+    "figma_url": "https://www.figma.com/design/omwNJkrhhnG2vdW2ox2Sdi/Multi-invoice-Financing---Pegadaian?node-id=3-1307",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/12829",
+    "other_docs": ""
+  },
+  {
+    "id": "2f830a0f-8091-80e8-a7c6-d1c921415161",
+    "title": "[Financing] Multi-Invoice Financing: Pegadaian",
+    "status": "In PM review",
+    "priority": "Low",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [
+      "Financing"
+    ],
+    "pms": [
+      "Hana"
+    ],
+    "assignees": [
+      "Widy"
+    ],
+    "start_date": "2026-02-02",
+    "end_date": "2026-02-04",
+    "figma_url": "https://www.figma.com/design/omwNJkrhhnG2vdW2ox2Sdi/Multi-invoice-Financing---Pegadaian?node-id=3-1307",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/epic/12828",
+    "other_docs": ""
+  },
+  {
+    "id": "2f830a0f-8091-8060-8972-dd47ea1d3910",
+    "title": "[Buyer][Dual Role] Sebagai user, saya dapat mengubah no handphone, kata sandi, dan kode PIN",
+    "status": "In PM review",
+    "priority": "Medium",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [
+      "Visit"
+    ],
+    "pms": [],
+    "assignees": [
+      "Sigit"
+    ],
+    "start_date": "2026-02-02",
+    "end_date": "2026-02-04",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/12831",
+    "other_docs": ""
+  },
+  {
+    "id": "2f730a0f-8091-80df-aebc-e9fc61de3cee",
+    "title": "[Visit] Automated seller & Manual Buyer suspend system",
+    "status": "In PM review",
+    "priority": "High",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [
+      "Visit"
+    ],
+    "pms": [
+      "Lavie"
+    ],
+    "assignees": [
+      "Sigit",
+      "Banu",
+      "Frans",
+      "Widy",
+      "Dian"
+    ],
+    "start_date": "2026-02-02",
+    "end_date": "2026-02-06",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/epic/12679",
+    "other_docs": "https://docs.google.com/document/d/1XV-LnjuuJ8NZmEZMjpirLU_qZ1JMwivKXyhyURpvNlw/edit?tab=t.0"
+  },
+  {
+    "id": "2f630a0f-8091-8080-8cc5-e78608007d83",
+    "title": "[Seller] Update Order (Self-Service)",
+    "status": "In PM review",
+    "priority": "P0 - SUPER HIGH",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [
+      "Disbursement"
+    ],
+    "pms": [
+      "Nadhifa"
+    ],
+    "assignees": [
+      "Frans"
+    ],
+    "start_date": "2026-01-28",
+    "end_date": "2026-01-30",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "2f630a0f-8091-80cb-b834-f80e4b7a9d4e",
+    "title": "[Buyer Manager] Update Order (Self-Service)",
+    "status": "In PM review",
+    "priority": "P0 - SUPER HIGH",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [
+      "Disbursement"
+    ],
+    "pms": [
+      "Nadhifa"
+    ],
+    "assignees": [
+      "Banu"
+    ],
+    "start_date": "2026-01-28",
+    "end_date": "2026-01-30",
+    "figma_url": "https://www.figma.com/design/8IOU0FxRk1zTMya50kzqdy/Update-Order---Resolution-Center---Solution-Center?node-id=3266-22063",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "2f630a0f-8091-80bb-a066-f360b9a13d71",
+    "title": "[Buyer Staff] Update Order (Self-Service)",
+    "status": "In PM review",
+    "priority": "P0 - SUPER HIGH",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [
+      "Disbursement"
+    ],
+    "pms": [
+      "Nadhifa"
+    ],
+    "assignees": [
+      "Widy"
+    ],
+    "start_date": "2026-01-28",
+    "end_date": "2026-01-30",
+    "figma_url": "https://www.figma.com/design/8IOU0FxRk1zTMya50kzqdy/Update-Order---Resolution-Center---Solution-Center?node-id=3253-10536",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "2f430a0f-8091-804b-af76-f18a0b435d5a",
+    "title": "Landing page enhancement",
+    "status": "In PM review",
+    "priority": "Medium",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [
+      "Financing"
+    ],
+    "pms": [],
+    "assignees": [
+      "Widy"
+    ],
+    "start_date": "2025-12-27",
+    "end_date": "2025-12-29",
+    "figma_url": "https://www.figma.com/design/85MCKQVLEz6dKIJv5NANK9/invoice---multi-invoice-financing---Danareksa-Finance?node-id=1-9196&t=znLWcweYMFakIFpb-1",
+    "prd_url": "",
+    "taiga_url": "https://docs.google.com/document/d/1DlgfQ0BostUrxrF0ZcC6uwKrR565AJmoLrfZtKXdKa8/edit?tab=t.0",
+    "other_docs": ""
+  },
+  {
+    "id": "2f430a0f-8091-803b-9698-ee0193fb14a4",
+    "title": "[Control Tower] Toggle - Belum Laporan",
+    "status": "In PM review",
+    "priority": "Medium",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [
+      "Core"
+    ],
+    "pms": [],
+    "assignees": [
+      "Banu"
+    ],
+    "start_date": "2026-01-26",
+    "end_date": "2026-01-30",
+    "figma_url": "https://www.figma.com/design/QClsyItdTl7XuFFeuvMHfF/Belanja-PDN?node-id=11502-183804&t=HfsyNKTQMVPxrHOk-4",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SMB/us/20272?no-milestone=1",
+    "other_docs": ""
+  },
+  {
+    "id": "2f430a0f-8091-8070-b41c-c0fa713e70e2",
+    "title": "[Control Tower] Button Download - Belum Memberikan Data",
+    "status": "In PM review",
+    "priority": "Medium",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [
+      "Core"
+    ],
+    "pms": [],
+    "assignees": [
+      "Banu"
+    ],
+    "start_date": "2026-01-26",
+    "end_date": "2026-01-30",
+    "figma_url": "https://www.figma.com/design/rR67i7Rgb0yZkUlfzbUD9v/Transaksi?node-id=5901-45697&t=qCwoyO0VZnHJAPhd-4",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SMB/us/20338?no-milestone=1",
+    "other_docs": ""
+  },
+  {
+    "id": "2f130a0f-8091-8063-89bf-dddcf6214c34",
+    "title": "[TenderKilat] Tampilan field level sertifikat di form tambah sertifikat di profile seller",
+    "status": "In PM review",
+    "priority": "Medium",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [
+      "Discovery"
+    ],
+    "pms": [],
+    "assignees": [
+      "Sigit"
+    ],
+    "start_date": "2026-01-20",
+    "end_date": "2026-01-23",
+    "figma_url": "https://www.figma.com/design/7cd3ptRqGPCskz9Re10F9W/eProc---Q1-2026?node-id=3589-1319&p=f&t=pUOE7OIOThaoqRgd-11",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/12737?kanban-status=1285",
+    "other_docs": ""
+  },
+  {
+    "id": "2f130a0f-8091-80ee-937b-ee35862f0d9a",
+    "title": "[TenderKilat] Buat layout untuk menampilkan catatan Tender Kilat dan catatan Penawaran pada dokumen PO",
+    "status": "In PM review",
+    "priority": "Medium",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [
+      "Discovery"
+    ],
+    "pms": [],
+    "assignees": [
+      "Sigit"
+    ],
+    "start_date": "2026-01-20",
+    "end_date": "2026-01-23",
+    "figma_url": "https://www.figma.com/design/7cd3ptRqGPCskz9Re10F9W/eProc---Q1-2026?node-id=6105-7324",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/12743?kanban-status=1285",
+    "other_docs": ""
+  },
+  {
+    "id": "2f030a0f-8091-8099-9267-eeb89797388c",
+    "title": "[TenderKilat] Seller - Desain tampilan form buat penawaran yang berasal dari tender kilat termin",
+    "status": "In PM review",
+    "priority": "High",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [
+      "Discovery"
+    ],
+    "pms": [],
+    "assignees": [
+      "Sigit"
+    ],
+    "start_date": "2026-01-20",
+    "end_date": "2026-01-29",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/12749?kanban-include_attachments=1&kanban-include_tasks=1&kanban-status=1283",
+    "other_docs": ""
+  },
+  {
+    "id": "2f030a0f-8091-800d-8055-f652328166e2",
+    "title": "[TenderKilat] Buyer - Desain tampilan form buat tender kilat untuk metode pembayaran termin",
+    "status": "In PM review",
+    "priority": "High",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [
+      "Discovery"
+    ],
+    "pms": [],
+    "assignees": [
+      "Sigit"
+    ],
+    "start_date": "2026-01-20",
+    "end_date": "2026-01-29",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/12748?kanban-include_attachments=1&kanban-include_tasks=1&kanban-status=1283",
+    "other_docs": ""
+  },
+  {
+    "id": "2ed30a0f-8091-80fc-aa5c-c20eb2f9cbff",
+    "title": "Pembatalan PO mobile version",
+    "status": "In PM review",
+    "priority": "High",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [
+      "Fullfilment"
+    ],
+    "pms": [],
+    "assignees": [
+      "Banu"
+    ],
+    "start_date": "2026-01-19",
+    "end_date": "2026-01-23",
+    "figma_url": "https://www.figma.com/design/AtZ3bbM5A4gQir69VWwYmG/Daftar---Detail-Transaksi---Buyer?node-id=78-23480",
+    "prd_url": "",
+    "taiga_url": "https://www.figma.com/board/yNP3s0aKz8ZZithqu8FOln/PaDi-UMKM?node-id=0-1&p=fx",
+    "other_docs": ""
+  },
+  {
+    "id": "34f30a0f-8091-8016-a89c-cacc6c69cd7d",
+    "title": "Banu Cuti",
+    "status": "Paid Leave",
+    "priority": "Low",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [
+      "Leave"
+    ],
+    "pms": [],
+    "assignees": [],
+    "start_date": "2026-06-18",
+    "end_date": "2026-06-19",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "30b30a0f-8091-80a9-88d5-dcef6e5dbd18",
+    "title": "Cuti Frans + Libur Lebaran",
+    "status": "Paid Leave",
+    "priority": "Low",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [
+      "Leave"
+    ],
+    "pms": [],
+    "assignees": [],
+    "start_date": "2026-03-09",
+    "end_date": "2026-03-24",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "30b30a0f-8091-80a1-b913-c2500511d2af",
+    "title": "Cuti Widy",
+    "status": "Paid Leave",
+    "priority": "Low",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [
+      "Leave"
+    ],
+    "pms": [],
+    "assignees": [],
+    "start_date": "2026-03-12",
+    "end_date": "2026-03-17",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "30b30a0f-8091-80bd-91b9-f58b023eeb0f",
+    "title": "Cuti - Banu",
+    "status": "Paid Leave",
+    "priority": "Low",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [
+      "Leave"
+    ],
+    "pms": [],
+    "assignees": [],
+    "start_date": "2026-03-13",
+    "end_date": null,
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "30b30a0f-8091-80f7-8c1b-c2fb6b642185",
+    "title": "WFH",
+    "status": "Paid Leave",
+    "priority": "Low",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [
+      "Leave"
+    ],
+    "pms": [],
+    "assignees": [],
+    "start_date": "2026-03-16",
+    "end_date": "2026-03-17",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "30b30a0f-8091-80b7-bbf8-dc2e714a0b28",
+    "title": "LIBURRRRRRRRR LEBARANNNNNN",
+    "status": "Paid Leave",
+    "priority": "Low",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [
+      "Leave"
+    ],
+    "pms": [],
+    "assignees": [],
+    "start_date": "2026-03-18",
+    "end_date": "2026-03-24",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "30b30a0f-8091-80e2-94fb-c1205dea2042",
+    "title": "WFH",
+    "status": "Paid Leave",
+    "priority": "Low",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [
+      "Leave"
+    ],
+    "pms": [],
+    "assignees": [],
+    "start_date": "2026-03-25",
+    "end_date": "2026-03-27",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "30b30a0f-8091-80f5-99bc-f5216b8c8f7e",
+    "title": "Cuti - Banu",
+    "status": "Paid Leave",
+    "priority": "Low",
+    "quarter": "Q1 2026",
+    "wbs": "",
+    "squads": [
+      "Leave"
+    ],
+    "pms": [],
+    "assignees": [],
+    "start_date": "2026-03-30",
+    "end_date": "2026-04-02",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "34f30a0f-8091-802f-ac01-d965c6ada259",
+    "title": "Sigit cuti",
+    "status": "Paid Leave",
+    "priority": "Low",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [
+      "Leave"
+    ],
+    "pms": [],
+    "assignees": [
+      "Sigit"
+    ],
+    "start_date": "2026-04-30",
+    "end_date": null,
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "34f30a0f-8091-806b-9892-f78a2d2fb572",
+    "title": "[LIBUR] HARI BURUH",
+    "status": "Paid Leave",
+    "priority": "Low",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [
+      "Leave"
+    ],
+    "pms": [],
+    "assignees": [],
+    "start_date": "2026-05-01",
+    "end_date": null,
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "34f30a0f-8091-80b4-bdf9-d5aed1674644",
+    "title": "Widy Cuti",
+    "status": "Paid Leave",
+    "priority": "Low",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [
+      "Leave"
+    ],
+    "pms": [],
+    "assignees": [
+      "Widy"
+    ],
+    "start_date": "2026-05-08",
+    "end_date": null,
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "35230a0f-8091-80cc-a7be-dbece9ecfd71",
+    "title": "Widy Cuti",
+    "status": "Paid Leave",
+    "priority": "Low",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [
+      "Leave"
+    ],
+    "pms": [],
+    "assignees": [],
+    "start_date": "2026-05-11",
+    "end_date": "2026-05-13",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "34f30a0f-8091-80ba-9fc3-d52bc423f805",
+    "title": "Dian Cuti ",
+    "status": "Paid Leave",
+    "priority": "Low",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [
+      "Leave"
+    ],
+    "pms": [],
+    "assignees": [],
+    "start_date": "2026-05-11",
+    "end_date": "2026-05-13",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "35230a0f-8091-809b-92e6-d375120b942c",
+    "title": "Sigit cuti",
+    "status": "Paid Leave",
+    "priority": "Low",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [
+      "Leave"
+    ],
+    "pms": [],
+    "assignees": [
+      "Sigit"
+    ],
+    "start_date": "2026-05-13",
+    "end_date": null,
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "34f30a0f-8091-80ff-995f-d39e581d1348",
+    "title": "[LIBUR] TANGGAL MERAH POKONYA",
+    "status": "Paid Leave",
+    "priority": "Low",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [
+      "Leave"
+    ],
+    "pms": [],
+    "assignees": [],
+    "start_date": "2026-05-14",
+    "end_date": "2026-05-15",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "35230a0f-8091-8089-86cc-efb12a9f9f0e",
+    "title": "sigit cuti",
+    "status": "Paid Leave",
+    "priority": "Low",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [
+      "Leave"
+    ],
+    "pms": [],
+    "assignees": [
+      "Sigit"
+    ],
+    "start_date": "2026-05-18",
+    "end_date": null,
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "34f30a0f-8091-809c-b47f-c2b26de459ec",
+    "title": "Dian Cuti ",
+    "status": "Paid Leave",
+    "priority": "Low",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [
+      "Leave"
+    ],
+    "pms": [],
+    "assignees": [],
+    "start_date": "2026-05-25",
+    "end_date": "2026-05-26",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "34f30a0f-8091-800b-97df-c570f9a3a8a1",
+    "title": "[LIBUR] TANGGAL MERAH POKONYA",
+    "status": "Paid Leave",
+    "priority": "Low",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [
+      "Leave"
+    ],
+    "pms": [],
+    "assignees": [],
+    "start_date": "2026-05-27",
+    "end_date": "2026-05-28",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "35630a0f-8091-8023-9c6f-eafb4541253b",
+    "title": "Banu Cuti",
+    "status": "Paid Leave",
+    "priority": "Low",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [
+      "Leave"
+    ],
+    "pms": [],
+    "assignees": [],
+    "start_date": "2026-05-29",
+    "end_date": null,
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "35930a0f-8091-8066-a99a-eb2ae19f622c",
+    "title": "Dian Cuti",
+    "status": "Paid Leave",
+    "priority": "Low",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [
+      "Leave"
+    ],
+    "pms": [],
+    "assignees": [],
+    "start_date": "2026-05-29",
+    "end_date": null,
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "36830a0f-8091-8005-ae09-fde911d5653b",
+    "title": "LIBUR HARI PANCASILA",
+    "status": "Paid Leave",
+    "priority": "Low",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [
+      "Leave"
+    ],
+    "pms": [],
+    "assignees": [],
+    "start_date": "2026-06-01",
+    "end_date": null,
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "36b30a0f-8091-803c-a214-f574605f1539",
+    "title": "Sigit Cuti",
+    "status": "Paid Leave",
+    "priority": "Low",
+    "quarter": "Q2 2026",
+    "wbs": "",
+    "squads": [
+      "Leave"
+    ],
+    "pms": [],
+    "assignees": [
+      "Sigit"
+    ],
+    "start_date": "2026-05-29",
+    "end_date": "2026-05-29",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
     "other_docs": ""
   }
 ]
