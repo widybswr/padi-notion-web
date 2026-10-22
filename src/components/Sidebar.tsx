@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { ViewMode } from '@/lib/types';
+import { ViewMode, Task } from '@/lib/types';
 import {
   Table,
   Kanban,
@@ -15,6 +15,7 @@ import {
   Plus,
   LogOut,
   Calendar,
+  LayoutDashboard,
 } from 'lucide-react';
 
 interface SidebarProps {
@@ -29,6 +30,7 @@ interface SidebarProps {
   setActiveQuarter: (quarter: string) => void;
   quartersList: string[];
   onAddQuarter: (quarter: string) => void;
+  tasks?: Task[];
   onLogout?: () => void;
 }
 
@@ -44,6 +46,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
   setActiveQuarter,
   quartersList,
   onAddQuarter,
+  tasks = [],
   onLogout,
 }) => {
   return (
@@ -103,6 +106,23 @@ export const Sidebar: React.FC<SidebarProps> = ({
           <div className="mt-1 space-y-0.5">
             <button
               onClick={() => {
+                setViewMode('dashboard');
+                setSelectedAssignee(null);
+              }}
+              className={`w-full flex items-center justify-between px-2.5 py-1.5 rounded-md transition-colors ${
+                viewMode === 'dashboard' && !selectedAssignee
+                  ? 'bg-zinc-200/70 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 font-medium'
+                  : 'text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200/40 dark:hover:bg-zinc-800/50'
+              }`}
+            >
+              <div className="flex items-center gap-2">
+                <LayoutDashboard className="w-3.5 h-3.5" />
+                <span>Dashboard</span>
+              </div>
+            </button>
+
+            <button
+              onClick={() => {
                 setViewMode('table');
                 setSelectedAssignee(null);
               }}
@@ -160,24 +180,61 @@ export const Sidebar: React.FC<SidebarProps> = ({
           <span className="px-2 text-[10px] font-semibold uppercase tracking-wider text-zinc-400">
             Team Views
           </span>
-          <div className="mt-1 space-y-0.5">
+          <div className="mt-1 space-y-1">
             {assignees.map((name) => {
               const isSelected = selectedAssignee === name;
+              const personActiveTasks = tasks.filter(
+                (t) =>
+                  (!t.quarter || t.quarter === activeQuarter) &&
+                  t.assignees?.includes(name) &&
+                  (t.status === 'In progress design' ||
+                    t.status?.toLowerCase().includes('in progress'))
+              );
+              const isDesigning = personActiveTasks.length > 0;
+
               return (
-                <button
-                  key={name}
-                  onClick={() => setSelectedAssignee(isSelected ? null : name)}
-                  className={`w-full flex items-center justify-between px-2.5 py-1.5 rounded-md transition-colors ${
-                    isSelected
-                      ? 'bg-blue-50 dark:bg-blue-950/50 text-blue-700 dark:text-blue-300 font-medium'
-                      : 'text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200/40 dark:hover:bg-zinc-800/50'
-                  }`}
-                >
-                  <div className="flex items-center gap-2">
-                    <User className="w-3.5 h-3.5 text-zinc-400" />
-                    <span>{name}</span>
-                  </div>
-                </button>
+                <div key={name} className="flex flex-col">
+                  <button
+                    onClick={() => setSelectedAssignee(isSelected ? null : name)}
+                    className={`w-full flex items-center justify-between px-2.5 py-1.5 rounded-md transition-colors ${
+                      isSelected
+                        ? 'bg-blue-50 dark:bg-blue-950/50 text-blue-700 dark:text-blue-300 font-medium'
+                        : 'text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200/40 dark:hover:bg-zinc-800/50'
+                    }`}
+                  >
+                    <div className="flex items-center gap-2 truncate">
+                      <User className="w-3.5 h-3.5 text-zinc-400 shrink-0" />
+                      <span className="truncate">{name}</span>
+                    </div>
+
+                    {isDesigning ? (
+                      <span className="flex items-center gap-1 text-emerald-600 dark:text-emerald-400 font-medium text-[10px] shrink-0 ml-1">
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                        Designing
+                      </span>
+                    ) : (
+                      <span className="flex items-center gap-1 text-zinc-400 dark:text-zinc-500 text-[10px] shrink-0 ml-1">
+                        <span className="w-1.5 h-1.5 rounded-full bg-zinc-300 dark:bg-zinc-600" />
+                        Standby
+                      </span>
+                    )}
+                  </button>
+
+                  {/* Bulleted in-progress tasks */}
+                  {isDesigning && (
+                    <div className="pl-7 pr-2 pt-0.5 pb-1 space-y-0.5">
+                      {personActiveTasks.map((t) => (
+                        <p
+                          key={t.id}
+                          title={t.title}
+                          className="text-[10px] text-zinc-400 dark:text-zinc-500 truncate hover:text-zinc-700 dark:hover:text-zinc-300 transition-colors leading-tight"
+                        >
+                          • {t.title}
+                        </p>
+                      ))}
+                    </div>
+                  )}
+                </div>
               );
             })}
           </div>

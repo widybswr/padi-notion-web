@@ -8,6 +8,7 @@ import { ViewHeader } from '@/components/ViewHeader';
 import { TableView } from '@/components/TableView';
 import { BoardView } from '@/components/BoardView';
 import { TimelineView } from '@/components/TimelineView';
+import { DashboardView } from '@/components/DashboardView';
 import { TaskModal } from '@/components/TaskModal';
 import { NewTaskModal } from '@/components/NewTaskModal';
 import { PasswordGate } from '@/components/PasswordGate';
@@ -203,6 +204,7 @@ export default function HomePage() {
           setExtraQuarters((prev) => [...prev, newQ]);
           setActiveQuarter(newQ);
         }}
+        tasks={tasks}
         onLogout={handleLogout}
       />
 
@@ -233,6 +235,13 @@ export default function HomePage() {
             <div className="flex items-center justify-center p-12 text-zinc-400 text-xs">
               Loading workspace tasks...
             </div>
+          ) : viewMode === 'dashboard' ? (
+            <DashboardView
+              tasks={filteredTasks}
+              allQuarterTasks={tasks.filter((t) => !t.quarter || t.quarter === activeQuarter)}
+              onSelectTask={setActiveTask}
+              activeQuarter={activeQuarter}
+            />
           ) : viewMode === 'table' ? (
             <TableView
               tasks={filteredTasks}

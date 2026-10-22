@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { ViewMode } from '@/lib/types';
-import { Table, Kanban, Search, Filter, Plus, X, Calendar } from 'lucide-react';
+import { Table, Kanban, Search, Filter, Plus, X, Calendar, LayoutDashboard } from 'lucide-react';
 
 interface ViewHeaderProps {
   viewMode: ViewMode;
@@ -63,6 +63,18 @@ export const ViewHeader: React.FC<ViewHeaderProps> = ({
       <div className="px-6 flex flex-wrap items-center justify-between gap-3 border-t border-zinc-100 dark:border-zinc-800/80 py-2">
         {/* View Switcher Tabs */}
         <div className="flex items-center gap-1">
+          <button
+            onClick={() => setViewMode('dashboard')}
+            className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-medium transition-colors ${
+              viewMode === 'dashboard'
+                ? 'bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100'
+                : 'text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-200 hover:bg-zinc-50 dark:hover:bg-zinc-900'
+            }`}
+          >
+            <LayoutDashboard className="w-3.5 h-3.5" />
+            <span>Dashboard</span>
+          </button>
+
           <button
             onClick={() => setViewMode('table')}
             className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-medium transition-colors ${

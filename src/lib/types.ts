@@ -32,4 +32,4 @@ export interface Task {
   updated_at?: string;
 }
 
-export type ViewMode = 'table' | 'board' | 'timeline' | 'assignee';
+export type ViewMode = 'table' | 'board' | 'timeline' | 'dashboard' | 'assignee';
