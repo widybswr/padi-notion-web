@@ -41,7 +41,7 @@ export const ViewHeader: React.FC<ViewHeaderProps> = ({
       <div className="px-6 pt-5 pb-3 flex flex-wrap items-center justify-between gap-4">
         <div>
           <h1 className="text-xl font-bold text-zinc-900 dark:text-zinc-100 flex items-center gap-2">
-            <span>🌾</span> {activeQuarter}
+            <span>{activeQuarter}</span>
             <span className="text-xs font-normal text-zinc-400 ml-2 font-mono">
               ({totalFiltered} items)
             </span>

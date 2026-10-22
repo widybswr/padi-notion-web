@@ -65,9 +65,21 @@ export default function HomePage() {
 
   // Compute distinct filter options
   const assigneesList = useMemo(() => {
+    const PRIORITY_ORDER = ['dian', 'sigit', 'banu', 'widy', 'frans'];
     const set = new Set<string>();
     tasks.forEach((t) => t.assignees?.forEach((a) => set.add(a)));
-    return Array.from(set).sort();
+
+    return Array.from(set).sort((a, b) => {
+      const aLower = a.toLowerCase();
+      const bLower = b.toLowerCase();
+      const aIdx = PRIORITY_ORDER.findIndex((name) => aLower.includes(name));
+      const bIdx = PRIORITY_ORDER.findIndex((name) => bLower.includes(name));
+
+      if (aIdx !== -1 && bIdx !== -1) return aIdx - bIdx;
+      if (aIdx !== -1) return -1;
+      if (bIdx !== -1) return 1;
+      return a.localeCompare(b);
+    });
   }, [tasks]);
 
   const squadsList = useMemo(() => {

@@ -70,9 +70,23 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
   ];
 
   // 3. Team Workload Calculation
+  const PRIORITY_ORDER = ['dian', 'sigit', 'banu', 'widy', 'frans'];
+
   const allAssignees = Array.from(
     new Set(tasks.flatMap((t) => t.assignees || []))
-  ).filter(Boolean).sort();
+  )
+    .filter(Boolean)
+    .sort((a, b) => {
+      const aLower = a.toLowerCase();
+      const bLower = b.toLowerCase();
+      const aIdx = PRIORITY_ORDER.findIndex((name) => aLower.includes(name));
+      const bIdx = PRIORITY_ORDER.findIndex((name) => bLower.includes(name));
+
+      if (aIdx !== -1 && bIdx !== -1) return aIdx - bIdx;
+      if (aIdx !== -1) return -1;
+      if (bIdx !== -1) return 1;
+      return a.localeCompare(b);
+    });
 
   const teamWorkload = allAssignees.map((name) => {
     const personTasks = tasks.filter((t) => t.assignees?.includes(name));
@@ -122,7 +136,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
       <div className="flex items-center justify-between">
         <div>
           <h2 className="text-lg font-bold text-zinc-900 dark:text-zinc-100 flex items-center gap-2">
-            <span>🌾</span> {activeQuarter} Overview & Delivery Metrics
+            <span>{activeQuarter} Overview & Delivery Metrics</span>
           </h2>
           <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-0.5">
             Real-time delivery progress, designer capacity, and handoff health.
