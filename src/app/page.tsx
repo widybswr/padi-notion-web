@@ -12,11 +12,12 @@ import { DashboardView } from '@/components/DashboardView';
 import { TaskModal } from '@/components/TaskModal';
 import { NewTaskModal } from '@/components/NewTaskModal';
 import { PasswordGate } from '@/components/PasswordGate';
+import initialTasksData from '@/data/initial-tasks.json';
 
 export default function HomePage() {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
-  const [tasks, setTasks] = useState<Task[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [tasks, setTasks] = useState<Task[]>(initialTasksData as Task[]);
+  const [isLoading, setIsLoading] = useState(false);
   const [viewMode, setViewMode] = useState<ViewMode>('table');
 
   // Filter states
@@ -47,15 +48,16 @@ export default function HomePage() {
   const [isNewModalOpen, setIsNewModalOpen] = useState(false);
   const [newTaskInitialStatus, setNewTaskInitialStatus] = useState<TaskStatus>('Not started');
 
-  // Fetch initial tasks
+  // Fetch initial tasks (silent background sync)
   useEffect(() => {
     async function load() {
-      setIsLoading(true);
       try {
         const data = await getTasks();
-        setTasks(data);
+        if (data && data.length > 0) {
+          setTasks(data);
+        }
       } catch (err) {
-        console.error('Failed to load tasks:', err);
+        console.warn('Background tasks sync warning:', err);
       } finally {
         setIsLoading(false);
       }

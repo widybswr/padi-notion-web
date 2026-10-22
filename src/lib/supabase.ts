@@ -20,21 +20,27 @@ export async function getTasks(): Promise<Task[]> {
   }
 
   try {
-    const { data, error } = await supabase
+    const fetchPromise = supabase
       .from('tasks')
       .select('*')
       .order('created_at', { ascending: false });
 
+    const timeoutPromise = new Promise<{ data: null; error: Error }>((resolve) =>
+      setTimeout(() => resolve({ data: null, error: new Error('Supabase fetch timed out') }), 4000)
+    );
+
+    const { data, error } = (await Promise.race([fetchPromise, timeoutPromise])) as any;
+
     if (error) {
-      console.warn('Supabase fetch failed, falling back to cached tasks:', error.message);
+      console.warn('Supabase fetch warning, using local cache:', error.message);
       return localTasksCache;
     }
 
     if (!data || data.length === 0) {
-      // If table is empty, return initial tasks
       return localTasksCache;
     }
 
+    localTasksCache = data as Task[];
     return data as Task[];
   } catch (err) {
     console.warn('Error reading from Supabase:', err);
