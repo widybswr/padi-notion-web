@@ -13,8 +13,11 @@ interface ViewHeaderProps {
   setSelectedSquad: (squad: string | null) => void;
   selectedStatus: string | null;
   setSelectedStatus: (status: string | null) => void;
+  selectedAssignee: string | null;
+  setSelectedAssignee: (assignee: string | null) => void;
   squadOptions: string[];
   statusOptions: string[];
+  designerOptions: string[];
   activeQuarter: string;
   onNewTask: () => void;
   totalFiltered: number;
@@ -29,8 +32,11 @@ export const ViewHeader: React.FC<ViewHeaderProps> = ({
   setSelectedSquad,
   selectedStatus,
   setSelectedStatus,
+  selectedAssignee,
+  setSelectedAssignee,
   squadOptions,
   statusOptions,
+  designerOptions,
   activeQuarter,
   onNewTask,
   totalFiltered,
@@ -158,6 +164,20 @@ export const ViewHeader: React.FC<ViewHeaderProps> = ({
             {statusOptions.map((st) => (
               <option key={st} value={st}>
                 {st}
+              </option>
+            ))}
+          </select>
+
+          {/* Designer Filter */}
+          <select
+            value={selectedAssignee || ''}
+            onChange={(e) => setSelectedAssignee(e.target.value || null)}
+            className="py-1 px-2.5 text-xs bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-md focus:outline-none text-zinc-700 dark:text-zinc-300"
+          >
+            <option value="">All Designers</option>
+            {designerOptions.map((name) => (
+              <option key={name} value={name}>
+                {name}
               </option>
             ))}
           </select>

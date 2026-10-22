@@ -230,8 +230,8 @@ export const NewTaskModal: React.FC<NewTaskModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-xs p-4">
-      <div className="w-full max-w-lg bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl shadow-2xl p-6">
+    <div className="fixed inset-0 z-50 flex items-start justify-center pt-16 md:pt-20 bg-black/40 backdrop-blur-xs p-4 overflow-y-auto">
+      <div className="w-full max-w-lg bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl shadow-2xl p-6 mb-8">
         <div className="flex items-center justify-between pb-3 border-b border-zinc-100 dark:border-zinc-800">
           <h3 className="font-semibold text-sm text-zinc-900 dark:text-zinc-100">
             {entryType === 'task'

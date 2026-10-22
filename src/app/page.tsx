@@ -231,8 +231,11 @@ export default function HomePage() {
           setSelectedSquad={setSelectedSquad}
           selectedStatus={selectedStatus}
           setSelectedStatus={setSelectedStatus}
+          selectedAssignee={selectedAssignee}
+          setSelectedAssignee={setSelectedAssignee}
           squadOptions={squadsList}
           statusOptions={statusesList}
+          designerOptions={assigneesList}
           activeQuarter={activeQuarter}
           onNewTask={() => {
             setNewTaskInitialStatus('Not started');
