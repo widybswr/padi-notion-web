@@ -68,22 +68,29 @@ export const BoardView: React.FC<BoardViewProps> = ({
                   onClick={() => onSelectTask(task)}
                   className="p-3 bg-white dark:bg-zinc-900 rounded-lg border border-zinc-200/70 dark:border-zinc-800 shadow-2xs hover:shadow-sm hover:border-zinc-300 dark:hover:border-zinc-700 transition-all cursor-pointer group"
                 >
-                  {/* WBS & Priority */}
-                  <div className="flex items-center justify-between gap-1.5 mb-1.5">
-                    {task.wbs ? (
-                      <span className="font-mono text-[10px] text-zinc-400">
-                        {task.wbs}
-                      </span>
-                    ) : (
-                      <span />
-                    )}
-                    <PriorityBadge priority={task.priority} />
-                  </div>
-
-                  {/* Title */}
-                  <h4 className="text-xs font-medium text-zinc-800 dark:text-zinc-200 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-2 mb-2">
-                    {task.title}
-                  </h4>
+                  {/* Header / WBS, Priority & Title */}
+                  {task.wbs ? (
+                    <>
+                      <div className="flex items-center justify-between gap-1.5 mb-1.5">
+                        <span className="font-mono text-[10px] text-zinc-400">
+                          {task.wbs}
+                        </span>
+                        <PriorityBadge priority={task.priority} />
+                      </div>
+                      <h4 className="text-xs font-medium text-zinc-800 dark:text-zinc-200 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-2 mb-2">
+                        {task.title}
+                      </h4>
+                    </>
+                  ) : (
+                    <div className="flex items-start justify-between gap-2 mb-2">
+                      <h4 className="text-xs font-medium text-zinc-800 dark:text-zinc-200 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-2">
+                        {task.title}
+                      </h4>
+                      <div className="shrink-0">
+                        <PriorityBadge priority={task.priority} />
+                      </div>
+                    </div>
+                  )}
 
                   {/* Squads */}
                   {task.squads && task.squads.length > 0 && (
