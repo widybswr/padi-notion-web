@@ -62,6 +62,11 @@ export const NewTaskModal: React.FC<NewTaskModalProps> = ({
   const [selectedAssignees, setSelectedAssignees] = useState<string[]>([]);
   const [figmaUrl, setFigmaUrl] = useState('');
   const [prdUrl, setPrdUrl] = useState('');
+  const [otherDocsUrl, setOtherDocsUrl] = useState('');
+  const [taigaUrl, setTaigaUrl] = useState('');
+  const [startDate, setStartDate] = useState('');
+  const [endDate, setEndDate] = useState('');
+  const [description, setDescription] = useState('');
 
   // Dropdown options lists (with user-added custom ones)
   const [allSquads, setAllSquads] = useState<string[]>([]);
@@ -100,8 +105,21 @@ export const NewTaskModal: React.FC<NewTaskModalProps> = ({
         setSelectedAssignees([]);
         setLeaveDesigner(mergedAssignees[0] || 'Dian');
       }
+
+      setTitle('');
+      setStatus(initialStatus || 'Not started');
+      setPriority('Medium');
+      setWbs('');
+      setSelectedSquads([]);
+      setStartDate('');
+      setEndDate('');
+      setFigmaUrl('');
+      setPrdUrl('');
+      setOtherDocsUrl('');
+      setTaigaUrl('');
+      setDescription('');
     }
-  }, [isOpen, initialAssignee, availableSquads, availableAssignees]);
+  }, [isOpen, initialAssignee, initialStatus, availableSquads, availableAssignees]);
 
   // Click outside to close dropdowns & Escape key to close modal
   useEffect(() => {
@@ -218,11 +236,13 @@ export const NewTaskModal: React.FC<NewTaskModalProps> = ({
       squads: selectedSquads,
       pms: [],
       assignees: selectedAssignees,
-      start_date: null,
-      end_date: null,
+      start_date: startDate ? startDate : null,
+      end_date: endDate ? endDate : null,
       figma_url: figmaUrl.trim(),
       prd_url: prdUrl.trim(),
-      taiga_url: '',
+      other_docs: otherDocsUrl.trim(),
+      taiga_url: taigaUrl.trim(),
+      description: description.trim(),
     };
 
     onCreate(newTask);
@@ -585,26 +605,90 @@ export const NewTaskModal: React.FC<NewTaskModalProps> = ({
                 )}
               </div>
 
-              {/* Full-width long URL fields */}
-              <div>
-                <label className="block text-zinc-500 font-medium mb-1">Figma URL</label>
-                <input
-                  type="url"
-                  placeholder="https://www.figma.com/..."
-                  value={figmaUrl}
-                  onChange={(e) => setFigmaUrl(e.target.value)}
-                  className="h-9 w-full px-3 bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-lg focus:outline-none focus:border-blue-500 text-zinc-900 dark:text-zinc-100 text-xs"
-                />
+              {/* Timeline Dates: Start Date & End Date */}
+              <div className="grid grid-cols-2 gap-3">
+                <div>
+                  <label className="block text-zinc-500 font-medium mb-1">Start Date</label>
+                  <input
+                    type="date"
+                    value={startDate}
+                    onChange={(e) => {
+                      setStartDate(e.target.value);
+                      if (!endDate || e.target.value > endDate) {
+                        setEndDate(e.target.value);
+                      }
+                    }}
+                    className="h-9 w-full px-3 bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-lg focus:outline-none focus:border-blue-500 text-zinc-900 dark:text-zinc-100 text-xs"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-zinc-500 font-medium mb-1">End Date</label>
+                  <input
+                    type="date"
+                    value={endDate}
+                    onChange={(e) => setEndDate(e.target.value)}
+                    className="h-9 w-full px-3 bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-lg focus:outline-none focus:border-blue-500 text-zinc-900 dark:text-zinc-100 text-xs"
+                  />
+                </div>
               </div>
 
+              {/* Reference Links & Documents (2x2 Grid) */}
+              <div className="grid grid-cols-2 gap-3">
+                <div>
+                  <label className="block text-zinc-500 font-medium mb-1">Figma URL</label>
+                  <input
+                    type="url"
+                    placeholder="https://www.figma.com/..."
+                    value={figmaUrl}
+                    onChange={(e) => setFigmaUrl(e.target.value)}
+                    className="h-9 w-full px-3 bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-lg focus:outline-none focus:border-blue-500 text-zinc-900 dark:text-zinc-100 text-xs"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-zinc-500 font-medium mb-1">PRD Document URL</label>
+                  <input
+                    type="url"
+                    placeholder="https://docs.google.com/..."
+                    value={prdUrl}
+                    onChange={(e) => setPrdUrl(e.target.value)}
+                    className="h-9 w-full px-3 bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-lg focus:outline-none focus:border-blue-500 text-zinc-900 dark:text-zinc-100 text-xs"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-zinc-500 font-medium mb-1">Other Docs / Deck URL</label>
+                  <input
+                    type="url"
+                    placeholder="https://docs.google.com/presentation/..."
+                    value={otherDocsUrl}
+                    onChange={(e) => setOtherDocsUrl(e.target.value)}
+                    className="h-9 w-full px-3 bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-lg focus:outline-none focus:border-blue-500 text-zinc-900 dark:text-zinc-100 text-xs"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-zinc-500 font-medium mb-1">Taiga Link URL</label>
+                  <input
+                    type="url"
+                    placeholder="https://taiga.telkom.co.id/..."
+                    value={taigaUrl}
+                    onChange={(e) => setTaigaUrl(e.target.value)}
+                    className="h-9 w-full px-3 bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-lg focus:outline-none focus:border-blue-500 text-zinc-900 dark:text-zinc-100 text-xs"
+                  />
+                </div>
+              </div>
+
+              {/* Notes & Description */}
               <div>
-                <label className="block text-zinc-500 font-medium mb-1">PRD URL</label>
-                <input
-                  type="url"
-                  placeholder="https://docs.google.com/..."
-                  value={prdUrl}
-                  onChange={(e) => setPrdUrl(e.target.value)}
-                  className="h-9 w-full px-3 bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-lg focus:outline-none focus:border-blue-500 text-zinc-900 dark:text-zinc-100 text-xs"
+                <label className="block text-zinc-500 font-medium mb-1">Notes & Description</label>
+                <textarea
+                  rows={3}
+                  placeholder="Add details, specs, meeting notes, or checklist for this task..."
+                  value={description}
+                  onChange={(e) => setDescription(e.target.value)}
+                  className="w-full p-2.5 bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-lg focus:outline-none focus:border-blue-500 text-zinc-900 dark:text-zinc-100 text-xs resize-y leading-relaxed"
                 />
               </div>
             </>
