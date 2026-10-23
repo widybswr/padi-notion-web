@@ -16,6 +16,7 @@ import {
   LogOut,
   Calendar,
   LayoutDashboard,
+  RefreshCw,
 } from 'lucide-react';
 
 interface SidebarProps {
@@ -33,6 +34,7 @@ interface SidebarProps {
   onAddQuarter: (quarter: string) => void;
   tasks?: Task[];
   onLogout?: () => void;
+  onTriggerSync?: () => Promise<void>;
 }
 
 export const Sidebar: React.FC<SidebarProps> = ({
@@ -50,7 +52,33 @@ export const Sidebar: React.FC<SidebarProps> = ({
   onAddQuarter,
   tasks = [],
   onLogout,
+  onTriggerSync,
 }) => {
+  const [isSyncingNotion, setIsSyncingNotion] = React.useState(false);
+  const [lastSyncTime, setLastSyncTime] = React.useState<string | null>(null);
+
+  const handleSyncNotion = async () => {
+    if (isSyncingNotion) return;
+    setIsSyncingNotion(true);
+    try {
+      const res = await fetch('/api/sync', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ quarter: activeQuarter }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        setLastSyncTime(data.timestamp || 'Just now');
+        if (onTriggerSync) {
+          await onTriggerSync();
+        }
+      }
+    } catch (err) {
+      console.error('Failed to sync with Notion:', err);
+    } finally {
+      setIsSyncingNotion(false);
+    }
+  };
   return (
     <aside className="w-64 border-r border-zinc-200 dark:border-zinc-800 bg-zinc-50/70 dark:bg-zinc-900/60 flex flex-col h-screen select-none shrink-0">
       {/* Workspace Header */}
@@ -368,7 +396,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
           <ExternalLink className="w-3 h-3 shrink-0 opacity-60" />
         </a>
 
-        {/* PaDi Design Notion */}
+        {/* PaDi Design Notion Link & Live Sync Button */}
         <div className="border-t border-zinc-200/60 dark:border-zinc-800/60 pt-1">
           <a
             href="https://app.notion.com/p/PaDi-Design-2e630a0f809180caaecdeff6a5b4b597?pvs=18"
@@ -382,9 +410,23 @@ export const Sidebar: React.FC<SidebarProps> = ({
             </div>
             <ExternalLink className="w-3 h-3 shrink-0 opacity-60" />
           </a>
-          <p className="text-[10px] text-zinc-400 dark:text-zinc-500 pl-6 pb-1 font-mono">
-            Last synced: 22 Oct 2026, 22:30
-          </p>
+          <div className="flex items-center justify-between pl-6 pr-1 pb-1">
+            <span className="text-[10px] text-zinc-400 dark:text-zinc-500 font-mono">
+              {lastSyncTime ? `Synced: ${lastSyncTime}` : 'Synced with Notion'}
+            </span>
+            <button
+              type="button"
+              disabled={isSyncingNotion}
+              onClick={handleSyncNotion}
+              className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-[10px] font-medium bg-zinc-200/70 hover:bg-blue-50 dark:bg-zinc-800 dark:hover:bg-blue-950/50 text-zinc-600 hover:text-blue-600 dark:text-zinc-400 dark:hover:text-blue-400 transition-colors cursor-pointer disabled:opacity-50"
+              title={`Fetch latest ${activeQuarter} updates from Notion`}
+            >
+              <RefreshCw
+                className={`w-2.5 h-2.5 ${isSyncingNotion ? 'animate-spin text-blue-500' : ''}`}
+              />
+              <span>{isSyncingNotion ? 'Syncing...' : 'Sync'}</span>
+            </button>
+          </div>
         </div>
 
         {/* Supabase Status */}

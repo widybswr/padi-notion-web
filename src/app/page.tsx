@@ -201,6 +201,20 @@ export default function HomePage() {
     }
   };
 
+  const handleReloadTasks = async () => {
+    setDbStatus('syncing');
+    try {
+      const data = await getTasks();
+      if (data && data.length > 0) {
+        setTasks(data);
+      }
+      setDbStatus('connected');
+    } catch (err) {
+      console.warn('Reload tasks error:', err);
+      setDbStatus('offline');
+    }
+  };
+
   const handleOpenNewInStatus = (status: TaskStatus) => {
     setNewTaskInitialStatus(status);
     setIsNewModalOpen(true);
@@ -241,6 +255,7 @@ export default function HomePage() {
         }}
         tasks={tasks}
         onLogout={handleLogout}
+        onTriggerSync={handleReloadTasks}
       />
 
       {/* Main Workspace Area */}
