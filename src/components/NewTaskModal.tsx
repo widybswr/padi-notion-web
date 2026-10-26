@@ -1,8 +1,9 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
-import { Task, TaskStatus, TaskPriority } from '@/lib/types';
-import { X, Plus, ChevronDown, Check } from 'lucide-react';
+import { Task, TaskStatus, TaskPriority, TaskAttachment } from '@/lib/types';
+import { uploadTaskFile } from '@/lib/supabase';
+import { X, Plus, ChevronDown, Check, Paperclip, Loader2 } from 'lucide-react';
 
 interface NewTaskModalProps {
   isOpen: boolean;
@@ -67,6 +68,8 @@ export const NewTaskModal: React.FC<NewTaskModalProps> = ({
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
   const [description, setDescription] = useState('');
+  const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
+  const [isUploading, setIsUploading] = useState(false);
 
   // Dropdown options lists (with user-added custom ones)
   const [allSquads, setAllSquads] = useState<string[]>([]);
@@ -118,6 +121,8 @@ export const NewTaskModal: React.FC<NewTaskModalProps> = ({
       setOtherDocsUrl('');
       setTaigaUrl('');
       setDescription('');
+      setSelectedFiles([]);
+      setIsUploading(false);
     }
   }, [isOpen, initialAssignee, initialStatus, availableSquads, availableAssignees]);
 
@@ -172,7 +177,26 @@ export const NewTaskModal: React.FC<NewTaskModalProps> = ({
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files) {
+      const newFiles = Array.from(e.target.files);
+      setSelectedFiles((prev) => [...prev, ...newFiles]);
+    }
+  };
+
+  const handleRemoveFile = (index: number) => {
+    setSelectedFiles((prev) => prev.filter((_, i) => i !== index));
+  };
+
+  const formatFileSize = (bytes: number): string => {
+    if (bytes === 0) return '0 B';
+    const k = 1024;
+    const sizes = ['B', 'KB', 'MB', 'GB'];
+    const i = Math.floor(Math.log(bytes) / Math.log(k));
+    return parseFloat((bytes / Math.pow(k, i)).toFixed(1)) + ' ' + sizes[i];
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     if (entryType === 'public_holiday') {
@@ -227,8 +251,23 @@ export const NewTaskModal: React.FC<NewTaskModalProps> = ({
 
     if (!title.trim()) return;
 
+    setIsUploading(true);
+    const taskId = crypto.randomUUID();
+    const uploadedAttachments: TaskAttachment[] = [];
+
+    if (selectedFiles.length > 0) {
+      for (const file of selectedFiles) {
+        try {
+          const att = await uploadTaskFile(taskId, file);
+          uploadedAttachments.push(att);
+        } catch (err: any) {
+          console.error(`Failed to upload ${file.name}:`, err.message);
+        }
+      }
+    }
+
     const newTask: Task = {
-      id: crypto.randomUUID(),
+      id: taskId,
       title: title.trim(),
       status,
       priority,
@@ -243,9 +282,11 @@ export const NewTaskModal: React.FC<NewTaskModalProps> = ({
       other_docs: otherDocsUrl.trim(),
       taiga_url: taigaUrl.trim(),
       description: description.trim(),
+      attachments: uploadedAttachments,
     };
 
     onCreate(newTask);
+    setIsUploading(false);
     onClose();
   };
 
@@ -683,6 +724,60 @@ export const NewTaskModal: React.FC<NewTaskModalProps> = ({
                 </div>
               </div>
 
+              {/* Upload Files & Attachments */}
+              <div>
+                <label className="block text-zinc-500 font-medium mb-1">
+                  Files & Attachments
+                </label>
+                <label className="flex flex-col items-center justify-center p-3.5 border-2 border-dashed border-zinc-200 dark:border-zinc-700 hover:border-blue-500 dark:hover:border-blue-500 rounded-lg cursor-pointer bg-zinc-50/60 dark:bg-zinc-800/40 hover:bg-blue-50/30 dark:hover:bg-blue-950/20 transition-all group">
+                  <div className="flex items-center gap-2 text-zinc-600 dark:text-zinc-300">
+                    <Paperclip className="w-4 h-4 text-blue-500 group-hover:scale-110 transition-transform" />
+                    <span className="text-xs font-medium">Choose files or drop them here</span>
+                  </div>
+                  <span className="text-[11px] text-zinc-400 mt-0.5">
+                    Supports PRD, specs, briefs, PDFs, sheets, images (max 50MB)
+                  </span>
+                  <input
+                    type="file"
+                    multiple
+                    disabled={isUploading}
+                    onChange={handleFileChange}
+                    className="hidden"
+                  />
+                </label>
+
+                {/* Selected files list */}
+                {selectedFiles.length > 0 && (
+                  <div className="mt-2 space-y-1.5 max-h-36 overflow-y-auto">
+                    {selectedFiles.map((file, idx) => (
+                      <div
+                        key={idx}
+                        className="flex items-center justify-between p-2 rounded-lg bg-zinc-100 dark:bg-zinc-800 border border-zinc-200/80 dark:border-zinc-700 text-xs"
+                      >
+                        <div className="flex items-center gap-2 min-w-0">
+                          <Paperclip className="w-3.5 h-3.5 text-blue-500 shrink-0" />
+                          <span className="truncate font-medium text-zinc-800 dark:text-zinc-200 max-w-[280px]">
+                            {file.name}
+                          </span>
+                          <span className="text-[10px] text-zinc-400 font-mono shrink-0">
+                            ({formatFileSize(file.size)})
+                          </span>
+                        </div>
+                        <button
+                          type="button"
+                          onClick={() => handleRemoveFile(idx)}
+                          disabled={isUploading}
+                          className="p-1 text-zinc-400 hover:text-red-500 rounded transition-colors disabled:opacity-50"
+                          title="Remove file"
+                        >
+                          <X className="w-3.5 h-3.5" />
+                        </button>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+
               {/* Notes & Description */}
               <div>
                 <label className="block text-zinc-500 font-medium mb-1">Notes & Description</label>
@@ -702,19 +797,28 @@ export const NewTaskModal: React.FC<NewTaskModalProps> = ({
             <button
               type="button"
               onClick={onClose}
-              className="px-3.5 py-1.5 text-zinc-600 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800 rounded-lg transition-colors font-medium"
+              disabled={isUploading}
+              className="px-3.5 py-1.5 text-zinc-600 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800 rounded-lg transition-colors font-medium disabled:opacity-50"
             >
               Cancel
             </button>
             <button
               type="submit"
-              className="px-4 py-1.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors"
+              disabled={isUploading}
+              className="inline-flex items-center gap-1.5 px-4 py-1.5 bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white rounded-lg font-medium transition-colors"
             >
-              {entryType === 'task'
-                ? 'Create Task'
-                : entryType === 'public_holiday'
-                ? 'Save Public Holiday'
-                : 'Record Leave'}
+              {isUploading ? (
+                <>
+                  <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                  <span>Uploading files...</span>
+                </>
+              ) : entryType === 'task' ? (
+                'Create Task'
+              ) : entryType === 'public_holiday' ? (
+                'Save Public Holiday'
+              ) : (
+                'Record Leave'
+              )}
             </button>
           </div>
         </form>

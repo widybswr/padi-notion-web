@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Task, TaskStatus, TaskPriority } from '@/lib/types';
+import { uploadTaskFile } from '@/lib/supabase';
 import { StatusBadge } from './StatusBadge';
 import { PriorityBadge } from './PriorityBadge';
 import { SquadBadge } from './SquadBadge';
@@ -30,6 +31,7 @@ import {
   Image as ImageIcon,
   File,
   ChevronRight,
+  Loader2,
 } from 'lucide-react';
 
 interface TaskModalProps {
@@ -98,6 +100,27 @@ export const TaskModal: React.FC<TaskModalProps> = ({
 
   const parentTask = allTasks.find((t) => t.id === formData.parent_id);
   const subTasks = allTasks.filter((t) => t.parent_id === formData.id);
+
+  const [isUploadingFile, setIsUploadingFile] = useState(false);
+
+  const handleModalFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (!e.target.files || e.target.files.length === 0) return;
+    setIsUploadingFile(true);
+    const newFiles = Array.from(e.target.files);
+    const currentAttachments = [...(formData.attachments || [])];
+
+    for (const file of newFiles) {
+      try {
+        const att = await uploadTaskFile(formData.id, file);
+        currentAttachments.push(att);
+      } catch (err: any) {
+        console.error('Failed to upload file:', err.message);
+      }
+    }
+
+    updateAndSave({ attachments: currentAttachments });
+    setIsUploadingFile(false);
+  };
 
   // Squad selection states
   const [isSquadDropdownOpen, setIsSquadDropdownOpen] = useState(false);
@@ -1062,82 +1085,105 @@ export const TaskModal: React.FC<TaskModalProps> = ({
             </>
           )}
 
-          {/* Notion Direct Files / Attachments Section */}
-          {formData.attachments && formData.attachments.length > 0 && (
-            <>
-              <hr className="border-zinc-100 dark:border-zinc-800" />
-              <div className="space-y-2.5">
-                <h3 className="text-xs font-semibold uppercase tracking-wider text-zinc-400 select-none flex items-center gap-1.5">
-                  <Paperclip className="w-3.5 h-3.5" />
-                  Files & Attachments ({formData.attachments.length})
-                </h3>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                  {formData.attachments.map((file, idx) => {
-                    const isImage = file.type === 'image' || file.name.match(/\.(png|jpe?g|gif|webp)$/i);
-                    const isPdf = file.name.endsWith('.pdf');
-                    const isDoc = file.name.match(/\.(docx?|rtf)$/i);
-                    const isSheet = file.name.match(/\.(xlsx?|csv)$/i);
-                    const isHtml = file.name.match(/\.(html?|js|ts|json)$/i);
+          {/* Files & Attachments Section */}
+          <hr className="border-zinc-100 dark:border-zinc-800" />
+          <div className="space-y-2.5">
+            <div className="flex items-center justify-between">
+              <h3 className="text-xs font-semibold uppercase tracking-wider text-zinc-400 select-none flex items-center gap-1.5">
+                <Paperclip className="w-3.5 h-3.5" />
+                Files & Attachments ({formData.attachments?.length || 0})
+              </h3>
+              <label className="inline-flex items-center gap-1 px-2.5 py-1 rounded text-xs text-blue-600 dark:text-blue-400 bg-blue-50/60 hover:bg-blue-100 dark:bg-blue-950/40 dark:hover:bg-blue-900/40 cursor-pointer transition-colors font-medium">
+                {isUploadingFile ? (
+                  <>
+                    <Loader2 className="w-3 h-3 animate-spin" />
+                    <span>Uploading...</span>
+                  </>
+                ) : (
+                  <>
+                    <Plus className="w-3 h-3" />
+                    <span>Add file</span>
+                  </>
+                )}
+                <input
+                  type="file"
+                  multiple
+                  disabled={isUploadingFile}
+                  onChange={handleModalFileUpload}
+                  className="hidden"
+                />
+              </label>
+            </div>
 
-                    return (
-                      <div
-                        key={file.id || idx}
-                        className="flex flex-col p-2.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/50 hover:border-zinc-300 dark:hover:border-zinc-700 transition-colors group"
-                      >
-                        {isImage && (
-                          <div className="mb-2 rounded overflow-hidden max-h-36 bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center">
-                            <img
-                              src={file.url}
-                              alt={file.name}
-                              className="object-contain max-h-36 w-full cursor-pointer hover:opacity-95 transition-opacity"
-                              onClick={() => window.open(file.url, '_blank')}
-                            />
-                          </div>
-                        )}
-                        <div className="flex items-center justify-between gap-2">
-                          <div className="flex items-center gap-2 min-w-0">
-                            <div className="p-1.5 rounded bg-zinc-200/60 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-300 shrink-0">
-                              {isPdf ? (
-                                <FileText className="w-4 h-4 text-red-500" />
-                              ) : isDoc ? (
-                                <FileText className="w-4 h-4 text-blue-500" />
-                              ) : isSheet ? (
-                                <FileSpreadsheet className="w-4 h-4 text-emerald-500" />
-                              ) : isHtml ? (
-                                <FileCode className="w-4 h-4 text-purple-500" />
-                              ) : isImage ? (
-                                <ImageIcon className="w-4 h-4 text-amber-500" />
-                              ) : (
-                                <File className="w-4 h-4 text-zinc-500" />
-                              )}
-                            </div>
-                            <div className="min-w-0">
-                              <p className="text-xs font-medium text-zinc-800 dark:text-zinc-200 truncate" title={file.name}>
-                                {file.name}
-                              </p>
-                              {file.size && (
-                                <p className="text-[10px] text-zinc-400 font-mono">{file.size}</p>
-                              )}
-                            </div>
-                          </div>
-                          <a
-                            href={file.url}
-                            target="_blank"
-                            rel="noreferrer"
-                            download={file.name}
-                            className="p-1.5 text-zinc-400 hover:text-blue-600 dark:hover:text-blue-400 rounded hover:bg-zinc-200/60 dark:hover:bg-zinc-800 transition-colors shrink-0"
-                            title="Download file"
-                          >
-                            <Download className="w-3.5 h-3.5" />
-                          </a>
+            {formData.attachments && formData.attachments.length > 0 ? (
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                {formData.attachments.map((file, idx) => {
+                  const isImage = file.type === 'image' || file.name.match(/\.(png|jpe?g|gif|webp)$/i);
+                  const isPdf = file.name.endsWith('.pdf');
+                  const isDoc = file.name.match(/\.(docx?|rtf)$/i);
+                  const isSheet = file.name.match(/\.(xlsx?|csv)$/i);
+                  const isHtml = file.name.match(/\.(html?|js|ts|json)$/i);
+
+                  return (
+                    <div
+                      key={file.id || idx}
+                      className="flex flex-col p-2.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/50 hover:border-zinc-300 dark:hover:border-zinc-700 transition-colors group"
+                    >
+                      {isImage && (
+                        <div className="mb-2 rounded overflow-hidden max-h-36 bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center">
+                          <img
+                            src={file.url}
+                            alt={file.name}
+                            className="object-contain max-h-36 w-full cursor-pointer hover:opacity-95 transition-opacity"
+                            onClick={() => window.open(file.url, '_blank')}
+                          />
                         </div>
+                      )}
+                      <div className="flex items-center justify-between gap-2">
+                        <div className="flex items-center gap-2 min-w-0">
+                          <div className="p-1.5 rounded bg-zinc-200/60 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-300 shrink-0">
+                            {isPdf ? (
+                              <FileText className="w-4 h-4 text-red-500" />
+                            ) : isDoc ? (
+                              <FileText className="w-4 h-4 text-blue-500" />
+                            ) : isSheet ? (
+                              <FileSpreadsheet className="w-4 h-4 text-emerald-500" />
+                            ) : isHtml ? (
+                              <FileCode className="w-4 h-4 text-purple-500" />
+                            ) : isImage ? (
+                              <ImageIcon className="w-4 h-4 text-amber-500" />
+                            ) : (
+                              <File className="w-4 h-4 text-zinc-500" />
+                            )}
+                          </div>
+                          <div className="min-w-0">
+                            <p className="text-xs font-medium text-zinc-800 dark:text-zinc-200 truncate" title={file.name}>
+                              {file.name}
+                            </p>
+                            {file.size && (
+                              <p className="text-[10px] text-zinc-400 font-mono">{file.size}</p>
+                            )}
+                          </div>
+                        </div>
+                        <a
+                          href={file.url}
+                          target="_blank"
+                          rel="noreferrer"
+                          download={file.name}
+                          className="p-1.5 text-zinc-400 hover:text-blue-600 dark:hover:text-blue-400 rounded hover:bg-zinc-200/60 dark:hover:bg-zinc-800 transition-colors shrink-0"
+                          title="Download file"
+                        >
+                          <Download className="w-3.5 h-3.5" />
+                        </a>
                       </div>
-                    );
-                  })}
-                </div>
+                    </div>
+                  );
+                })}
               </div>
-            </>
-          )}
+            ) : (
+              <p className="text-xs text-zinc-400 italic">No files attached yet. Click &quot;Add file&quot; to upload.</p>
+            )}
+          </div>
 
           <hr className="border-zinc-100 dark:border-zinc-800" />
 

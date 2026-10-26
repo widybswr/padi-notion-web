@@ -1,5 +1,5 @@
 import { createClient } from '@supabase/supabase-js';
-import { Task } from './types';
+import { Task, TaskAttachment } from './types';
 import fallbackData from '@/data/initial-tasks.json';
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
@@ -113,4 +113,52 @@ export async function deleteTask(id: string): Promise<void> {
     currentDbStatus = 'offline';
     throw err;
   }
+}
+
+function formatBytes(bytes: number, decimals = 1): string {
+  if (bytes === 0) return '0 B';
+  const k = 1024;
+  const dm = decimals < 0 ? 0 : decimals;
+  const sizes = ['B', 'KiB', 'MiB', 'GiB'];
+  const i = Math.floor(Math.log(bytes) / Math.log(k));
+  return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
+}
+
+export async function uploadTaskFile(taskId: string, file: File): Promise<TaskAttachment> {
+  const sanitizedName = file.name.replace(/[^\w.-]/g, '_');
+  const path = `${taskId}/${sanitizedName}`;
+
+  if (!isSupabaseConfigured || !supabase) {
+    const localUrl = URL.createObjectURL(file);
+    return {
+      id: crypto.randomUUID(),
+      name: file.name,
+      size: formatBytes(file.size),
+      type: file.type.startsWith('image/') ? 'image' : 'file',
+      url: localUrl,
+    };
+  }
+
+  const { error: uploadError } = await supabase.storage
+    .from('task-attachments')
+    .upload(path, file, {
+      contentType: file.type || 'application/octet-stream',
+      upsert: true,
+    });
+
+  if (uploadError) {
+    throw uploadError;
+  }
+
+  const { data: pubData } = supabase.storage
+    .from('task-attachments')
+    .getPublicUrl(path);
+
+  return {
+    id: crypto.randomUUID(),
+    name: file.name,
+    size: formatBytes(file.size),
+    type: file.type.startsWith('image/') ? 'image' : 'file',
+    url: pubData.publicUrl,
+  };
 }
