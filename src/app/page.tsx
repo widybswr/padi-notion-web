@@ -261,11 +261,8 @@ export default function HomePage() {
           setViewMode={setViewMode}
           searchQuery={searchQuery}
           setSearchQuery={setSearchQuery}
-          selectedStatus={selectedStatus}
-          setSelectedStatus={setSelectedStatus}
           selectedAssignee={selectedAssignee}
           setSelectedAssignee={setSelectedAssignee}
-          statusOptions={statusesList}
           onNewTask={() => {
             setNewTaskInitialStatus('Not started');
             setIsNewModalOpen(true);
