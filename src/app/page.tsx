@@ -236,26 +236,17 @@ export default function HomePage() {
 
   return (
     <div className="flex h-screen overflow-hidden bg-white dark:bg-zinc-950 font-sans">
-      {/* Notion Sidebar */}
+      {/* Workspace Sidebar */}
       <Sidebar
         viewMode={viewMode}
         setViewMode={setViewMode}
         selectedAssignee={selectedAssignee}
         setSelectedAssignee={setSelectedAssignee}
-        assignees={assigneesList}
         totalTasks={activeQuarterTasksCount}
-        isSupabaseConnected={isSupabaseConfigured}
-        dbStatus={dbStatus}
-        activeQuarter={activeQuarter}
-        setActiveQuarter={setActiveQuarter}
-        quartersList={quartersList}
-        onAddQuarter={(newQ) => {
-          setExtraQuarters((prev) => [...prev, newQ]);
-          setActiveQuarter(newQ);
-        }}
         tasks={tasks}
+        activeQuarter={activeQuarter}
+        dbStatus={dbStatus}
         onLogout={handleLogout}
-        onTriggerSync={handleReloadTasks}
       />
 
       {/* Main Workspace Area */}
@@ -265,16 +256,18 @@ export default function HomePage() {
           setViewMode={setViewMode}
           searchQuery={searchQuery}
           setSearchQuery={setSearchQuery}
-          selectedSquad={selectedSquad}
-          setSelectedSquad={setSelectedSquad}
           selectedStatus={selectedStatus}
           setSelectedStatus={setSelectedStatus}
           selectedAssignee={selectedAssignee}
           setSelectedAssignee={setSelectedAssignee}
-          squadOptions={squadsList}
           statusOptions={statusesList}
-          designerOptions={assigneesList}
           activeQuarter={activeQuarter}
+          setActiveQuarter={setActiveQuarter}
+          quartersList={quartersList}
+          onAddQuarter={(newQ) => {
+            setExtraQuarters((prev) => [...prev, newQ]);
+            setActiveQuarter(newQ);
+          }}
           onNewTask={() => {
             setNewTaskInitialStatus('Not started');
             setIsNewModalOpen(true);
