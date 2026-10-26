@@ -255,15 +255,6 @@ export const TimelineView: React.FC<TimelineViewProps> = ({
     }
   };
 
-  const scrollToMonth = (monthIndex: number) => {
-    if (!containerRef.current) return;
-    const targetDayIdx = monthHeaders[monthIndex]?.startIdx || 0;
-    containerRef.current.scrollTo({
-      left: targetDayIdx * DAY_WIDTH,
-      behavior: 'smooth',
-    });
-  };
-
   // Quick schedule an unscheduled task
   const handleScheduleDefault = (task: Task) => {
     onUpdateTask({
@@ -274,54 +265,7 @@ export const TimelineView: React.FC<TimelineViewProps> = ({
   };
 
   return (
-    <div className="flex flex-col h-[calc(100vh-120px)] bg-white dark:bg-zinc-950 select-none overflow-hidden">
-      {/* Top Controls Toolbar */}
-      <div className="flex items-center justify-between px-6 py-2 border-b border-zinc-200 dark:border-zinc-800 bg-zinc-50/80 dark:bg-zinc-900/60 shrink-0 text-xs">
-        <div className="flex items-center gap-2">
-          <span className="font-semibold text-zinc-700 dark:text-zinc-300">
-            Q4 Timeline:
-          </span>
-          {monthHeaders.map((m, idx) => (
-            <button
-              key={m.monthStr}
-              onClick={() => scrollToMonth(idx)}
-              className="px-2.5 py-1 rounded bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 hover:border-blue-500 dark:hover:border-blue-400 font-medium text-zinc-700 dark:text-zinc-300 transition-colors shadow-2xs"
-            >
-              {m.monthStr.split(' ')[0]}
-            </button>
-          ))}
-        </div>
-
-        <div className="flex items-center gap-3 text-[11px] text-zinc-500">
-          <div className="flex items-center gap-1.5">
-            <span className="w-2.5 h-2.5 rounded bg-sky-100 border border-sky-300" />
-            <span>In Progress</span>
-          </div>
-          <div className="flex items-center gap-1.5">
-            <span className="w-2.5 h-2.5 rounded bg-purple-100 border border-purple-300" />
-            <span>In PM Review</span>
-          </div>
-          <div className="flex items-center gap-1.5">
-            <span className="w-2.5 h-2.5 rounded bg-emerald-100 border border-emerald-300" />
-            <span>Done</span>
-          </div>
-
-          {/* Weekend legend */}
-          <div className="flex items-center gap-1.5 border-l border-zinc-200 dark:border-zinc-800 pl-3">
-            <span className="w-3.5 h-3.5 rounded bg-zinc-200/80 dark:bg-zinc-800/80 border border-zinc-300 dark:border-zinc-700 flex items-center justify-center text-[9px] text-red-500 font-bold">
-              W
-            </span>
-            <span className="font-medium text-zinc-600 dark:text-zinc-400">
-              Weekend
-            </span>
-          </div>
-
-          <div className="text-zinc-400 pl-2">
-            <span>💡 Drag ends to extend • Drag left to postpone</span>
-          </div>
-        </div>
-      </div>
-
+    <div className="flex flex-col flex-1 h-full bg-white dark:bg-zinc-950 select-none overflow-hidden">
       {/* Main Split Grid (Sticky Sidebar + Scrollable Calendar Track) */}
       <div className="flex-1 flex overflow-hidden">
         {/* Left Frozen Task List (Width: 320px) */}
@@ -411,9 +355,11 @@ export const TimelineView: React.FC<TimelineViewProps> = ({
                   <div
                     key={m.monthStr}
                     style={{ width: `${m.count * DAY_WIDTH}px` }}
-                    className="px-3 flex items-center text-xs font-semibold text-zinc-700 dark:text-zinc-200 border-r border-zinc-200 dark:border-zinc-800 bg-zinc-50/90 dark:bg-zinc-900/90 uppercase tracking-wider text-[11px]"
+                    className="relative border-r border-zinc-200 dark:border-zinc-800 bg-zinc-50/90 dark:bg-zinc-900/90 shrink-0"
                   >
-                    {m.monthStr}
+                    <div className="sticky left-0 inline-flex items-center h-full px-3 text-xs font-semibold text-zinc-800 dark:text-zinc-200 uppercase tracking-wider text-[11px] whitespace-nowrap z-10 bg-zinc-50/95 dark:bg-zinc-900/95">
+                      {m.monthStr}
+                    </div>
                   </div>
                 ))}
               </div>
@@ -488,7 +434,16 @@ export const TimelineView: React.FC<TimelineViewProps> = ({
                 const barLeft = startOffsetDays * DAY_WIDTH;
                 const barWidth = durationDays * DAY_WIDTH;
 
-                return (
+                // Quick schedule an unscheduled task
+  const handleScheduleDefault = (task: Task) => {
+    onUpdateTask({
+      ...task,
+      start_date: '2026-10-15',
+      end_date: '2026-10-22',
+    });
+  };
+
+  return (
                   <div
                     key={task.id}
                     style={{ height: `${ROW_HEIGHT}px` }}
