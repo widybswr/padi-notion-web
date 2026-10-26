@@ -42,44 +42,39 @@ export const Sidebar: React.FC<SidebarProps> = ({
 }) => {
   return (
     <aside className="w-56 border-r border-zinc-200/80 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/40 flex flex-col h-screen select-none shrink-0 font-sans">
-      {/* Workspace Identity & Quarter Selector with Item Count */}
+      {/* Workspace Identity & Quarter Selector */}
       <div className="p-3.5 border-b border-zinc-200/80 dark:border-zinc-800 space-y-2">
         <span className="font-semibold text-xs tracking-tight text-zinc-900 dark:text-zinc-100 block">
           PaDi Design Tasks
         </span>
 
-        {/* Q selector and item count */}
-        <div className="flex items-center gap-1.5">
-          <div className="relative flex-1">
-            <select
-              value={activeQuarter}
-              onChange={(e) => {
-                if (e.target.value === '__add_new__') {
-                  const promptVal = window.prompt('Enter new quarter name (e.g. Q1 2027):');
-                  if (promptVal && promptVal.trim()) {
-                    onAddQuarter(promptVal.trim());
-                    setActiveQuarter(promptVal.trim());
-                  }
-                } else {
-                  setActiveQuarter(e.target.value);
+        {/* Q selector */}
+        <div className="relative w-full">
+          <select
+            value={activeQuarter}
+            onChange={(e) => {
+              if (e.target.value === '__add_new__') {
+                const promptVal = window.prompt('Enter new quarter name (e.g. Q1 2027):');
+                if (promptVal && promptVal.trim()) {
+                  onAddQuarter(promptVal.trim());
+                  setActiveQuarter(promptVal.trim());
                 }
-              }}
-              className="w-full text-xs font-medium text-zinc-800 dark:text-zinc-200 bg-white dark:bg-zinc-800/90 border border-zinc-200 dark:border-zinc-700 rounded-md py-1 pl-2 pr-6 appearance-none focus:outline-none focus:ring-1 focus:ring-zinc-400 cursor-pointer shadow-2xs"
-            >
-              {quartersList.map((q) => (
-                <option key={q} value={q}>
-                  {q}
-                </option>
-              ))}
-              <option value="__add_new__">+ Add quarter...</option>
-            </select>
-            <div className="pointer-events-none absolute right-1.5 top-1/2 -translate-y-1/2 flex items-center text-zinc-400">
-              <ChevronDown className="w-3.5 h-3.5" />
-            </div>
+              } else {
+                setActiveQuarter(e.target.value);
+              }
+            }}
+            className="w-full text-xs font-medium text-zinc-800 dark:text-zinc-200 bg-white dark:bg-zinc-800/90 border border-zinc-200 dark:border-zinc-700 rounded-md py-1 pl-2.5 pr-6 appearance-none focus:outline-none focus:ring-1 focus:ring-zinc-400 cursor-pointer shadow-2xs"
+          >
+            {quartersList.map((q) => (
+              <option key={q} value={q}>
+                {q}
+              </option>
+            ))}
+            <option value="__add_new__">+ Add quarter...</option>
+          </select>
+          <div className="pointer-events-none absolute right-2 top-1/2 -translate-y-1/2 flex items-center text-zinc-400">
+            <ChevronDown className="w-3.5 h-3.5" />
           </div>
-          <span className="text-[11px] text-zinc-400 dark:text-zinc-500 font-mono shrink-0">
-            ({totalTasks})
-          </span>
         </div>
       </div>
 
