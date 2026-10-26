@@ -296,17 +296,14 @@ export const TimelineView: React.FC<TimelineViewProps> = ({
             ))}
           </div>
 
-          {/* Vertical red line for today's date */}
+          {/* Vertical red line for today's date (on the left border of today's cell) */}
           {todayIdx !== -1 && (
             <div
               style={{
-                left: `${leftWidth + todayIdx * DAY_WIDTH + Math.floor(DAY_WIDTH / 2)}px`,
+                left: `${leftWidth + todayIdx * DAY_WIDTH}px`,
               }}
               className="absolute top-0 bottom-0 w-[1.5px] bg-red-500 z-20 pointer-events-none"
-            >
-              {/* Subtle top indicator pip */}
-              <div className="absolute top-[65px] -left-[3px] w-2 h-2 rounded-full bg-red-500 ring-2 ring-white dark:ring-zinc-950" />
-            </div>
+            />
           )}
 
           {/* Sticky Top Header: Tasks count & Collapse toggle on left, Months & Days on right */}
