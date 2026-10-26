@@ -95,6 +95,67 @@
     "other_docs": "https://whimsical.com/visit6/seller-as-buyer-PB13vgQRQNciDEKMUL6DgK"
   },
   {
+    "id": "40530a0f-8091-8081-91e6-d5477a605de1",
+    "title": "[Financing] SnK for Financier",
+    "status": "Not started",
+    "priority": "Medium",
+    "quarter": "Q4 2026",
+    "wbs": "",
+    "squads": [],
+    "pms": [],
+    "assignees": [],
+    "start_date": "2026-10-26",
+    "end_date": "2026-10-30",
+    "figma_url": "",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
+    "id": "40530a0f-8091-8015-a5c0-dba7cfff6635",
+    "title": "[Financing] [Mimin] Sebagai user, saya dapat melakukan konfigurasi kriteria financier untuk PO Financing dan Invoice Financing melalui menu yang sama",
+    "status": "In progress design",
+    "priority": "Medium",
+    "quarter": "Q4 2026",
+    "wbs": "",
+    "squads": [
+      "Financing"
+    ],
+    "pms": [
+      "Hana"
+    ],
+    "assignees": [
+      "Widy"
+    ],
+    "start_date": "2026-10-26",
+    "end_date": "2026-10-30",
+    "figma_url": "https://www.figma.com/design/MLThU5HkzE2r7CBL2GkmQv/-MIMIN--Dashboard-Financing?node-id=1898-2551&t=Ho2NbcOXtX6kijyY-11",
+    "prd_url": "",
+    "taiga_url": "https://projects.digitaltelkom.id/project/SPDPT/us/15795?kanban-status=1283",
+    "other_docs": ""
+  },
+  {
+    "id": "40230a0f-8091-8006-8b57-cf346abce741",
+    "title": "[Transaksi] Revisi PR",
+    "status": "Not started",
+    "priority": "High",
+    "quarter": "Q4 2026",
+    "wbs": "TRX#1",
+    "squads": [
+      "Transaction"
+    ],
+    "pms": [
+      "Dhana"
+    ],
+    "assignees": [],
+    "start_date": "2026-10-26",
+    "end_date": "2026-10-30",
+    "figma_url": "https://www.figma.com/design/9dGlVBK80wiIViB1DyM7Il/Revisi-Pesanan---2025?node-id=5495-34816&t=e3Q35NZmPokbZmlI-11",
+    "prd_url": "",
+    "taiga_url": "",
+    "other_docs": ""
+  },
+  {
     "id": "3ff30a0f-8091-80d9-9030-fa4ca4adcc29",
     "title": "[Core] in-app action chat phase 2",
     "status": "In progress design",
@@ -120,7 +181,7 @@
   {
     "id": "3ff30a0f-8091-80e7-b899-edb1aa624587",
     "title": "[PaDi] Penyesuaian Landing Page",
-    "status": "In progress design",
+    "status": "Done",
     "priority": "P0 - SUPER HIGH",
     "quarter": "Q4 2026",
     "wbs": "IDE#1",
@@ -131,10 +192,11 @@
       "Lavie"
     ],
     "assignees": [
-      "Banu"
+      "Banu",
+      "Dian"
     ],
     "start_date": "2026-10-20",
-    "end_date": "2026-10-23",
+    "end_date": "2026-10-25",
     "figma_url": "https://www.figma.com/design/WERrgS6hnyJlXGa8DWfY3K/Landing-Torasera--PaDi-Seller--PaDi-B2B?node-id=780-3281&t=GmDusfSfIz886Jt1-11",
     "prd_url": "",
     "taiga_url": "",
