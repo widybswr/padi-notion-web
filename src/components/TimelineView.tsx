@@ -2,7 +2,7 @@
 
 import React, { useState, useRef, useEffect, useMemo } from 'react';
 import { Task } from '@/lib/types';
-import { Plus } from 'lucide-react';
+import { Plus, PanelLeftClose, PanelLeftOpen } from 'lucide-react';
 
 interface TimelineViewProps {
   tasks: Task[];
@@ -13,6 +13,8 @@ interface TimelineViewProps {
 
 const DAY_WIDTH = 38; // px per day
 const ROW_HEIGHT = 44; // px per task row
+const TASK_COL_WIDTH = 200; // px for tasks column (slim and compact)
+const COLLAPSED_COL_WIDTH = 36; // px when collapsed for full-width timeline
 
 function getQuarterRange(quarter: string = 'Q4 2026'): { start: string; end: string } {
   const match = quarter.match(/Q([1-4])\s*(\d{4})/i);
@@ -75,7 +77,7 @@ export const TimelineView: React.FC<TimelineViewProps> = ({
   activeQuarter = 'Q4 2026',
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const headerScrollRef = useRef<HTMLDivElement>(null);
+  const [isCollapsed, setIsCollapsed] = useState(false);
   const [dragState, setDragState] = useState<DragState | null>(null);
 
   const { start: TIMELINE_START, end: TIMELINE_END } = useMemo(
@@ -242,7 +244,6 @@ export const TimelineView: React.FC<TimelineViewProps> = ({
     }
   };
 
-  // Quick schedule an unscheduled task
   const handleScheduleDefault = (task: Task) => {
     onUpdateTask({
       ...task,
@@ -251,194 +252,187 @@ export const TimelineView: React.FC<TimelineViewProps> = ({
     });
   };
 
+  const leftWidth = isCollapsed ? COLLAPSED_COL_WIDTH : TASK_COL_WIDTH;
+  const trackWidth = calendarDays.length * DAY_WIDTH;
+
   return (
-    <div className="flex flex-col flex-1 h-full min-h-0 bg-white dark:bg-zinc-950 select-none overflow-hidden">
-      {/* Unified Sticky Header Row: Left Tasks({count}) + Right Months & Days */}
-      <div className="shrink-0 flex border-b border-zinc-200 dark:border-zinc-800 bg-zinc-50/95 dark:bg-zinc-900/95 z-20 sticky top-0 shadow-2xs">
-        {/* Left: Tasks ({count}) Header */}
-        <div className="w-80 shrink-0 h-[65px] px-4 flex items-center justify-between border-r border-zinc-200 dark:border-zinc-800">
-          <span className="font-semibold text-xs text-zinc-700 dark:text-zinc-300">
-            Tasks ({scheduledTasks.length})
-          </span>
-          <span className="text-[10px] text-zinc-400 font-mono">Date Window</span>
-        </div>
-
-        {/* Right: Months & Days Header (synced horizontally with canvas) */}
+    <div className="flex-1 flex flex-col h-full min-h-0 bg-white dark:bg-zinc-950 select-none overflow-hidden font-sans">
+      {/* Unified Single Scroll Container: Guarantees 100% vertical sync */}
+      <div
+        ref={containerRef}
+        className="flex-1 overflow-auto relative min-h-0 bg-white dark:bg-zinc-950"
+      >
         <div
-          ref={headerScrollRef}
-          className="flex-1 overflow-x-hidden relative"
+          style={{
+            width: `${leftWidth + trackWidth}px`,
+            minHeight: '100%',
+          }}
+          className="relative flex flex-col"
         >
+          {/* Vertical grid lines & weekend shading behind all rows */}
           <div
-            style={{ width: `${calendarDays.length * DAY_WIDTH}px` }}
-            className="flex flex-col"
+            style={{
+              left: `${leftWidth}px`,
+              width: `${trackWidth}px`,
+            }}
+            className="absolute inset-y-0 top-[65px] pointer-events-none flex"
           >
-            {/* Months row */}
-            <div className="flex h-7 border-b border-zinc-200/80 dark:border-zinc-800">
-              {monthHeaders.map((m) => (
-                <div
-                  key={m.monthStr}
-                  style={{ width: `${m.count * DAY_WIDTH}px` }}
-                  className="relative border-r border-zinc-200 dark:border-zinc-800 shrink-0"
-                >
-                  <div className="sticky left-0 inline-flex items-center h-full px-3 text-xs font-semibold text-zinc-800 dark:text-zinc-200 uppercase tracking-wider text-[11px] whitespace-nowrap z-10 bg-zinc-50/95 dark:bg-zinc-900/95">
-                    {m.monthStr}
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Days row */}
-            <div className="flex h-[37px]">
-              {calendarDays.map((day) => (
-                <div
-                  key={day.dateStr}
-                  style={{ width: `${DAY_WIDTH}px` }}
-                  className={`flex flex-col items-center justify-center text-[10px] border-r transition-colors shrink-0 ${
-                    day.isWeekend
-                      ? 'bg-zinc-200/70 dark:bg-zinc-800/70 border-zinc-200 dark:border-zinc-700 text-zinc-400'
-                      : 'bg-white dark:bg-zinc-950 border-zinc-100 dark:border-zinc-800/50 text-zinc-600 dark:text-zinc-400'
-                  }`}
-                >
-                  <span
-                    className={`font-semibold ${
-                      day.isWeekend ? 'text-zinc-500 dark:text-zinc-400' : 'text-zinc-800 dark:text-zinc-200'
-                    }`}
-                  >
-                    {day.dayNum}
-                  </span>
-                  <span
-                    className={`text-[9px] ${
-                      day.isWeekend
-                        ? 'text-red-500/80 dark:text-red-400/80 font-bold'
-                        : 'opacity-70'
-                    }`}
-                  >
-                    {day.dayName}
-                  </span>
-                </div>
-              ))}
-            </div>
+            {calendarDays.map((day) => (
+              <div
+                key={day.dateStr}
+                style={{
+                  width: `${DAY_WIDTH}px`,
+                  backgroundImage: day.isWeekend
+                    ? 'repeating-linear-gradient(45deg, rgba(0,0,0,0.025), rgba(0,0,0,0.025) 4px, transparent 4px, transparent 8px)'
+                    : undefined,
+                }}
+                className={`h-full border-r shrink-0 ${
+                  day.isWeekend
+                    ? 'bg-zinc-100/70 dark:bg-zinc-900/60 border-zinc-200/80 dark:border-zinc-800/80'
+                    : 'border-zinc-100 dark:border-zinc-800/30'
+                }`}
+              />
+            ))}
           </div>
-        </div>
-      </div>
 
-      {/* Unified Vertically Scrollable Body */}
-      <div className="flex-1 overflow-y-auto flex min-h-0 divide-x divide-zinc-200 dark:divide-zinc-800">
-        {/* Left Task Rows List */}
-        <div className="w-80 shrink-0 border-r border-zinc-200 dark:border-zinc-800 divide-y divide-zinc-100 dark:divide-zinc-800/60 bg-white dark:bg-zinc-950">
-          {scheduledTasks.map((task) => (
+          {/* Sticky Top Header: Tasks count & Collapse toggle on left, Months & Days on right */}
+          <div className="sticky top-0 z-30 flex border-b border-zinc-200 dark:border-zinc-800 bg-zinc-50/95 dark:bg-zinc-900/95 backdrop-blur-md shadow-2xs">
+            {/* Frozen Left Header */}
             <div
-              key={task.id}
-              style={{ height: `${ROW_HEIGHT}px` }}
-              onClick={() => onSelectTask(task)}
-              className="px-4 flex items-center justify-between gap-2 hover:bg-zinc-50 dark:hover:bg-zinc-900/60 cursor-pointer transition-colors group"
+              style={{ width: `${leftWidth}px` }}
+              className="sticky left-0 z-40 shrink-0 h-[65px] px-3 flex items-center justify-between border-r border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900 transition-all"
             >
-              <div className="min-w-0 flex-1">
-                <div className="flex items-center gap-1.5">
-                  {task.wbs && (
-                    <span className="text-[10px] font-mono text-zinc-400 shrink-0">
-                      {task.wbs}
-                    </span>
-                  )}
-                  <span className="text-xs font-medium text-zinc-800 dark:text-zinc-200 truncate group-hover:text-blue-600 dark:group-hover:text-blue-400">
-                    {task.title}
+              {!isCollapsed ? (
+                <>
+                  <span className="font-semibold text-xs text-zinc-700 dark:text-zinc-300 truncate">
+                    Tasks ({scheduledTasks.length})
                   </span>
-                </div>
-              </div>
-
-              <div className="shrink-0 text-right">
-                <span className="text-[10px] text-zinc-500 dark:text-zinc-400 font-mono block">
-                  {formatShortDate(task.start_date || '')} →{' '}
-                  {formatShortDate(task.end_date || task.start_date || '')}
-                </span>
-              </div>
-            </div>
-          ))}
-
-          {/* Unscheduled section in sidebar */}
-          {unscheduledTasks.length > 0 && (
-            <div className="p-3 bg-zinc-50/60 dark:bg-zinc-900/40">
-              <div className="flex items-center justify-between text-xs text-zinc-400 font-semibold mb-2">
-                <span>Unscheduled ({unscheduledTasks.length})</span>
-              </div>
-              <div className="space-y-1.5">
-                {unscheduledTasks.map((t) => (
-                  <div
-                    key={t.id}
-                    className="p-2 rounded bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 flex items-center justify-between text-xs gap-2"
+                  <button
+                    type="button"
+                    onClick={() => setIsCollapsed(true)}
+                    className="p-1 rounded hover:bg-zinc-200/70 dark:hover:bg-zinc-800 text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200 cursor-pointer transition-colors"
+                    title="Collapse tasks column to give full width to timeline"
                   >
-                    <span className="truncate text-zinc-700 dark:text-zinc-300">
-                      {t.title}
-                    </span>
-                    <button
-                      onClick={() => handleScheduleDefault(t)}
-                      className="text-[10px] text-blue-600 hover:text-blue-700 font-medium shrink-0 flex items-center gap-0.5 bg-blue-50 dark:bg-blue-950/60 px-1.5 py-0.5 rounded"
+                    <PanelLeftClose className="w-3.5 h-3.5" />
+                  </button>
+                </>
+              ) : (
+                <button
+                  type="button"
+                  onClick={() => setIsCollapsed(false)}
+                  className="w-full flex items-center justify-center p-1 rounded hover:bg-zinc-200/70 dark:hover:bg-zinc-800 text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200 cursor-pointer transition-colors"
+                  title="Expand tasks column"
+                >
+                  <PanelLeftOpen className="w-3.5 h-3.5" />
+                </button>
+              )}
+            </div>
+
+            {/* Right Track Header: Months + Days */}
+            <div style={{ width: `${trackWidth}px` }} className="shrink-0 flex flex-col">
+              {/* Months row */}
+              <div className="flex h-7 border-b border-zinc-200/80 dark:border-zinc-800">
+                {monthHeaders.map((m) => (
+                  <div
+                    key={m.monthStr}
+                    style={{ width: `${m.count * DAY_WIDTH}px` }}
+                    className="relative border-r border-zinc-200 dark:border-zinc-800 shrink-0"
+                  >
+                    <div
+                      style={{ left: `${leftWidth}px` }}
+                      className="sticky inline-flex items-center h-full px-3 text-xs font-semibold text-zinc-800 dark:text-zinc-200 uppercase tracking-wider text-[11px] whitespace-nowrap z-10 bg-zinc-50/95 dark:bg-zinc-900/95"
                     >
-                      <Plus className="w-2.5 h-2.5" /> Schedule
-                    </button>
+                      {m.monthStr}
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Days row */}
+              <div className="flex h-[37px]">
+                {calendarDays.map((day) => (
+                  <div
+                    key={day.dateStr}
+                    style={{ width: `${DAY_WIDTH}px` }}
+                    className={`flex flex-col items-center justify-center text-[10px] border-r transition-colors shrink-0 ${
+                      day.isWeekend
+                        ? 'bg-zinc-200/70 dark:bg-zinc-800/70 border-zinc-200 dark:border-zinc-700 text-zinc-400'
+                        : 'bg-white dark:bg-zinc-950 border-zinc-100 dark:border-zinc-800/50 text-zinc-600 dark:text-zinc-400'
+                    }`}
+                  >
+                    <span
+                      className={`font-semibold ${
+                        day.isWeekend ? 'text-zinc-500 dark:text-zinc-400' : 'text-zinc-800 dark:text-zinc-200'
+                      }`}
+                    >
+                      {day.dayNum}
+                    </span>
+                    <span
+                      className={`text-[9px] ${
+                        day.isWeekend
+                          ? 'text-red-500/80 dark:text-red-400/80 font-bold'
+                          : 'opacity-70'
+                      }`}
+                    >
+                      {day.dayName}
+                    </span>
                   </div>
                 ))}
               </div>
             </div>
-          )}
-        </div>
+          </div>
 
-        {/* Right Scrollable Timeline Canvas Track */}
-        <div
-          ref={containerRef}
-          onScroll={(e) => {
-            if (headerScrollRef.current) {
-              headerScrollRef.current.scrollLeft = e.currentTarget.scrollLeft;
-            }
-          }}
-          className="flex-1 overflow-x-auto relative min-h-0"
-        >
-          <div
-            style={{ width: `${calendarDays.length * DAY_WIDTH}px` }}
-            className="min-h-full flex flex-col relative"
-          >
-            {/* Vertical grid lines & weekend shading */}
-            <div className="absolute inset-0 pointer-events-none flex">
-              {calendarDays.map((day) => (
+          {/* Unified Task Rows: Left title & Right bar in the EXACT SAME row */}
+          <div className="flex flex-col">
+            {scheduledTasks.map((task) => {
+              const isDraggingThis = dragState?.taskId === task.id;
+              const startDate = isDraggingThis
+                ? dragState.currentStartDate
+                : task.start_date || TIMELINE_START;
+              const endDate = isDraggingThis
+                ? dragState.currentEndDate
+                : task.end_date || task.start_date || TIMELINE_START;
+
+              const startOffsetDays = diffInDays(TIMELINE_START, startDate);
+              const durationDays = Math.max(1, diffInDays(startDate, endDate) + 1);
+
+              const barLeft = startOffsetDays * DAY_WIDTH;
+              const barWidth = durationDays * DAY_WIDTH;
+
+              return (
                 <div
-                  key={day.dateStr}
-                  style={{
-                    width: `${DAY_WIDTH}px`,
-                    backgroundImage: day.isWeekend
-                      ? 'repeating-linear-gradient(45deg, rgba(0,0,0,0.025), rgba(0,0,0,0.025) 4px, transparent 4px, transparent 8px)'
-                      : undefined,
-                  }}
-                  className={`h-full border-r shrink-0 ${
-                    day.isWeekend
-                      ? 'bg-zinc-100/70 dark:bg-zinc-900/60 border-zinc-200/80 dark:border-zinc-800/80'
-                      : 'border-zinc-100 dark:border-zinc-800/30'
-                  }`}
-                />
-              ))}
-            </div>
-
-            {/* Timeline Task Bars */}
-            <div className="relative pt-0">
-              {scheduledTasks.map((task) => {
-                const isDraggingThis = dragState?.taskId === task.id;
-                const startDate = isDraggingThis
-                  ? dragState.currentStartDate
-                  : task.start_date || TIMELINE_START;
-                const endDate = isDraggingThis
-                  ? dragState.currentEndDate
-                  : task.end_date || task.start_date || TIMELINE_START;
-
-                const startOffsetDays = diffInDays(TIMELINE_START, startDate);
-                const durationDays = Math.max(1, diffInDays(startDate, endDate) + 1);
-
-                const barLeft = startOffsetDays * DAY_WIDTH;
-                const barWidth = durationDays * DAY_WIDTH;
-
-                return (
+                  key={task.id}
+                  style={{ height: `${ROW_HEIGHT}px` }}
+                  className="flex border-b border-zinc-100 dark:border-zinc-850 hover:bg-zinc-50/40 dark:hover:bg-zinc-900/30 transition-colors group"
+                >
+                  {/* Left Frozen Task Title Column */}
                   <div
-                    key={task.id}
-                    style={{ height: `${ROW_HEIGHT}px` }}
-                    className="relative flex items-center border-b border-zinc-100/60 dark:border-zinc-900/40"
+                    style={{ width: `${leftWidth}px` }}
+                    onClick={() => onSelectTask(task)}
+                    className="sticky left-0 z-20 shrink-0 h-full bg-white dark:bg-zinc-950 flex items-center px-3 border-r border-zinc-200 dark:border-zinc-800 cursor-pointer overflow-hidden transition-all"
+                  >
+                    {!isCollapsed ? (
+                      <div className="flex items-center gap-1.5 min-w-0">
+                        {task.wbs && (
+                          <span className="text-[10px] font-mono text-zinc-400 shrink-0">
+                            {task.wbs}
+                          </span>
+                        )}
+                        <span className="text-xs font-medium text-zinc-800 dark:text-zinc-200 truncate group-hover:text-blue-600 dark:group-hover:text-blue-400">
+                          {task.title}
+                        </span>
+                      </div>
+                    ) : (
+                      <div className="w-full flex justify-center text-zinc-400 text-[10px] font-mono">
+                        •
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Right Track: Timeline Bar */}
+                  <div
+                    style={{ width: `${trackWidth}px` }}
+                    className="relative shrink-0 flex items-center h-full"
                   >
                     {/* Draggable Task Bar */}
                     <div
@@ -470,7 +464,7 @@ export const TimelineView: React.FC<TimelineViewProps> = ({
                             currentEndDate: endDate,
                           });
                         }}
-                        className="w-3.5 h-full flex items-center justify-center cursor-ew-resize opacity-0 group-hover/bar:opacity-100 hover:bg-black/10 dark:hover:bg-white/10 rounded-l transition-opacity"
+                        className="w-3 h-full flex items-center justify-center cursor-ew-resize opacity-0 group-hover/bar:opacity-100 hover:bg-black/10 dark:hover:bg-white/10 rounded-l transition-opacity"
                       >
                         <div className="w-1 h-3 border-l-2 border-zinc-500/70 dark:border-zinc-300/70" />
                       </div>
@@ -515,7 +509,7 @@ export const TimelineView: React.FC<TimelineViewProps> = ({
                             currentEndDate: endDate,
                           });
                         }}
-                        className="w-3.5 h-full flex items-center justify-center cursor-ew-resize opacity-0 group-hover/bar:opacity-100 hover:bg-black/10 dark:hover:bg-white/10 rounded-r transition-opacity"
+                        className="w-3 h-full flex items-center justify-center cursor-ew-resize opacity-0 group-hover/bar:opacity-100 hover:bg-black/10 dark:hover:bg-white/10 rounded-r transition-opacity"
                       >
                         <div className="w-1 h-3 border-r-2 border-zinc-500/70 dark:border-zinc-300/70" />
                       </div>
@@ -537,9 +531,51 @@ export const TimelineView: React.FC<TimelineViewProps> = ({
                       )}
                     </div>
                   </div>
-                );
-              })}
-            </div>
+                </div>
+              );
+            })}
+
+            {/* Unscheduled Tasks Section */}
+            {unscheduledTasks.length > 0 && (
+              <div className="flex border-b border-zinc-200 dark:border-zinc-800 bg-zinc-50/40 dark:bg-zinc-900/30">
+                <div
+                  style={{ width: `${leftWidth}px` }}
+                  className="sticky left-0 z-20 shrink-0 p-3 bg-zinc-50/95 dark:bg-zinc-900/95 border-r border-zinc-200 dark:border-zinc-800 transition-all"
+                >
+                  {!isCollapsed ? (
+                    <>
+                      <div className="text-xs text-zinc-400 font-semibold mb-2 truncate">
+                        Unscheduled ({unscheduledTasks.length})
+                      </div>
+                      <div className="space-y-1.5">
+                        {unscheduledTasks.map((t) => (
+                          <div
+                            key={t.id}
+                            className="p-1.5 rounded bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 flex items-center justify-between text-xs gap-1 shadow-2xs"
+                          >
+                            <span className="truncate text-zinc-700 dark:text-zinc-300 text-[11px]">
+                              {t.title}
+                            </span>
+                            <button
+                              type="button"
+                              onClick={() => handleScheduleDefault(t)}
+                              className="text-[9px] text-blue-600 dark:text-blue-400 hover:underline font-medium shrink-0 flex items-center gap-0.5 bg-blue-50 dark:bg-blue-950/60 px-1 py-0.5 rounded cursor-pointer"
+                            >
+                              <Plus className="w-2.5 h-2.5" /> Schedule
+                            </button>
+                          </div>
+                        ))}
+                      </div>
+                    </>
+                  ) : (
+                    <div className="text-center text-zinc-400 text-[10px] font-mono">
+                      ?
+                    </div>
+                  )}
+                </div>
+                <div style={{ width: `${trackWidth}px` }} className="shrink-0" />
+              </div>
+            )}
           </div>
         </div>
       </div>
