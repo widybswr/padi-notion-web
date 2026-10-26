@@ -227,6 +227,21 @@ export async function POST(req: NextRequest) {
       }
     }
 
+    // Preserve existing attachments, description, and parent_id from database
+    const { data: existingRows } = await supabase
+      .from('tasks')
+      .select('id, attachments, description, parent_id');
+    const existingMap = new Map((existingRows || []).map((r: any) => [r.id, r]));
+
+    allTasks.forEach((t) => {
+      const existing = existingMap.get(t.id);
+      if (existing) {
+        t.attachments = existing.attachments || [];
+        t.description = t.description || existing.description || '';
+        t.parent_id = t.parent_id || existing.parent_id || null;
+      }
+    });
+
     // Upsert into Supabase in chunks of 50
     const BATCH_SIZE = 50;
     for (let i = 0; i < allTasks.length; i += BATCH_SIZE) {

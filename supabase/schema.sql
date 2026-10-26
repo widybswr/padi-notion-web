@@ -25,6 +25,8 @@ create table tasks (
     userflow_url text default '',
     other_docs text default '',
     description text default '',
+    parent_id text references tasks(id) on delete set null,
+    attachments jsonb default '[]'::jsonb,
     created_at timestamptz default now(),
     updated_at timestamptz default now()
 );
@@ -33,6 +35,7 @@ create table tasks (
 create index idx_tasks_status on tasks(status);
 create index idx_tasks_priority on tasks(priority);
 create index idx_tasks_wbs on tasks(wbs);
+create index idx_tasks_parent_id on tasks(parent_id);
 create index idx_tasks_assignees on tasks using gin(assignees);
 create index idx_tasks_squads on tasks using gin(squads);
 create index idx_tasks_created_at on tasks(created_at desc);

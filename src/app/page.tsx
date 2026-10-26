@@ -321,6 +321,8 @@ export default function HomePage() {
         onDelete={handleDeleteTask}
         availableSquads={squadsList}
         availableAssignees={assigneesList}
+        allTasks={tasks}
+        onSelectTask={(task) => setActiveTask(task)}
       />
 
       {/* New Task Creation Modal */}

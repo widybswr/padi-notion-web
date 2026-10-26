@@ -1,6 +1,12 @@
 /**
  * Full Workspace Sync: Q1 2026, Q2 2026, Q3 2026, Q4 2026, and Cuti
- * Fetches from Notion and upserts all records into Supabase.
+ * - Extracts all tasks, dates, assignees, squads, URLs
+ * - Extracts Notion child blocks: page notes/specs converted to Markdown (description)
+ * - Resolves all directly uploaded Notion files (PDFs, docx, html, images),
+ *   downloads them, uploads to Supabase Storage 'task-attachments', and saves permanent CDN URLs
+ * - Extracts Parent / Child relationships (parent_id)
+ * - Preserves Notion historical created_time and last_edited_time
+ * - Upserts everything into Supabase PostgreSQL
  */
 
 const https = require('https');
@@ -37,8 +43,63 @@ function formatId(id) {
   return `${id.slice(0, 8)}-${id.slice(8, 12)}-${id.slice(12, 16)}-${id.slice(16, 20)}-${id.slice(20)}`;
 }
 
+function post(url, payload) {
+  return new Promise((resolve, reject) => {
+    const data = JSON.stringify(payload);
+    const req = https.request(
+      url,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Content-Length': Buffer.byteLength(data),
+        },
+      },
+      (res) => {
+        let body = '';
+        res.on('data', (chunk) => (body += chunk));
+        res.on('end', () => {
+          if (res.statusCode >= 200 && res.statusCode < 300) {
+            try {
+              resolve(JSON.parse(body));
+            } catch (e) {
+              reject(e);
+            }
+          } else {
+            reject(new Error(`Notion API HTTP ${res.statusCode}: ${body}`));
+          }
+        });
+      }
+    );
+    req.on('error', reject);
+    req.write(data);
+    req.end();
+  });
+}
+
+function downloadFile(url) {
+  return new Promise((resolve, reject) => {
+    https.get(url, (res) => {
+      if (res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
+        return downloadFile(res.headers.location).then(resolve).catch(reject);
+      }
+      if (res.statusCode !== 200) {
+        return reject(new Error(`Failed to download file, HTTP ${res.statusCode}`));
+      }
+      const chunks = [];
+      res.on('data', (c) => chunks.push(c));
+      res.on('end', () => {
+        resolve({
+          buffer: Buffer.concat(chunks),
+          contentType: res.headers['content-type'] || 'application/octet-stream',
+        });
+      });
+    }).on('error', reject);
+  });
+}
+
 async function queryCollection(collectionId, collectionViewId) {
-  const payload = JSON.stringify({
+  return post('https://www.notion.so/api/v3/queryCollection', {
     collection: { id: formatId(collectionId) },
     collectionView: { id: formatId(collectionViewId) },
     loader: {
@@ -54,38 +115,192 @@ async function queryCollection(collectionId, collectionViewId) {
       userTimeZone: 'Asia/Jakarta',
     },
   });
+}
 
-  return new Promise((resolve, reject) => {
-    const req = https.request(
-      'https://www.notion.so/api/v3/queryCollection',
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Content-Length': Buffer.byteLength(payload),
-        },
-      },
-      (res) => {
-        let data = '';
-        res.on('data', (chunk) => (data += chunk));
-        res.on('end', () => {
-          if (res.statusCode >= 200 && res.statusCode < 300) {
-            try {
-              resolve(JSON.parse(data));
-            } catch (err) {
-              reject(err);
-            }
-          } else {
-            reject(new Error(`Notion API returned status ${res.statusCode}: ${data}`));
-          }
-        });
+function formatRichText(fragments) {
+  if (!fragments || !Array.isArray(fragments)) return '';
+  return fragments
+    .map((frag) => {
+      let text = frag[0] || '';
+      const decorations = frag[1];
+      if (decorations && Array.isArray(decorations)) {
+        for (const dec of decorations) {
+          if (dec[0] === 'b') text = `**${text}**`;
+          else if (dec[0] === 'i') text = `*${text}*`;
+          else if (dec[0] === 's') text = `~~${text}~~`;
+          else if (dec[0] === 'c') text = `\`${text}\``;
+          else if (dec[0] === 'a') text = `[${text}](${dec[1]})`;
+        }
       }
-    );
+      return text;
+    })
+    .join('');
+}
 
-    req.on('error', reject);
-    req.write(payload);
-    req.end();
-  });
+function extractParentId(prop) {
+  if (!prop || !Array.isArray(prop)) return null;
+  for (const item of prop) {
+    if (Array.isArray(item[1])) {
+      for (const sub of item[1]) {
+        if (sub[0] === 'p' && sub[1]) {
+          return sub[1];
+        }
+      }
+    }
+  }
+  return null;
+}
+
+function extractSubItemIds(prop) {
+  if (!prop || !Array.isArray(prop)) return [];
+  const ids = [];
+  for (const item of prop) {
+    if (Array.isArray(item[1])) {
+      for (const sub of item[1]) {
+        if (sub[0] === 'p' && sub[1]) {
+          ids.push(sub[1]);
+        }
+      }
+    }
+  }
+  return ids;
+}
+
+async function loadPageDetails(pageId, supabase) {
+  try {
+    const chunk = await post('https://www.notion.so/api/v3/loadPageChunk', {
+      pageId,
+      limit: 100,
+      cursor: { stack: [] },
+      chunkNumber: 0,
+      verticalColumns: false,
+    });
+
+    const blocks = chunk.recordMap?.block || {};
+    const descriptionLines = [];
+    const attachments = [];
+    const fileRequests = [];
+
+    for (const [bid, bval] of Object.entries(blocks)) {
+      const b = bval?.value?.value || bval?.value;
+      if (!b || bid === pageId) continue;
+
+      const title = formatRichText(b.properties?.title);
+
+      switch (b.type) {
+        case 'header':
+          if (title) descriptionLines.push(`\n# ${title}\n`);
+          break;
+        case 'sub_header':
+          if (title) descriptionLines.push(`\n## ${title}\n`);
+          break;
+        case 'sub_sub_header':
+        case 'header_4':
+          if (title) descriptionLines.push(`\n### ${title}\n`);
+          break;
+        case 'text':
+          if (title) descriptionLines.push(title);
+          break;
+        case 'bulleted_list':
+          if (title) descriptionLines.push(`* ${title}`);
+          break;
+        case 'numbered_list':
+          if (title) descriptionLines.push(`1. ${title}`);
+          break;
+        case 'to_do': {
+          const checked = b.properties?.checked?.[0]?.[0] === 'Yes' ? 'x' : ' ';
+          if (title) descriptionLines.push(`- [${checked}] ${title}`);
+          break;
+        }
+        case 'quote':
+        case 'callout':
+          if (title) descriptionLines.push(`> ${title}`);
+          break;
+        case 'code':
+          if (title) descriptionLines.push(`\`\`\`\n${title}\n\`\`\``);
+          break;
+        case 'divider':
+          descriptionLines.push('---');
+          break;
+        case 'file':
+        case 'image':
+        case 'embed': {
+          const rawSource =
+            b.properties?.source?.[0]?.[0] || b.format?.display_source || '';
+          const fileName =
+            b.properties?.title?.[0]?.[0] ||
+            (rawSource ? rawSource.split(':').pop() : 'Attachment');
+          const size = b.properties?.size?.[0]?.[0] || '';
+
+          if (rawSource && rawSource.startsWith('attachment:')) {
+            fileRequests.push({
+              blockId: bid,
+              source: rawSource,
+              fileName: fileName.replace(/[^\w.-]/g, '_'),
+              size,
+              type: b.type,
+            });
+          }
+          break;
+        }
+      }
+    }
+
+    // Resolve Notion signed URLs and upload directly to Supabase Storage
+    if (fileRequests.length > 0 && supabase) {
+      const signedUrlsRes = await post('https://www.notion.so/api/v3/getSignedFileUrls', {
+        urls: fileRequests.map((f) => ({
+          url: f.source,
+          permissionRecord: { table: 'block', id: f.blockId },
+        })),
+      });
+
+      const signedUrls = signedUrlsRes?.signedUrls || [];
+      for (let i = 0; i < fileRequests.length; i++) {
+        const fileReq = fileRequests[i];
+        const downloadUrl = signedUrls[i];
+        if (!downloadUrl) continue;
+
+        try {
+          const { buffer, contentType } = await downloadFile(downloadUrl);
+          const storagePath = `${pageId}/${fileReq.fileName}`;
+
+          const { error: uploadErr } = await supabase.storage
+            .from('task-attachments')
+            .upload(storagePath, buffer, {
+              contentType,
+              upsert: true,
+            });
+
+          if (uploadErr) {
+            console.error(`Upload error for ${fileReq.fileName}:`, uploadErr.message);
+          } else {
+            const { data: pubData } = supabase.storage
+              .from('task-attachments')
+              .getPublicUrl(storagePath);
+
+            attachments.push({
+              id: fileReq.blockId,
+              name: fileReq.fileName,
+              size: fileReq.size,
+              type: fileReq.type,
+              url: pubData.publicUrl,
+            });
+          }
+        } catch (downloadErr) {
+          console.error(`Failed to download ${fileReq.fileName}:`, downloadErr.message);
+        }
+      }
+    }
+
+    return {
+      description: descriptionLines.join('\n').trim(),
+      attachments,
+    };
+  } catch (err) {
+    console.error(`Error loading page details for ${pageId}:`, err.message);
+    return { description: '', attachments: [] };
+  }
 }
 
 function parseQuarterTasks(raw, quarterLabel) {
@@ -153,6 +368,18 @@ function parseQuarterTasks(raw, quarterLabel) {
       }
     }
 
+    // Parent task relation (|zGD)
+    const parent_id = extractParentId(props['|zGD']);
+    const sub_item_ids = extractSubItemIds(props['=mye']);
+
+    // Timestamps
+    const created_at = b.created_time
+      ? new Date(b.created_time).toISOString()
+      : new Date().toISOString();
+    const updated_at = b.last_edited_time
+      ? new Date(b.last_edited_time).toISOString()
+      : new Date().toISOString();
+
     tasks.push({
       id: bid,
       title,
@@ -169,6 +396,13 @@ function parseQuarterTasks(raw, quarterLabel) {
       prd_url,
       taiga_url,
       other_docs,
+      parent_id,
+      _sub_item_ids: sub_item_ids,
+      _hasContent: Boolean(b.content && b.content.length > 0),
+      attachments: [],
+      description: '',
+      created_at,
+      updated_at,
     });
   }
 
@@ -186,7 +420,6 @@ function parseCutiRecords(raw) {
     const props = b.properties || {};
 
     const title = (props.title || []).map((t) => t[0]).join('') || 'Cuti';
-    const status = props['E<ud']?.[0]?.[0] || 'Paid Leave';
 
     // Assignees
     const assignees = [];
@@ -227,6 +460,13 @@ function parseCutiRecords(raw) {
       else quarter = 'Q4 2026';
     }
 
+    const created_at = b.created_time
+      ? new Date(b.created_time).toISOString()
+      : new Date().toISOString();
+    const updated_at = b.last_edited_time
+      ? new Date(b.last_edited_time).toISOString()
+      : new Date().toISOString();
+
     tasks.push({
       id: bid,
       title,
@@ -243,6 +483,12 @@ function parseCutiRecords(raw) {
       prd_url: '',
       taiga_url: '',
       other_docs: '',
+      parent_id: null,
+      attachments: [],
+      description: '',
+      created_at,
+      updated_at,
+      _hasContent: false,
     });
   }
 
@@ -250,7 +496,17 @@ function parseCutiRecords(raw) {
 }
 
 async function main() {
-  console.log('--- Starting Notion Sync across all quarters ---');
+  console.log('--- Starting Notion Full Workspace & Files Sync ---');
+
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const supabaseKey =
+    process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+
+  let supabase = null;
+  if (supabaseUrl && supabaseKey) {
+    supabase = createClient(supabaseUrl, supabaseKey);
+    console.log(`Connected to Supabase at ${supabaseUrl}`);
+  }
 
   const sources = [
     { name: 'Q4 2026', cid: '08130a0f-8091-8252-97e9-076e8e795e52', vid: '12a30a0f-8091-8314-9a58-08b855188683', type: 'quarter' },
@@ -266,9 +522,10 @@ async function main() {
     process.stdout.write(`Fetching ${src.name}... `);
     try {
       const raw = await queryCollection(src.cid, src.vid);
-      const parsed = src.type === 'cuti'
-        ? parseCutiRecords(raw)
-        : parseQuarterTasks(raw, src.name);
+      const parsed =
+        src.type === 'cuti'
+          ? parseCutiRecords(raw)
+          : parseQuarterTasks(raw, src.name);
       console.log(`Extracted ${parsed.length} items`);
       allTasks.push(...parsed);
     } catch (e) {
@@ -276,7 +533,48 @@ async function main() {
     }
   }
 
-  console.log(`\nTotal tasks collected: ${allTasks.length}`);
+  // Cross-reference sub-items to populate parent_id if missing on the child
+  const taskById = new Map();
+  allTasks.forEach((t) => taskById.set(t.id, t));
+
+  allTasks.forEach((t) => {
+    if (t._sub_item_ids && t._sub_item_ids.length > 0) {
+      t._sub_item_ids.forEach((childId) => {
+        const child = taskById.get(childId);
+        if (child && !child.parent_id) {
+          child.parent_id = t.id;
+        }
+      });
+    }
+  });
+
+  // Extract page descriptions and upload attached files
+  console.log('\nProcessing page descriptions and uploading direct file attachments...');
+  let contentCount = 0;
+  let totalUploadedFiles = 0;
+
+  for (let i = 0; i < allTasks.length; i++) {
+    const t = allTasks[i];
+    if (t._hasContent) {
+      contentCount++;
+      process.stdout.write(`[${contentCount}] Loading blocks for: "${t.title.slice(0, 35)}" ... `);
+      const { description, attachments } = await loadPageDetails(t.id, supabase);
+      t.description = description;
+      t.attachments = attachments;
+      if (attachments.length > 0) {
+        totalUploadedFiles += attachments.length;
+        console.log(`✓ Attached ${attachments.length} files`);
+      } else {
+        console.log(`✓ (Description ${description.length} chars)`);
+      }
+    }
+    // Clean up temporary internal parsing properties
+    delete t._hasContent;
+    delete t._sub_item_ids;
+  }
+
+  console.log(`\nProcessed ${contentCount} pages with content.`);
+  console.log(`Total attachments migrated to Supabase Storage: ${totalUploadedFiles}`);
 
   // Summary by quarter
   const summary = {};
@@ -291,13 +589,8 @@ async function main() {
   console.log(`Updated initial-tasks.json cache (${allTasks.length} tasks).`);
 
   // Upsert into Supabase
-  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-
-  if (supabaseUrl && supabaseKey) {
-    console.log(`Connecting to Supabase at ${supabaseUrl}...`);
-    const supabase = createClient(supabaseUrl, supabaseKey);
-
+  if (supabase) {
+    console.log(`\nUpserting ${allTasks.length} tasks into Supabase...`);
     const BATCH_SIZE = 50;
     for (let i = 0; i < allTasks.length; i += BATCH_SIZE) {
       const batch = allTasks.slice(i, i + BATCH_SIZE);
@@ -305,7 +598,7 @@ async function main() {
       if (error) {
         console.error(`Error upserting batch ${i} - ${i + batch.length}:`, error.message);
       } else {
-        process.stdout.write(`Upserted ${i + batch.length}/${allTasks.length}\r`);
+        process.stdout.write(`Upserted ${Math.min(i + batch.length, allTasks.length)}/${allTasks.length}\r`);
       }
     }
     console.log('\nAll tasks successfully upserted to Supabase!');

@@ -2,7 +2,7 @@
 
 import React, { useState, useRef, useEffect, useMemo } from 'react';
 import { Task } from '@/lib/types';
-import { Plus, PanelLeftClose, PanelLeftOpen } from 'lucide-react';
+import { Plus, PanelLeftClose, PanelLeftOpen, Paperclip } from 'lucide-react';
 
 interface TimelineViewProps {
   tasks: Task[];
@@ -435,6 +435,11 @@ export const TimelineView: React.FC<TimelineViewProps> = ({
                         {task.wbs && (
                           <span className="text-[10px] font-mono text-zinc-400 shrink-0">
                             {task.wbs}
+                          </span>
+                        )}
+                        {task.attachments && task.attachments.length > 0 && (
+                          <span title={`${task.attachments.length} attachment(s)`} className="text-blue-500 shrink-0">
+                            <Paperclip className="w-3 h-3 text-blue-500" />
                           </span>
                         )}
                         <span className="text-xs font-medium text-zinc-800 dark:text-zinc-200 truncate group-hover:text-blue-600 dark:group-hover:text-blue-400">

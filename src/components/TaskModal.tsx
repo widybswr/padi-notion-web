@@ -21,6 +21,15 @@ import {
   Check,
   Hash,
   ArrowRight,
+  Paperclip,
+  Download,
+  CornerDownRight,
+  FolderTree,
+  FileSpreadsheet,
+  FileCode,
+  Image as ImageIcon,
+  File,
+  ChevronRight,
 } from 'lucide-react';
 
 interface TaskModalProps {
@@ -30,6 +39,8 @@ interface TaskModalProps {
   onDelete?: (id: string) => void;
   availableSquads?: string[];
   availableAssignees?: string[];
+  allTasks?: Task[];
+  onSelectTask?: (task: Task) => void;
 }
 
 const ALL_STATUSES: TaskStatus[] = [
@@ -77,11 +88,16 @@ export const TaskModal: React.FC<TaskModalProps> = ({
   onDelete,
   availableSquads,
   availableAssignees,
+  allTasks = [],
+  onSelectTask,
 }) => {
   if (!task) return null;
 
   const [formData, setFormData] = useState<Task>({ ...task });
   const [saveStatus, setSaveStatus] = useState<'saved' | 'saving'>('saved');
+
+  const parentTask = allTasks.find((t) => t.id === formData.parent_id);
+  const subTasks = allTasks.filter((t) => t.parent_id === formData.id);
 
   // Squad selection states
   const [isSquadDropdownOpen, setIsSquadDropdownOpen] = useState(false);
@@ -624,6 +640,63 @@ export const TaskModal: React.FC<TaskModalProps> = ({
                 />
               </div>
             </div>
+
+            {/* Parent Task Relation */}
+            <div className="flex items-center gap-4">
+              <span className="w-28 text-zinc-400 flex items-center gap-1.5 shrink-0 select-none">
+                <FolderTree className="w-3.5 h-3.5" /> Parent Task
+              </span>
+              <div className="flex-1 flex items-center gap-2">
+                {parentTask ? (
+                  <div className="flex items-center gap-1.5">
+                    <button
+                      type="button"
+                      onClick={() => onSelectTask && onSelectTask(parentTask)}
+                      className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs bg-zinc-100 dark:bg-zinc-800/80 hover:bg-blue-50 dark:hover:bg-blue-950/40 text-zinc-700 dark:text-zinc-200 hover:text-blue-600 dark:hover:text-blue-400 border border-zinc-200/80 dark:border-zinc-700/80 transition-colors group cursor-pointer"
+                      title="Open parent task"
+                    >
+                      <CornerDownRight className="w-3 h-3 text-zinc-400 group-hover:text-blue-500" />
+                      {parentTask.wbs && (
+                        <span className="font-mono text-[10px] text-zinc-400 font-semibold">
+                          {parentTask.wbs}
+                        </span>
+                      )}
+                      <span className="font-medium truncate max-w-[260px]">{parentTask.title}</span>
+                      <StatusBadge status={parentTask.status} size="sm" />
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => updateAndSave({ parent_id: null })}
+                      className="p-1 text-zinc-400 hover:text-red-500 rounded"
+                      title="Unlink parent task"
+                    >
+                      <X className="w-3 h-3" />
+                    </button>
+                  </div>
+                ) : (
+                  <div className="relative">
+                    <select
+                      value=""
+                      onChange={(e) => {
+                        if (e.target.value) {
+                          updateAndSave({ parent_id: e.target.value });
+                        }
+                      }}
+                      className="text-xs bg-transparent border border-dashed border-zinc-300 dark:border-zinc-700 hover:border-zinc-400 dark:hover:border-zinc-600 rounded px-2 py-1 text-zinc-500 cursor-pointer focus:outline-none"
+                    >
+                      <option value="">+ Link to parent task...</option>
+                      {allTasks
+                        .filter((t) => t.id !== formData.id)
+                        .map((t) => (
+                          <option key={t.id} value={t.id}>
+                            {t.wbs ? `[${t.wbs}] ` : ''}{t.title}
+                          </option>
+                        ))}
+                    </select>
+                  </div>
+                )}
+              </div>
+            </div>
           </div>
 
           <hr className="border-zinc-100 dark:border-zinc-800" />
@@ -949,6 +1022,123 @@ export const TaskModal: React.FC<TaskModalProps> = ({
             </div>
           </div>
 
+          {/* Sub-tasks Section */}
+          {subTasks.length > 0 && (
+            <>
+              <hr className="border-zinc-100 dark:border-zinc-800" />
+              <div className="space-y-2">
+                <div className="flex items-center justify-between">
+                  <h3 className="text-xs font-semibold uppercase tracking-wider text-zinc-400 select-none flex items-center gap-1.5">
+                    <FolderTree className="w-3.5 h-3.5" />
+                    Sub-tasks ({subTasks.length})
+                  </h3>
+                </div>
+                <div className="divide-y divide-zinc-100 dark:divide-zinc-800/80 border border-zinc-200/80 dark:border-zinc-800 rounded-lg overflow-hidden bg-zinc-50/40 dark:bg-zinc-900/40">
+                  {subTasks.map((st) => (
+                    <div
+                      key={st.id}
+                      onClick={() => onSelectTask && onSelectTask(st)}
+                      className="flex items-center justify-between p-2.5 hover:bg-zinc-100/60 dark:hover:bg-zinc-800/60 cursor-pointer transition-colors group"
+                    >
+                      <div className="flex items-center gap-2 min-w-0 flex-1">
+                        <CornerDownRight className="w-3.5 h-3.5 text-zinc-400 shrink-0 group-hover:text-blue-500" />
+                        {st.wbs && (
+                          <span className="font-mono text-[10px] text-zinc-400 font-semibold shrink-0">
+                            {st.wbs}
+                          </span>
+                        )}
+                        <span className="text-xs font-medium text-zinc-800 dark:text-zinc-200 group-hover:text-blue-600 dark:group-hover:text-blue-400 truncate">
+                          {st.title}
+                        </span>
+                      </div>
+                      <div className="flex items-center gap-2 shrink-0 ml-3">
+                        <StatusBadge status={st.status} size="sm" />
+                        <ChevronRight className="w-3.5 h-3.5 text-zinc-400 group-hover:translate-x-0.5 transition-transform" />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </>
+          )}
+
+          {/* Notion Direct Files / Attachments Section */}
+          {formData.attachments && formData.attachments.length > 0 && (
+            <>
+              <hr className="border-zinc-100 dark:border-zinc-800" />
+              <div className="space-y-2.5">
+                <h3 className="text-xs font-semibold uppercase tracking-wider text-zinc-400 select-none flex items-center gap-1.5">
+                  <Paperclip className="w-3.5 h-3.5" />
+                  Files & Attachments ({formData.attachments.length})
+                </h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                  {formData.attachments.map((file, idx) => {
+                    const isImage = file.type === 'image' || file.name.match(/\.(png|jpe?g|gif|webp)$/i);
+                    const isPdf = file.name.endsWith('.pdf');
+                    const isDoc = file.name.match(/\.(docx?|rtf)$/i);
+                    const isSheet = file.name.match(/\.(xlsx?|csv)$/i);
+                    const isHtml = file.name.match(/\.(html?|js|ts|json)$/i);
+
+                    return (
+                      <div
+                        key={file.id || idx}
+                        className="flex flex-col p-2.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/50 hover:border-zinc-300 dark:hover:border-zinc-700 transition-colors group"
+                      >
+                        {isImage && (
+                          <div className="mb-2 rounded overflow-hidden max-h-36 bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center">
+                            <img
+                              src={file.url}
+                              alt={file.name}
+                              className="object-contain max-h-36 w-full cursor-pointer hover:opacity-95 transition-opacity"
+                              onClick={() => window.open(file.url, '_blank')}
+                            />
+                          </div>
+                        )}
+                        <div className="flex items-center justify-between gap-2">
+                          <div className="flex items-center gap-2 min-w-0">
+                            <div className="p-1.5 rounded bg-zinc-200/60 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-300 shrink-0">
+                              {isPdf ? (
+                                <FileText className="w-4 h-4 text-red-500" />
+                              ) : isDoc ? (
+                                <FileText className="w-4 h-4 text-blue-500" />
+                              ) : isSheet ? (
+                                <FileSpreadsheet className="w-4 h-4 text-emerald-500" />
+                              ) : isHtml ? (
+                                <FileCode className="w-4 h-4 text-purple-500" />
+                              ) : isImage ? (
+                                <ImageIcon className="w-4 h-4 text-amber-500" />
+                              ) : (
+                                <File className="w-4 h-4 text-zinc-500" />
+                              )}
+                            </div>
+                            <div className="min-w-0">
+                              <p className="text-xs font-medium text-zinc-800 dark:text-zinc-200 truncate" title={file.name}>
+                                {file.name}
+                              </p>
+                              {file.size && (
+                                <p className="text-[10px] text-zinc-400 font-mono">{file.size}</p>
+                              )}
+                            </div>
+                          </div>
+                          <a
+                            href={file.url}
+                            target="_blank"
+                            rel="noreferrer"
+                            download={file.name}
+                            className="p-1.5 text-zinc-400 hover:text-blue-600 dark:hover:text-blue-400 rounded hover:bg-zinc-200/60 dark:hover:bg-zinc-800 transition-colors shrink-0"
+                            title="Download file"
+                          >
+                            <Download className="w-3.5 h-3.5" />
+                          </a>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </>
+          )}
+
           <hr className="border-zinc-100 dark:border-zinc-800" />
 
           {/* Page Notes / Description (Notion-style Editor) */}
@@ -957,11 +1147,11 @@ export const TaskModal: React.FC<TaskModalProps> = ({
               Notes & Description
             </h3>
             <textarea
-              rows={4}
+              rows={formData.description ? 6 : 3}
               placeholder="Add details, specs, meeting notes, or checklist for this task..."
               value={formData.description || ''}
               onChange={(e) => updateAndSave({ description: e.target.value })}
-              className="w-full text-xs p-3 rounded-lg bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 focus:border-blue-500 focus:outline-none text-zinc-800 dark:text-zinc-200 resize-y leading-relaxed"
+              className="w-full text-xs p-3 rounded-lg bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 focus:border-blue-500 focus:outline-none text-zinc-800 dark:text-zinc-200 resize-y leading-relaxed font-mono whitespace-pre-wrap"
             />
           </div>
         </div>

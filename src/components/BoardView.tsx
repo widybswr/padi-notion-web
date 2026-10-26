@@ -5,7 +5,7 @@ import { Task, TaskStatus } from '@/lib/types';
 import { PriorityBadge } from './PriorityBadge';
 import { SquadBadge } from './SquadBadge';
 import { FigmaIcon } from './FigmaIcon';
-import { FileText, Calendar, Plus } from 'lucide-react';
+import { FileText, Calendar, Plus, Paperclip, CornerDownRight } from 'lucide-react';
 
 interface BoardViewProps {
   tasks: Task[];
@@ -140,7 +140,12 @@ export const BoardView: React.FC<BoardViewProps> = ({
                     {task.wbs ? (
                       <>
                         <div className="flex items-center justify-between gap-1.5 mb-1.5">
-                          <span className="font-mono text-[10px] text-zinc-400">
+                          <span className="font-mono text-[10px] text-zinc-400 flex items-center gap-1">
+                            {task.parent_id && (
+                              <span title="Sub-task">
+                                <CornerDownRight className="w-2.5 h-2.5 text-zinc-400" />
+                              </span>
+                            )}
                             {task.wbs}
                           </span>
                           <PriorityBadge priority={task.priority} />
@@ -152,6 +157,11 @@ export const BoardView: React.FC<BoardViewProps> = ({
                     ) : (
                       <div className="flex items-start justify-between gap-2 mb-2">
                         <h4 className="text-xs font-medium text-zinc-800 dark:text-zinc-200 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-2">
+                          {task.parent_id && (
+                            <span title="Sub-task" className="inline mr-1">
+                              <CornerDownRight className="w-2.5 h-2.5 text-zinc-400 inline" />
+                            </span>
+                          )}
                           {task.title}
                         </h4>
                         <div className="shrink-0">
@@ -165,6 +175,26 @@ export const BoardView: React.FC<BoardViewProps> = ({
                       <div className="flex flex-wrap gap-1 mb-2">
                         {task.squads.map((s, i) => (
                           <SquadBadge key={i} name={s} />
+                        ))}
+                      </div>
+                    )}
+
+                    {/* Attachments preview on card */}
+                    {task.attachments && task.attachments.length > 0 && (
+                      <div className="flex flex-wrap gap-1 mb-2" onClick={(e) => e.stopPropagation()}>
+                        {task.attachments.map((file, fIdx) => (
+                          <a
+                            key={file.id || fIdx}
+                            href={file.url}
+                            target="_blank"
+                            rel="noreferrer"
+                            download={file.name}
+                            title={`${file.name} (${file.size || ''}) - Click to download`}
+                            className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-[10px] font-medium bg-blue-50 hover:bg-blue-100 dark:bg-blue-950/60 dark:hover:bg-blue-900/60 text-blue-700 dark:text-blue-300 border border-blue-200/80 dark:border-blue-800 transition-colors max-w-[210px] truncate"
+                          >
+                            <Paperclip className="w-2.5 h-2.5 text-blue-500 shrink-0" />
+                            <span className="truncate">{file.name}</span>
+                          </a>
                         ))}
                       </div>
                     )}
@@ -196,7 +226,16 @@ export const BoardView: React.FC<BoardViewProps> = ({
                         )}
                       </div>
 
-                      <div className="flex items-center gap-1" onClick={(e) => e.stopPropagation()}>
+                      <div className="flex items-center gap-1.5" onClick={(e) => e.stopPropagation()}>
+                        {task.attachments && task.attachments.length > 0 && (
+                          <span
+                            title={`${task.attachments.length} attachment(s)`}
+                            className="inline-flex items-center gap-0.5 text-[10px] text-zinc-400 font-mono mr-0.5"
+                          >
+                            <Paperclip className="w-2.5 h-2.5" />
+                            <span>{task.attachments.length}</span>
+                          </span>
+                        )}
                         {task.figma_url && (
                           <a
                             href={task.figma_url}

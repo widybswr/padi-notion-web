@@ -10,6 +10,14 @@ export type TaskStatus =
 
 export type TaskPriority = 'Low' | 'Medium' | 'High' | 'P0 - SUPER HIGH';
 
+export interface TaskAttachment {
+  id: string;
+  name: string;
+  size?: string;
+  type: 'file' | 'image' | 'embed';
+  url: string;
+}
+
 export interface Task {
   id: string;
   title: string;
@@ -28,6 +36,8 @@ export interface Task {
   userflow_url?: string;
   other_docs?: string;
   description?: string;
+  parent_id?: string | null;
+  attachments?: TaskAttachment[];
   created_at?: string;
   updated_at?: string;
 }

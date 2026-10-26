@@ -14,6 +14,8 @@ import {
   ArrowUp,
   ArrowDown,
   ArrowUpDown,
+  Paperclip,
+  CornerDownRight,
 } from 'lucide-react';
 
 interface TableViewProps {
@@ -216,8 +218,16 @@ export const TableView: React.FC<TableViewProps> = ({
               </div>
             </th>
 
+            {/* Attachments Column */}
+            <th className="py-2.5 px-3 font-normal min-w-[150px] text-zinc-500">
+              <div className="flex items-center gap-1.5">
+                <Paperclip className="w-3.5 h-3.5 text-blue-500" />
+                <span>Attachments</span>
+              </div>
+            </th>
+
             {/* Links */}
-            <th className="py-2.5 px-4 font-normal w-28 text-right">Links</th>
+            <th className="py-2.5 px-4 font-normal w-24 text-right">Links</th>
           </tr>
         </thead>
         <tbody className="divide-y divide-zinc-100 dark:divide-zinc-800/60">
@@ -234,9 +244,21 @@ export const TableView: React.FC<TableViewProps> = ({
 
               {/* Title & icon */}
               <td className="py-2.5 px-3">
-                <span className="font-medium text-zinc-800 dark:text-zinc-200 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-1">
-                  {task.title}
-                </span>
+                <div className="flex items-center gap-1.5 min-w-0">
+                  {task.parent_id && (
+                    <span title="Sub-task">
+                      <CornerDownRight className="w-3 h-3 text-zinc-400 shrink-0" />
+                    </span>
+                  )}
+                  {task.attachments && task.attachments.length > 0 && (
+                    <span title={`${task.attachments.length} attachment(s)`} className="text-blue-500 shrink-0">
+                      <Paperclip className="w-3.5 h-3.5" />
+                    </span>
+                  )}
+                  <span className="font-medium text-zinc-800 dark:text-zinc-200 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-1">
+                    {task.title}
+                  </span>
+                </div>
               </td>
 
               {/* Status */}
@@ -291,6 +313,30 @@ export const TableView: React.FC<TableViewProps> = ({
                     {task.start_date.slice(5)}{' '}
                     {task.end_date ? `→ ${task.end_date.slice(5)}` : ''}
                   </span>
+                ) : (
+                  <span className="text-zinc-300 dark:text-zinc-600">-</span>
+                )}
+              </td>
+
+              {/* Attachments */}
+              <td className="py-2.5 px-3" onClick={(e) => e.stopPropagation()}>
+                {task.attachments && task.attachments.length > 0 ? (
+                  <div className="flex flex-wrap items-center gap-1">
+                    {task.attachments.map((file, fIdx) => (
+                      <a
+                        key={file.id || fIdx}
+                        href={file.url}
+                        target="_blank"
+                        rel="noreferrer"
+                        download={file.name}
+                        title={`${file.name} (${file.size || ''}) - Click to download`}
+                        className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[11px] font-medium bg-blue-50 hover:bg-blue-100 dark:bg-blue-950/60 dark:hover:bg-blue-900/60 text-blue-700 dark:text-blue-300 border border-blue-200/80 dark:border-blue-800 transition-colors max-w-[170px]"
+                      >
+                        <Paperclip className="w-3 h-3 text-blue-500 shrink-0" />
+                        <span className="truncate">{file.name}</span>
+                      </a>
+                    ))}
+                  </div>
                 ) : (
                   <span className="text-zinc-300 dark:text-zinc-600">-</span>
                 )}
