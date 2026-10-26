@@ -182,19 +182,19 @@ export const Sidebar: React.FC<SidebarProps> = ({
         <div className="flex items-center justify-between py-1.5 px-2 text-zinc-500 border-t border-zinc-200/60 dark:border-zinc-800/60">
           <span>Supabase</span>
           {dbStatus === 'connected' ? (
-            <span className="flex items-center gap-1 text-emerald-600 dark:text-emerald-400 font-medium text-[10px]">
+            <span className="flex items-center gap-1.5 text-zinc-400 dark:text-zinc-500 text-[10px]">
+              <span>Connected</span>
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-              Connected
             </span>
           ) : dbStatus === 'syncing' ? (
-            <span className="flex items-center gap-1 text-sky-600 dark:text-sky-400 font-medium text-[10px]">
+            <span className="flex items-center gap-1.5 text-zinc-400 dark:text-zinc-500 text-[10px]">
+              <span>Syncing...</span>
               <span className="w-1.5 h-1.5 rounded-full bg-sky-500 animate-pulse" />
-              Syncing...
             </span>
           ) : (
-            <span className="flex items-center gap-1 text-amber-600 dark:text-amber-400 text-[10px]">
+            <span className="flex items-center gap-1.5 text-zinc-400 dark:text-zinc-500 text-[10px]">
+              <span>Local Cache</span>
               <span className="w-1.5 h-1.5 rounded-full bg-amber-500" />
-              Local Cache
             </span>
           )}
         </div>
