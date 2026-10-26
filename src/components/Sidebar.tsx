@@ -88,16 +88,11 @@ export const Sidebar: React.FC<SidebarProps> = ({
           <span className="text-[10px] font-mono opacity-70">{totalTasks}</span>
         </button>
 
-        {/* Designers list in requested order: Dian, Sigit, Banu, Widy, Frans (hierarchical spacing, no icons) */}
+        {/* Designers list in requested order: Dian, Sigit, Banu, Widy, Frans (hierarchical spacing, no icons, no task count) */}
         {DESIGNERS.map((name) => {
           const isSelected =
             viewMode !== 'dashboard' &&
             selectedAssignee?.toLowerCase() === name.toLowerCase();
-          const count = tasks.filter(
-            (t) =>
-              (!t.quarter || t.quarter === activeQuarter) &&
-              t.assignees?.some((a) => a.toLowerCase() === name.toLowerCase())
-          ).length;
 
           return (
             <button
@@ -107,14 +102,13 @@ export const Sidebar: React.FC<SidebarProps> = ({
                 if (viewMode === 'dashboard') setViewMode('timeline');
                 setSelectedAssignee(isSelected ? null : name);
               }}
-              className={`w-full flex items-center justify-between pl-7 pr-2.5 py-1.5 rounded-md text-xs transition-colors cursor-pointer ${
+              className={`w-full flex items-center pl-7 pr-2.5 py-1.5 rounded-md text-xs transition-colors cursor-pointer ${
                 isSelected
                   ? 'bg-zinc-200/80 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 font-semibold shadow-2xs'
                   : 'text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800/60'
               }`}
             >
               <span className="truncate">{name}</span>
-              <span className="text-[10px] font-mono opacity-70">{count}</span>
             </button>
           );
         })}
