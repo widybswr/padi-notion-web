@@ -255,7 +255,7 @@ export default function HomePage() {
       />
 
       {/* Main Workspace Area */}
-      <main className="flex-1 flex flex-col h-screen overflow-y-auto">
+      <main className="flex-1 flex flex-col h-screen overflow-hidden">
         <ViewHeader
           viewMode={viewMode}
           setViewMode={setViewMode}
@@ -273,7 +273,11 @@ export default function HomePage() {
         />
 
         {/* View Content */}
-        <div className="flex-1">
+        <div
+          className={`flex-1 min-h-0 flex flex-col ${
+            viewMode === 'timeline' ? 'overflow-hidden' : 'overflow-y-auto'
+          }`}
+        >
           {isLoading ? (
             <div className="flex items-center justify-center p-12 text-zinc-400 text-xs">
               Loading workspace tasks...

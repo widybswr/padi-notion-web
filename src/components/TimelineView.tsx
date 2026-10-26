@@ -2,18 +2,7 @@
 
 import React, { useState, useRef, useEffect, useMemo } from 'react';
 import { Task } from '@/lib/types';
-import { StatusBadge } from './StatusBadge';
-import { PriorityBadge } from './PriorityBadge';
-import {
-  Calendar as CalendarIcon,
-  ChevronLeft,
-  ChevronRight,
-  Plus,
-  GripVertical,
-  Clock,
-  ArrowRight,
-  ExternalLink,
-} from 'lucide-react';
+import { Plus } from 'lucide-react';
 
 interface TimelineViewProps {
   tasks: Task[];
@@ -86,6 +75,7 @@ export const TimelineView: React.FC<TimelineViewProps> = ({
   activeQuarter = 'Q4 2026',
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const headerScrollRef = useRef<HTMLDivElement>(null);
   const [dragState, setDragState] = useState<DragState | null>(null);
 
   const { start: TIMELINE_START, end: TIMELINE_END } = useMemo(
@@ -113,7 +103,7 @@ export const TimelineView: React.FC<TimelineViewProps> = ({
       const dateStr = formatDate(curr);
       const dayNum = curr.getDate();
       const dayOfWeek = curr.getDay();
-      const isWeekend = dayOfWeek === 0 || dayOfWeek === 6; // Sunday or Saturday
+      const isWeekend = dayOfWeek === 0 || dayOfWeek === 6;
       const dayNames = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
       const monthStr = curr.toLocaleDateString('en-US', {
         month: 'long',
@@ -176,21 +166,18 @@ export const TimelineView: React.FC<TimelineViewProps> = ({
       const deltaDays = Math.round(deltaX / DAY_WIDTH);
 
       if (dragState.type === 'resize-end') {
-        // Extend or shorten end date
         let newEnd = addDays(dragState.initialEndDate, deltaDays);
         if (newEnd < dragState.currentStartDate) {
           newEnd = dragState.currentStartDate;
         }
         setDragState((prev) => (prev ? { ...prev, currentEndDate: newEnd } : null));
       } else if (dragState.type === 'resize-start') {
-        // Hold/postpone start date till later (or pull earlier)
         let newStart = addDays(dragState.initialStartDate, deltaDays);
         if (newStart > dragState.currentEndDate) {
           newStart = dragState.currentEndDate;
         }
         setDragState((prev) => (prev ? { ...prev, currentStartDate: newStart } : null));
       } else if (dragState.type === 'move') {
-        // Shift entire date window
         const newStart = addDays(dragState.initialStartDate, deltaDays);
         const newEnd = addDays(dragState.initialEndDate, deltaDays);
         setDragState((prev) =>
@@ -265,140 +252,153 @@ export const TimelineView: React.FC<TimelineViewProps> = ({
   };
 
   return (
-    <div className="flex flex-col flex-1 h-full bg-white dark:bg-zinc-950 select-none overflow-hidden">
-      {/* Main Split Grid (Sticky Sidebar + Scrollable Calendar Track) */}
-      <div className="flex-1 flex overflow-hidden">
-        {/* Left Frozen Task List (Width: 320px) */}
-        <div className="w-80 shrink-0 border-r border-zinc-200 dark:border-zinc-800 flex flex-col bg-white dark:bg-zinc-950 z-20 shadow-xs">
-          {/* Header */}
-          <div className="h-[65px] px-4 flex items-center justify-between border-b border-zinc-200 dark:border-zinc-800 bg-zinc-50/90 dark:bg-zinc-900/90">
-            <span className="font-semibold text-xs text-zinc-700 dark:text-zinc-300">
-              Tasks ({scheduledTasks.length})
-            </span>
-            <span className="text-[10px] text-zinc-400 font-mono">Date Window</span>
-          </div>
+    <div className="flex flex-col flex-1 h-full min-h-0 bg-white dark:bg-zinc-950 select-none overflow-hidden">
+      {/* Unified Sticky Header Row: Left Tasks({count}) + Right Months & Days */}
+      <div className="shrink-0 flex border-b border-zinc-200 dark:border-zinc-800 bg-zinc-50/95 dark:bg-zinc-900/95 z-20 sticky top-0 shadow-2xs">
+        {/* Left: Tasks ({count}) Header */}
+        <div className="w-80 shrink-0 h-[65px] px-4 flex items-center justify-between border-r border-zinc-200 dark:border-zinc-800">
+          <span className="font-semibold text-xs text-zinc-700 dark:text-zinc-300">
+            Tasks ({scheduledTasks.length})
+          </span>
+          <span className="text-[10px] text-zinc-400 font-mono">Date Window</span>
+        </div>
 
-          {/* Task rows */}
-          <div className="flex-1 overflow-y-auto divide-y divide-zinc-100 dark:divide-zinc-800/60">
-            {scheduledTasks.map((task) => (
-              <div
-                key={task.id}
-                style={{ height: `${ROW_HEIGHT}px` }}
-                onClick={() => onSelectTask(task)}
-                className="px-4 flex items-center justify-between gap-2 hover:bg-zinc-50 dark:hover:bg-zinc-900/60 cursor-pointer transition-colors group"
-              >
-                <div className="min-w-0 flex-1">
-                  <div className="flex items-center gap-1.5">
-                    {task.wbs && (
-                      <span className="text-[10px] font-mono text-zinc-400 shrink-0">
-                        {task.wbs}
-                      </span>
-                    )}
-                    <span className="text-xs font-medium text-zinc-800 dark:text-zinc-200 truncate group-hover:text-blue-600 dark:group-hover:text-blue-400">
-                      {task.title}
-                    </span>
+        {/* Right: Months & Days Header (synced horizontally with canvas) */}
+        <div
+          ref={headerScrollRef}
+          className="flex-1 overflow-x-hidden relative"
+        >
+          <div
+            style={{ width: `${calendarDays.length * DAY_WIDTH}px` }}
+            className="flex flex-col"
+          >
+            {/* Months row */}
+            <div className="flex h-7 border-b border-zinc-200/80 dark:border-zinc-800">
+              {monthHeaders.map((m) => (
+                <div
+                  key={m.monthStr}
+                  style={{ width: `${m.count * DAY_WIDTH}px` }}
+                  className="relative border-r border-zinc-200 dark:border-zinc-800 shrink-0"
+                >
+                  <div className="sticky left-0 inline-flex items-center h-full px-3 text-xs font-semibold text-zinc-800 dark:text-zinc-200 uppercase tracking-wider text-[11px] whitespace-nowrap z-10 bg-zinc-50/95 dark:bg-zinc-900/95">
+                    {m.monthStr}
                   </div>
                 </div>
+              ))}
+            </div>
 
-                <div className="shrink-0 text-right">
-                  <span className="text-[10px] text-zinc-500 dark:text-zinc-400 font-mono block">
-                    {formatShortDate(task.start_date || '')} →{' '}
-                    {formatShortDate(task.end_date || task.start_date || '')}
+            {/* Days row */}
+            <div className="flex h-[37px]">
+              {calendarDays.map((day) => (
+                <div
+                  key={day.dateStr}
+                  style={{ width: `${DAY_WIDTH}px` }}
+                  className={`flex flex-col items-center justify-center text-[10px] border-r transition-colors shrink-0 ${
+                    day.isWeekend
+                      ? 'bg-zinc-200/70 dark:bg-zinc-800/70 border-zinc-200 dark:border-zinc-700 text-zinc-400'
+                      : 'bg-white dark:bg-zinc-950 border-zinc-100 dark:border-zinc-800/50 text-zinc-600 dark:text-zinc-400'
+                  }`}
+                >
+                  <span
+                    className={`font-semibold ${
+                      day.isWeekend ? 'text-zinc-500 dark:text-zinc-400' : 'text-zinc-800 dark:text-zinc-200'
+                    }`}
+                  >
+                    {day.dayNum}
+                  </span>
+                  <span
+                    className={`text-[9px] ${
+                      day.isWeekend
+                        ? 'text-red-500/80 dark:text-red-400/80 font-bold'
+                        : 'opacity-70'
+                    }`}
+                  >
+                    {day.dayName}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Unified Vertically Scrollable Body */}
+      <div className="flex-1 overflow-y-auto flex min-h-0 divide-x divide-zinc-200 dark:divide-zinc-800">
+        {/* Left Task Rows List */}
+        <div className="w-80 shrink-0 border-r border-zinc-200 dark:border-zinc-800 divide-y divide-zinc-100 dark:divide-zinc-800/60 bg-white dark:bg-zinc-950">
+          {scheduledTasks.map((task) => (
+            <div
+              key={task.id}
+              style={{ height: `${ROW_HEIGHT}px` }}
+              onClick={() => onSelectTask(task)}
+              className="px-4 flex items-center justify-between gap-2 hover:bg-zinc-50 dark:hover:bg-zinc-900/60 cursor-pointer transition-colors group"
+            >
+              <div className="min-w-0 flex-1">
+                <div className="flex items-center gap-1.5">
+                  {task.wbs && (
+                    <span className="text-[10px] font-mono text-zinc-400 shrink-0">
+                      {task.wbs}
+                    </span>
+                  )}
+                  <span className="text-xs font-medium text-zinc-800 dark:text-zinc-200 truncate group-hover:text-blue-600 dark:group-hover:text-blue-400">
+                    {task.title}
                   </span>
                 </div>
               </div>
-            ))}
 
-            {/* Unscheduled section in sidebar */}
-            {unscheduledTasks.length > 0 && (
-              <div className="p-3 bg-zinc-50/60 dark:bg-zinc-900/40">
-                <div className="flex items-center justify-between text-xs text-zinc-400 font-semibold mb-2">
-                  <span>Unscheduled ({unscheduledTasks.length})</span>
-                </div>
-                <div className="space-y-1.5">
-                  {unscheduledTasks.map((t) => (
-                    <div
-                      key={t.id}
-                      className="p-2 rounded bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 flex items-center justify-between text-xs gap-2"
-                    >
-                      <span className="truncate text-zinc-700 dark:text-zinc-300">
-                        {t.title}
-                      </span>
-                      <button
-                        onClick={() => handleScheduleDefault(t)}
-                        className="text-[10px] text-blue-600 hover:text-blue-700 font-medium shrink-0 flex items-center gap-0.5 bg-blue-50 dark:bg-blue-950/60 px-1.5 py-0.5 rounded"
-                      >
-                        <Plus className="w-2.5 h-2.5" /> Schedule
-                      </button>
-                    </div>
-                  ))}
-                </div>
+              <div className="shrink-0 text-right">
+                <span className="text-[10px] text-zinc-500 dark:text-zinc-400 font-mono block">
+                  {formatShortDate(task.start_date || '')} →{' '}
+                  {formatShortDate(task.end_date || task.start_date || '')}
+                </span>
               </div>
-            )}
-          </div>
+            </div>
+          ))}
+
+          {/* Unscheduled section in sidebar */}
+          {unscheduledTasks.length > 0 && (
+            <div className="p-3 bg-zinc-50/60 dark:bg-zinc-900/40">
+              <div className="flex items-center justify-between text-xs text-zinc-400 font-semibold mb-2">
+                <span>Unscheduled ({unscheduledTasks.length})</span>
+              </div>
+              <div className="space-y-1.5">
+                {unscheduledTasks.map((t) => (
+                  <div
+                    key={t.id}
+                    className="p-2 rounded bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 flex items-center justify-between text-xs gap-2"
+                  >
+                    <span className="truncate text-zinc-700 dark:text-zinc-300">
+                      {t.title}
+                    </span>
+                    <button
+                      onClick={() => handleScheduleDefault(t)}
+                      className="text-[10px] text-blue-600 hover:text-blue-700 font-medium shrink-0 flex items-center gap-0.5 bg-blue-50 dark:bg-blue-950/60 px-1.5 py-0.5 rounded"
+                    >
+                      <Plus className="w-2.5 h-2.5" /> Schedule
+                    </button>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
 
-        {/* Right Scrollable Timeline Canvas */}
+        {/* Right Scrollable Timeline Canvas Track */}
         <div
           ref={containerRef}
-          className="flex-1 overflow-x-auto overflow-y-auto relative"
+          onScroll={(e) => {
+            if (headerScrollRef.current) {
+              headerScrollRef.current.scrollLeft = e.currentTarget.scrollLeft;
+            }
+          }}
+          className="flex-1 overflow-x-auto relative min-h-0"
         >
           <div
             style={{ width: `${calendarDays.length * DAY_WIDTH}px` }}
             className="min-h-full flex flex-col relative"
           >
-            {/* Header: Months + Days */}
-            <div className="sticky top-0 z-10 bg-white dark:bg-zinc-950 border-b border-zinc-200 dark:border-zinc-800">
-              {/* Months row */}
-              <div className="flex h-7 border-b border-zinc-200/80 dark:border-zinc-800">
-                {monthHeaders.map((m) => (
-                  <div
-                    key={m.monthStr}
-                    style={{ width: `${m.count * DAY_WIDTH}px` }}
-                    className="relative border-r border-zinc-200 dark:border-zinc-800 bg-zinc-50/90 dark:bg-zinc-900/90 shrink-0"
-                  >
-                    <div className="sticky left-0 inline-flex items-center h-full px-3 text-xs font-semibold text-zinc-800 dark:text-zinc-200 uppercase tracking-wider text-[11px] whitespace-nowrap z-10 bg-zinc-50/95 dark:bg-zinc-900/95">
-                      {m.monthStr}
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              {/* Days row */}
-              <div className="flex h-[37px]">
-                {calendarDays.map((day) => (
-                  <div
-                    key={day.dateStr}
-                    style={{ width: `${DAY_WIDTH}px` }}
-                    className={`flex flex-col items-center justify-center text-[10px] border-r transition-colors ${
-                      day.isWeekend
-                        ? 'bg-zinc-200/70 dark:bg-zinc-800/70 border-zinc-200 dark:border-zinc-700 text-zinc-400'
-                        : 'bg-white dark:bg-zinc-950 border-zinc-100 dark:border-zinc-800/50 text-zinc-600 dark:text-zinc-400'
-                    }`}
-                  >
-                    <span
-                      className={`font-semibold ${
-                        day.isWeekend ? 'text-zinc-500 dark:text-zinc-400' : 'text-zinc-800 dark:text-zinc-200'
-                      }`}
-                    >
-                      {day.dayNum}
-                    </span>
-                    <span
-                      className={`text-[9px] ${
-                        day.isWeekend
-                          ? 'text-red-500/80 dark:text-red-400/80 font-bold'
-                          : 'opacity-70'
-                      }`}
-                    >
-                      {day.dayName}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
             {/* Vertical grid lines & weekend shading */}
-            <div className="absolute inset-0 top-[65px] pointer-events-none flex">
+            <div className="absolute inset-0 pointer-events-none flex">
               {calendarDays.map((day) => (
                 <div
                   key={day.dateStr}
@@ -408,7 +408,7 @@ export const TimelineView: React.FC<TimelineViewProps> = ({
                       ? 'repeating-linear-gradient(45deg, rgba(0,0,0,0.025), rgba(0,0,0,0.025) 4px, transparent 4px, transparent 8px)'
                       : undefined,
                   }}
-                  className={`h-full border-r ${
+                  className={`h-full border-r shrink-0 ${
                     day.isWeekend
                       ? 'bg-zinc-100/70 dark:bg-zinc-900/60 border-zinc-200/80 dark:border-zinc-800/80'
                       : 'border-zinc-100 dark:border-zinc-800/30'
@@ -434,16 +434,7 @@ export const TimelineView: React.FC<TimelineViewProps> = ({
                 const barLeft = startOffsetDays * DAY_WIDTH;
                 const barWidth = durationDays * DAY_WIDTH;
 
-                // Quick schedule an unscheduled task
-  const handleScheduleDefault = (task: Task) => {
-    onUpdateTask({
-      ...task,
-      start_date: '2026-10-15',
-      end_date: '2026-10-22',
-    });
-  };
-
-  return (
+                return (
                   <div
                     key={task.id}
                     style={{ height: `${ROW_HEIGHT}px` }}
