@@ -3,10 +3,6 @@
 import React from 'react';
 import { ViewMode, Task } from '@/lib/types';
 import {
-  User,
-  Users,
-  Layers,
-  Database,
   ExternalLink,
   LogOut,
   CheckCircle2,
@@ -40,19 +36,11 @@ export const Sidebar: React.FC<SidebarProps> = ({
 }) => {
   return (
     <aside className="w-56 border-r border-zinc-200/80 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/40 flex flex-col h-screen select-none shrink-0 font-sans">
-      {/* Workspace Identity */}
-      <div className="p-3.5 border-b border-zinc-200/80 dark:border-zinc-800 flex items-center justify-between">
-        <div className="flex items-center gap-2.5">
-          <div className="w-6 h-6 rounded bg-zinc-900 dark:bg-zinc-100 flex items-center justify-center text-white dark:text-zinc-900 font-bold text-xs tracking-tight shadow-2xs">
-            P
-          </div>
-          <div className="flex flex-col">
-            <span className="font-semibold text-xs tracking-tight text-zinc-900 dark:text-zinc-100">
-              PaDi Design
-            </span>
-            <span className="text-[10px] text-zinc-400">Workspace</span>
-          </div>
-        </div>
+      {/* Workspace Identity - Title only */}
+      <div className="px-4 py-3.5 border-b border-zinc-200/80 dark:border-zinc-800 flex items-center justify-between">
+        <span className="font-semibold text-xs tracking-tight text-zinc-900 dark:text-zinc-100">
+          PaDi Design Tasks
+        </span>
       </div>
 
       {/* Navigation Sections */}
@@ -68,7 +56,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
             setViewMode('dashboard');
             setSelectedAssignee(null);
           }}
-          className={`w-full flex items-center justify-between px-2.5 py-1.5 rounded-md text-xs transition-colors ${
+          className={`w-full flex items-center justify-between px-2.5 py-1.5 rounded-md text-xs transition-colors cursor-pointer ${
             viewMode === 'dashboard'
               ? 'bg-zinc-200/80 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 font-semibold shadow-2xs'
               : 'text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800/60'
@@ -84,10 +72,10 @@ export const Sidebar: React.FC<SidebarProps> = ({
         <button
           type="button"
           onClick={() => {
-            if (viewMode === 'dashboard') setViewMode('table');
+            if (viewMode === 'dashboard') setViewMode('timeline');
             setSelectedAssignee(null);
           }}
-          className={`w-full flex items-center justify-between px-2.5 py-1.5 rounded-md text-xs transition-colors ${
+          className={`w-full flex items-center justify-between px-2.5 py-1.5 rounded-md text-xs transition-colors cursor-pointer ${
             viewMode !== 'dashboard' && selectedAssignee === null
               ? 'bg-zinc-200/80 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 font-semibold shadow-2xs'
               : 'text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800/60'
@@ -100,7 +88,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
           <span className="text-[10px] font-mono opacity-70">{totalTasks}</span>
         </button>
 
-        {/* Designers list in requested order: Dian, Sigit, Banu, Widy, Frans */}
+        {/* Designers list in requested order: Dian, Sigit, Banu, Widy, Frans (hierarchical spacing, no icons) */}
         {DESIGNERS.map((name) => {
           const isSelected =
             viewMode !== 'dashboard' &&
@@ -116,38 +104,32 @@ export const Sidebar: React.FC<SidebarProps> = ({
               key={name}
               type="button"
               onClick={() => {
-                if (viewMode === 'dashboard') setViewMode('table');
+                if (viewMode === 'dashboard') setViewMode('timeline');
                 setSelectedAssignee(isSelected ? null : name);
               }}
-              className={`w-full flex items-center justify-between px-2.5 py-1.5 rounded-md text-xs transition-colors ${
+              className={`w-full flex items-center justify-between pl-7 pr-2.5 py-1.5 rounded-md text-xs transition-colors cursor-pointer ${
                 isSelected
                   ? 'bg-zinc-200/80 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 font-semibold shadow-2xs'
                   : 'text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800/60'
               }`}
             >
-              <div className="flex items-center gap-2 truncate">
-                <User className="w-3.5 h-3.5 text-zinc-400 shrink-0" />
-                <span className="truncate">{name}</span>
-              </div>
+              <span className="truncate">{name}</span>
               <span className="text-[10px] font-mono opacity-70">{count}</span>
             </button>
           );
         })}
       </div>
 
-      {/* Footer / Resources & Database Status */}
+      {/* Footer / Resources & Database Status (no icons for daily standup, catalogue, supabase) */}
       <div className="p-3 border-t border-zinc-200/80 dark:border-zinc-800 bg-zinc-50/30 dark:bg-zinc-900/30 text-[11px] space-y-1">
         {/* PaDi Daily Standup */}
         <a
           href="https://teams.cloud.microsoft/l/chat/19:meeting_ZTY2ODVhYzQtMjcxNy00NzgwLTlkZDAtODQ0YjFiMzhkMTlm@thread.v2/conversations?context=%7B%22contextType%22%3A%22chat%22%7D"
           target="_blank"
           rel="noreferrer"
-          className="flex items-center justify-between py-1.5 px-1 text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors"
+          className="flex items-center justify-between py-1.5 px-2 text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors"
         >
-          <div className="flex items-center gap-2 truncate">
-            <Users className="w-3.5 h-3.5 text-zinc-400 shrink-0" />
-            <span className="truncate font-medium">Daily Standup</span>
-          </div>
+          <span className="truncate font-medium">Daily Standup</span>
           <ExternalLink className="w-3 h-3 shrink-0 opacity-60" />
         </a>
 
@@ -156,21 +138,15 @@ export const Sidebar: React.FC<SidebarProps> = ({
           href="https://padi-figma-index.vercel.app"
           target="_blank"
           rel="noreferrer"
-          className="flex items-center justify-between py-1.5 px-1 text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors border-t border-zinc-200/60 dark:border-zinc-800/60"
+          className="flex items-center justify-between py-1.5 px-2 text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors border-t border-zinc-200/60 dark:border-zinc-800/60"
         >
-          <div className="flex items-center gap-2 truncate">
-            <Layers className="w-3.5 h-3.5 text-zinc-400 shrink-0" />
-            <span className="truncate font-medium">Figma Catalogue</span>
-          </div>
+          <span className="truncate font-medium">Figma Catalogue</span>
           <ExternalLink className="w-3 h-3 shrink-0 opacity-60" />
         </a>
 
         {/* Supabase Status */}
-        <div className="flex items-center justify-between py-1.5 px-1 text-zinc-500 border-t border-zinc-200/60 dark:border-zinc-800/60">
-          <div className="flex items-center gap-1.5">
-            <Database className="w-3.5 h-3.5 text-zinc-400" />
-            <span>Supabase</span>
-          </div>
+        <div className="flex items-center justify-between py-1.5 px-2 text-zinc-500 border-t border-zinc-200/60 dark:border-zinc-800/60">
+          <span>Supabase</span>
           {dbStatus === 'connected' ? (
             <span className="flex items-center gap-1 text-emerald-600 dark:text-emerald-400 font-medium text-[10px]">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
@@ -193,7 +169,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
         {onLogout && (
           <button
             onClick={onLogout}
-            className="w-full flex items-center justify-between py-1.5 px-1 text-zinc-400 hover:text-red-500 dark:hover:text-red-400 transition-colors border-t border-zinc-200/60 dark:border-zinc-800/60"
+            className="w-full flex items-center justify-between py-1.5 px-2 text-zinc-400 hover:text-red-500 dark:hover:text-red-400 transition-colors border-t border-zinc-200/60 dark:border-zinc-800/60 cursor-pointer"
           >
             <span>Lock workspace</span>
             <LogOut className="w-3 h-3 shrink-0" />

@@ -41,62 +41,55 @@ export const ViewHeader: React.FC<ViewHeaderProps> = ({
 }) => {
   return (
     <div className="border-b border-zinc-200/80 dark:border-zinc-800 bg-white/80 dark:bg-zinc-950/80 backdrop-blur-md sticky top-0 z-30 font-sans">
-      {/* Title & Quarter Dropdown */}
-      <div className="px-6 pt-5 pb-3 flex flex-wrap items-center justify-between gap-4">
-        <div className="space-y-1.5">
-          {/* Main Title without emoji */}
-          <h1 className="text-xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100">
-            PaDi Design Tasks
-          </h1>
-
-          {/* Quarter selector replacing previous static text */}
-          <div className="flex items-center gap-2.5">
-            <div className="relative inline-flex items-center">
-              <select
-                value={activeQuarter}
-                onChange={(e) => {
-                  if (e.target.value === '__add_new__') {
-                    const promptVal = window.prompt('Enter new quarter name (e.g. Q1 2027):');
-                    if (promptVal && promptVal.trim()) {
-                      onAddQuarter(promptVal.trim());
-                      setActiveQuarter(promptVal.trim());
-                    }
-                  } else {
-                    setActiveQuarter(e.target.value);
+      {/* Top Bar: Quarter Selector & New Task button (Title removed from table side) */}
+      <div className="px-6 py-3 flex flex-wrap items-center justify-between gap-4">
+        {/* Quarter selector & active scope details */}
+        <div className="flex items-center gap-2.5">
+          <div className="relative inline-flex items-center">
+            <select
+              value={activeQuarter}
+              onChange={(e) => {
+                if (e.target.value === '__add_new__') {
+                  const promptVal = window.prompt('Enter new quarter name (e.g. Q1 2027):');
+                  if (promptVal && promptVal.trim()) {
+                    onAddQuarter(promptVal.trim());
+                    setActiveQuarter(promptVal.trim());
                   }
-                }}
-                className="text-xs font-medium text-zinc-800 dark:text-zinc-200 bg-zinc-100/90 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-md py-1 pl-2.5 pr-7 appearance-none focus:outline-none focus:ring-1 focus:ring-zinc-400 cursor-pointer transition-colors shadow-2xs"
-              >
-                {quartersList.map((q) => (
-                  <option key={q} value={q}>
-                    {q}
-                  </option>
-                ))}
-                <option value="__add_new__">+ Add quarter...</option>
-              </select>
-              <div className="pointer-events-none absolute right-2 flex items-center text-zinc-400">
-                <ChevronDown className="w-3.5 h-3.5" />
-              </div>
+                } else {
+                  setActiveQuarter(e.target.value);
+                }
+              }}
+              className="text-xs font-semibold text-zinc-800 dark:text-zinc-200 bg-zinc-100/90 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-md py-1.5 pl-3 pr-7 appearance-none focus:outline-none focus:ring-1 focus:ring-zinc-400 cursor-pointer transition-colors shadow-2xs"
+            >
+              {quartersList.map((q) => (
+                <option key={q} value={q}>
+                  {q}
+                </option>
+              ))}
+              <option value="__add_new__">+ Add quarter...</option>
+            </select>
+            <div className="pointer-events-none absolute right-2 flex items-center text-zinc-400">
+              <ChevronDown className="w-3.5 h-3.5" />
             </div>
-
-            <span className="text-xs text-zinc-400 dark:text-zinc-500 font-mono">
-              ({totalFiltered} items)
-            </span>
-
-            {selectedAssignee && (
-              <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[11px] font-medium bg-zinc-100 dark:bg-zinc-800 text-zinc-800 dark:text-zinc-200 border border-zinc-200 dark:border-zinc-700">
-                <span>{selectedAssignee}</span>
-                <button
-                  type="button"
-                  onClick={() => setSelectedAssignee(null)}
-                  className="hover:text-zinc-500 text-zinc-400 font-bold leading-none cursor-pointer"
-                  title="Clear designer filter"
-                >
-                  ×
-                </button>
-              </span>
-            )}
           </div>
+
+          <span className="text-xs text-zinc-400 dark:text-zinc-500 font-mono">
+            ({totalFiltered} items)
+          </span>
+
+          {selectedAssignee && (
+            <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[11px] font-medium bg-zinc-100 dark:bg-zinc-800 text-zinc-800 dark:text-zinc-200 border border-zinc-200 dark:border-zinc-700">
+              <span>{selectedAssignee}</span>
+              <button
+                type="button"
+                onClick={() => setSelectedAssignee(null)}
+                className="hover:text-zinc-500 text-zinc-400 font-bold leading-none cursor-pointer"
+                title="Clear designer filter"
+              >
+                ×
+              </button>
+            </span>
+          )}
         </div>
 
         {/* Action: New Task */}
@@ -113,8 +106,20 @@ export const ViewHeader: React.FC<ViewHeaderProps> = ({
 
       {/* Tabs & Filter Bar */}
       <div className="px-6 flex flex-wrap items-center justify-between gap-3 border-t border-zinc-100 dark:border-zinc-800/80 py-2">
-        {/* View Switcher Tabs (Dashboard removed, only Table, Board, Timeline) */}
+        {/* View Switcher Tabs: Timeline (1st default), Table, Board (last) */}
         <div className="flex items-center gap-1 bg-zinc-100/70 dark:bg-zinc-900/80 p-0.5 rounded-lg border border-zinc-200/60 dark:border-zinc-800">
+          <button
+            onClick={() => setViewMode('timeline')}
+            className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-medium transition-all cursor-pointer ${
+              viewMode === 'timeline'
+                ? 'bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 shadow-2xs font-semibold'
+                : 'text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-200'
+            }`}
+          >
+            <Calendar className="w-3.5 h-3.5" />
+            <span>Timeline</span>
+          </button>
+
           <button
             onClick={() => setViewMode('table')}
             className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-medium transition-all cursor-pointer ${
@@ -138,21 +143,9 @@ export const ViewHeader: React.FC<ViewHeaderProps> = ({
             <Kanban className="w-3.5 h-3.5" />
             <span>Board</span>
           </button>
-
-          <button
-            onClick={() => setViewMode('timeline')}
-            className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-medium transition-all cursor-pointer ${
-              viewMode === 'timeline'
-                ? 'bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 shadow-2xs font-semibold'
-                : 'text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-200'
-            }`}
-          >
-            <Calendar className="w-3.5 h-3.5" />
-            <span>Timeline</span>
-          </button>
         </div>
 
-        {/* Filter controls: Right side (Squad & Designer dropdowns removed!) */}
+        {/* Filter controls */}
         <div className="flex items-center gap-2">
           {/* Search Bar */}
           <div className="relative">

@@ -21,7 +21,7 @@ export default function HomePage() {
   const [dbStatus, setDbStatus] = useState<'connected' | 'syncing' | 'offline'>(
     isSupabaseConfigured ? 'syncing' : 'offline'
   );
-  const [viewMode, setViewMode] = useState<ViewMode>('table');
+  const [viewMode, setViewMode] = useState<ViewMode>('timeline');
 
   // Filter states
   const [activeQuarter, setActiveQuarter] = useState('Q4 2026');
