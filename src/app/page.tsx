@@ -243,8 +243,13 @@ export default function HomePage() {
         selectedAssignee={selectedAssignee}
         setSelectedAssignee={setSelectedAssignee}
         totalTasks={activeQuarterTasksCount}
-        tasks={tasks}
         activeQuarter={activeQuarter}
+        setActiveQuarter={setActiveQuarter}
+        quartersList={quartersList}
+        onAddQuarter={(newQ) => {
+          setExtraQuarters((prev) => [...prev, newQ]);
+          setActiveQuarter(newQ);
+        }}
         dbStatus={dbStatus}
         onLogout={handleLogout}
       />
@@ -261,18 +266,10 @@ export default function HomePage() {
           selectedAssignee={selectedAssignee}
           setSelectedAssignee={setSelectedAssignee}
           statusOptions={statusesList}
-          activeQuarter={activeQuarter}
-          setActiveQuarter={setActiveQuarter}
-          quartersList={quartersList}
-          onAddQuarter={(newQ) => {
-            setExtraQuarters((prev) => [...prev, newQ]);
-            setActiveQuarter(newQ);
-          }}
           onNewTask={() => {
             setNewTaskInitialStatus('Not started');
             setIsNewModalOpen(true);
           }}
-          totalFiltered={filteredTasks.length}
         />
 
         {/* View Content */}

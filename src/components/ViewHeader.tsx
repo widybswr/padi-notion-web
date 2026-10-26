@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { ViewMode } from '@/lib/types';
-import { Table, Kanban, Search, Plus, X, Calendar, ChevronDown } from 'lucide-react';
+import { Table, Kanban, Search, Plus, X, Calendar } from 'lucide-react';
 
 interface ViewHeaderProps {
   viewMode: ViewMode;
@@ -14,12 +14,7 @@ interface ViewHeaderProps {
   selectedAssignee: string | null;
   setSelectedAssignee: (assignee: string | null) => void;
   statusOptions: string[];
-  activeQuarter: string;
-  setActiveQuarter: (quarter: string) => void;
-  quartersList: string[];
-  onAddQuarter: (quarter: string) => void;
   onNewTask: () => void;
-  totalFiltered: number;
 }
 
 export const ViewHeader: React.FC<ViewHeaderProps> = ({
@@ -32,50 +27,50 @@ export const ViewHeader: React.FC<ViewHeaderProps> = ({
   selectedAssignee,
   setSelectedAssignee,
   statusOptions,
-  activeQuarter,
-  setActiveQuarter,
-  quartersList,
-  onAddQuarter,
   onNewTask,
-  totalFiltered,
 }) => {
   return (
     <div className="border-b border-zinc-200/80 dark:border-zinc-800 bg-white/80 dark:bg-zinc-950/80 backdrop-blur-md sticky top-0 z-30 font-sans">
-      {/* Top Bar: Quarter Selector & New Task button (Title removed from table side) */}
-      <div className="px-6 py-3 flex flex-wrap items-center justify-between gap-4">
-        {/* Quarter selector & active scope details */}
+      <div className="px-6 py-2.5 flex flex-wrap items-center justify-between gap-3">
+        {/* Left: View Switcher Tabs & Active Designer Filter */}
         <div className="flex items-center gap-2.5">
-          <div className="relative inline-flex items-center">
-            <select
-              value={activeQuarter}
-              onChange={(e) => {
-                if (e.target.value === '__add_new__') {
-                  const promptVal = window.prompt('Enter new quarter name (e.g. Q1 2027):');
-                  if (promptVal && promptVal.trim()) {
-                    onAddQuarter(promptVal.trim());
-                    setActiveQuarter(promptVal.trim());
-                  }
-                } else {
-                  setActiveQuarter(e.target.value);
-                }
-              }}
-              className="text-xs font-semibold text-zinc-800 dark:text-zinc-200 bg-zinc-100/90 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-md py-1.5 pl-3 pr-7 appearance-none focus:outline-none focus:ring-1 focus:ring-zinc-400 cursor-pointer transition-colors shadow-2xs"
+          <div className="flex items-center gap-1 bg-zinc-100/70 dark:bg-zinc-900/80 p-0.5 rounded-lg border border-zinc-200/60 dark:border-zinc-800">
+            <button
+              onClick={() => setViewMode('timeline')}
+              className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-medium transition-all cursor-pointer ${
+                viewMode === 'timeline'
+                  ? 'bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 shadow-2xs font-semibold'
+                  : 'text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-200'
+              }`}
             >
-              {quartersList.map((q) => (
-                <option key={q} value={q}>
-                  {q}
-                </option>
-              ))}
-              <option value="__add_new__">+ Add quarter...</option>
-            </select>
-            <div className="pointer-events-none absolute right-2 flex items-center text-zinc-400">
-              <ChevronDown className="w-3.5 h-3.5" />
-            </div>
-          </div>
+              <Calendar className="w-3.5 h-3.5" />
+              <span>Timeline</span>
+            </button>
 
-          <span className="text-xs text-zinc-400 dark:text-zinc-500 font-mono">
-            ({totalFiltered} items)
-          </span>
+            <button
+              onClick={() => setViewMode('table')}
+              className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-medium transition-all cursor-pointer ${
+                viewMode === 'table'
+                  ? 'bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 shadow-2xs font-semibold'
+                  : 'text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-200'
+              }`}
+            >
+              <Table className="w-3.5 h-3.5" />
+              <span>Table</span>
+            </button>
+
+            <button
+              onClick={() => setViewMode('board')}
+              className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-medium transition-all cursor-pointer ${
+                viewMode === 'board'
+                  ? 'bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 shadow-2xs font-semibold'
+                  : 'text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-200'
+              }`}
+            >
+              <Kanban className="w-3.5 h-3.5" />
+              <span>Board</span>
+            </button>
+          </div>
 
           {selectedAssignee && (
             <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[11px] font-medium bg-zinc-100 dark:bg-zinc-800 text-zinc-800 dark:text-zinc-200 border border-zinc-200 dark:border-zinc-700">
@@ -92,60 +87,7 @@ export const ViewHeader: React.FC<ViewHeaderProps> = ({
           )}
         </div>
 
-        {/* Action: New Task */}
-        <div className="flex items-center gap-2">
-          <button
-            onClick={onNewTask}
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-zinc-900 hover:bg-zinc-800 dark:bg-zinc-100 dark:hover:bg-white text-white dark:text-zinc-900 rounded-md text-xs font-medium shadow-xs transition-colors cursor-pointer"
-          >
-            <Plus className="w-3.5 h-3.5" />
-            <span>New Task</span>
-          </button>
-        </div>
-      </div>
-
-      {/* Tabs & Filter Bar */}
-      <div className="px-6 flex flex-wrap items-center justify-between gap-3 border-t border-zinc-100 dark:border-zinc-800/80 py-2">
-        {/* View Switcher Tabs: Timeline (1st default), Table, Board (last) */}
-        <div className="flex items-center gap-1 bg-zinc-100/70 dark:bg-zinc-900/80 p-0.5 rounded-lg border border-zinc-200/60 dark:border-zinc-800">
-          <button
-            onClick={() => setViewMode('timeline')}
-            className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-medium transition-all cursor-pointer ${
-              viewMode === 'timeline'
-                ? 'bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 shadow-2xs font-semibold'
-                : 'text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-200'
-            }`}
-          >
-            <Calendar className="w-3.5 h-3.5" />
-            <span>Timeline</span>
-          </button>
-
-          <button
-            onClick={() => setViewMode('table')}
-            className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-medium transition-all cursor-pointer ${
-              viewMode === 'table'
-                ? 'bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 shadow-2xs font-semibold'
-                : 'text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-200'
-            }`}
-          >
-            <Table className="w-3.5 h-3.5" />
-            <span>Table</span>
-          </button>
-
-          <button
-            onClick={() => setViewMode('board')}
-            className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-medium transition-all cursor-pointer ${
-              viewMode === 'board'
-                ? 'bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 shadow-2xs font-semibold'
-                : 'text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-200'
-            }`}
-          >
-            <Kanban className="w-3.5 h-3.5" />
-            <span>Board</span>
-          </button>
-        </div>
-
-        {/* Filter controls */}
+        {/* Right: Search, Status Filter, and New Task */}
         <div className="flex items-center gap-2">
           {/* Search Bar */}
           <div className="relative">
@@ -155,7 +97,7 @@ export const ViewHeader: React.FC<ViewHeaderProps> = ({
               placeholder="Search tasks..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="pl-8 pr-7 py-1 text-xs bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-md focus:outline-none focus:ring-1 focus:ring-zinc-400 w-48 text-zinc-900 dark:text-zinc-100 transition-colors"
+              className="pl-8 pr-7 py-1 text-xs bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-md focus:outline-none focus:ring-1 focus:ring-zinc-400 w-44 text-zinc-900 dark:text-zinc-100 transition-colors"
             />
             {searchQuery && (
               <button
@@ -180,6 +122,15 @@ export const ViewHeader: React.FC<ViewHeaderProps> = ({
               </option>
             ))}
           </select>
+
+          {/* New Task Button */}
+          <button
+            onClick={onNewTask}
+            className="inline-flex items-center gap-1.5 px-3 py-1 bg-zinc-900 hover:bg-zinc-800 dark:bg-zinc-100 dark:hover:bg-white text-white dark:text-zinc-900 rounded-md text-xs font-medium shadow-xs transition-colors cursor-pointer"
+          >
+            <Plus className="w-3.5 h-3.5" />
+            <span>New Task</span>
+          </button>
         </div>
       </div>
     </div>
