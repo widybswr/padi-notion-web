@@ -254,6 +254,7 @@ export const TimelineView: React.FC<TimelineViewProps> = ({
 
   const leftWidth = isCollapsed ? COLLAPSED_COL_WIDTH : TASK_COL_WIDTH;
   const trackWidth = calendarDays.length * DAY_WIDTH;
+  const todayIdx = useMemo(() => calendarDays.findIndex((d) => d.isToday), [calendarDays]);
 
   return (
     <div className="flex-1 flex flex-col h-full min-h-0 bg-white dark:bg-zinc-950 select-none overflow-hidden font-sans">
@@ -288,12 +289,25 @@ export const TimelineView: React.FC<TimelineViewProps> = ({
                 }}
                 className={`h-full border-r shrink-0 ${
                   day.isWeekend
-                    ? 'bg-zinc-100/70 dark:bg-zinc-900/60 border-zinc-200/80 dark:border-zinc-800/80'
-                    : 'border-zinc-100 dark:border-zinc-800/30'
+                    ? 'bg-zinc-100/70 dark:bg-zinc-900/60 border-zinc-200/70 dark:border-zinc-800/70'
+                    : 'border-zinc-200/50 dark:border-zinc-800/40'
                 }`}
               />
             ))}
           </div>
+
+          {/* Vertical red line for today's date */}
+          {todayIdx !== -1 && (
+            <div
+              style={{
+                left: `${leftWidth + todayIdx * DAY_WIDTH + Math.floor(DAY_WIDTH / 2)}px`,
+              }}
+              className="absolute top-0 bottom-0 w-[1.5px] bg-red-500 z-20 pointer-events-none"
+            >
+              {/* Subtle top indicator pip */}
+              <div className="absolute top-[65px] -left-[3px] w-2 h-2 rounded-full bg-red-500 ring-2 ring-white dark:ring-zinc-950" />
+            </div>
+          )}
 
           {/* Sticky Top Header: Tasks count & Collapse toggle on left, Months & Days on right */}
           <div className="sticky top-0 z-30 flex border-b border-zinc-200 dark:border-zinc-800 bg-zinc-50/95 dark:bg-zinc-900/95 backdrop-blur-md shadow-2xs">
@@ -355,21 +369,29 @@ export const TimelineView: React.FC<TimelineViewProps> = ({
                     key={day.dateStr}
                     style={{ width: `${DAY_WIDTH}px` }}
                     className={`flex flex-col items-center justify-center text-[10px] border-r transition-colors shrink-0 ${
-                      day.isWeekend
-                        ? 'bg-zinc-200/70 dark:bg-zinc-800/70 border-zinc-200 dark:border-zinc-700 text-zinc-400'
-                        : 'bg-white dark:bg-zinc-950 border-zinc-100 dark:border-zinc-800/50 text-zinc-600 dark:text-zinc-400'
+                      day.isToday
+                        ? 'bg-red-50/60 dark:bg-red-950/25 border-zinc-200/80 dark:border-zinc-800'
+                        : day.isWeekend
+                        ? 'bg-zinc-200/70 dark:bg-zinc-800/70 border-zinc-200/70 dark:border-zinc-700/70 text-zinc-400'
+                        : 'bg-white dark:bg-zinc-950 border-zinc-200/50 dark:border-zinc-800/40 text-zinc-600 dark:text-zinc-400'
                     }`}
                   >
                     <span
-                      className={`font-semibold ${
-                        day.isWeekend ? 'text-zinc-500 dark:text-zinc-400' : 'text-zinc-800 dark:text-zinc-200'
+                      className={`font-semibold flex items-center justify-center ${
+                        day.isToday
+                          ? 'w-5 h-5 rounded-full bg-red-500 text-white text-[10px] font-bold shadow-2xs'
+                          : day.isWeekend
+                          ? 'text-zinc-500 dark:text-zinc-400'
+                          : 'text-zinc-800 dark:text-zinc-200'
                       }`}
                     >
                       {day.dayNum}
                     </span>
                     <span
                       className={`text-[9px] ${
-                        day.isWeekend
+                        day.isToday
+                          ? 'text-red-600 dark:text-red-400 font-bold'
+                          : day.isWeekend
                           ? 'text-red-500/80 dark:text-red-400/80 font-bold'
                           : 'opacity-70'
                       }`}
@@ -403,7 +425,7 @@ export const TimelineView: React.FC<TimelineViewProps> = ({
                 <div
                   key={task.id}
                   style={{ height: `${ROW_HEIGHT}px` }}
-                  className="flex border-b border-zinc-100 dark:border-zinc-850 hover:bg-zinc-50/40 dark:hover:bg-zinc-900/30 transition-colors group"
+                  className="flex border-b border-zinc-200/70 dark:border-zinc-800/70 hover:bg-zinc-50/40 dark:hover:bg-zinc-900/30 transition-colors group"
                 >
                   {/* Left Frozen Task Title Column */}
                   <div
@@ -537,7 +559,7 @@ export const TimelineView: React.FC<TimelineViewProps> = ({
 
             {/* Unscheduled Tasks Section */}
             {unscheduledTasks.length > 0 && (
-              <div className="flex border-b border-zinc-200 dark:border-zinc-800 bg-zinc-50/40 dark:bg-zinc-900/30">
+              <div className="flex border-b border-zinc-200/70 dark:border-zinc-800/70 bg-zinc-50/40 dark:bg-zinc-900/30">
                 <div
                   style={{ width: `${leftWidth}px` }}
                   className="sticky left-0 z-20 shrink-0 p-3 bg-zinc-50/95 dark:bg-zinc-900/95 border-r border-zinc-200 dark:border-zinc-800 transition-all"
