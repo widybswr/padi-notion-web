@@ -345,77 +345,11 @@ export const TaskModal: React.FC<TaskModalProps> = ({
             />
           </div>
 
-          {/* 3-Column Layout Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-            {/* Column 1: Properties & Hierarchy (Left - 4 cols) */}
-            <div className="lg:col-span-4 space-y-4 lg:border-r border-zinc-100 dark:border-zinc-800 lg:pr-5">
-              <h3 className="text-[11px] font-semibold uppercase tracking-wider text-zinc-400 select-none">
-                Properties
-              </h3>
-
-              <div className="space-y-3">
-                {/* Status with Quick Advance Suggestion */}
-                <div className="flex flex-col gap-1.5">
-                  <span className="text-zinc-400 flex items-center gap-1.5 text-xs select-none">
-                    <CheckCircle2 className="w-3.5 h-3.5" /> Status
-                  </span>
-                  <div className="flex items-center gap-2 flex-wrap">
-                    <div className="relative inline-block">
-                      <select
-                        value={formData.status}
-                        onChange={(e) => updateAndSave({ status: e.target.value })}
-                        className="opacity-0 absolute inset-0 w-full h-full cursor-pointer z-10"
-                      >
-                        {ALL_STATUSES.map((s) => (
-                          <option key={s} value={s}>
-                            {s}
-                          </option>
-                        ))}
-                      </select>
-                      <div className="cursor-pointer hover:opacity-80 transition-opacity">
-                        <StatusBadge status={formData.status} size="sm" />
-                      </div>
-                    </div>
-
-                    {/* Quick Advance / Next Positive State Suggestion */}
-                    {NEXT_STATUS_MAP[formData.status] && (
-                      <button
-                        type="button"
-                        onClick={() =>
-                          updateAndSave({ status: NEXT_STATUS_MAP[formData.status].next })
-                        }
-                        className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[11px] font-medium bg-zinc-100 hover:bg-blue-50 dark:bg-zinc-800 dark:hover:bg-blue-950/40 text-zinc-600 hover:text-blue-600 dark:text-zinc-300 dark:hover:text-blue-400 border border-zinc-200/80 dark:border-zinc-700/80 transition-all shadow-2xs group cursor-pointer"
-                        title={`Advance to ${NEXT_STATUS_MAP[formData.status].next}`}
-                      >
-                        <span>{NEXT_STATUS_MAP[formData.status].label}</span>
-                        <ArrowRight className="w-3 h-3 text-zinc-400 group-hover:text-blue-500 transition-transform group-hover:translate-x-0.5" />
-                      </button>
-                    )}
-                  </div>
-                </div>
-
-                {/* Priority */}
-                <div className="flex items-center justify-between py-1">
-                  <span className="text-zinc-400 flex items-center gap-1.5 text-xs select-none">
-                    <Tag className="w-3.5 h-3.5" /> Priority
-                  </span>
-                  <div className="relative inline-block">
-                    <select
-                      value={formData.priority}
-                      onChange={(e) => updateAndSave({ priority: e.target.value })}
-                      className="opacity-0 absolute inset-0 w-full h-full cursor-pointer z-10"
-                    >
-                      {ALL_PRIORITIES.map((p) => (
-                        <option key={p} value={p}>
-                          {p}
-                        </option>
-                      ))}
-                    </select>
-                    <div className="cursor-pointer hover:opacity-80 transition-opacity">
-                      <PriorityBadge priority={formData.priority} />
-                    </div>
-                  </div>
-                </div>
+          {/* 2-Column Layout Grid (Matching New Task Modal Grouping) */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {/* Column 1: Core Details, People, Dates & Hierarchy + (Status, Priority, WBS after divider) */}
+            <div className="space-y-4 lg:border-r border-zinc-100 dark:border-zinc-800 lg:pr-6">
+              <div className="space-y-3.5">
 
                 {/* Assignees */}
                 <div className="space-y-1.5 py-1">
@@ -600,51 +534,6 @@ export const TaskModal: React.FC<TaskModalProps> = ({
                   </div>
                 </div>
 
-                {/* Backlog WBS Code */}
-                <div className="flex items-center justify-between py-1">
-                  <span className="text-zinc-400 flex items-center gap-1.5 text-xs select-none">
-                    <Hash className="w-3.5 h-3.5" /> WBS Code
-                  </span>
-                  {isEditingWbs ? (
-                    <div className="inline-flex items-center gap-1.5">
-                      <input
-                        type="text"
-                        autoFocus
-                        placeholder="e.g. FUL#1, DSC#2"
-                        value={formData.wbs || ''}
-                        onChange={(e) => setFormData({ ...formData, wbs: e.target.value })}
-                        onBlur={() => {
-                          setIsEditingWbs(false);
-                          updateAndSave({ wbs: formData.wbs });
-                        }}
-                        onKeyDown={(e) => {
-                          if (e.key === 'Enter') {
-                            setIsEditingWbs(false);
-                            updateAndSave({ wbs: formData.wbs });
-                          }
-                        }}
-                        className="px-2 py-0.5 rounded bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-xs font-mono text-zinc-900 dark:text-zinc-100 focus:outline-none w-24"
-                      />
-                    </div>
-                  ) : formData.wbs ? (
-                    <span
-                      onClick={() => setIsEditingWbs(true)}
-                      className="font-mono text-zinc-700 dark:text-zinc-300 bg-zinc-100 dark:bg-zinc-800 px-2 py-0.5 rounded cursor-pointer hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors"
-                      title="Click to edit WBS code"
-                    >
-                      {formData.wbs}
-                    </span>
-                  ) : (
-                    <button
-                      onClick={() => setIsEditingWbs(true)}
-                      className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
-                    >
-                      <Plus className="w-3 h-3" />
-                      <span>Add WBS</span>
-                    </button>
-                  )}
-                </div>
-
                 {/* Timeline / Dates */}
                 <div className="space-y-1.5 py-1">
                   <span className="text-zinc-400 flex items-center gap-1.5 text-xs select-none">
@@ -722,11 +611,161 @@ export const TaskModal: React.FC<TaskModalProps> = ({
                     )}
                   </div>
                 </div>
+
+                {/* Sub-tasks Section */}
+                {subTasks.length > 0 && (
+                  <div className="space-y-1.5 pt-1">
+                    <h3 className="text-[11px] font-semibold uppercase tracking-wider text-zinc-400 select-none flex items-center gap-1.5">
+                      <FolderTree className="w-3.5 h-3.5" />
+                      Sub-tasks ({subTasks.length})
+                    </h3>
+                    <div className="divide-y divide-zinc-100 dark:divide-zinc-800/80 border border-zinc-200/80 dark:border-zinc-800 rounded-lg overflow-hidden bg-zinc-50/40 dark:bg-zinc-900/40 max-h-40 overflow-y-auto">
+                      {subTasks.map((st) => (
+                        <div
+                          key={st.id}
+                          onClick={() => onSelectTask && onSelectTask(st)}
+                          className="flex items-center justify-between p-2 hover:bg-zinc-100/60 dark:hover:bg-zinc-800/60 cursor-pointer transition-colors group"
+                        >
+                          <div className="flex items-center gap-1.5 min-w-0 flex-1">
+                            <CornerDownRight className="w-3.5 h-3.5 text-zinc-400 shrink-0 group-hover:text-blue-500" />
+                            {st.wbs && (
+                              <span className="font-mono text-[9px] text-zinc-400 font-semibold shrink-0">
+                                {st.wbs}
+                              </span>
+                            )}
+                            <span className="text-xs font-medium text-zinc-800 dark:text-zinc-200 group-hover:text-blue-600 dark:group-hover:text-blue-400 truncate">
+                              {st.title}
+                            </span>
+                          </div>
+                          <div className="flex items-center gap-1.5 shrink-0 ml-2">
+                            <StatusBadge status={st.status} size="sm" />
+                            <ChevronRight className="w-3 h-3 text-zinc-400 group-hover:translate-x-0.5 transition-transform" />
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Divider before Status, Priority, and WBS Section */}
+                <div className="pt-3 border-t border-zinc-100 dark:border-zinc-800 space-y-3">
+                  <label className="block text-[11px] font-semibold text-zinc-400 uppercase tracking-wider">
+                    Status, Priority & WBS
+                  </label>
+
+                  {/* Status with Quick Advance Suggestion */}
+                  <div className="flex flex-col gap-1.5">
+                    <span className="text-zinc-400 flex items-center gap-1.5 text-xs select-none">
+                      <CheckCircle2 className="w-3.5 h-3.5" /> Status
+                    </span>
+                    <div className="flex items-center gap-2 flex-wrap">
+                      <div className="relative inline-block">
+                        <select
+                          value={formData.status}
+                          onChange={(e) => updateAndSave({ status: e.target.value })}
+                          className="opacity-0 absolute inset-0 w-full h-full cursor-pointer z-10"
+                        >
+                          {ALL_STATUSES.map((s) => (
+                            <option key={s} value={s}>
+                              {s}
+                            </option>
+                          ))}
+                        </select>
+                        <div className="cursor-pointer hover:opacity-80 transition-opacity">
+                          <StatusBadge status={formData.status} size="sm" />
+                        </div>
+                      </div>
+
+                      {/* Quick Advance / Next Positive State Suggestion */}
+                      {NEXT_STATUS_MAP[formData.status] && (
+                        <button
+                          type="button"
+                          onClick={() =>
+                            updateAndSave({ status: NEXT_STATUS_MAP[formData.status].next })
+                          }
+                          className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[11px] font-medium bg-zinc-100 hover:bg-blue-50 dark:bg-zinc-800 dark:hover:bg-blue-950/40 text-zinc-600 hover:text-blue-600 dark:text-zinc-300 dark:hover:text-blue-400 border border-zinc-200/80 dark:border-zinc-700/80 transition-all shadow-2xs group cursor-pointer"
+                          title={`Advance to ${NEXT_STATUS_MAP[formData.status].next}`}
+                        >
+                          <span>{NEXT_STATUS_MAP[formData.status].label}</span>
+                          <ArrowRight className="w-3 h-3 text-zinc-400 group-hover:text-blue-500 transition-transform group-hover:translate-x-0.5" />
+                        </button>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Priority */}
+                  <div className="flex items-center justify-between py-1">
+                    <span className="text-zinc-400 flex items-center gap-1.5 text-xs select-none">
+                      <Tag className="w-3.5 h-3.5" /> Priority
+                    </span>
+                    <div className="relative inline-block">
+                      <select
+                        value={formData.priority}
+                        onChange={(e) => updateAndSave({ priority: e.target.value })}
+                        className="opacity-0 absolute inset-0 w-full h-full cursor-pointer z-10"
+                      >
+                        {ALL_PRIORITIES.map((p) => (
+                          <option key={p} value={p}>
+                            {p}
+                          </option>
+                        ))}
+                      </select>
+                      <div className="cursor-pointer hover:opacity-80 transition-opacity">
+                        <PriorityBadge priority={formData.priority} />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Backlog WBS Code */}
+                  <div className="flex items-center justify-between py-1">
+                    <span className="text-zinc-400 flex items-center gap-1.5 text-xs select-none">
+                      <Hash className="w-3.5 h-3.5" /> WBS Code
+                    </span>
+                    {isEditingWbs ? (
+                      <div className="inline-flex items-center gap-1.5">
+                        <input
+                          type="text"
+                          autoFocus
+                          placeholder="e.g. FUL#1, DSC#2"
+                          value={formData.wbs || ''}
+                          onChange={(e) => setFormData({ ...formData, wbs: e.target.value })}
+                          onBlur={() => {
+                            setIsEditingWbs(false);
+                            updateAndSave({ wbs: formData.wbs });
+                          }}
+                          onKeyDown={(e) => {
+                            if (e.key === 'Enter') {
+                              setIsEditingWbs(false);
+                              updateAndSave({ wbs: formData.wbs });
+                            }
+                          }}
+                          className="px-2 py-0.5 rounded bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-xs font-mono text-zinc-900 dark:text-zinc-100 focus:outline-none w-28"
+                        />
+                      </div>
+                    ) : formData.wbs ? (
+                      <span
+                        onClick={() => setIsEditingWbs(true)}
+                        className="font-mono text-zinc-700 dark:text-zinc-300 bg-zinc-100 dark:bg-zinc-800 px-2 py-0.5 rounded cursor-pointer hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors"
+                        title="Click to edit WBS code"
+                      >
+                        {formData.wbs}
+                      </span>
+                    ) : (
+                      <button
+                        onClick={() => setIsEditingWbs(true)}
+                        className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
+                      >
+                        <Plus className="w-3 h-3" />
+                        <span>Add WBS</span>
+                      </button>
+                    )}
+                  </div>
+                </div>
               </div>
             </div>
 
-            {/* Column 2: Deliverables & Links + Sub-tasks (Center - 4 cols) */}
-            <div className="lg:col-span-4 space-y-4 lg:border-r border-zinc-100 dark:border-zinc-800 lg:pr-5">
+            {/* Column 2: Deliverables & Links (all full width), Files & Attachments, Notes & Description */}
+            <div className="space-y-4">
               <h3 className="text-[11px] font-semibold uppercase tracking-wider text-zinc-400 select-none">
                 Deliverables & Links
               </h3>
@@ -1045,46 +1084,8 @@ export const TaskModal: React.FC<TaskModalProps> = ({
                 </div>
               </div>
 
-              {/* Sub-tasks Section */}
-              {subTasks.length > 0 && (
-                <div className="space-y-2 pt-2 border-t border-zinc-100 dark:border-zinc-800">
-                  <h3 className="text-[11px] font-semibold uppercase tracking-wider text-zinc-400 select-none flex items-center gap-1.5">
-                    <FolderTree className="w-3.5 h-3.5" />
-                    Sub-tasks ({subTasks.length})
-                  </h3>
-                  <div className="divide-y divide-zinc-100 dark:divide-zinc-800/80 border border-zinc-200/80 dark:border-zinc-800 rounded-lg overflow-hidden bg-zinc-50/40 dark:bg-zinc-900/40 max-h-44 overflow-y-auto">
-                    {subTasks.map((st) => (
-                      <div
-                        key={st.id}
-                        onClick={() => onSelectTask && onSelectTask(st)}
-                        className="flex items-center justify-between p-2 hover:bg-zinc-100/60 dark:hover:bg-zinc-800/60 cursor-pointer transition-colors group"
-                      >
-                        <div className="flex items-center gap-1.5 min-w-0 flex-1">
-                          <CornerDownRight className="w-3.5 h-3.5 text-zinc-400 shrink-0 group-hover:text-blue-500" />
-                          {st.wbs && (
-                            <span className="font-mono text-[9px] text-zinc-400 font-semibold shrink-0">
-                              {st.wbs}
-                            </span>
-                          )}
-                          <span className="text-xs font-medium text-zinc-800 dark:text-zinc-200 group-hover:text-blue-600 dark:group-hover:text-blue-400 truncate">
-                            {st.title}
-                          </span>
-                        </div>
-                        <div className="flex items-center gap-1.5 shrink-0 ml-2">
-                          <StatusBadge status={st.status} size="sm" />
-                          <ChevronRight className="w-3 h-3 text-zinc-400 group-hover:translate-x-0.5 transition-transform" />
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </div>
-
-            {/* Column 3: Files & Attachments + Notes & Description (Right - 4 cols) */}
-            <div className="lg:col-span-4 space-y-4">
-              {/* Files & Attachments Section */}
-              <div className="space-y-2.5">
+              {/* Divider before Files & Attachments */}
+              <div className="pt-2 border-t border-zinc-100 dark:border-zinc-800 space-y-2.5">
                 <div className="flex items-center justify-between">
                   <h3 className="text-[11px] font-semibold uppercase tracking-wider text-zinc-400 select-none flex items-center gap-1.5">
                     <Paperclip className="w-3.5 h-3.5" />

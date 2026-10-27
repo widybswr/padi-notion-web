@@ -316,8 +316,8 @@ export const NewTaskModal: React.FC<NewTaskModalProps> = ({
 
         <form onSubmit={handleSubmit} className="mt-5 text-xs">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-            {/* Column 1: Vertical Selector Pills & Workflow Metadata (Left Side) */}
-            <div className="lg:col-span-3 space-y-4 lg:border-r border-zinc-100 dark:border-zinc-800 lg:pr-5">
+            {/* Column 1: Vertical Selector Pills (Left Side) */}
+            <div className="lg:col-span-3 space-y-3 lg:border-r border-zinc-100 dark:border-zinc-800 lg:pr-5">
               <div>
                 <label className="block text-[11px] font-semibold text-zinc-400 uppercase tracking-wider mb-2">
                   Entry Type
@@ -354,60 +354,10 @@ export const NewTaskModal: React.FC<NewTaskModalProps> = ({
                   })}
                 </div>
               </div>
-
-              {/* For Design Task: Workflow Properties on the Left */}
-              {entryType === 'task' && (
-                <div className="pt-2 border-t border-zinc-100 dark:border-zinc-800 space-y-3.5">
-                  <label className="block text-[11px] font-semibold text-zinc-400 uppercase tracking-wider">
-                    Workflow
-                  </label>
-
-                  <div>
-                    <label className="block text-zinc-500 font-medium mb-1">Status</label>
-                    <select
-                      value={status}
-                      onChange={(e) => setStatus(e.target.value)}
-                      className="h-9 w-full px-2.5 bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-lg focus:outline-none focus:border-blue-500 text-zinc-900 dark:text-zinc-100 text-xs"
-                    >
-                      {ALL_STATUSES.map((s) => (
-                        <option key={s} value={s}>
-                          {s}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-
-                  <div>
-                    <label className="block text-zinc-500 font-medium mb-1">Priority</label>
-                    <select
-                      value={priority}
-                      onChange={(e) => setPriority(e.target.value)}
-                      className="h-9 w-full px-2.5 bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-lg focus:outline-none focus:border-blue-500 text-zinc-900 dark:text-zinc-100 text-xs"
-                    >
-                      {ALL_PRIORITIES.map((p) => (
-                        <option key={p} value={p}>
-                          {p}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-
-                  <div>
-                    <label className="block text-zinc-500 font-medium mb-1">WBS Code</label>
-                    <input
-                      type="text"
-                      placeholder="e.g. DSC#1, FUL#2"
-                      value={wbs}
-                      onChange={(e) => setWbs(e.target.value)}
-                      className="h-9 w-full px-2.5 bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-lg focus:outline-none focus:border-blue-500 text-zinc-900 dark:text-zinc-100 text-xs font-mono"
-                    />
-                  </div>
-                </div>
-              )}
             </div>
 
             {/* Column 2: Main Task Information / Leave Details (Center) */}
-            <div className="lg:col-span-5 space-y-4">
+            <div className="lg:col-span-4 space-y-4">
               {entryType === 'public_holiday' ? (
                 /* Public Holiday Fields */
                 <div className="space-y-4">
@@ -709,47 +659,50 @@ export const NewTaskModal: React.FC<NewTaskModalProps> = ({
                     </div>
                   </div>
 
-                  {/* Reference Links & Documents (2x2 Grid) */}
-                  <div className="space-y-2 pt-1">
-                    <label className="block text-zinc-500 font-medium">Deliverables & Reference Links</label>
-                    <div className="grid grid-cols-2 gap-2.5">
+                  {/* Divider before Status, Priority, and WBS Section */}
+                  <div className="pt-3 border-t border-zinc-100 dark:border-zinc-800 space-y-2.5">
+                    <label className="block text-[11px] font-semibold text-zinc-400 uppercase tracking-wider">
+                      Status, Priority & WBS
+                    </label>
+                    <div className="grid grid-cols-3 gap-3">
                       <div>
-                        <input
-                          type="url"
-                          placeholder="Figma URL (https://...)"
-                          value={figmaUrl}
-                          onChange={(e) => setFigmaUrl(e.target.value)}
-                          className="h-8 w-full px-2.5 bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-md focus:outline-none focus:border-blue-500 text-zinc-900 dark:text-zinc-100 text-[11px]"
-                        />
+                        <label className="block text-zinc-500 font-medium mb-1">Status</label>
+                        <select
+                          value={status}
+                          onChange={(e) => setStatus(e.target.value)}
+                          className="h-9 w-full px-2 bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-lg focus:outline-none focus:border-blue-500 text-zinc-900 dark:text-zinc-100 text-xs"
+                        >
+                          {ALL_STATUSES.map((s) => (
+                            <option key={s} value={s}>
+                              {s}
+                            </option>
+                          ))}
+                        </select>
                       </div>
 
                       <div>
-                        <input
-                          type="url"
-                          placeholder="PRD Document URL"
-                          value={prdUrl}
-                          onChange={(e) => setPrdUrl(e.target.value)}
-                          className="h-8 w-full px-2.5 bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-md focus:outline-none focus:border-blue-500 text-zinc-900 dark:text-zinc-100 text-[11px]"
-                        />
+                        <label className="block text-zinc-500 font-medium mb-1">Priority</label>
+                        <select
+                          value={priority}
+                          onChange={(e) => setPriority(e.target.value)}
+                          className="h-9 w-full px-2 bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-lg focus:outline-none focus:border-blue-500 text-zinc-900 dark:text-zinc-100 text-xs"
+                        >
+                          {ALL_PRIORITIES.map((p) => (
+                            <option key={p} value={p}>
+                              {p}
+                            </option>
+                          ))}
+                        </select>
                       </div>
 
                       <div>
+                        <label className="block text-zinc-500 font-medium mb-1">WBS Code</label>
                         <input
-                          type="url"
-                          placeholder="Deck / Slides URL"
-                          value={otherDocsUrl}
-                          onChange={(e) => setOtherDocsUrl(e.target.value)}
-                          className="h-8 w-full px-2.5 bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-md focus:outline-none focus:border-blue-500 text-zinc-900 dark:text-zinc-100 text-[11px]"
-                        />
-                      </div>
-
-                      <div>
-                        <input
-                          type="url"
-                          placeholder="Taiga Issue URL"
-                          value={taigaUrl}
-                          onChange={(e) => setTaigaUrl(e.target.value)}
-                          className="h-8 w-full px-2.5 bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-md focus:outline-none focus:border-blue-500 text-zinc-900 dark:text-zinc-100 text-[11px]"
+                          type="text"
+                          placeholder="e.g. DSC#1"
+                          value={wbs}
+                          onChange={(e) => setWbs(e.target.value)}
+                          className="h-9 w-full px-2 bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-lg focus:outline-none focus:border-blue-500 text-zinc-900 dark:text-zinc-100 text-xs font-mono"
                         />
                       </div>
                     </div>
@@ -758,12 +711,64 @@ export const NewTaskModal: React.FC<NewTaskModalProps> = ({
               )}
             </div>
 
-            {/* Column 3: Files & Attachments + Notes/Description (Right Side) */}
-            <div className="lg:col-span-4 space-y-4 lg:border-l border-zinc-100 dark:border-zinc-800 lg:pl-5">
+            {/* Column 3: Deliverables & Links + Files & Attachments + Notes/Description (Right Side) */}
+            <div className="lg:col-span-5 space-y-4 lg:border-l border-zinc-100 dark:border-zinc-800 lg:pl-5">
               {entryType === 'task' ? (
                 <>
-                  {/* Upload Files & Attachments */}
-                  <div>
+                  {/* Deliverables & Reference Links (All Full Width) */}
+                  <div className="space-y-2">
+                    <label className="block text-[11px] font-semibold text-zinc-400 uppercase tracking-wider">
+                      Deliverables & Reference Links
+                    </label>
+                    <div className="space-y-2">
+                      <div>
+                        <label className="block text-zinc-500 font-medium mb-1">Figma URL</label>
+                        <input
+                          type="url"
+                          placeholder="https://www.figma.com/..."
+                          value={figmaUrl}
+                          onChange={(e) => setFigmaUrl(e.target.value)}
+                          className="h-8 w-full px-2.5 bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-md focus:outline-none focus:border-blue-500 text-zinc-900 dark:text-zinc-100 text-xs"
+                        />
+                      </div>
+
+                      <div>
+                        <label className="block text-zinc-500 font-medium mb-1">PRD Document URL</label>
+                        <input
+                          type="url"
+                          placeholder="https://docs.google.com/..."
+                          value={prdUrl}
+                          onChange={(e) => setPrdUrl(e.target.value)}
+                          className="h-8 w-full px-2.5 bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-md focus:outline-none focus:border-blue-500 text-zinc-900 dark:text-zinc-100 text-xs"
+                        />
+                      </div>
+
+                      <div>
+                        <label className="block text-zinc-500 font-medium mb-1">Other Docs / Presentation URL</label>
+                        <input
+                          type="url"
+                          placeholder="https://docs.google.com/presentation/..."
+                          value={otherDocsUrl}
+                          onChange={(e) => setOtherDocsUrl(e.target.value)}
+                          className="h-8 w-full px-2.5 bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-md focus:outline-none focus:border-blue-500 text-zinc-900 dark:text-zinc-100 text-xs"
+                        />
+                      </div>
+
+                      <div>
+                        <label className="block text-zinc-500 font-medium mb-1">Taiga Link URL</label>
+                        <input
+                          type="url"
+                          placeholder="https://taiga.telkom.co.id/..."
+                          value={taigaUrl}
+                          onChange={(e) => setTaigaUrl(e.target.value)}
+                          className="h-8 w-full px-2.5 bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-md focus:outline-none focus:border-blue-500 text-zinc-900 dark:text-zinc-100 text-xs"
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Divider before Files & Attachments */}
+                  <div className="pt-2 border-t border-zinc-100 dark:border-zinc-800">
                     <label className="block text-[11px] font-semibold text-zinc-400 uppercase tracking-wider mb-1.5">
                       Files & Attachments
                     </label>
@@ -794,7 +799,7 @@ export const NewTaskModal: React.FC<NewTaskModalProps> = ({
                           >
                             <div className="flex items-center gap-1.5 min-w-0">
                               <Paperclip className="w-3 h-3 text-blue-500 shrink-0" />
-                              <span className="truncate font-medium text-zinc-800 dark:text-zinc-200 max-w-[150px]">
+                              <span className="truncate font-medium text-zinc-800 dark:text-zinc-200 max-w-[200px]">
                                 {file.name}
                               </span>
                               <span className="text-[10px] text-zinc-400 font-mono shrink-0">
@@ -817,12 +822,12 @@ export const NewTaskModal: React.FC<NewTaskModalProps> = ({
                   </div>
 
                   {/* Notes & Description */}
-                  <div>
+                  <div className="pt-2 border-t border-zinc-100 dark:border-zinc-800">
                     <label className="block text-[11px] font-semibold text-zinc-400 uppercase tracking-wider mb-1.5">
                       Notes & Description
                     </label>
                     <textarea
-                      rows={5}
+                      rows={4}
                       placeholder="Add details, specs, meeting notes, or checklist for this task..."
                       value={description}
                       onChange={(e) => setDescription(e.target.value)}
