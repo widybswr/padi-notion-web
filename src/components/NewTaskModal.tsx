@@ -454,13 +454,19 @@ export const NewTaskModal: React.FC<NewTaskModalProps> = ({
                 <div className="space-y-4">
                   <div>
                     <label className="block text-zinc-500 font-medium mb-1">Task Title *</label>
-                    <input
-                      type="text"
+                    <textarea
                       required
+                      rows={3}
                       placeholder="e.g. [Discovery] Product Recommendation V2"
                       value={title}
                       onChange={(e) => setTitle(e.target.value)}
-                      className="h-9 w-full px-3 bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-lg focus:outline-none focus:border-blue-500 text-zinc-900 dark:text-zinc-100 text-xs font-medium"
+                      onKeyDown={(e) => {
+                        if (e.key === 'Enter' && (e.metaKey || e.ctrlKey)) {
+                          e.preventDefault();
+                          handleSubmit(e);
+                        }
+                      }}
+                      className="w-full px-3 py-2 bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-lg focus:outline-none focus:border-blue-500 text-zinc-900 dark:text-zinc-100 text-xs font-medium resize-y min-h-[72px] leading-relaxed"
                     />
                   </div>
 
