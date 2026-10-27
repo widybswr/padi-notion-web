@@ -232,20 +232,34 @@ export const AddLeaveModal: React.FC<AddLeaveModalProps> = ({
             /* Paid Leave / Sick Leave Fields */
             <div className="space-y-3">
               <div>
-                <label className="block text-zinc-500 font-medium mb-1 flex items-center gap-1.5">
+                <label className="block text-zinc-500 font-medium mb-1.5 flex items-center gap-1.5">
                   <User className="w-3.5 h-3.5 text-zinc-400" /> Designer *
                 </label>
-                <select
-                  value={designer}
-                  onChange={(e) => setDesigner(e.target.value)}
-                  className="h-9 w-full px-3 bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-lg focus:outline-none focus:border-blue-500 text-zinc-900 dark:text-zinc-100 text-xs"
-                >
-                  {allAssignees.map((m) => (
-                    <option key={m} value={m}>
-                      {m}
-                    </option>
-                  ))}
-                </select>
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                  {allAssignees.map((m) => {
+                    const isSelected = designer === m;
+                    return (
+                      <label
+                        key={m}
+                        className={`flex items-center gap-2 px-2.5 py-1.5 rounded-lg border cursor-pointer transition-all ${
+                          isSelected
+                            ? 'bg-purple-50 dark:bg-purple-950/40 border-purple-300 dark:border-purple-800 text-purple-900 dark:text-purple-200 font-medium shadow-2xs'
+                            : 'bg-zinc-50 dark:bg-zinc-800/50 border-zinc-200/80 dark:border-zinc-700/60 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800'
+                        }`}
+                      >
+                        <input
+                          type="radio"
+                          name="leave_designer"
+                          value={m}
+                          checked={isSelected}
+                          onChange={() => setDesigner(m)}
+                          className="w-3.5 h-3.5 text-purple-600 focus:ring-purple-500 border-zinc-300 dark:border-zinc-600 cursor-pointer"
+                        />
+                        <span className="text-xs truncate">{m}</span>
+                      </label>
+                    );
+                  })}
+                </div>
               </div>
 
               <div className="grid grid-cols-2 gap-3">

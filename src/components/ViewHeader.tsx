@@ -105,17 +105,6 @@ export const ViewHeader: React.FC<ViewHeaderProps> = ({
             )}
           </div>
 
-          {/* Add Leave Button - Outline Muted */}
-          {onAddLeave && (
-            <button
-              onClick={onAddLeave}
-              className="h-8 inline-flex items-center gap-1.5 px-3 bg-transparent hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 border border-zinc-200 dark:border-zinc-750/80 rounded-lg text-xs font-medium transition-colors cursor-pointer box-border"
-            >
-              <Calendar className="w-3.5 h-3.5 text-zinc-400" />
-              <span>Add Leave</span>
-            </button>
-          )}
-
           {/* New Task Button - Exactly h-8 */}
           <button
             onClick={onNewTask}
@@ -124,6 +113,17 @@ export const ViewHeader: React.FC<ViewHeaderProps> = ({
             <Plus className="w-3.5 h-3.5" />
             <span>New Task</span>
           </button>
+
+          {/* Add Leave Button - Outline Muted (Placed to the right of New Task) */}
+          {onAddLeave && (
+            <button
+              onClick={onAddLeave}
+              className="h-8 inline-flex items-center gap-1.5 px-3 bg-transparent hover:bg-zinc-100 dark:hover:bg-zinc-800/80 text-zinc-500 dark:text-zinc-400 hover:text-zinc-800 dark:hover:text-zinc-200 border border-zinc-200/80 dark:border-zinc-800 rounded-lg text-xs font-medium transition-colors cursor-pointer box-border"
+            >
+              <Calendar className="w-3.5 h-3.5 text-zinc-400" />
+              <span>Add Leave</span>
+            </button>
+          )}
         </div>
       </div>
     </div>
