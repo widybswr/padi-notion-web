@@ -464,171 +464,168 @@ export const NewTaskModal: React.FC<NewTaskModalProps> = ({
                     />
                   </div>
 
-                  {/* Squad & Assignees Side-by-Side */}
-                  <div className="grid grid-cols-2 gap-3">
-                    {/* Squad / Funnel Multi-Select Dropdown with chips & add option */}
-                    <div ref={squadRef} className="relative">
-                      <label className="block text-zinc-500 font-medium mb-1">Squad / Funnel</label>
-                      <div
-                        onClick={() => setIsSquadDropdownOpen((prev) => !prev)}
-                        className="min-h-[36px] w-full px-2.5 py-1 bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-lg focus:outline-none focus:border-blue-500 cursor-pointer flex flex-wrap items-center gap-1.5 justify-between"
-                      >
-                        <div className="flex flex-wrap items-center gap-1 flex-1">
-                          {selectedSquads.length > 0 ? (
-                            selectedSquads.map((sq) => (
-                              <span
+                  {/* Squad Multi-Select Dropdown with chips & add option (Full Width) */}
+                  <div ref={squadRef} className="relative">
+                    <label className="block text-zinc-500 font-medium mb-1">Squad / Funnel</label>
+                    <div
+                      onClick={() => setIsSquadDropdownOpen((prev) => !prev)}
+                      className="min-h-[36px] w-full px-2.5 py-1 bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-lg focus:outline-none focus:border-blue-500 cursor-pointer flex flex-wrap items-center gap-1.5 justify-between"
+                    >
+                      <div className="flex flex-wrap items-center gap-1 flex-1">
+                        {selectedSquads.length > 0 ? (
+                          selectedSquads.map((sq) => (
+                            <span
+                              key={sq}
+                              className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-blue-100 dark:bg-blue-900/40 text-blue-800 dark:text-blue-300 text-[10px] font-medium"
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                setSelectedSquads((prev) => prev.filter((s) => s !== sq));
+                              }}
+                            >
+                              <span className="truncate max-w-[90px]">{sq}</span>
+                              <X className="w-2.5 h-2.5 hover:text-red-500 transition-colors shrink-0" />
+                            </span>
+                          ))
+                        ) : (
+                          <span className="text-zinc-400 text-xs">Select squads...</span>
+                        )}
+                      </div>
+                      <ChevronDown className="w-3.5 h-3.5 text-zinc-400 shrink-0 ml-1" />
+                    </div>
+
+                    {isSquadDropdownOpen && (
+                      <div className="absolute left-0 top-full mt-1 z-30 w-full bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-lg shadow-xl p-2 max-h-52 overflow-y-auto space-y-1">
+                        <div className="grid grid-cols-2 gap-1 pb-2 border-b border-zinc-100 dark:border-zinc-800">
+                          {allSquads.map((sq) => {
+                            const isSelected = selectedSquads.includes(sq);
+                            return (
+                              <button
                                 key={sq}
-                                className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-blue-100 dark:bg-blue-900/40 text-blue-800 dark:text-blue-300 text-[10px] font-medium"
-                                onClick={(e) => {
-                                  e.stopPropagation();
-                                  setSelectedSquads((prev) => prev.filter((s) => s !== sq));
+                                type="button"
+                                onClick={() => {
+                                  setSelectedSquads((prev) =>
+                                    isSelected ? prev.filter((s) => s !== sq) : [...prev, sq]
+                                  );
                                 }}
+                                className={`flex items-center justify-between px-2 py-1 rounded text-left text-xs transition-colors ${
+                                  isSelected
+                                    ? 'bg-blue-50 dark:bg-blue-950/50 text-blue-600 dark:text-blue-400 font-medium'
+                                    : 'text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800'
+                                }`}
                               >
-                                <span className="truncate max-w-[70px]">{sq}</span>
-                                <X className="w-2.5 h-2.5 hover:text-red-500 transition-colors shrink-0" />
-                              </span>
-                            ))
-                          ) : (
-                            <span className="text-zinc-400 text-xs">Select squads...</span>
-                          )}
+                                <span className="truncate">{sq}</span>
+                                {isSelected && <Check className="w-3 h-3 text-blue-600 shrink-0" />}
+                              </button>
+                            );
+                          })}
                         </div>
-                        <ChevronDown className="w-3.5 h-3.5 text-zinc-400 shrink-0 ml-1" />
+                        {/* Add new squad input */}
+                        <div className="pt-1.5 flex items-center gap-1.5">
+                          <input
+                            type="text"
+                            placeholder="+ Add new..."
+                            value={newSquadInput}
+                            onChange={(e) => setNewSquadInput(e.target.value)}
+                            onKeyDown={(e) => {
+                              if (e.key === 'Enter') {
+                                e.preventDefault();
+                                handleAddCustomSquad(e);
+                              }
+                            }}
+                            className="h-7 flex-1 px-2 text-xs bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded text-zinc-900 dark:text-zinc-100 focus:outline-none"
+                          />
+                          <button
+                            type="button"
+                            onClick={handleAddCustomSquad}
+                            className="h-7 px-2 bg-blue-600 text-white rounded text-xs font-medium hover:bg-blue-700"
+                          >
+                            Add
+                          </button>
+                        </div>
                       </div>
+                    )}
+                  </div>
 
-                      {isSquadDropdownOpen && (
-                        <div className="absolute left-0 top-full mt-1 z-30 w-64 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-lg shadow-xl p-2 max-h-52 overflow-y-auto space-y-1">
-                          <div className="grid grid-cols-2 gap-1 pb-2 border-b border-zinc-100 dark:border-zinc-800">
-                            {allSquads.map((sq) => {
-                              const isSelected = selectedSquads.includes(sq);
-                              return (
-                                <button
-                                  key={sq}
-                                  type="button"
-                                  onClick={() => {
-                                    setSelectedSquads((prev) =>
-                                      isSelected ? prev.filter((s) => s !== sq) : [...prev, sq]
-                                    );
-                                  }}
-                                  className={`flex items-center justify-between px-2 py-1 rounded text-left text-xs transition-colors ${
-                                    isSelected
-                                      ? 'bg-blue-50 dark:bg-blue-950/50 text-blue-600 dark:text-blue-400 font-medium'
-                                      : 'text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800'
-                                  }`}
-                                >
-                                  <span className="truncate">{sq}</span>
-                                  {isSelected && <Check className="w-3 h-3 text-blue-600 shrink-0" />}
-                                </button>
-                              );
-                            })}
-                          </div>
-                          {/* Add new squad input */}
-                          <div className="pt-1.5 flex items-center gap-1.5">
-                            <input
-                              type="text"
-                              placeholder="+ Add new..."
-                              value={newSquadInput}
-                              onChange={(e) => setNewSquadInput(e.target.value)}
-                              onKeyDown={(e) => {
-                                if (e.key === 'Enter') {
-                                  e.preventDefault();
-                                  handleAddCustomSquad(e);
-                                }
+                  {/* Assignees Multi-Select Dropdown with chips & add option (Full Width) */}
+                  <div ref={assigneeRef} className="relative">
+                    <label className="block text-zinc-500 font-medium mb-1">Assignees</label>
+                    <div
+                      onClick={() => setIsAssigneeDropdownOpen((prev) => !prev)}
+                      className="min-h-[36px] w-full px-2.5 py-1 bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-lg focus:outline-none focus:border-blue-500 cursor-pointer flex flex-wrap items-center gap-1.5 justify-between"
+                    >
+                      <div className="flex flex-wrap items-center gap-1 flex-1">
+                        {selectedAssignees.length > 0 ? (
+                          selectedAssignees.map((asg) => (
+                            <span
+                              key={asg}
+                              className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-purple-100 dark:bg-purple-900/40 text-purple-800 dark:text-purple-300 text-[10px] font-medium"
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                setSelectedAssignees((prev) => prev.filter((a) => a !== asg));
                               }}
-                              className="h-7 flex-1 px-2 text-xs bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded text-zinc-900 dark:text-zinc-100 focus:outline-none"
-                            />
-                            <button
-                              type="button"
-                              onClick={handleAddCustomSquad}
-                              className="h-7 px-2 bg-blue-600 text-white rounded text-xs font-medium hover:bg-blue-700"
                             >
-                              Add
-                            </button>
-                          </div>
-                        </div>
-                      )}
+                              <span className="truncate max-w-[90px]">{asg}</span>
+                              <X className="w-2.5 h-2.5 hover:text-red-500 transition-colors shrink-0" />
+                            </span>
+                          ))
+                        ) : (
+                          <span className="text-zinc-400 text-xs">Select assignees...</span>
+                        )}
+                      </div>
+                      <ChevronDown className="w-3.5 h-3.5 text-zinc-400 shrink-0 ml-1" />
                     </div>
 
-                    {/* Assignees Multi-Select Dropdown with chips & add option */}
-                    <div ref={assigneeRef} className="relative">
-                      <label className="block text-zinc-500 font-medium mb-1">Assignees</label>
-                      <div
-                        onClick={() => setIsAssigneeDropdownOpen((prev) => !prev)}
-                        className="min-h-[36px] w-full px-2.5 py-1 bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-lg focus:outline-none focus:border-blue-500 cursor-pointer flex flex-wrap items-center gap-1.5 justify-between"
-                      >
-                        <div className="flex flex-wrap items-center gap-1 flex-1">
-                          {selectedAssignees.length > 0 ? (
-                            selectedAssignees.map((asg) => (
-                              <span
+                    {isAssigneeDropdownOpen && (
+                      <div className="absolute right-0 top-full mt-1 z-30 w-full bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-lg shadow-xl p-2 max-h-52 overflow-y-auto space-y-1">
+                        <div className="grid grid-cols-2 gap-1 pb-2 border-b border-zinc-100 dark:border-zinc-800">
+                          {allAssignees.map((asg) => {
+                            const isSelected = selectedAssignees.includes(asg);
+                            return (
+                              <button
                                 key={asg}
-                                className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-purple-100 dark:bg-purple-900/40 text-purple-800 dark:text-purple-300 text-[10px] font-medium"
-                                onClick={(e) => {
-                                  e.stopPropagation();
-                                  setSelectedAssignees((prev) => prev.filter((a) => a !== asg));
+                                type="button"
+                                onClick={() => {
+                                  setSelectedAssignees((prev) =>
+                                    isSelected ? prev.filter((a) => a !== asg) : [...prev, asg]
+                                  );
                                 }}
+                                className={`flex items-center justify-between px-2 py-1 rounded text-left text-xs transition-colors ${
+                                  isSelected
+                                    ? 'bg-purple-50 dark:bg-purple-950/50 text-purple-600 dark:text-purple-400 font-medium'
+                                    : 'text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800'
+                                }`}
                               >
-                                <span className="truncate max-w-[70px]">{asg}</span>
-                                <X className="w-2.5 h-2.5 hover:text-red-500 transition-colors shrink-0" />
-                              </span>
-                            ))
-                          ) : (
-                            <span className="text-zinc-400 text-xs">Select assignees...</span>
-                          )}
+                                <span className="truncate">{asg}</span>
+                                {isSelected && <Check className="w-3 h-3 text-purple-600 shrink-0" />}
+                              </button>
+                            );
+                          })}
                         </div>
-                        <ChevronDown className="w-3.5 h-3.5 text-zinc-400 shrink-0 ml-1" />
+                        {/* Add new assignee input */}
+                        <div className="pt-1.5 flex items-center gap-1.5">
+                          <input
+                            type="text"
+                            placeholder="+ Add new..."
+                            value={newAssigneeInput}
+                            onChange={(e) => setNewAssigneeInput(e.target.value)}
+                            onKeyDown={(e) => {
+                              if (e.key === 'Enter') {
+                                e.preventDefault();
+                                handleAddCustomAssignee(e);
+                              }
+                            }}
+                            className="h-7 flex-1 px-2 text-xs bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded text-zinc-900 dark:text-zinc-100 focus:outline-none"
+                          />
+                          <button
+                            type="button"
+                            onClick={handleAddCustomAssignee}
+                            className="h-7 px-2 bg-blue-600 text-white rounded text-xs font-medium hover:bg-blue-700"
+                          >
+                            Add
+                          </button>
+                        </div>
                       </div>
-
-                      {isAssigneeDropdownOpen && (
-                        <div className="absolute right-0 top-full mt-1 z-30 w-64 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-lg shadow-xl p-2 max-h-52 overflow-y-auto space-y-1">
-                          <div className="grid grid-cols-2 gap-1 pb-2 border-b border-zinc-100 dark:border-zinc-800">
-                            {allAssignees.map((asg) => {
-                              const isSelected = selectedAssignees.includes(asg);
-                              return (
-                                <button
-                                  key={asg}
-                                  type="button"
-                                  onClick={() => {
-                                    setSelectedAssignees((prev) =>
-                                      isSelected ? prev.filter((a) => a !== asg) : [...prev, asg]
-                                    );
-                                  }}
-                                  className={`flex items-center justify-between px-2 py-1 rounded text-left text-xs transition-colors ${
-                                    isSelected
-                                      ? 'bg-purple-50 dark:bg-purple-950/50 text-purple-600 dark:text-purple-400 font-medium'
-                                      : 'text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800'
-                                  }`}
-                                >
-                                  <span className="truncate">{asg}</span>
-                                  {isSelected && <Check className="w-3 h-3 text-purple-600 shrink-0" />}
-                                </button>
-                              );
-                            })}
-                          </div>
-                          {/* Add new assignee input */}
-                          <div className="pt-1.5 flex items-center gap-1.5">
-                            <input
-                              type="text"
-                              placeholder="+ Add new..."
-                              value={newAssigneeInput}
-                              onChange={(e) => setNewAssigneeInput(e.target.value)}
-                              onKeyDown={(e) => {
-                                if (e.key === 'Enter') {
-                                  e.preventDefault();
-                                  handleAddCustomAssignee(e);
-                                }
-                              }}
-                              className="h-7 flex-1 px-2 text-xs bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded text-zinc-900 dark:text-zinc-100 focus:outline-none"
-                            />
-                            <button
-                              type="button"
-                              onClick={handleAddCustomAssignee}
-                              className="h-7 px-2 bg-blue-600 text-white rounded text-xs font-medium hover:bg-blue-700"
-                            >
-                              Add
-                            </button>
-                          </div>
-                        </div>
-                      )}
-                    </div>
+                    )}
                   </div>
 
                   {/* Timeline Dates */}
@@ -660,17 +657,14 @@ export const NewTaskModal: React.FC<NewTaskModalProps> = ({
                   </div>
 
                   {/* Divider before Status, Priority, and WBS Section */}
-                  <div className="pt-3 border-t border-zinc-100 dark:border-zinc-800 space-y-2.5">
-                    <label className="block text-[11px] font-semibold text-zinc-400 uppercase tracking-wider">
-                      Status, Priority & WBS
-                    </label>
-                    <div className="grid grid-cols-3 gap-3">
+                  <div className="pt-3 border-t border-zinc-100 dark:border-zinc-800 space-y-3">
+                    <div className="grid grid-cols-2 gap-3">
                       <div>
                         <label className="block text-zinc-500 font-medium mb-1">Status</label>
                         <select
                           value={status}
                           onChange={(e) => setStatus(e.target.value)}
-                          className="h-9 w-full px-2 bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-lg focus:outline-none focus:border-blue-500 text-zinc-900 dark:text-zinc-100 text-xs"
+                          className="h-9 w-full px-2.5 bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-lg focus:outline-none focus:border-blue-500 text-zinc-900 dark:text-zinc-100 text-xs"
                         >
                           {ALL_STATUSES.map((s) => (
                             <option key={s} value={s}>
@@ -685,7 +679,7 @@ export const NewTaskModal: React.FC<NewTaskModalProps> = ({
                         <select
                           value={priority}
                           onChange={(e) => setPriority(e.target.value)}
-                          className="h-9 w-full px-2 bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-lg focus:outline-none focus:border-blue-500 text-zinc-900 dark:text-zinc-100 text-xs"
+                          className="h-9 w-full px-2.5 bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-lg focus:outline-none focus:border-blue-500 text-zinc-900 dark:text-zinc-100 text-xs"
                         >
                           {ALL_PRIORITIES.map((p) => (
                             <option key={p} value={p}>
@@ -694,17 +688,17 @@ export const NewTaskModal: React.FC<NewTaskModalProps> = ({
                           ))}
                         </select>
                       </div>
+                    </div>
 
-                      <div>
-                        <label className="block text-zinc-500 font-medium mb-1">WBS Code</label>
-                        <input
-                          type="text"
-                          placeholder="e.g. DSC#1"
-                          value={wbs}
-                          onChange={(e) => setWbs(e.target.value)}
-                          className="h-9 w-full px-2 bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-lg focus:outline-none focus:border-blue-500 text-zinc-900 dark:text-zinc-100 text-xs font-mono"
-                        />
-                      </div>
+                    <div>
+                      <label className="block text-zinc-500 font-medium mb-1">WBS Code</label>
+                      <input
+                        type="text"
+                        placeholder="e.g. DSC#1, FUL#2"
+                        value={wbs}
+                        onChange={(e) => setWbs(e.target.value)}
+                        className="h-9 w-full px-3 bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-lg focus:outline-none focus:border-blue-500 text-zinc-900 dark:text-zinc-100 text-xs font-mono"
+                      />
                     </div>
                   </div>
                 </div>
