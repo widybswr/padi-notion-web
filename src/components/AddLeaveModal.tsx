@@ -169,9 +169,9 @@ export const AddLeaveModal: React.FC<AddLeaveModalProps> = ({
                     key={tab.id}
                     type="button"
                     onClick={() => setLeaveType(tab.id as LeaveType)}
-                    className={`flex items-center justify-center gap-1.5 py-2 px-2.5 rounded-lg border text-xs font-medium transition-all ${
+                    className={`h-9 flex items-center justify-center gap-1.5 px-2.5 rounded-lg border text-xs font-medium transition-all cursor-pointer ${
                       isSelected
-                        ? 'bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 border-zinc-900 dark:border-zinc-100 shadow-xs'
+                        ? 'bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 border-zinc-900 dark:border-zinc-100 shadow-xs font-semibold'
                         : 'bg-zinc-50 dark:bg-zinc-800/60 text-zinc-600 dark:text-zinc-400 border-zinc-200 dark:border-zinc-700/80 hover:bg-zinc-100 dark:hover:bg-zinc-800'
                     }`}
                   >
@@ -235,28 +235,22 @@ export const AddLeaveModal: React.FC<AddLeaveModalProps> = ({
                 <label className="block text-zinc-500 font-medium mb-1.5 flex items-center gap-1.5">
                   <User className="w-3.5 h-3.5 text-zinc-400" /> Designer *
                 </label>
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                <div className="grid grid-cols-3 sm:grid-cols-5 gap-2">
                   {allAssignees.map((m) => {
                     const isSelected = designer === m;
                     return (
-                      <label
+                      <button
                         key={m}
-                        className={`flex items-center gap-2 px-2.5 py-1.5 rounded-lg border cursor-pointer transition-all ${
+                        type="button"
+                        onClick={() => setDesigner(m)}
+                        className={`h-9 flex items-center justify-center px-2.5 rounded-lg border text-xs transition-all cursor-pointer ${
                           isSelected
-                            ? 'bg-purple-50 dark:bg-purple-950/40 border-purple-300 dark:border-purple-800 text-purple-900 dark:text-purple-200 font-medium shadow-2xs'
-                            : 'bg-zinc-50 dark:bg-zinc-800/50 border-zinc-200/80 dark:border-zinc-700/60 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800'
+                            ? 'bg-purple-600 text-white border-purple-600 font-semibold shadow-xs'
+                            : 'bg-zinc-50 dark:bg-zinc-800/60 border-zinc-200 dark:border-zinc-700/80 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800'
                         }`}
                       >
-                        <input
-                          type="radio"
-                          name="leave_designer"
-                          value={m}
-                          checked={isSelected}
-                          onChange={() => setDesigner(m)}
-                          className="w-3.5 h-3.5 text-purple-600 focus:ring-purple-500 border-zinc-300 dark:border-zinc-600 cursor-pointer"
-                        />
-                        <span className="text-xs truncate">{m}</span>
-                      </label>
+                        <span className="truncate">{m}</span>
+                      </button>
                     );
                   })}
                 </div>
