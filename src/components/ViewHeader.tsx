@@ -12,6 +12,7 @@ interface ViewHeaderProps {
   selectedAssignee: string | null;
   setSelectedAssignee: (assignee: string | null) => void;
   onNewTask: () => void;
+  onAddLeave?: () => void;
 }
 
 export const ViewHeader: React.FC<ViewHeaderProps> = ({
@@ -22,6 +23,7 @@ export const ViewHeader: React.FC<ViewHeaderProps> = ({
   selectedAssignee,
   setSelectedAssignee,
   onNewTask,
+  onAddLeave,
 }) => {
   return (
     <div className="border-b border-zinc-200/80 dark:border-zinc-800 bg-white/80 dark:bg-zinc-950/80 backdrop-blur-md sticky top-0 z-30 font-sans">
@@ -102,6 +104,17 @@ export const ViewHeader: React.FC<ViewHeaderProps> = ({
               </button>
             )}
           </div>
+
+          {/* Add Leave Button - Outline Muted */}
+          {onAddLeave && (
+            <button
+              onClick={onAddLeave}
+              className="h-8 inline-flex items-center gap-1.5 px-3 bg-transparent hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 border border-zinc-200 dark:border-zinc-750/80 rounded-lg text-xs font-medium transition-colors cursor-pointer box-border"
+            >
+              <Calendar className="w-3.5 h-3.5 text-zinc-400" />
+              <span>Add Leave</span>
+            </button>
+          )}
 
           {/* New Task Button - Exactly h-8 */}
           <button

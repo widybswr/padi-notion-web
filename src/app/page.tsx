@@ -11,6 +11,7 @@ import { TimelineView } from '@/components/TimelineView';
 import { DashboardView } from '@/components/DashboardView';
 import { TaskModal } from '@/components/TaskModal';
 import { NewTaskModal } from '@/components/NewTaskModal';
+import { AddLeaveModal } from '@/components/AddLeaveModal';
 import { PasswordGate } from '@/components/PasswordGate';
 import initialTasksData from '@/data/initial-tasks.json';
 
@@ -49,6 +50,7 @@ export default function HomePage() {
   // Modals
   const [activeTask, setActiveTask] = useState<Task | null>(null);
   const [isNewModalOpen, setIsNewModalOpen] = useState(false);
+  const [isLeaveModalOpen, setIsLeaveModalOpen] = useState(false);
   const [newTaskInitialStatus, setNewTaskInitialStatus] = useState<TaskStatus>('Not started');
 
   // Fetch initial tasks (silent background sync)
@@ -267,6 +269,7 @@ export default function HomePage() {
             setNewTaskInitialStatus('Not started');
             setIsNewModalOpen(true);
           }}
+          onAddLeave={() => setIsLeaveModalOpen(true)}
         />
 
         {/* View Content */}
@@ -333,6 +336,15 @@ export default function HomePage() {
         initialStatus={newTaskInitialStatus}
         initialAssignee={selectedAssignee}
         availableSquads={squadsList}
+        availableAssignees={assigneesList}
+      />
+
+      {/* Leave & Holiday Creation Modal */}
+      <AddLeaveModal
+        isOpen={isLeaveModalOpen}
+        onClose={() => setIsLeaveModalOpen(false)}
+        onCreate={handleCreateTask}
+        initialAssignee={selectedAssignee}
         availableAssignees={assigneesList}
       />
     </div>
