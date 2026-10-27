@@ -250,7 +250,7 @@ export const NewTaskModal: React.FC<NewTaskModalProps> = ({
         {/* Modal Form */}
         <form onSubmit={handleSubmit} className="mt-5 text-xs">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {/* Column 1: Core Details, People, Dates & Status (Left Side) */}
+            {/* Column 1: Core Details, Status, People & Dates (Left Side) */}
             <div className="space-y-4">
               {/* Task Title (Textarea) */}
               <div>
@@ -271,8 +271,56 @@ export const NewTaskModal: React.FC<NewTaskModalProps> = ({
                 />
               </div>
 
-              {/* Squad Multi-Select Dropdown with chips & add option (Full Width) */}
-              <div ref={squadRef} className="relative">
+              {/* Status, Priority & WBS Section (Moved directly below Title) */}
+              <div className="space-y-3">
+                <div className="grid grid-cols-2 gap-3">
+                  <div>
+                    <label className="block text-zinc-500 font-medium mb-1">Status</label>
+                    <select
+                      value={status}
+                      onChange={(e) => setStatus(e.target.value)}
+                      className="h-9 w-full px-2.5 bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-lg focus:outline-none focus:border-blue-500 text-zinc-900 dark:text-zinc-100 text-xs"
+                    >
+                      {ALL_STATUSES.map((s) => (
+                        <option key={s} value={s}>
+                          {s}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+
+                  <div>
+                    <label className="block text-zinc-500 font-medium mb-1">Priority</label>
+                    <select
+                      value={priority}
+                      onChange={(e) => setPriority(e.target.value)}
+                      className="h-9 w-full px-2.5 bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-lg focus:outline-none focus:border-blue-500 text-zinc-900 dark:text-zinc-100 text-xs"
+                    >
+                      {ALL_PRIORITIES.map((p) => (
+                        <option key={p} value={p}>
+                          {p}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-zinc-500 font-medium mb-1">WBS Code</label>
+                  <input
+                    type="text"
+                    placeholder="e.g. DSC#1, FUL#2"
+                    value={wbs}
+                    onChange={(e) => setWbs(e.target.value)}
+                    className="h-9 w-full px-3 bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-lg focus:outline-none focus:border-blue-500 text-zinc-900 dark:text-zinc-100 text-xs font-mono"
+                  />
+                </div>
+              </div>
+
+              {/* Divider after Status, Priority & WBS */}
+              <div className="pt-3 border-t border-zinc-100 dark:border-zinc-800 space-y-4">
+                {/* Squad Multi-Select Dropdown with chips & add option (Full Width) */}
+                <div ref={squadRef} className="relative">
                 <label className="block text-zinc-500 font-medium mb-1">Squad / Funnel</label>
                 <div
                   onClick={() => setIsSquadDropdownOpen((prev) => !prev)}
@@ -462,51 +510,6 @@ export const NewTaskModal: React.FC<NewTaskModalProps> = ({
                   />
                 </div>
               </div>
-
-              {/* Divider before Status, Priority, and WBS Section */}
-              <div className="pt-3 border-t border-zinc-100 dark:border-zinc-800 space-y-3">
-                <div className="grid grid-cols-2 gap-3">
-                  <div>
-                    <label className="block text-zinc-500 font-medium mb-1">Status</label>
-                    <select
-                      value={status}
-                      onChange={(e) => setStatus(e.target.value)}
-                      className="h-9 w-full px-2.5 bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-lg focus:outline-none focus:border-blue-500 text-zinc-900 dark:text-zinc-100 text-xs"
-                    >
-                      {ALL_STATUSES.map((s) => (
-                        <option key={s} value={s}>
-                          {s}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-
-                  <div>
-                    <label className="block text-zinc-500 font-medium mb-1">Priority</label>
-                    <select
-                      value={priority}
-                      onChange={(e) => setPriority(e.target.value)}
-                      className="h-9 w-full px-2.5 bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-lg focus:outline-none focus:border-blue-500 text-zinc-900 dark:text-zinc-100 text-xs"
-                    >
-                      {ALL_PRIORITIES.map((p) => (
-                        <option key={p} value={p}>
-                          {p}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-zinc-500 font-medium mb-1">WBS Code</label>
-                  <input
-                    type="text"
-                    placeholder="e.g. DSC#1, FUL#2"
-                    value={wbs}
-                    onChange={(e) => setWbs(e.target.value)}
-                    className="h-9 w-full px-3 bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-lg focus:outline-none focus:border-blue-500 text-zinc-900 dark:text-zinc-100 text-xs font-mono"
-                  />
-                </div>
               </div>
             </div>
 
